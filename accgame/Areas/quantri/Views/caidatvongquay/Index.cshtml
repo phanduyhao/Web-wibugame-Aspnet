@@ -1,0 +1,84 @@
+﻿@model accgame.Context.CaiDatVongQuay
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="container-fluid">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Cài đặt phần trăm tỷ lệ vòng quay (Ví dụ: 80 là 80%)</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <b>Char 5 * + WP</b>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TyLe1, new { type = "number", step = "0.001", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TyLe1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Char limited</b>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TyLe2, new { type = "number", step = "0.001", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TyLe2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>One char 5*</b>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TyLe3, new { type = "number", step = "0.001", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TyLe3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>> 2 char 5*</b>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TyLe4, new { type = "number", step = "0.001", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TyLe4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Acc reroll</b>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TyLe5, new { type = "number", step = "0.001", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TyLe5, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Acc reroll Vip</b>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TyLe6, new { type = "number", step = "0.001", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TyLe6, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Giá (VNĐ)</b>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Gia, new { type = "number", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Sửa" class="btn btn-primary mt-3" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</main>
+
+

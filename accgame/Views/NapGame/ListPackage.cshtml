@@ -1,0 +1,82 @@
+﻿@model IEnumerable<accgame.Context.GoiNap>
+@{
+    ViewBag.Title = "Gói nạp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about about-acc">
+    <div class="container">
+        @if (ViewBag.idLoaiGame != 3)
+        {
+            <div class="border-dangky px-md-4 bg-light text-dark fw-bold fs-3 text-center mt-5">
+                Nạp UID
+            </div>
+            <div class="row g-3 mt-2 pt-2 justify-content-center">
+                @foreach (var item in @ViewBag.NapUID)
+                {
+                    <div data-aos="zoom-in" class="danh-muc-loai-acc col-12 col-md-6 col-lg-4 col-xl-3 position-relative" style="">
+                        <div class="nft xTech-bntbox">
+                            <div class="main">
+                                @if (item.X2LanDau == true)
+                                {
+                                    <h6 class="p-2 bg-primary start-0 top-0 position-absolute">X2 nếu lần đầu</h6>
+                                }
+                                <img class="tokenImage mx-auto" src="@item.Anh" width="200" alt="NFT">
+
+                                <h2 class="text-center mt-3 mb-1 mb-md-3 ten-loai-acc text-dark">@item.TenGoi</h2>
+@*                                <p class="text-secondary text-center">Chưa tính bonus</p>
+*@
+                                <div class="tokenInfo justify-content-center mb-0">
+                                    <div class="duration mb-0">
+                                        <!-- Thay đổi button thành liên kết -->
+                                        <a href="@Url.Action("themmoiUID", "NapGame", new { id = item.IDGoiNap, loaiGameId = item.LoaiGame })"
+                                           class="btn btn-primary btn-sm rounded-pill mb-0 fw-bold fs-6 text-light shadow px-4 py-2">
+                                            @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".") đ
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        }
+
+        <div class="border-dangky px-md-4 bg-light text-dark fw-bold fs-3 text-center mt-5">
+            Nạp Login
+        </div>
+
+        <div class="row g-3 mt-2 pt-2 justify-content-center">
+            @foreach (var item in @ViewBag.NapLogin)
+            {
+                <div data-aos="zoom-in" class="danh-muc-loai-acc col-12 col-md-6 col-lg-4 col-xl-3 position-relative" style="">
+                    <div class="nft xTech-bntbox">
+                        <div class="main">
+                            @if (item.X2LanDau == true)
+                            {
+                                <h6 class="p-2 bg-primary start-0 top-0 position-absolute">X2 nếu lần đầu</h6>
+                            }
+
+                            <img class="tokenImage mx-auto" src="@item.Anh" width="200" alt="NFT">
+
+                            <h2 class="text-center mt-3 mb-1 mb-md-3 ten-loai-acc text-dark">@item.TenGoi</h2>
+@*                            <p class="text-secondary text-center">Chưa tính bonus</p>
+*@                            <div class="tokenInfo justify-content-center mb-0">
+                                <div class="duration mb-0">
+                                    <!-- Thay đổi button thành liên kết -->
+                                    <a href="@Url.Action("themmoi", "NapGame", new { id = item.IDGoiNap, loaiGameId = item.LoaiGame })"
+                                       class="btn btn-primary btn-sm rounded-pill mb-0 fw-bold fs-6 text-light shadow px-4 py-2">
+                                        @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".") đ
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

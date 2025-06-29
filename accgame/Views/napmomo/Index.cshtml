@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Nạp Momo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about about-acc">
+    <div class="container mt-5">
+        <div class="d-flex align-items-center justify-content-center mh-100">
+            <div class="w-100" style="">
+                <div class="text-center form-dangky shadow-lg p-2 p-sm-4 rounded-1">
+                    <div class="border-dangky">
+                        <div class="pb-3">
+                            <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                                Nạp tiền bằng MOMO
+                            </h2>
+                            <img class="img-fluid" src="/Content/assets/img/AuthDevider.png">
+                        </div>
+                        <div class="my-3 text-dark">
+                            <div class="p-3">
+                                <img class="p-3 rounded-3 border-danger border bg-white img-fluid" src="@ViewBag.img" />
+                            </div>
+                            <p class="text-sm">
+                                Kiểm tra kỹ số tài khoản, tên chủ tài khoản và nội dung chuyển tiền để tránh trường hợp mất tiền không đáng có
+                            </p>
+                            <p class="text-sm">Tiền nhận được tương ứng với số tiền chuyển, ví dụ bạn chuyển khoản 100k VNĐ sẽ nhận được 100k tiền shop</p>
+                            <ul class="list-group text-start">
+                                <li class="list-group-item bg-transparent border-0 ps-0 pt-0 text-sm"><strong>Số tài khoản:</strong> &nbsp; <a id="stk">@ViewBag.momo</a> &nbsp; <button class="btn btn-success btn-sm" onclick="copyToClipboard('#stk')">Sao chép</button></li>
+                                <li class="list-group-item bg-transparent border-0 ps-0 text-sm"><strong>Chủ tài khoản MOMO:</strong> &nbsp;  @ViewBag.chummm</li>
+                                <li class="list-group-item bg-transparent border-0 ps-0 text-sm"><strong>Nội dung bắt buộc:</strong> &nbsp; <a id="noidung">@ViewBag.noidung</a> &nbsp; <button class="btn btn-success btn-sm" onclick="copyToClipboard('#noidung')">Sao chép</button></li>
+                                <li class="list-group-item bg-transparent border-0 ps-0 text-sm"><strong>Lưu ý 1:</strong> &nbsp; Nhập đúng nội dung chuyển tiền, nếu nhập sai sẽ không được cộng tiền!</li>
+                                <li class="list-group-item bg-transparent border-0 ps-0 text-sm"><strong>Lưu ý 2:</strong> &nbsp; Sau khi chuyển khoản, hãy đợi một vài giây, hệ thống sẽ tự cộng tiền cho bạn!</li>
+                            </ul>
+                            <div class="text-center mt-5">
+                                <a href="/nguoidung/hoso" class="col-lg-4 col-md-6 mx-auto button__custom button__custom--piyo">
+                                    <div class="button__custom__wrapper">
+                                        <span class="button__custom__text">Xem số dư</span>
+                                    </div>
+                                    <div class="characterBox">
+                                        <div class="character wakeup">
+                                            <div class="character__face"></div>
+                                        </div>
+                                        <div class="character wakeup">
+                                            <div class="character__face"></div>
+                                        </div>
+                                        <div class="character">
+                                            <div class="character__face"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<button type="button" id="buttonClick" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content form-dangky p-0 m-0 position-relative">
+            <div class="border-dangky p-0">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4 fw-bold text-danger" id="exampleModalLabel">ĐỌC KỸ TRƯỚC KHI NẠP</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-danger">
+                    <p>Do đề phòng spam nên trong một ngày, một số điện thoại không được nạp trùng số tiền, nếu nạp trùng hệ thống sẽ không thể cộng tiền!</p>
+                    <p>Để tránh trường hợp này, bạn hãy chuyển lần thứ nhất <span class="text-decoration-underline"><b>100.001</b></span> đ , lần thứ hai <span class="text-decoration-underline"><b>100.002</b></span> đ,...</p>
+                    <p>Nếu nạp trùng, bạn hãy nhắn cho quản trị viên để được cộng tiền!</p>
+                </div>
+                <div class="modal-footer p-0 justify-content-center">
+                    <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#buttonClick").click();
+    });
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        alert("Sao chép thành công!")
+    }
+</script>

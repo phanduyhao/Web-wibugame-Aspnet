@@ -1,0 +1,153 @@
+﻿@model IEnumerable<accgame.Context.DanhMuc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <a href="/quantri/quanlydanhmuc/themmoi" class="btn btn-primary">Thêm mới</a>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Danh sách danh mục</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>STT</th>
+                                <th class="">Tên danh mục</th>
+                                <th class="">Loại game</th>
+                                <th class="">Nội bộ</th>
+                                <th class="">Cấp độ</th>
+                                <th class="">Lượt roll</th>
+                                <th class="">Giá</th>
+                                <th class="">Nguoi ban</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>#@item.IDDanhMuc</td>
+                                    <td>@item.STT</td>
+                                    <td><a href="/quantri/quanlydanhmuc/danhsachacc/@item.IDDanhMuc">@item.TenDanhMuc</a> </td>
+                                    <td>@(item.LoaiGame1?.TenLoaiGame ?? "")</td>
+                                    <td>@item.TaiKhoanNoiBo</td>
+                                    <td>@item.DanhMucLevel</td>
+
+                                    <td>@item.LuotRoll</td>
+                                    <td class="price">@item.Gia</td>
+                                    @if (item.IDNguoiDung == null)
+                                    {
+                                        <td>Admin</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.NguoiDung.TenNguoiDung</td>
+                                    }
+
+                                    <td>
+                                        <a href="/quantri/quanlydanhmuc/sua/@item.IDDanhMuc" class="badge bg-danger">Sửa</a>
+                                        <a href="/quantri/quanlydanhmuc/xoa/@item.IDDanhMuc" onclick="if (confirm('Bạn muốn xóa danh mục này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlydanhmuc?page=1">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlydanhmuc?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/quanlydanhmuc?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlydanhmuc?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlydanhmuc?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlydanhmuc?page=@ViewBag.last_page">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    $(document).ready(function () {
+
+        $("#loadDanhMuc").click(function () {
+            var button = $(this);
+            button.attr("disabled", true);
+            axios.post('/quantri/quanlydanhmuc/loadDanhMuc').then(function (response) {
+                if (response.data.status === "success") {
+                    Swal.fire({
+                        text: "Load danh sách game thành công!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        },
+                        didClose: function () {
+                            location.reload();
+                        }
+                    });
+                } else {
+                    console.log(JSON.stringify(response.data));
+                    Swal.fire({
+                        text: response.data.status,
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+                }
+                button.attr("disabled", false);
+            }).catch(function (error) {
+                Swal.fire({
+                    text: "Có lỗi xảy ra, vui lòng thử lại!",
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Đóng",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                });
+            });
+        });
+    });
+
+
+</script>

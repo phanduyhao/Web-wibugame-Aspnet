@@ -1,0 +1,117 @@
+﻿@model IEnumerable<accgame.Context.GoiNap>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <p>
+        @Html.ActionLink("Tạo mới", "Create")
+    </p>
+    <div class="table-responsive">
+        <table class="table">
+            <tr class="bg-success text-white">
+                <th>
+                    STT
+                </th>
+                <th>
+                    Ảnh
+                </th>
+                <th>
+                    Tên gói nạp game
+                </th>
+                <th>
+                    Loại game
+                </th>
+                <th>
+                    Giá tiền
+                </th>
+                <th>
+                    Loại Gói
+                </th>
+                <th>
+                    Thời gian ẩn
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        #@Html.DisplayFor(modelItem => item.SoThuTu)
+                    </td>
+                    <td>
+                        <img src="@item.Anh" width="100" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenGoi)
+                    </td>
+                    <td>
+                        @item.LoaiGame1.TenLoaiGame
+                    </td>
+                    <td class="price">
+                        @Html.DisplayFor(modelItem => item.Gia)
+                    </td>
+                    <td>
+                        @if (item.LoaiNap == 1)
+                        {
+                            <span>Nạp Login</span>
+                        }
+                        else
+                        {
+                            <span>Nạp UID</span>
+                        }
+                    </td>
+                    <td class="thoigianan">
+                        @Html.DisplayFor(modelItem => item.ThoigianAn)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.IDGoiNap })|
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.IDGoiNap })
+                        <div class="d-flex align-items-center mt-3">
+                            <label class="fs-4 me-2 fw-bold text-danger">Ẩn</label>
+                            @if (item.An == true)
+                            {
+                                <input class="btn-angoinap" data-id="@item.IDGoiNap" type="checkbox" checked name="Hide" style="height:20px; width:20px" value="@item.An" />
+                            }
+                            else
+                            {
+                                <input class="btn-angoinap" data-id="@item.IDGoiNap" type="checkbox" name="Hide" style="height:20px; width:20px" value="" />
+
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</main>
+
+<script>
+    $(document).ready(function () {
+       $(".btn-angoinap").change(function () {
+    var id = $(this).data("id"); // Lấy ID danh mục từ thuộc tính data-id
+    var isChecked = $(this).is(":checked"); // Kiểm tra xem checkbox có được chọn hay không
+
+    $.ajax({
+        type: "POST",
+        url: '/quantri/quanlygoinapgame/angoinap', // Đường dẫn đến action trong controller
+        data: {
+            id: id,
+            hide: isChecked
+        },
+        success: function (response) {
+        },
+        error: function () {
+            // Hiển thị thông báo lỗi
+            alert("Đã xảy ra lỗi trong việc cập nhật!");
+        }
+    });
+});
+    });
+</script>

@@ -1,0 +1,358 @@
+﻿@model accgame.Models.DashModelss
+@{
+    ViewBag.Title = "Tổng doanh thu";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+<main class="content">
+    <div class="container-fluid p-0">
+        <a href="/quantri/quanlydoanhthu" class="btn btn-primary mb-3">Thống kê</a>
+        <h1 class="h3 mb-3"><strong>Thống kê hệ thống</strong></h1>
+        <div class="row">
+            <div class="col-md-6">
+                <select name="slug_loai_acc" id="slug_loai_acc" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    @foreach (var item in ViewBag.loaiAcc)
+                    {
+                        <option value="@item.slug">@item.TenLoaiAcc</option>
+                    }
+                </select>
+                <button id="loadTaiKhoan" class="btn btn-outline-danger m-3">Load tài khoản</button>
+            </div>
+            <div class="col-md-6">
+                <select name="slug_loai_acc_rd" id="slug_loai_acc_rd" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    @foreach (var item in ViewBag.loaiAccRd)
+                    {
+                        <option value="@item.slug">@item.TenLoaiAcc</option>
+                    }
+                </select>
+                <button id="loadTaiKhoanRd" class="btn btn-outline-danger m-3">Load danh mục random</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12 d-flex">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Tổng doanh thu</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="dollar-sign"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.tongDoanhThu.ToString("N0").Replace(",", ".") VNĐ</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Tài khoản đã đăng</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="dollar-sign"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.taiKhoanGame.ToString("N0").Replace(",", ".")</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Tài khoản đã bán</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="dollar-sign"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.taiKhoanGameDaBan.ToString("N0").Replace(",", ".")</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Tổng đơn cày thuê của bạn</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="dollar-sign"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.tongDonCayThue.ToString("N0").Replace(",", ".")</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Tổng đơn cày thuê hoàn thành</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="dollar-sign"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.tongDonCTHoanThanh.ToString("N0").Replace(",", ".")</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h1 class="h3 mb-3"><strong>Thống kê hôm nay</strong></h1>
+
+        <div class="row">
+            <div class="col-12 d-flex">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Doanh thu hôm nay</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="dollar-sign"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.doanhThuHomNay.ToString("N0").Replace(",", ".") VNĐ</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Tài khoản đã đăng hôm nay</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="upload-cloud"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.taiKhoanDaDang.ToString("N0").Replace(",", ".")</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Đơn bán nick hôm nay</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="gitlab"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.donBanNickHomNay.ToString("N0").Replace(",", ".")</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="h3 mb-3"><strong>Thống kê tháng này</strong></h1>
+
+        <div class="row">
+            <div class="col-12 d-flex">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <a href="/quantri/quanlydoanhthu" class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Doanh thu tháng này</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="dollar-sign"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.doanhThuThang.ToString("N0").Replace(",", ".") VNĐ</h1>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Tài khoản đã đăng tháng</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="upload-cloud"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.taiKhoanDaDangThang.ToString("N0").Replace(",", ".")</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col mt-0">
+                                            <h5 class="card-title">Đơn bán nick tháng</h5>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <div class="stat text-primary">
+                                                <i class="align-middle" data-feather="gitlab"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1 class="mt-1 mb-3">@Model.donBanNickThang.ToString("N0").Replace(",", ".")</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#loadTaiKhoan").click(function () {
+            var slug_loai_acc = $("#slug_loai_acc").val();
+            var button = $(this);
+            button.attr("disabled", true);
+            axios.post(`/quantri/Dashboard/loadTaiKhoan?slug_loai_acc=${slug_loai_acc}`).then(function (response) {
+                if (response.data.status === "success") {
+                    Swal.fire({
+                        text: "Load danh sách tài khoản thành công!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        },
+                        didClose: function () {
+                            location.reload();
+                        }
+                    });
+                } else {
+                    console.log(JSON.stringify(response.data));
+                    Swal.fire({
+                        text: response.data.status,
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+                }
+                button.attr("disabled", false);
+            }).catch(function (error) {
+                Swal.fire({
+                    text: "Có lỗi xảy ra, vui lòng thử lại!",
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Đóng",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                });
+            });
+        });
+
+        $("#loadTaiKhoanRd").click(function () {
+            var slug_loai_acc = $("#slug_loai_acc_rd").val();
+            var button = $(this);
+            button.attr("disabled", true);
+            axios.post(`/quantri/Dashboard/loadDanhMucRd?slug_loai_acc=${slug_loai_acc}`).then(function (response) {
+                if (response.data.status === "success") {
+                    Swal.fire({
+                        text: "Load danh sách danh mục thành công!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        },
+                        didClose: function () {
+                            location.reload();
+                        }
+                    });
+                } else {
+                    console.log(JSON.stringify(response.data));
+                    Swal.fire({
+                        text: response.data.status,
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+                }
+                button.attr("disabled", false);
+            }).catch(function (error) {
+                Swal.fire({
+                    text: "Có lỗi xảy ra, vui lòng thử lại!",
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Đóng",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                });
+            });
+        });
+    });
+</script>

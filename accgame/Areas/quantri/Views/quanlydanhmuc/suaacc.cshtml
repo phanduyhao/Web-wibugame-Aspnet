@@ -1,0 +1,137 @@
+﻿@model accgame.Context.AccRandom
+
+@{
+    ViewBag.Title = "suaacc";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3>Chỉnh sửa tài khoản</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("", "", FormMethod.Post, new { id = "editForm" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IDAccRandom)
+                @Html.HiddenFor(model => model.IDNguoiDung)
+                @Html.HiddenFor(model => model.Xoa)
+                @Html.HiddenFor(model => model.IDDanhMuc)
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <b>Tài khoản</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Mật khẩu</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Mật khẩu Mail Outlook</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.MatKhauOutlook, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MatKhauOutlook, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Mail khôi phục</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.MailKhoiPhuc, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MailKhoiPhuc, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Mật khẩu Mail khôi phục</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.MatKhauMailKhoiPhuc, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MatKhauMailKhoiPhuc, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Mật khẩu Mail</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.MatKhauMail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MatKhauMail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Thông tin khác nếu có</b>
+                        <div class="">
+                            @Html.TextAreaFor(model => model.ThongTinKhac, new { @class = "form-control " })
+                            @Html.ValidationMessageFor(model => model.ThongTinKhac, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="mb-3 d-flex align-items-center">
+                        <label for="DaBan" class="form-label mb-0 me-3">Đã Bán</label>
+                        <input type="checkbox" name="DaBan" value="true" @(Model.DaBan.HasValue && Model.DaBan.Value ? "checked" : "") id="DaBan" style="width:20px; height:20px">
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 ">
+                            <input type="submit" id="submitButton" value="Chỉnh sửa" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="successToast" class="toast d-none" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-info px-3 py-2 rounded-3">
+                <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                <strong class="me-auto text-white fs-5">Chỉnh sửa thành công!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    $(document).ready(function () {
+        $("#editForm").submit(function (event) {
+            event.preventDefault(); // Ngăn form reload trang
+
+            var formData = $(this).serialize(); // Lấy dữ liệu form
+
+            $.ajax({
+                type: "POST",
+                url: "/quantri/quanlydanhmuc/suaacc", // Đổi URL theo đúng controller
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        showToast("Chỉnh sửa thành công!");
+                    } else {
+                        alert("Có lỗi xảy ra! Vui lòng thử lại.");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi trong quá trình gửi yêu cầu!");
+                }
+            });
+        });
+
+        function showToast(message) {
+            var toast = $("#successToast");
+            toast.removeClass("d-none").addClass("show"); // Hiển thị toast
+            setTimeout(function () {
+                toast.removeClass("show").addClass("d-none"); // Ẩn sau 3s
+            }, 3000);
+        }
+    });
+
+</script>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<accgame.Context.LoaiAcc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="about" class="about about-acc">
+    <div class="container">
+        <div class="MuiBox-root acc-title mb-3">
+            <div class="text-center">
+                <h2 class="fw-bold fs-1 desc-top-slider">@ViewBag.tenGame</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center pt-5">
+     
+                @foreach (var item in Model)
+                {
+                    <div data-aos="zoom-in" class="col-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="nft xTech-bntbox">
+                            <a @if (item.DacBiet == true) { <text> href="/danhmuc/loaiacc/@item.slug" </text>  } else { <text> href="/danhsach/loaiacc/@item.slug" </text> } class="main">
+                                <img class="tokenImage" src="@item.Image" alt="NFT">
+                                <h2 class="text-center mt-3 mb-1 mb-md-3 ten-loai-acc text-dark">@item.TenLoaiAcc</h2>
+                                <div class="tokenInfo text-dark">
+                                    <div class="price text-dark">
+                                        <ins>◘</ins>
+                                        <p>Đang bán: @item.DangBan</p>
+                                    </div>
+                                    <div class="duration text-dark">
+                                        <ins>◷</ins>
+                                        <p>Đã bán: @item.DaBan</p>
+                                    </div>
+                                </div>
+                                <hr>
+                            </a>
+                        </div>
+                    </div>
+
+                }
+        </div>
+    </div>
+</section>

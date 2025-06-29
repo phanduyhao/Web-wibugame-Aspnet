@@ -1,0 +1,36 @@
+﻿@model IEnumerable<accgame.Context.VuKhi>
+
+@foreach (var item in Model)
+{
+    <div class="position-relative text-center list_vk my-3 col-md-1 col-sm-2 col-4" data-vk="@item.TenVuKhi">
+        <div class="position-relative">
+            <img width="40" src="@item.Avatar" class="vk-img" alt="@item.TenVuKhi" onclick="toggleCheckbox('vk_@GetSlug(item.TenVuKhi)')">
+
+            <input class="form-check-input position-absolute custom-checkbox rounded-circle" type="checkbox" name="DSVuKhi"
+                   value="@item.IDVuKhi" id="vk_@GetSlug(item.TenVuKhi)">
+        </div>
+        <label class="form-check-label" for="vk_@GetSlug(item.TenVuKhi)">
+            @item.TenVuKhi
+        </label>
+    </div>
+}
+
+@functions {
+    private string GetSlug(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return string.Empty;
+
+        string slug = name.ToLower()
+                   .Replace(" ", "-")
+                   .Replace(".", "-")
+                   .Replace(",", "-")
+                   .Replace("(", "-")
+                   .Replace(")", "-")
+                   .Replace("&", "-")
+                   .Replace("'", "") // Xóa dấu nháy đơn
+                   .Replace("--", "-"); // Xóa dấu "--" dư thừa
+
+        // Xóa tất cả dấu "-" trùng lặp và xóa dấu "-" ở đầu/cuối
+        return System.Text.RegularExpressions.Regex.Replace(slug, "-+", "-").Trim('-');
+    }
+}

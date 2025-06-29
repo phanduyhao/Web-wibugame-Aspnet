@@ -1,0 +1,102 @@
+﻿@model accgame.Models.CTV
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <form action="/quantri/quanlydoanhthu/index" class="input-group mb-2">
+                <button class="input-group-text text-body">Tìm kiếm</button>
+                <input type="text" class="form-control" name="search" placeholder="Tìm kiếm ID, Email, Tên người dùng">
+            </form>
+        </div>
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Quản lý doanh thu</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="">Tên người dùng</th>
+                                <th class="">Doanh thu hôm nay</th>
+                                <th class="">Doanh thu tháng</th>
+                                <th class="">Tổng doanh thu</th>
+                                <th class="">Acc bán hôm nay</th>
+                                <th class="">Acc bán tháng này</th>
+
+                                <th class="">Tổng acc bán</th>
+                                <th class="">Số acc đã đăng</th>
+                                <th class="">Số CT hoàn thành</th>
+                                <th class="">Tỷ lệ hoa hồng</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.thongKes)
+                            {
+                                <tr>
+                                    <td>#@item.IDNguoiDung</td>
+                                    <td>@item.TenNguoiDung</td>
+
+                                    <td>@Convert.ToInt32(item.DoanhThuHomNay).ToString("N0").Replace(",", ".")</td>
+                                    <td>@Convert.ToInt32(item.DoanhThuThang).ToString("N0").Replace(",", ".")</td>
+                                    <td>@Convert.ToInt32(item.TongDoanhThu).ToString("N0").Replace(",", ".")</td>
+                                    <td>@Convert.ToInt32(item.AccBanHomNay).ToString("N0").Replace(",", ".")</td>
+                                    <td>@Convert.ToInt32(item.AccBanThangNay).ToString("N0").Replace(",", ".")</td>
+                                    <td>@Convert.ToInt32(item.TongAccBan).ToString("N0").Replace(",", ".")</td>
+                                    <td>@Convert.ToInt32(item.SoAccDaDang).ToString("N0").Replace(",", ".")</td>
+                                    <td>@Convert.ToInt32(item.CayThueHoanThanh).ToString("N0").Replace(",", ".")</td>
+                                    <td>@item.TyLeHoaHong</td>
+
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlydoanhthu?page=1">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlydoanhthu?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/quanlydoanhthu?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlydoanhthu?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlydoanhthu?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlydoanhthu?page=@ViewBag.last_page">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+

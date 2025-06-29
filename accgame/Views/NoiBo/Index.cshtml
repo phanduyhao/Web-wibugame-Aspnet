@@ -1,0 +1,241 @@
+﻿@model accgame.Models.HomeModels
+@{
+    ViewBag.Title = "Shop acc Genshin Impact, Honkai Star Rail Việt Nam";
+}
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start">
+        <div class="row">
+            <div class="col-xl-9 col-xxl-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 swiper-container">
+                    <swiper-container class="mySwiper" effect="cards" autoplay-delay="3000" grab-cursor="true">
+                        <swiper-slide><img class="img-top-slider h-100 w-100 object-fit-cover" src="/Content/assets/img/slide1.jpg"></swiper-slide>
+                        <swiper-slide><img class="img-top-slider h-100 w-100 object-fit-cover" src="/Content/assets/img/slide2.jpeg"></swiper-slide>
+                        <swiper-slide><img class="img-top-slider h-100 w-100 object-fit-cover" src="/Content/assets/img/slide3.jpg"></swiper-slide>
+                    </swiper-container>
+                </div>
+            </div>
+            <div class="col-xl-3 col-xxl-4 d-flex align-items-center justify-content-center position-relative" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://www.youtube.com/watch?v=ZhWO6QOzLT4" class="glightbox play-btn"></a>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="300">
+                    <span class="fs-4 fw-bold desc-top-slider">
+                        Tempest Shop nơi cung cấp tài khoản Genshin, Tower of Fantasy,  Honkai Star Rail
+                        <!-- --> <!-- -->
+                        <br>
+                        <!-- -->an toàn nhất Việt Nam<!-- -->
+                    </span>
+                </div>
+                <div class="row mt-4 g-3">
+                    <a href="/napgame/themmoi" class="col-md-4 col-6 position-relative text-center" data-aos="fade-up" data-aos-delay="400">
+                        <img class="img-fluid" src="/Content/assets/img/button-group.png">
+                        <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white">Nạp Honkai</span>
+                    </a>
+                    <a href="/caythue/themmoi" class="col-md-4 col-6 position-relative text-center" data-aos="fade-up" data-aos-delay="500">
+                        <img class="img-fluid" src="/Content/assets/img/button-group.png">
+                        <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white">Cày thuê</span>
+                    </a>
+                    <a href="https://www.facebook.com/butdanhlaHai" class="col-md-4 col-6 position-relative text-center" data-aos="fade-up" data-aos-delay="600">
+                        <img class="img-fluid" src="/Content/assets/img/button-group.png">
+                        <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white">Fanpage</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Hero -->
+<img src="/Content/assets/img/Frame.png" class="img-fluid d-block" />
+<!-- ======= About Section ======= -->
+<section id="about" class="about pt-0">
+    <div class="container">
+         <div class="MuiBox-root acc-title">
+     <div class="text-center">
+         <img width="100" class="img-fluid">
+
+         <h2 class="fw-bold fs-1 desc-top-slider">Tài khoản nội bộ</h2>
+     </div>
+ </div>
+        <div class="row g-3 mt-3 justify-content-center">
+            @foreach (var item in Model.listDanhMuc)
+            {
+                <div data-aos="zoom-in" class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="nft">
+                        <div class='main'>
+                            <img class='tokenImage' src="~/Content/images/@item.AnhDanhMuc" alt="NFT" />
+                            <h2>@item.TenDanhMuc</h2>
+                            <p class='description'>@item.MoTa</p>
+                            <div class='tokenInfo'>
+                                <div class="price">
+                                    <ins>◘</ins>
+                                    <p>Giá: @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ</p>
+                                </div>
+                                <div class="duration">
+                                    <button class="btn btn-primary btn-sm rounded-pill mb-2 fw-bold fs-6 text-light shadow" data-bs-toggle="modal" data-bs-target="#dm_@item.IDDanhMuc">Mua ngay</button>
+
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="tokenInfo mb-2">
+                                <div class="row duration me-0 ms-0">
+                                    <div class="col-6">
+                                        <ins class="pt-2">AR Lerver: @Convert.ToInt32(item.DanhMucLevel)</ins>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <ins class="pt-2">Lượt Roll: @Convert.ToInt32(item.LuotRoll)</ins>
+                                    </div>
+                                    <div class="col-6">
+                                        <ins class="pt-2">Hiện có: @Convert.ToInt32(item.HienCo)</ins>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <ins class="pt-2">Đã bán: @Convert.ToInt32(item.DaBan)</ins>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<div class='creator'>
+                                <div class='wrapper'>
+                                    <img src="~/Content/images/icon-card.jpg" alt="Creator" />
+                                </div>-->
+@*                                <p><ins>Cung cấp bởi</ins> <span class="change-domain"></span></p>
+*@                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="dm_@item.IDDanhMuc" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content form-dangky p-0 m-0 position-relative">
+                            <div class="modal-header border-dangky p-0">
+                                <h1 class="modal-title fs-3 text-danger fw-bold" id="exampleModalLabel">MUA TÀI KHOẢN</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-danger text-center border-dangky p-0">
+                                <h3>Giá: @item.Gia VNĐ</h3>
+                                <p class="fs-5">Bạn muốn mua tài khoản <span class="text-dark">@item.TenDanhMuc</span> với giá <span id="gia_@item.IDDanhMuc">@item.Gia</span> VNĐ?</p>
+                                <input id="soluong_@item.IDDanhMuc" class="text-center form-control login-input rounded-pill p-3 fw-bold fs-6" name="soluong" type="number" value="1" placeholder="Nhập số lượng muốn mua!">
+                                <div id="change_@item.IDDanhMuc" class="text-center text-primary fw-bold">
+
+                                </div>
+                                <div class="mx-auto" style="display: none" id="loader_@item.IDDanhMuc">
+                                    <div colspan="4" class="text-center" style="border-bottom-width: 0px !important">
+                                        <div class="spinner-border text-danger text-center" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center border-dangky p-0">
+                                <a id="muangay_@item.IDDanhMuc" href="/danhmuc/muataikhoan/@item.IDDanhMuc?soluong=1" class="btn btn-danger rounded-pill" data-ajax="true" data-ajax-loading="#loader_@item.IDDanhMuc" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#change_@item.IDDanhMuc">Mua ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    $("#soluong_@item.IDDanhMuc").on('keyup change', function () {
+                        var soluong = $("#soluong_@item.IDDanhMuc").val();
+                        if (soluong > 0) {
+                            $("#gia_@item.IDDanhMuc").text(soluong * @item.Gia);
+                            $('#muangay_@item.IDDanhMuc').attr('href', '/danhmuc/muataikhoan/@item.IDDanhMuc?soluong=' + soluong)
+                        }
+                        else {
+                            $("#soluong_@item.IDDanhMuc").val("1");
+                        }
+                    });
+                </script>
+            }
+        </div>
+        <div class="form-dangky p-0 border-dangky mb-2 mx-0" id="mua-code">
+            <div class="pb-3 text-center">
+                <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                    Mua code Honkai Star Rail
+                </h2>
+                <img class="img-fluid" src="/Content/assets/img/AuthDevider.png">
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <img src="~/Content/images/code-prime.jpg" class="img-fluid" alt="" />
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="text-center text-uppercase d-block pb-2 fw-bold fs-5" style="color: #726550">
+                        Chọn loại code
+                    </h2>
+                    <form method="post">
+                        @foreach (var item in Model.listLoaiCode)
+                        {
+                            <div class="border-1 border border-danger shadow px-3 py-2 rounded-3 text-danger fw-bold fs-5 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="@item.IDLoaiCode" name="IDLoaiCode" id="loaicode_@item.IDLoaiCode">
+                                    <label class="form-check-label w-100 text-end" for="loaicode_@item.IDLoaiCode">
+                                        @item.TenLoaiCode | Giá: @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".") VNĐ
+                                    </label>
+                                </div>
+                            </div>
+                        }
+                    </form>
+                </div>
+                <div class="col-12 text-center my-3">
+                    <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="fas fa-shopping-cart"></i> Mua code
+                    </button>
+                </div>
+                <div class="col-12 text-center">
+                    <a href="/noibo/codenoibo" class="btn btn-danger rounded-pill">
+                        <i class="fas fa-shopping-cart"></i> Code đã mua
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content form-dangky p-0 m-0 position-relative">
+            <div class="modal-header modal-header border-dangky p-0">
+                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Mua code</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-danger text-center modal-header border-dangky p-0 d-block">
+                <p class="fs-5">
+                    Bạn muốn mua loại code này không?
+                </p>
+                <div id="change" class="my-3">
+
+                </div>
+                <div class="mx-auto" style="display: none" id="loader">
+                    <div colspan="4" class="text-center" style="border-bottom-width: 0px !important">
+                        <div class="spinner-border text-danger text-center" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                <input id="soluong" type="number" class="text-center form-control login-input rounded-pill p-3 fw-bold fs-6 w-100 d-block w-100" placeholder="Nhập số lượng code muốn mua!" />
+            </div>
+            <div class="modal-footer modal-header border-dangky p-0 text-center d-block">
+                <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Đóng</button>
+                <a id="muangay" href="/MuaCode/mua/" class="btn btn-danger rounded-pill" data-ajax="true" data-ajax-loading="#loader" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#change">Mua ngay</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#button_codedamua").click(function () {
+        $("#dscode").load("/noibo/codenoibo");
+
+    });
+    $("#muangay").click(function () {
+        if ($('input[name="IDLoaiCode"]:checked').val() == null) {
+            $("#change").html("Bạn chưa chọn loại code!");
+        }
+        else if ($("#soluong").val() == null || $("#soluong").val() < 1) {
+            $("#change").html("Số lượng bạn chọn chưa chính xác!");
+        }
+        else {
+            $("#muangay").attr("href", "/MuaCode/mua?soluong=" + $("#soluong").val() + "&idloaicode=" + $('input[name="IDLoaiCode"]:checked').val());
+        }
+    });
+</script>
+

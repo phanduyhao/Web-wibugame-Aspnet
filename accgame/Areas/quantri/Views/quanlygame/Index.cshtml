@@ -1,0 +1,241 @@
+﻿@model IEnumerable<accgame.Context.LoaiGame>
+@{
+    ViewBag.Title = "Quản lý loại game";
+    Layout = "~/areas/quantri/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<main class="content">
+    <div class="row">
+        @if (ViewBag.loi != null)
+        {
+            <div class="col-12">
+                <div class="alert-danger">
+                    @ViewBag.loi
+                </div>
+            </div>
+        }
+
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <form action="/quantri/quanlygame" method="post">
+                        <div class="row g-3">
+                            <div class="col-6 col-md-3">
+                                <input type="text" required class="form-control" name="TenLoaiGame" placeholder="Tên loại game">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="text" required class="form-control" name="Image" placeholder="Ảnh đại diện">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="number" required class="form-control" name="STT" placeholder="Số thứ tự">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <select name="Hide" class="form-select">
+                                    <option value="false">Ẩn game này?</option>
+                                    <option value="false">Hiện game</option>
+                                    <option value="true">Ẩn game</option>
+                                </select>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <select name="DichVuCayThue" class="form-select">
+                                    <option value="false">Ẩn dịch vụ cày thuê</option>
+                                    <option value="true">Hiện dịch vụ cày thuê</option>
+                                </select>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="text" class="form-control" name="AnhCayThue" placeholder="Ảnh dịch vụ cày thuê">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <select name="DichVuNapGame" class="form-select">
+                                    <option value="false">Ẩn dịch vụ nạp game</option>
+                                    <option value="true">Hiện dịch vụ nạp game</option>
+                                </select>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="text" class="form-control" name="AnhNapGame" placeholder="Ảnh dịch vụ nạp game">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <select name="DichVuCode" class="form-select">
+                                    <option value="false">Ẩn dịch vụ code</option>
+                                    <option value="true">Hiện dịch vụ code</option>
+                                </select>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="text" class="form-control" name="AnhCode" placeholder="Ảnh dịch vụ code">
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Thêm loại game</button>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" id="loadGame" type="button">Load loại game</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Loại game</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th class="">Tên loại game</th>
+                                <th class="">Avatar</th>
+                                <th class="">Trạng Thái</th>
+                                <th class=""></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.STT</td>
+                                    <td>@item.TenLoaiGame</td>
+                                    <td><img width="40" height="40" class="rounded-circle" src="@item.Image" /> </td>
+                                    <td>
+                                        @if (item.Hide == true)
+                                        {
+                                            <div class="badge bg-danger">
+                                                Đã ẩn
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="badge bg-danger">
+                                                Hiển thị
+                                            </div>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="/quantri/quanlygame/sua/@item.IDLoaiGame" class="badge bg-success">Sửa</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @if (TempData["SuccessThem"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Thêm mới thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["SuccessSua"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Chỉnh sửa thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+</main>
+<script>
+    $(document).ready(function () {
+
+        $("#loadGame").click(function () {
+            var button = $(this);
+            button.attr("disabled", true);
+            axios.post('/quantri/quanlygame/loadGameOld').then(function (response) {
+                if (response.data.status === "success") {
+                    Swal.fire({
+                        text: "Load danh sách game thành công!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        },
+                        didClose: function () {
+                            location.reload();
+                        }
+                    });
+                } else {
+                    console.log(JSON.stringify(response.data));
+                    Swal.fire({
+                        text: response.data.status,
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+                }
+                button.attr("disabled", false);
+            }).catch(function (error) {
+                Swal.fire({
+                    text: "Có lỗi xảy ra, vui lòng thử lại!",
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Đóng",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                });
+            });
+        });
+    });
+
+    
+</script>
+<script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/quantri/quanlygame/loadGameOld",
+                    "type": "POST",
+                    "dataType": "json",
+                    "dataSrc": function (json) {
+                        return json.data.map(function (item) {
+                            var date = new Date(parseInt(item.ThoiGian.substr(6)));
+                            var formattedDate = date.getFullYear() + '-' +
+                                ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+                                ('0' + date.getDate()).slice(-2) + ' ' +
+                                ('0' + date.getHours()).slice(-2) + ':' +
+                                ('0' + date.getMinutes()).slice(-2) + ':' +
+                                ('0' + date.getSeconds()).slice(-2);
+                            item.ThoiGian = formattedDate;
+                            return item;
+                        });
+                    }
+                },
+                "columns": [
+                    { "data": "IDBienDongSoDu" },
+                    { "data": "SoTien" },
+                    { "data": "LoiNhan" },
+                    { "data": "TienTruoc" },
+                    { "data": "TienSau" },
+                    { "data": "ThoiGian" }
+                ]
+            });
+        });
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Kiểm tra nếu phần tử success toast tồn tại
+        var successToastElement = document.getElementById('successToast');
+        if (successToastElement) {
+            var successToast = new bootstrap.Toast(successToastElement);
+            successToast.show();
+        }
+    });
+</script>

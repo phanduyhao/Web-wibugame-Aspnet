@@ -1,0 +1,52 @@
+﻿@model IEnumerable<accgame.Context.NhanVat>
+
+@foreach (var item in Model)
+{
+    <div class="position-relative text-center list_nv my-3 col-md-1 col-sm-2 col-4" data-nv="@item.TenNhanVat">
+        <div class="position-relative">
+            <img width="40" src="@item.Avatar" class="nv-img" alt="@item.TenNhanVat" onclick="toggleCheckbox('nv_@GetSlug(item.TenNhanVat)')">
+
+            <input class="form-check-input position-absolute custom-checkbox rounded-circle" type="checkbox" name="DSNhanVat"
+                   value="@item.IDNhanVat" id="nv_@GetSlug(item.TenNhanVat)">
+        </div>
+        <label class="form-check-label" for="nv_@GetSlug(item.TenNhanVat)">
+            @item.TenNhanVat
+        </label>
+    </div>
+}
+
+@functions {
+    private string GetSlug(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return string.Empty;
+
+        string slug = name.ToLower()
+                   .Replace(" ", "-")
+                   .Replace(".", "-")
+                   .Replace(",", "-")
+                   .Replace("(", "-")
+                   .Replace(")", "-")
+                   .Replace("&", "-")
+                   .Replace("'", "") // Xóa dấu nháy đơn
+                   .Replace("--", "-"); // Xóa dấu "--" dư thừa
+
+        // Xóa tất cả dấu "-" trùng lặp và xóa dấu "-" ở đầu/cuối
+        return System.Text.RegularExpressions.Regex.Replace(slug, "-+", "-").Trim('-');
+    }
+}
+
+<style>
+    .custom-checkbox {
+        width: 20px;
+        height: 20px;
+        right: 0%;
+        top: 0%;
+        opacity: 0; /* Mặc định ẩn */
+        transition: opacity 0.3s ease-in-out;
+    }
+
+        /* Khi checkbox được checked -> Hiện lên */
+        .custom-checkbox:checked {
+            opacity: 1;
+        }
+</style>

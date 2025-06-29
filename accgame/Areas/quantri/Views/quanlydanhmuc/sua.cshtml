@@ -1,0 +1,205 @@
+﻿@model accgame.Context.DanhMuc
+
+@{
+    ViewBag.Title = "Sửa";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-body">
+            <form id="formSuaDM" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <b>Loại game</b>
+                        <div class="">
+                            <select name="LoaiGame" id="LoaiGame" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                @foreach (var item in ViewBag.LoaiGame)
+                                {
+                                    <option @if (item.IDLoaiGame == Model.LoaiGame) { <text> selected </text> } value="@item.IDLoaiGame">@item.TenLoaiGame</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Loại danh mục</b>
+                        <div class="">
+                            <select name="IDLoaiAcc" id="IDLoaiAcc" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                @foreach (var item in ViewBag.LoaiAcc)
+                                {
+                                    <option @if (item.IDLoaiAcc == Model.IDLoaiAcc) { <text> selected </text> } value="@item.IDLoaiAcc">@item.TenLoaiAcc</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Tên danh mục</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.TenDanhMuc, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenDanhMuc, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Mô tả</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Thông báo khi mua Acc</b>
+                    <div class="">
+                        <textarea id="ThongBaoMuaAcc" class="form-control ThongBaoMuaAcc" rows="5">@Model.ThongBaoMuaAcc</textarea>
+                    </div>
+                    <input type="hidden" name="ThongBaoMuaAcc" class="ThongBaoMuaAcc" value="">
+
+                </div>
+                <div class="form-group">
+                    <label for="ImageUpload"><b>Ảnh đại diện</b></label>
+                    <div class="text-center mb-3">
+                        <!-- Hiển thị ảnh hiện tại nếu có -->
+                        <img src="@Model.AnhDanhMuc" id="image-preview" alt="Ảnh đại diện" height="500" class="rounded">
+                    </div>
+                    <input type="file" id="ImageUpload" name="ImageUpload" class="form-control bg-light" accept="image/*">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control bg-light" id="ImageUpload" name="ImageUploadLink">
+                </div>
+                <div class="form-group">
+                    <b>Cấp độ</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.DanhMucLevel, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DanhMucLevel, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Lượt roll</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.LuotRoll, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LuotRoll, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Đã bán</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.DaBan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DaBan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Giá</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Giá Ctv-Collab</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.GiaCtvCollab, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Tài khoản nội bộ?</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.TaiKhoanNoiBo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TaiKhoanNoiBo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Số thứ tự</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.STT, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.STT, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 mt-4">
+                        <button id="liveToastBtn" type="submit" class="btn btn-primary">Chỉnh sửa</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="successToast" class="toast d-none" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-info px-3 py-2 rounded-3">
+                <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                <strong class="me-auto text-white fs-5">Chỉnh sửa thành công!</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Xem trước ảnh tải lên
+    const imageInput = document.getElementById('ImageUpload');
+    const imagePreview = document.getElementById('image-preview');
+
+    imageInput.addEventListener('change', function () {
+        const file = this.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.addEventListener('load', function () {
+                imagePreview.src = this.result;
+            });
+            reader.readAsDataURL(file);
+        }
+    });
+    CKEDITOR.replace("ThongBaoMuaAcc");
+/*    document.addEventListener('DOMContentLoaded', (event) => {
+        // Kiểm tra nếu phần tử success toast tồn tại
+        var successToastElement = document.getElementById('successToast');
+        if (successToastElement) {
+            var successToast = new bootstrap.Toast(successToastElement);
+            successToast.show();
+        }
+    });*/
+
+        // Bắt sự kiện submit form
+
+$('#formSuaDM').submit(function (event) {
+    event.preventDefault(); // Ngăn không cho form load lại trang
+
+    // Lấy giá trị từ CKEditor
+    var thongBaoMuaAcc = CKEDITOR.instances.ThongBaoMuaAcc.getData();
+
+    // Cập nhật giá trị vào input ẩn
+    $('input[name="ThongBaoMuaAcc"]').val(thongBaoMuaAcc);
+
+    // Thu thập dữ liệu form
+    var formData = new FormData(this);
+
+    // Gửi request AJAX
+    $.ajax({
+        url: '/quantri/quanlydanhmuc/sua/@Model.IDDanhMuc', // Đường dẫn đến action trong Controller
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            if (response.success) {
+                $('#successToast').removeClass('d-none')
+            } else {
+                alert(response.message); // Hiển thị thông báo lỗi nếu có
+            }
+        },
+        error: function (xhr, status, error) {
+            // Xử lý lỗi
+            alert("Đã có lỗi xảy ra: " + error);
+        }
+    });
+});
+</script>

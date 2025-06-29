@@ -1,0 +1,87 @@
+﻿@model accgame.Context.AccRandom
+
+@{
+    ViewBag.Title = "suaacc";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+
+<main class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3>Chỉnh sửa tài khoản</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IDAccRandom)
+                @Html.HiddenFor(model => model.IDNguoiDung)
+                @Html.HiddenFor(model => model.Xoa)
+                @Html.HiddenFor(model => model.DaBan)
+                @Html.HiddenFor(model => model.IDDanhMuc)
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <b>Tài khoản</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Mật khẩu</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Mật khẩu Outlook</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MatKhauOutlook, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhauOutlook, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Mail khôi phục</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MailKhoiPhuc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MailKhoiPhuc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Mật khẩu Mail khôi phục</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MatKhauMailKhoiPhuc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhauMailKhoiPhuc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Mật khẩu Mail</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MatKhauMail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhauMail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Thông tin khác nếu có</b>
+                    <div class="">
+                        @Html.TextAreaFor(model => model.ThongTinKhac, new { @class = "form-control " })
+                        @Html.ValidationMessageFor(model => model.ThongTinKhac, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <div class="col-md-offset-2 ">
+                        <input type="submit" value="Chỉnh sửa" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+</main>

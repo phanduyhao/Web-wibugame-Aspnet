@@ -1,0 +1,84 @@
+﻿@model IEnumerable<accgame.Context.Code>
+@{
+    ViewBag.Title = "Danh sách code chưa bán";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <a href="/quantri/quanlycode/themcode/@ViewBag.idloaicode" class="btn btn-primary">Thêm mới</a>
+                        <a href="/quantri/quanlycode/danhsachdaban/@ViewBag.idloaicode" class="btn btn-primary">Danh sách code đã bán</a>
+                    </div>
+                </div>
+                <div class="card-header">
+
+                    <h5 class="card-title mb-0">Danh sách code - @ViewBag.tenloaicode</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="">Mã code</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>#@item.IDCode</td>
+                                    <td>@item.MaCode </td>
+                                    <td>
+                                        <a href="/quantri/quanlycode/xoacode/@item.IDCode" onclick="if (confirm('Bạn muốn xóa code này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlycode/danhsach/@ViewBag.idloaicode?page=1">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlycode/danhsach/@ViewBag.idloaicode?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/quanlycode/danhsach/@ViewBag.idloaicode?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlycode/danhsach/@ViewBag.idloaicode?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlycode/danhsach/@ViewBag.idloaicode?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlycode/danhsach/@ViewBag.idloaicode?page=@ViewBag.last_page">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

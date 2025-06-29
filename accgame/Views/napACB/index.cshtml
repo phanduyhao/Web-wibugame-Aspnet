@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Nạp tiền MB Bank";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about about-acc">
+    <div class="container mt-5">
+        <div class="d-flex align-items-center justify-content-center mh-100">
+            <div class="w-100" style="">
+                <div class="text-center form-dangky shadow-lg p-2 p-sm-4 rounded-1">
+                    <div class="border-dangky">
+                        <div class="pb-3">
+                            <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                                Nạp tiền bằng ATM - Ngân hàng VietcomBank
+                            </h2>
+                            <img class="img-fluid" src="/Content/assets/img/AuthDevider.png">
+                        </div>
+                        <div class="my-3 text-dark">
+                            <div class="p-5">
+                                <img class="img-fluid" src="@ViewBag.img" />
+                            </div>
+                            <p class="text-sm">
+                                Kiểm tra kỹ số tài khoản, tên chủ tài khoản và nội dung chuyển tiền để tránh trường hợp mất tiền không đáng có
+                            </p>
+                            <p class="text-sm">Tiền nhận được tương ứng với số tiền chuyển, ví dụ bạn chuyển khoản 100k VNĐ sẽ nhận được 100k Coin</p>
+                            <ul class="list-group text-start">
+                                <li class="list-group-item bg-transparent border-0 ps-0 pt-0 text-sm"><strong>Số tài khoản:</strong> &nbsp; <a id="stk">1013842254</a> &nbsp; <button class="btn btn-success btn-sm" onclick="copyToClipboard('#stk')">Sao chép</button></li>
+                                <li class="list-group-item bg-transparent border-0 ps-0 text-sm"><strong>Chủ tài khoản VietcomBank:</strong> &nbsp; NGUYEN VAN TUAN VI</li>
+                                <li class="list-group-item bg-transparent border-0 ps-0 text-sm"><strong>Nội dung bắt buộc:</strong> &nbsp; <a id="noidung">@ViewBag.noidung</a> &nbsp; <button class="btn btn-success btn-sm" onclick="copyToClipboard('#noidung')">Sao chép</button></li>
+                                <li class="list-group-item bg-transparent border-0 ps-0 text-sm"><strong>Lưu ý 1:</strong> &nbsp; Nhập đúng nội dung chuyển tiền, nếu nhập sai sẽ không được cộng tiền!</li>
+                                <li class="list-group-item bg-transparent border-0 ps-0 text-sm"><strong>Lưu ý 2:</strong> &nbsp; Sau khi chuyển khoản, hãy đợi một vài giây, hệ thống sẽ tự cộng tiền cho bạn!</li>
+                            </ul>
+                            <div class="text-center mt-5">
+                                <a href="/nguoidung/hoso" class="col-lg-4 col-md-6 mx-auto button__custom button__custom--piyo">
+                                    <div class="button__custom__wrapper">
+                                        <span class="button__custom__text">Xem số dư</span>
+                                    </div>
+                                    <div class="characterBox">
+                                        <div class="character wakeup">
+                                            <div class="character__face"></div>
+                                        </div>
+                                        <div class="character wakeup">
+                                            <div class="character__face"></div>
+                                        </div>
+                                        <div class="character">
+                                            <div class="character__face"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        alert("Sao chép thành công!")
+    }
+</script>

@@ -1,0 +1,58 @@
+﻿@model accgame.Context.LoaiCode
+
+@{
+    ViewBag.Title = "Themmoi";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="/quantri/quanlycode/sua/@Model.IDLoaiCode" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <b>Tên loại code</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.TenLoaiCode, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenLoaiCode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="LoaiGame" class="form-label">Loại game</label>
+                            <select name="LoaiGame" id="LoaiGame" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                @foreach (var item in ViewBag.LoaiGame)
+                                {
+                                    <option @if (item.IDLoaiGame == Model.LoaiGame) { <text> selected </text> } value="@item.IDLoaiGame">@item.TenLoaiGame</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Giá</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Code nội bộ?</b>
+                        <div class="">
+                            @Html.EditorFor(model => model.CodeNoiBo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CodeNoiBo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 mt-4">
+                            <input type="submit" value="Chỉnh sửa" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

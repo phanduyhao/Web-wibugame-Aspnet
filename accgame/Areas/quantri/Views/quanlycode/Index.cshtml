@@ -1,0 +1,55 @@
+﻿@model IEnumerable<accgame.Context.LoaiCode>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <a href="/quantri/quanlycode/themmoi" class="btn btn-primary">Thêm mới</a>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0"></h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th class="">Tên loại code</th>
+                                <th class="">Loại Game</th>
+                                <th class="">Giá</th>
+                                <th class="">Nội bộ?</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>#@item.IDLoaiCode</td>
+                                    <td><a href="/quantri/quanlycode/danhsach/@item.IDLoaiCode">@item.TenLoaiCode</a> </td>
+                                    <td><span class="badge bg-danger">@(item.LoaiGame1?.TenLoaiGame ?? "")</span></td>
+                                    <td>@Convert.ToInt32(item.Gia).ToString("N0") đ</td>
+                                    <td><span class="badge bg-info">@item.CodeNoiBo</span></td>
+                                    <td>
+                                        <a href="/quantri/quanlycode/sua/@item.IDLoaiCode" class="badge bg-danger">Sửa</a>
+                                        <a href="/quantri/quanlycode/xoa/@item.IDLoaiCode" onclick="if (confirm('Bạn muốn xóa loại code này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

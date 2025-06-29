@@ -1,0 +1,1210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>accgame</RootNamespace>
+    <AssemblyName>accgame</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebaseAdmin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=97c8d00c348326ed, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirebaseAdmin.3.0.1\lib\net462\FirebaseAdmin.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax, Version=4.8.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Api.Gax.4.8.0\lib\net462\Google.Api.Gax.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax.Rest, Version=4.8.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Api.Gax.Rest.4.8.0\lib\net462\Google.Api.Gax.Rest.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.68.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.68.0\lib\net462\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.68.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.68.0\lib\net462\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.68.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.68.0\lib\net462\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PeopleService.v1, Version=1.68.0.3359, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.PeopleService.v1.1.68.0.3359\lib\net462\Google.Apis.PeopleService.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="Magick.NET-Q8-AnyCPU, Version=13.8.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\Magick.NET-Q8-AnyCPU.13.8.0\lib\netstandard20\Magick.NET-Q8-AnyCPU.dll</HintPath>
+    </Reference>
+    <Reference Include="Magick.NET.Core, Version=13.8.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\Magick.NET.Core.13.8.0\lib\netstandard20\Magick.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.8.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\quantri\Controllers\ApiAccController.cs" />
+    <Compile Include="Areas\quantri\Controllers\CaiDatController.cs" />
+    <Compile Include="Areas\quantri\Controllers\caidatvongquayController.cs" />
+    <Compile Include="Areas\quantri\Controllers\capquanly\QNapGameController.cs" />
+    <Compile Include="Areas\quantri\Controllers\capquanly\QNguoiDungController.cs" />
+    <Compile Include="Areas\quantri\Controllers\capquanly\QNapController.cs" />
+    <Compile Include="Areas\quantri\Controllers\capquanly\QLichSuBanAccController.cs" />
+    <Compile Include="Areas\quantri\Controllers\CauHinhController.cs" />
+    <Compile Include="Areas\quantri\Controllers\ctvCayThueController.cs" />
+    <Compile Include="Areas\quantri\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\quantri\Controllers\giaithuongvongquayController.cs" />
+    <Compile Include="Areas\quantri\Controllers\ImageManagementController.cs" />
+    <Compile Include="Areas\quantri\Controllers\loadController.cs" />
+    <Compile Include="Areas\quantri\Controllers\nguoidungApiController.cs" />
+    <Compile Include="Areas\quantri\Controllers\NhanVatController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlyaccrandomController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlyanhController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlycaythueController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlycodeController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlydanhmucController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlydoanhthuController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlygiaodichController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlylichsuController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlyloaiaccController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlygameController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlygoinapgameController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlygoinhiemvuController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlynapController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlynapgameController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlynguoidungController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlyruttienctvController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlytaikhoanNBController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlytaikhoanController.cs" />
+    <Compile Include="Areas\quantri\Controllers\quanlythongbaoController.cs" />
+    <Compile Include="Areas\quantri\Controllers\ruttienctvController.cs" />
+    <Compile Include="Areas\quantri\Controllers\rerollcuatoiController.cs" />
+    <Compile Include="Context\Acc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AccRandom.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AccRandomDamua.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AdminCongTien.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AdminNotifyRead.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AnAcc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Anh_Acc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ApiAcc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Banner.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\BienDongSoDu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\CaiDat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\CaiDatVongQuay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\CayThue.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Code.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\DanhMuc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\GiaiThuongVongQuay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\GoiNap.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\GoiNhiemVu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Image.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LoaiAcc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LoaiCode.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LoaiGame.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NapGame.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NapTien.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NguoiDung.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NhanVat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NotifyUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OldPass.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RutTien.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SettingApi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Video.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\VongQuay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\VuKhi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\NotifyController.cs" />
+    <Compile Include="Controllers\soluongMenuController.cs" />
+    <Compile Include="Areas\quantri\Controllers\taikhoanrandomcuatoiController.cs" />
+    <Compile Include="Areas\quantri\Controllers\taikhoancuatoiController.cs" />
+    <Compile Include="Areas\quantri\Controllers\TrangChuController.cs" />
+    <Compile Include="Areas\quantri\Controllers\VuKhiController.cs" />
+    <Compile Include="Areas\quantri\quantriAreaRegistration.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\ApiNapController.cs" />
+    <Compile Include="Controllers\chitiettaikhoanController.cs" />
+    <Compile Include="Controllers\dangkyController.cs" />
+    <Compile Include="Controllers\dangnhapController.cs" />
+    <Compile Include="Controllers\dangxuatController.cs" />
+    <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\DanhSachController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CayThueController.cs" />
+    <Compile Include="Controllers\MailController.cs" />
+    <Compile Include="Controllers\MuaCodeController.cs" />
+    <Compile Include="Controllers\napACBController.cs" />
+    <Compile Include="Controllers\NapGameController.cs" />
+    <Compile Include="Controllers\napmomoController.cs" />
+    <Compile Include="Controllers\napthecaoController.cs" />
+    <Compile Include="Controllers\NapTienController.cs" />
+    <Compile Include="Controllers\nguoidungController.cs" />
+    <Compile Include="Controllers\NoiBoController.cs" />
+    <Compile Include="Controllers\QuenMatKhauController.cs" />
+    <Compile Include="Controllers\TaiKhoanDaMuaController.cs" />
+    <Compile Include="Controllers\ThongTinController.cs" />
+    <Compile Include="Controllers\VongQuayController.cs" />
+    <Compile Include="Filters\CheckAccountBlockAttribute .cs" />
+    <Compile Include="Filters\CheckSessionIDAttribute.cs" />
+    <Compile Include="Filters\FirebaseAuthService.cs" />
+    <Compile Include="Filters\HtmlExtensions.cs" />
+    <Compile Include="Filters\NotifyUserFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GoogleApiService.cs" />
+    <Compile Include="Load\NganHang.cs" />
+    <Compile Include="LocDau\KhongDau.cs" />
+    <Compile Include="Mahoa\MyString.cs" />
+    <Compile Include="Models\AccViewModel.cs" />
+    <Compile Include="Models\CTV.cs" />
+    <Compile Include="Models\DashModelss.cs" />
+    <Compile Include="Models\HomeModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\quantri\Content\css\app.css" />
+    <Content Include="Areas\quantri\Content\img\avatars\avatar-2.jpg" />
+    <Content Include="Areas\quantri\Content\img\avatars\avatar-3.jpg" />
+    <Content Include="Areas\quantri\Content\img\avatars\avatar-4.jpg" />
+    <Content Include="Areas\quantri\Content\img\avatars\avatar-5.jpg" />
+    <Content Include="Areas\quantri\Content\img\avatars\avatar.jpg" />
+    <Content Include="Areas\quantri\Content\img\icons\check.png" />
+    <Content Include="Areas\quantri\Content\img\icons\icon-48x48.png" />
+    <Content Include="Areas\quantri\Content\img\photos\unsplash-1.jpg" />
+    <Content Include="Areas\quantri\Content\img\photos\unsplash-2.jpg" />
+    <Content Include="Areas\quantri\Content\img\photos\unsplash-3.jpg" />
+    <Content Include="Areas\quantri\Content\img\warning.png" />
+    <Content Include="Areas\quantri\Content\js\app.js" />
+    <Content Include="Areas\quantri\Content\js\app.js.LICENSE.txt" />
+    <Content Include="Areas\quantri\Content\js\custom.js" />
+    <Content Include="Content\assets\ckeditor\adapters\jquery.js" />
+    <Content Include="Content\assets\ckeditor\build-config.js" />
+    <Content Include="Content\assets\ckeditor\ckeditor.js" />
+    <Content Include="Content\assets\ckeditor\config.js" />
+    <Content Include="Content\assets\ckeditor\contents.css" />
+    <Content Include="Content\assets\ckeditor\lang\af.js" />
+    <Content Include="Content\assets\ckeditor\lang\ar.js" />
+    <Content Include="Content\assets\ckeditor\lang\az.js" />
+    <Content Include="Content\assets\ckeditor\lang\bg.js" />
+    <Content Include="Content\assets\ckeditor\lang\bn.js" />
+    <Content Include="Content\assets\ckeditor\lang\bs.js" />
+    <Content Include="Content\assets\ckeditor\lang\ca.js" />
+    <Content Include="Content\assets\ckeditor\lang\cs.js" />
+    <Content Include="Content\assets\ckeditor\lang\cy.js" />
+    <Content Include="Content\assets\ckeditor\lang\da.js" />
+    <Content Include="Content\assets\ckeditor\lang\de-ch.js" />
+    <Content Include="Content\assets\ckeditor\lang\de.js" />
+    <Content Include="Content\assets\ckeditor\lang\el.js" />
+    <Content Include="Content\assets\ckeditor\lang\en-au.js" />
+    <Content Include="Content\assets\ckeditor\lang\en-ca.js" />
+    <Content Include="Content\assets\ckeditor\lang\en-gb.js" />
+    <Content Include="Content\assets\ckeditor\lang\en.js" />
+    <Content Include="Content\assets\ckeditor\lang\eo.js" />
+    <Content Include="Content\assets\ckeditor\lang\es-mx.js" />
+    <Content Include="Content\assets\ckeditor\lang\es.js" />
+    <Content Include="Content\assets\ckeditor\lang\et.js" />
+    <Content Include="Content\assets\ckeditor\lang\eu.js" />
+    <Content Include="Content\assets\ckeditor\lang\fa.js" />
+    <Content Include="Content\assets\ckeditor\lang\fi.js" />
+    <Content Include="Content\assets\ckeditor\lang\fo.js" />
+    <Content Include="Content\assets\ckeditor\lang\fr-ca.js" />
+    <Content Include="Content\assets\ckeditor\lang\fr.js" />
+    <Content Include="Content\assets\ckeditor\lang\gl.js" />
+    <Content Include="Content\assets\ckeditor\lang\gu.js" />
+    <Content Include="Content\assets\ckeditor\lang\he.js" />
+    <Content Include="Content\assets\ckeditor\lang\hi.js" />
+    <Content Include="Content\assets\ckeditor\lang\hr.js" />
+    <Content Include="Content\assets\ckeditor\lang\hu.js" />
+    <Content Include="Content\assets\ckeditor\lang\id.js" />
+    <Content Include="Content\assets\ckeditor\lang\is.js" />
+    <Content Include="Content\assets\ckeditor\lang\it.js" />
+    <Content Include="Content\assets\ckeditor\lang\ja.js" />
+    <Content Include="Content\assets\ckeditor\lang\ka.js" />
+    <Content Include="Content\assets\ckeditor\lang\km.js" />
+    <Content Include="Content\assets\ckeditor\lang\ko.js" />
+    <Content Include="Content\assets\ckeditor\lang\ku.js" />
+    <Content Include="Content\assets\ckeditor\lang\lt.js" />
+    <Content Include="Content\assets\ckeditor\lang\lv.js" />
+    <Content Include="Content\assets\ckeditor\lang\mk.js" />
+    <Content Include="Content\assets\ckeditor\lang\mn.js" />
+    <Content Include="Content\assets\ckeditor\lang\ms.js" />
+    <Content Include="Content\assets\ckeditor\lang\nb.js" />
+    <Content Include="Content\assets\ckeditor\lang\nl.js" />
+    <Content Include="Content\assets\ckeditor\lang\no.js" />
+    <Content Include="Content\assets\ckeditor\lang\oc.js" />
+    <Content Include="Content\assets\ckeditor\lang\pl.js" />
+    <Content Include="Content\assets\ckeditor\lang\pt-br.js" />
+    <Content Include="Content\assets\ckeditor\lang\pt.js" />
+    <Content Include="Content\assets\ckeditor\lang\ro.js" />
+    <Content Include="Content\assets\ckeditor\lang\ru.js" />
+    <Content Include="Content\assets\ckeditor\lang\si.js" />
+    <Content Include="Content\assets\ckeditor\lang\sk.js" />
+    <Content Include="Content\assets\ckeditor\lang\sl.js" />
+    <Content Include="Content\assets\ckeditor\lang\sq.js" />
+    <Content Include="Content\assets\ckeditor\lang\sr-latn.js" />
+    <Content Include="Content\assets\ckeditor\lang\sr.js" />
+    <Content Include="Content\assets\ckeditor\lang\sv.js" />
+    <Content Include="Content\assets\ckeditor\lang\th.js" />
+    <Content Include="Content\assets\ckeditor\lang\tr.js" />
+    <Content Include="Content\assets\ckeditor\lang\tt.js" />
+    <Content Include="Content\assets\ckeditor\lang\ug.js" />
+    <Content Include="Content\assets\ckeditor\lang\uk.js" />
+    <Content Include="Content\assets\ckeditor\lang\vi.js" />
+    <Content Include="Content\assets\ckeditor\lang\zh-cn.js" />
+    <Content Include="Content\assets\ckeditor\lang\zh.js" />
+    <Content Include="Content\assets\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Content\assets\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="Content\assets\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Content\assets\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Content\assets\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Content\assets\ckeditor\plugins\dialog\styles\dialog.css" />
+    <Content Include="Content\assets\ckeditor\plugins\icons.png" />
+    <Content Include="Content\assets\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="Content\assets\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Content\assets\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Content\assets\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Content\assets\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Content\assets\ckeditor\samples\css\samples.css" />
+    <Content Include="Content\assets\ckeditor\samples\img\github-top.png" />
+    <Content Include="Content\assets\ckeditor\samples\img\header-bg.png" />
+    <Content Include="Content\assets\ckeditor\samples\img\header-separator.png" />
+    <Content Include="Content\assets\ckeditor\samples\img\logo.png" />
+    <Content Include="Content\assets\ckeditor\samples\img\logo.svg" />
+    <Content Include="Content\assets\ckeditor\samples\img\navigation-tip.png" />
+    <Content Include="Content\assets\ckeditor\samples\index.html" />
+    <Content Include="Content\assets\ckeditor\samples\js\sample.js" />
+    <Content Include="Content\assets\ckeditor\samples\js\sf.js" />
+    <Content Include="Content\assets\ckeditor\samples\old\ajax.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\api.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\appendto.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\assets\inlineall\logo.png" />
+    <Content Include="Content\assets\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Content\assets\ckeditor\samples\old\assets\sample.jpg" />
+    <Content Include="Content\assets\ckeditor\samples\old\assets\uilanguages\languages.js" />
+    <Content Include="Content\assets\ckeditor\samples\old\datafiltering.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\dialog\assets\my_dialog.js" />
+    <Content Include="Content\assets\ckeditor\samples\old\dialog\dialog.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\divreplace.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\enterkey\enterkey.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\index.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\inlineall.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\inlinebycode.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\inlinetextarea.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\jquery.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\readonly.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\replacebyclass.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\replacebycode.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\sample.css" />
+    <Content Include="Content\assets\ckeditor\samples\old\sample.js" />
+    <Content Include="Content\assets\ckeditor\samples\old\tabindex.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\toolbar\toolbar.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\uicolor.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\uilanguages.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\wysiwygarea\fullpage.html" />
+    <Content Include="Content\assets\ckeditor\samples\old\xhtmlstyle.html" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\css\fontello.css" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\font\fontello.svg" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\index.html" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\dialog.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\editor.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\editor_ie.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\icons.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\arrow.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\close.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\lock.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\refresh.png" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="Content\assets\ckeditor\styles.js" />
+    <Content Include="Content\assets\ckeditor\vendor\promise.js" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\img\1335406.png" />
+    <Content Include="Content\assets\img\about-bg.jpg" />
+    <Content Include="Content\assets\img\about.jpg" />
+    <Content Include="Content\assets\img\apple-touch-icon.png" />
+    <Content Include="Content\assets\img\AuthDevider.png" />
+    <Content Include="Content\assets\img\Background-acc.png" />
+    <Content Include="Content\assets\img\bg-body.jpg" />
+    <Content Include="Content\assets\img\bg-img.png" />
+    <Content Include="Content\assets\img\bg-top.jpg" />
+    <Content Include="Content\assets\img\bg-top.png" />
+    <Content Include="Content\assets\img\bg-wibu.jpg" />
+    <Content Include="Content\assets\img\BJ78Du.jpg" />
+    <Content Include="Content\assets\img\border-image-dangky.png" />
+    <Content Include="Content\assets\img\border-image.png" />
+    <Content Include="Content\assets\img\bottom-bg-img.png" />
+    <Content Include="Content\assets\img\button-group.png" />
+    <Content Include="Content\assets\img\chefs\chefs-1.jpg" />
+    <Content Include="Content\assets\img\chefs\chefs-2.jpg" />
+    <Content Include="Content\assets\img\chefs\chefs-3.jpg" />
+    <Content Include="Content\assets\img\event-birthday.jpg" />
+    <Content Include="Content\assets\img\event-custom.jpg" />
+    <Content Include="Content\assets\img\event-private.jpg" />
+    <Content Include="Content\assets\img\events-bg.jpg" />
+    <Content Include="Content\assets\img\favicon.png" />
+    <Content Include="Content\assets\img\Frame.png" />
+    <Content Include="Content\assets\img\fu-xuan-honkai-star-rail-kv.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-1.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-2.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-3.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-4.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-5.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-6.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-7.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-8.jpg" />
+    <Content Include="Content\assets\img\genshin-impact-uhdpaper.com-4K-1.jpg" />
+    <Content Include="Content\assets\img\hero-bg.jpg" />
+    <Content Include="Content\assets\img\honkaititle.png" />
+    <Content Include="Content\assets\img\Layer-button.png" />
+    <Content Include="Content\assets\img\Layer_login.png" />
+    <Content Include="Content\assets\img\LeftArrow-tilte.png" />
+    <Content Include="Content\assets\img\logo hsr herta.png" />
+    <Content Include="Content\assets\img\logo-hoyo.png" />
+    <Content Include="Content\assets\img\menu\bread-barrel.jpg" />
+    <Content Include="Content\assets\img\menu\caesar.jpg" />
+    <Content Include="Content\assets\img\menu\cake.jpg" />
+    <Content Include="Content\assets\img\menu\greek-salad.jpg" />
+    <Content Include="Content\assets\img\menu\lobster-bisque.jpg" />
+    <Content Include="Content\assets\img\menu\lobster-roll.jpg" />
+    <Content Include="Content\assets\img\menu\mozzarella.jpg" />
+    <Content Include="Content\assets\img\menu\spinach-salad.jpg" />
+    <Content Include="Content\assets\img\menu\tuscan-grilled.jpg" />
+    <Content Include="Content\assets\img\mid-bg.png" />
+    <Content Include="Content\assets\img\MiHoYo_O_logo.webp.png" />
+    <Content Include="Content\assets\img\muahang.png" />
+    <Content Include="Content\assets\img\public.jpg" />
+    <Content Include="Content\assets\img\random_hk.jpg" />
+    <Content Include="Content\assets\img\RightArrow-tilte.png" />
+    <Content Include="Content\assets\img\secondary-bg.jpg" />
+    <Content Include="Content\assets\img\slide1.jpg" />
+    <Content Include="Content\assets\img\slide2.jpeg" />
+    <Content Include="Content\assets\img\slide3.jpg" />
+    <Content Include="Content\assets\img\slide\1.jpg" />
+    <Content Include="Content\assets\img\slide\2.jpg" />
+    <Content Include="Content\assets\img\slide\3.jpg" />
+    <Content Include="Content\assets\img\slide\4.png" />
+    <Content Include="Content\assets\img\specials-1.png" />
+    <Content Include="Content\assets\img\specials-2.png" />
+    <Content Include="Content\assets\img\specials-3.png" />
+    <Content Include="Content\assets\img\specials-4.png" />
+    <Content Include="Content\assets\img\specials-5.png" />
+    <Content Include="Content\assets\img\testimonials\testimonials-1.jpg" />
+    <Content Include="Content\assets\img\testimonials\testimonials-2.jpg" />
+    <Content Include="Content\assets\img\testimonials\testimonials-3.jpg" />
+    <Content Include="Content\assets\img\testimonials\testimonials-4.jpg" />
+    <Content Include="Content\assets\img\testimonials\testimonials-5.jpg" />
+    <Content Include="Content\assets\img\top-bg-img.png" />
+    <Content Include="Content\assets\img\wallpapersden.com_diluc-genshin-impact-4k_4000x2250.jpg" />
+    <Content Include="Content\assets\js\main.js" />
+    <Content Include="Content\assets\vendor\animate.css\animate.compat.css" />
+    <Content Include="Content\assets\vendor\animate.css\animate.css" />
+    <Content Include="Content\assets\vendor\animate.css\animate.min.css" />
+    <Content Include="Content\assets\vendor\aos\aos.css" />
+    <Content Include="Content\assets\vendor\aos\aos.js" />
+    <Content Include="Content\assets\vendor\bootstrap-icons\bootstrap-icons.css" />
+    <Content Include="Content\assets\vendor\bootstrap-icons\index.html" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\assets\vendor\boxicons\css\animations.css" />
+    <Content Include="Content\assets\vendor\boxicons\css\boxicons.css" />
+    <Content Include="Content\assets\vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="Content\assets\vendor\boxicons\css\transformations.css" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="Content\assets\vendor\glightbox\css\glightbox.css" />
+    <Content Include="Content\assets\vendor\glightbox\css\glightbox.min.css" />
+    <Content Include="Content\assets\vendor\glightbox\js\glightbox.js" />
+    <Content Include="Content\assets\vendor\glightbox\js\glightbox.min.js" />
+    <Content Include="Content\assets\vendor\isotope-layout\isotope.pkgd.js" />
+    <Content Include="Content\assets\vendor\isotope-layout\isotope.pkgd.min.js" />
+    <Content Include="Content\assets\vendor\php-email-form\validate.js" />
+    <Content Include="Content\assets\vendor\swiper\swiper-bundle.min.css" />
+    <Content Include="Content\assets\vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\avatars\1.png" />
+    <Content Include="Content\images\avatars\10.png" />
+    <Content Include="Content\images\avatars\11.png" />
+    <Content Include="Content\images\avatars\12.png" />
+    <Content Include="Content\images\avatars\13.png" />
+    <Content Include="Content\images\avatars\14.png" />
+    <Content Include="Content\images\avatars\15.png" />
+    <Content Include="Content\images\avatars\16.png" />
+    <Content Include="Content\images\avatars\17.png" />
+    <Content Include="Content\images\avatars\18.png" />
+    <Content Include="Content\images\avatars\19.png" />
+    <Content Include="Content\images\avatars\2.png" />
+    <Content Include="Content\images\avatars\20.png" />
+    <Content Include="Content\images\avatars\21.png" />
+    <Content Include="Content\images\avatars\22.png" />
+    <Content Include="Content\images\avatars\23.png" />
+    <Content Include="Content\images\avatars\24.png" />
+    <Content Include="Content\images\avatars\25.png" />
+    <Content Include="Content\images\avatars\26.png" />
+    <Content Include="Content\images\avatars\3.png" />
+    <Content Include="Content\images\avatars\4.png" />
+    <Content Include="Content\images\avatars\5.png" />
+    <Content Include="Content\images\avatars\6.png" />
+    <Content Include="Content\images\avatars\7.png" />
+    <Content Include="Content\images\avatars\8.png" />
+    <Content Include="Content\images\avatars\9.png" />
+    <Content Include="Content\images\avatars\BGName.png" />
+    <Content Include="Content\images\avatars\coin.png" />
+    <Content Include="Content\images\avatars\Crystal.png" />
+    <Content Include="Content\images\avatars\PaimonPayment.png" />
+    <Content Include="Content\images\backgroundAT.de9a14c4.png" />
+    <Content Include="Content\images\banner-1.jpg" />
+    <Content Include="Content\images\banner-2.jpg" />
+    <Content Include="Content\images\banner-3.jpg" />
+    <Content Include="Content\images\bannerVq.png" />
+    <Content Include="Content\images\bao_hanh.png" />
+    <Content Include="Content\images\bg-top.jpg" />
+    <Content Include="Content\images\bg-top.png" />
+    <Content Include="Content\images\bg-vq.jpg" />
+    <Content Include="Content\images\bg-wibu.jpg" />
+    <Content Include="Content\images\buttonNormal.png" />
+    <Content Include="Content\images\caythue.jpg" />
+    <Content Include="Content\images\code-prime.jpg" />
+    <Content Include="Content\images\edit.png" />
+    <Content Include="Content\images\flash-saleq.png" />
+    <Content Include="Content\images\genshin.jpg" />
+    <Content Include="Content\images\google.png" />
+    <Content Include="Content\images\gs-khoidau.png" />
+    <Content Include="Content\images\gs-rr.png" />
+    <Content Include="Content\images\gs-vip.png" />
+    <Content Include="Content\images\GS_Main.gif" />
+    <Content Include="Content\images\honkai.jpg" />
+    <Content Include="Content\images\Honkai_Star_Rail_logo.png" />
+    <Content Include="Content\images\HSR_Main.gif" />
+    <Content Include="Content\images\icon-card.jpg" />
+    <Content Include="Content\images\icon\1st.png" />
+    <Content Include="Content\images\icon\2st.png" />
+    <Content Include="Content\images\icon\3nd.png" />
+    <Content Include="Content\images\icon\bg-sale.jpg" />
+    <Content Include="Content\images\icon\BÁN ACC.png" />
+    <Content Include="Content\images\icon\Bật tắt Giá CTV %281%29.png" />
+    <Content Include="Content\images\icon\Bật tắt Giá CTV.png" />
+    <Content Include="Content\images\icon\CSKH.png" />
+    <Content Include="Content\images\icon\Cộng tác viên.png" />
+    <Content Include="Content\images\icon\flash-sale.png" />
+    <Content Include="Content\images\icon\flashsale.png" />
+    <Content Include="Content\images\icon\Hồ sơ.png" />
+    <Content Include="Content\images\icon\labelSale.png" />
+    <Content Include="Content\images\icon\Liên hệ shop.png" />
+    <Content Include="Content\images\icon\Lịch sử mua.png" />
+    <Content Include="Content\images\icon\Menu.png" />
+    <Content Include="Content\images\icon\messenger.png" />
+    <Content Include="Content\images\icon\MUA ACC.png" />
+    <Content Include="Content\images\icon\NẠP GAME.png" />
+    <Content Include="Content\images\icon\Nạp tiền.png" />
+    <Content Include="Content\images\icon\Quản lý.png" />
+    <Content Include="Content\images\icon\Quản trị.png" />
+    <Content Include="Content\images\icon\rocket.gif" />
+    <Content Include="Content\images\icon\TB tĩnh trắng.png" />
+    <Content Include="Content\images\icon\Tb tĩnh Đen.png" />
+    <Content Include="Content\images\icon\TB động đen.gif" />
+    <Content Include="Content\images\icon\Thông báo TĨNH.png" />
+    <Content Include="Content\images\icon\Thông báo ĐỘNG.gif" />
+    <Content Include="Content\images\icon\Trang chủ.png" />
+    <Content Include="Content\images\icon\treoacc.png" />
+    <Content Include="Content\images\icon\warning.png" />
+    <Content Include="Content\images\icon\Đăng xuất.png" />
+    <Content Include="Content\images\khoidau.jpg" />
+    <Content Include="Content\images\logo-genshin.png" />
+    <Content Include="Content\images\logo-w.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\mailwhite.png" />
+    <Content Include="Content\images\nap_gen.jpg" />
+    <Content Include="Content\images\nap_hk.jpg" />
+    <Content Include="Content\images\P7ZvyL4.png" />
+    <Content Include="Content\images\quayngay.png" />
+    <Content Include="Content\images\random.jpg" />
+    <Content Include="Content\images\random_gs.jpg" />
+    <Content Include="Content\images\random_hk.jpg" />
+    <Content Include="Content\images\reroll.jpg" />
+    <Content Include="Content\images\Salewibugame.jpg" />
+    <Content Include="Content\images\slide-wibu.gif" />
+    <Content Include="Content\images\soldout.png" />
+    <Content Include="Content\images\soldout2.png" />
+    <Content Include="Content\images\topnap.jpg" />
+    <Content Include="Content\images\uy_tin.jpg" />
+    <Content Include="Content\images\vip.jpg" />
+    <Content Include="Content\images\vongquay.png" />
+    <Content Include="Content\images\wuthering.png" />
+    <Content Include="Content\images\WW_main.gif" />
+    <Content Include="Content\images\ZZZ2.gif" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Context\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Context\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\quantri\Views\web.config" />
+    <Content Include="Content\assets\font\ghenshin.otf" />
+    <Content Include="Content\assets\font\ghenshin.ttf" />
+    <Content Include="Content\assets\img\AuthDevider.webp" />
+    <Content Include="Content\assets\img\public.webp" />
+    <Content Include="Content\assets\vendor\bootstrap-icons\bootstrap-icons.json" />
+    <Content Include="Content\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <Content Include="Content\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Content\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="Content\assets\vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="Areas\quantri\Content\css\app.css.map" />
+    <Content Include="Areas\quantri\Content\fonts\.gitkeep" />
+    <Content Include="Areas\quantri\Content\js\app.js.map" />
+    <Content Include="Areas\quantri\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\quantri\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\quantri\Views\TrangChu\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\NhanVat\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\VuKhi\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoan\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoan\taikhoandaban.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoan\themmoi.cshtml" />
+    <Content Include="Content\assets\ckeditor\bender-runner.config.json" />
+    <Content Include="Content\assets\ckeditor\CHANGES.md" />
+    <Content Include="Content\assets\ckeditor\LICENSE.md" />
+    <Content Include="Content\assets\ckeditor\README.md" />
+    <Content Include="Content\assets\ckeditor\samples\old\assets\posteddata.php" />
+    <Content Include="Content\assets\ckeditor\samples\old\sample_posteddata.php" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\font\config.json" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\font\fontello.eot" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
+    <Content Include="Content\assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <Content Include="Content\assets\ckeditor\SECURITY.md" />
+    <Content Include="Content\assets\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoan\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoancuatoi\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\Shared\_Layout1.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoancuatoi\themmoi.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoancuatoi\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoancuatoi\taikhoandaban.cshtml" />
+    <Content Include="Areas\quantri\Views\Shared\_loadNV.cshtml" />
+    <Content Include="Areas\quantri\Views\Shared\_loadVK.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\Themmoi.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\danhsachacc.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\themacc.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\suaacc.cshtml" />
+    <Content Include="Areas\quantri\Views\ruttienctv\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\ruttienctv\DanhSach.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynguoidung\Create.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynguoidung\Delete.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynguoidung\Details.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynguoidung\Edit.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynguoidung\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\themnhieuacc.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynapgame\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynapgame\Daxuly.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinhiemvu\Create.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinhiemvu\Delete.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinhiemvu\Details.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinhiemvu\Edit.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinhiemvu\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\ctvCayThue\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\ctvCayThue\dondanhan.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyruttienctv\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinapgame\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinapgame\Create.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinapgame\Delete.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlycode\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlycode\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlycode\danhsach.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlycode\danhsachdaban.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlycode\themcode.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlycode\themmoi.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\danhsachaccdaban.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoanNB\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoanNB\themmoi.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoanNB\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoanNB\taikhoandaban.cshtml" />
+    <Content Include="Areas\quantri\Views\caidatvongquay\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\giaithuongvongquay\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\giaithuongvongquay\loaigiai.cshtml" />
+    <Content Include="Areas\quantri\Views\giaithuongvongquay\taomoi.cshtml" />
+    <Content Include="Areas\quantri\Views\giaithuongvongquay\edit.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoan\timkiem.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygoinapgame\Edit.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoancuatoi\timkiem.cshtml" />
+    <Content Include="Areas\quantri\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\Dashboard\tongThongKe.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynap\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydoanhthu\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\CaiDat\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\CaiDat\TangThoiGian.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyaccrandom\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyaccrandom\timkiem.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyaccrandom\themmoi.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyaccrandom\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyaccrandom\taikhoandaban.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoanrandomcuatoi\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoanrandomcuatoi\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoanrandomcuatoi\taikhoandaban.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoanrandomcuatoi\themmoi.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoanrandomcuatoi\timkiem.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\Themmoi.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\danhsachacc.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\danhsachaccdaban.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\themacc.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\themnhieuacc.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\suaacc.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\random.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\ThemmoiRandom.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlydanhmuc\suaRanDom.cshtml" />
+    <Content Include="Areas\quantri\Views\CauHinh\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\random.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\ThemmoiRandom.cshtml" />
+    <Content Include="Areas\quantri\Views\rerollcuatoi\suaRandom.cshtml" />
+    <Content Include="Areas\quantri\Views\NhanVat\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\VuKhi\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\ApiAcc\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\ApiAcc\key.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygame\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlygame\sua.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyloaiacc\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyloaiacc\sua.cshtml" />
+    <Content Include="Content\images\Clara-1.webp" />
+    <Content Include="Areas\quantri\Views\quanlygiaodich\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlyanh\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\soluongMenu\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlycaythue\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlycaythue\dondanhan.cshtml" />
+    <Content Include="Areas\quantri\Views\QLichSuBanAcc\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\Shared\_Layout2.cshtml" />
+    <EntityDeploy Include="Context\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Context\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\quantri\Views\QLichSuBanAcc\taikhoandaban.cshtml" />
+    <Content Include="Areas\quantri\Views\QNap\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\QNguoiDung\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\QNguoiDung\Edit.cshtml" />
+    <Content Include="Areas\quantri\Views\QNguoiDung\DanhSachCong.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynguoidung\ListCongTien.cshtml" />
+    <Content Include="Areas\quantri\Views\nguoidungApi\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoan\LoaiAcc.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoan\LoaiAccDacBiet.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlytaikhoan\RandomRR.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlylichsu\LsMuaAcc.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlynap\NapTheCao.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlylichsu\LsMuaAccRandom.cshtml" />
+    <Content Include="Areas\quantri\Views\QLichSuBanAcc\AccVip.cshtml" />
+    <Content Include="Areas\quantri\Views\QLichSuBanAcc\RandomRR.cshtml" />
+    <Content Include="Areas\quantri\Areas - Shortcut.lnk" />
+    <Content Include="Areas\quantri\Views\QNapGame\Daxuly.cshtml" />
+    <Content Include="Areas\quantri\Views\QNapGame\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoancuatoi\LoaiAcc.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoancuatoi\LoaiAccDacBiet.cshtml" />
+    <Content Include="Areas\quantri\Views\taikhoancuatoi\RandomRR.cshtml" />
+    <Content Include="Areas\quantri\Views\QNap\NapTheCao.cshtml" />
+    <Content Include="Areas\quantri\Views\quanlythongbao\Index.cshtml" />
+    <Content Include="Areas\quantri\Views\ImageManagement\Index.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\dangnhap\Index.cshtml" />
+    <Content Include="Views\dangky\Index.cshtml" />
+    <Content Include="Views\chitiettaikhoan\xem.cshtml" />
+    <Content Include="Views\DanhSach\HonKai_Star_Rail.cshtml" />
+    <Content Include="Views\DanhSach\GenShin_Impact.cshtml" />
+    <Content Include="Views\DanhMuc\LoaiGame.cshtml" />
+    <Content Include="Views\DanhMuc\muataikhoan.cshtml" />
+    <Content Include="Views\Shared\_Rendermuataikhoan.cshtml" />
+    <Content Include="Views\TaiKhoanDaMua\Index.cshtml" />
+    <Content Include="Views\TaiKhoanDaMua\taikhoanthuong.cshtml" />
+    <Content Include="Views\TaiKhoanDaMua\taikhoanreroll.cshtml" />
+    <Content Include="Views\chitiettaikhoan\mua.cshtml" />
+    <Content Include="Views\Shared\_RenderMuaTaiKhoanThuong.cshtml" />
+    <Content Include="Views\NapTien\Index.cshtml" />
+    <Content Include="Views\NapTien\ATM.cshtml" />
+    <Content Include="Views\Shared\_Recordnap.cshtml" />
+    <Content Include="Views\napthecao\Index.cshtml" />
+    <Content Include="Views\nguoidung\hoso.cshtml" />
+    <Content Include="Views\NapGame\Index.cshtml" />
+    <Content Include="Views\NapGame\themmoi.cshtml" />
+    <Content Include="Views\CayThue\themmoi.cshtml" />
+    <Content Include="Views\CayThue\danhsach.cshtml" />
+    <Content Include="Views\CayThue\Index.cshtml" />
+    <Content Include="Views\MuaCode\Index.cshtml" />
+    <Content Include="Views\Shared\phantrang.cshtml" />
+    <Content Include="Views\nguoidung\biendongsodu.cshtml" />
+    <Content Include="Views\NoiBo\Index.cshtml" />
+    <Content Include="Views\VongQuay\Index.cshtml" />
+    <Content Include="Views\QuenMatKhau\Index.cshtml" />
+    <Content Include="Views\NoiBo\codenoibo.cshtml" />
+    <Content Include="Views\Shared\_renderTop.cshtml" />
+    <Content Include="Views\DanhSach\HonKai_Star_Rail_Khoi_Dau.cshtml" />
+    <Content Include="Views\napmomo\Index.cshtml" />
+    <Content Include="Views\napACB\index.cshtml" />
+    <Content Include="Views\napthecao\Test.cshtml" />
+    <Content Include="Views\DanhSach\GenShin_Impact_Khoi_Dau.cshtml" />
+    <Content Include="Views\DanhSach\HonKai_Star_Rail_vip.cshtml" />
+    <Content Include="Views\DanhSach\GenShin_Impact_vip.cshtml" />
+    <Content Include="Views\DanhSach\GenShin_Impact_Random.cshtml" />
+    <Content Include="Views\DanhSach\HonKai_Star_Rail_Random.cshtml" />
+    <Content Include="Views\ThongTin\Check_ut.cshtml" />
+    <Content Include="Views\ThongTin\Bao_hanh.cshtml" />
+    <Content Include="Views\DanhSach\loaigame.cshtml" />
+    <Content Include="Views\DanhSach\loaiAcc.cshtml" />
+    <Content Include="Views\DanhMuc\LoaiAcc.cshtml" />
+    <Content Include="Views\Home\renderGame.cshtml" />
+    <Content Include="Views\Home\renderFooter.cshtml" />
+    <Content Include="Views\Home\renderHead.cshtml" />
+    <Content Include="Views\Home\renderMoney.cshtml" />
+    <Content Include="Views\soluongMenu\rutien.cshtml" />
+    <Content Include="Views\soluongMenu\napgame.cshtml" />
+    <Content Include="Views\soluongMenu\ctvCayThue.cshtml" />
+    <Content Include="Views\dangxuat\Index.cshtml" />
+    <Content Include="Views\soluongMenu\adminCongTien.cshtml" />
+    <Content Include="Views\DanhMuc\ListDanhMucCollab.cshtml" />
+    <Content Include="Views\Home\Blocked.cshtml" />
+    <Content Include="Views\QuenMatKhau\ResetPassword.cshtml" />
+    <Content Include="Views\DanhSach\Accgame.cshtml" />
+    <Content Include="Views\NapGame\ListPackage.cshtml" />
+    <Content Include="Views\NapGame\themmoiUID.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\quantri\Data\" />
+    <Folder Include="Areas\quantri\Views\LichSuBanAcc\" />
+    <Folder Include="Areas\quantri\Views\load\" />
+    <Folder Include="Content\images\GoiNapGame\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\ApiAcc\" />
+    <Folder Include="Views\ApiNap\" />
+    <Folder Include="Views\Mail\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62756</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62756/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Magick.NET-Q8-AnyCPU.13.8.0\build\netstandard20\Magick.NET-Q8-AnyCPU.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Magick.NET-Q8-AnyCPU.13.8.0\build\netstandard20\Magick.NET-Q8-AnyCPU.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\Magick.NET-Q8-AnyCPU.13.8.0\build\netstandard20\Magick.NET-Q8-AnyCPU.targets" Condition="Exists('..\packages\Magick.NET-Q8-AnyCPU.13.8.0\build\netstandard20\Magick.NET-Q8-AnyCPU.targets')" />
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<accgame.Context.NapGame>
+@{
+    ViewBag.Title = "Đơn nạp game đã xử lý";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout2.cshtml";
+}
+
+<main class="content">
+    <div>
+        <a href="/quantri/QNapGame/" class="btn btn-primary mb-3">Đơn hàng chưa xử lý</a>
+    </div>
+    <div class="table-responsive p-0">
+        <table class="table align-items-center mb-0">
+            <thead>
+                <tr class="bg-success fs-6">
+                    <th class="text-uppercase text-white text-nowrap">ID</th>
+                    <th class="text-uppercase text-white text-nowrap">GIÁ TRỊ</th>
+                    <th class="text-uppercase text-white text-nowrap">TRẠNG THÁI</th>
+                    <th class="text-uppercase text-white text-nowrap">UID</th>
+                    <th class="text-uppercase text-white text-nowrap">TÀI KHOẢN</th>
+                    <th class="text-uppercase text-white text-nowrap">SERVER</th>
+                    <th class="text-uppercase text-white text-nowrap">SỐ ĐIỆN THOẠI</th>
+                    <th class="text-uppercase text-white text-nowrap">GÓI NẠP</th>
+                    <th class="text-uppercase text-white text-nowrap">NGƯỜI GỬI</th>
+                    <th class="text-uppercase text-white text-nowrap">GHI CHÚ</th>
+                    <th class="text-uppercase text-white text-nowrap">THỜI GIAN</th>
+                </tr>
+            </thead>
+            <tbody class="fs-6">
+                @foreach (var item in Model)
+                {
+                    var thoiGian24h = item.ThoiGianGui.HasValue
+                    ? item.ThoiGianGui.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                    : string.Empty;
+                    <tr class="text-dark">
+                        <td class="align-middle">
+                            <span style="font-weight: 700" class="mb-0 text-sm">#@item.IDNapGame</span>
+                        </td>
+                        <td class="align-middle">
+                            <span class="">@item.SoTien</span>
+                        </td>
+                        <td class="text-sm align-middle">
+                            @if (item.HoanThanh == true)
+                            {
+                                <span class="badge bg-success">Đã hoàn thành</span>
+                            }
+                            else if (item.HoanThanh == false)
+                            {
+                                <span class="badge bg-dark">Đã hủy</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Đang chờ</span>
+                            }
+                        </td>
+                        <td>
+                            <p class="fw-semibold mb-0">@item.UID</p>
+                            <p class="text-xs mb-0 text-nowrap fst-italic">Tên nv: @item.TenNhanVat</p>
+                        </td>
+                        <td class="text-sm align-middle">
+                            <span class="">@item.TenDangNhap</span>
+                            <p class="text-xs mb-0 text-nowrap fst-italic">Mật khẩu: @item.MatKhau</p>
+                        </td>
+                        <td class="align-middle">
+                            <span class="">@item.Server</span>
+                        </td>
+                        <td class="align-middle">
+                            <span class="">@item.SoDienThoai</span>
+                        </td>
+                        <td class="align-middle">
+                            @if (item.GoiNap != null)
+                            {
+                                <span>@item.GoiNap.TenGoi</span>
+                            }
+                        </td>
+                        <td class="align-middle">
+                            <span class="">@item.NguoiDung.TenNguoiDung</span>
+                        </td>
+                        <td class="align-middle">
+                            <span class="">@item.GhiChu</span>
+                        </td>
+                        <td class="align-middle">
+                            <span class="">@thoiGian24h</span>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+        <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/QNapGame/daxuly?page=1">«</a></li>
+        @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+        {
+            if (i > 0)
+            {
+                if (i == Convert.ToInt16(ViewBag.page))
+                {
+                    <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/QNapGame/daxuly?page=@i">@i</a></li>
+                }
+                else
+                {
+                    <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/QNapGame/daxuly?page=@i">@i</a></li>
+                }
+            }
+        }
+        @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+        {
+            if (i <= Convert.ToInt16(ViewBag.last_page))
+            {
+                if (i == Convert.ToInt16(ViewBag.page))
+                {
+                    <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/QNapGame/daxuly?page=@i">@i</a></li>
+                }
+                else
+                {
+                    <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/QNapGame/daxuly?page=@i">@i</a></li>
+                }
+            }
+        }
+        <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/QNapGame/daxuly?page=@ViewBag.last_page">»</a></li>
+    </ul>
+</main>
+

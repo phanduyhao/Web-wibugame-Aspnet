@@ -1,0 +1,100 @@
+﻿@model IEnumerable<accgame.Context.AccRandom>
+@{
+    ViewBag.Title = "danhsachacc";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <a href="/quantri/rerollcuatoi/themacc/@ViewBag.iddanhmuc" class="btn btn-primary">Thêm mới</a>
+                        <a href="/quantri/rerollcuatoi/themnhieuacc/@ViewBag.iddanhmuc" class="btn btn-primary">Thêm mới nhiều acc</a>
+                        <a href="/quantri/rerollcuatoi/danhsachacc/@ViewBag.iddanhmuc" class="btn btn-primary">Danh sách acc chưa bán</a>
+                    </div>
+                </div>
+                <div class="card-header">
+
+                    <h5 class="card-title mb-0">Tài khoản - @ViewBag.tenDanhMuc</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th class="">Tên danh mục</th>
+                                <th class="">Tài khoản</th>
+
+                                <th class="">Mật khẩu</th>
+                                <th class="">Thời gian bán</th>
+                                <th class="">Người mua</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thoiGian24h = item.ThoiGianBan.HasValue
+                                    ? item.ThoiGianBan.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                <tr>
+                                    <td>#@item.IDAccRandom</td>
+                                    <td>@item.DanhMuc.TenDanhMuc </td>
+
+                                    <td>@item.TaiKhoan</td>
+
+                                    <td>@item.MatKhau</td>
+                                    <td>@thoiGian24h</td>
+                                    <td>@item.NguoiDung1.TenNguoiDung</td>
+                                    <td>
+                                        <a href="/quantri/rerollcuatoi/suaacc/@item.IDAccRandom" class="badge bg-danger">Sửa</a>
+                                        <a href="/quantri/rerollcuatoi/xoaacc/@item.IDAccRandom" onclick="if (confirm('Bạn muốn xóa tài khoản này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/rerollcuatoi/danhsachaccdaban/@ViewBag.iddanhmuc?page=1">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/rerollcuatoi/danhsachaccdaban/@ViewBag.iddanhmuc?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/rerollcuatoi/danhsachaccdaban/@ViewBag.iddanhmuc?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/rerollcuatoi/danhsachaccdaban/@ViewBag.iddanhmuc?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/rerollcuatoi/danhsachaccdaban/@ViewBag.iddanhmuc?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/rerollcuatoi/danhsachaccdaban/@ViewBag.iddanhmuc?page=@ViewBag.last_page">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

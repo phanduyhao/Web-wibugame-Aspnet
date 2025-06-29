@@ -1,0 +1,165 @@
+﻿@model accgame.Context.LoaiAcc
+
+@{
+    ViewBag.Title = "Chỉnh sửa Loại acc";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-header">
+            <h4>Chỉnh sửa Loại game</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("sua", "quanlyloaiacc", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IDLoaiAcc)
+                @if (ViewBag.notify != null)
+                {
+                    <div class="bg-danger p-3 rounded-2 text-light mb-3" role="alert">@ViewBag.notify</div>
+                }
+
+                <div class="form-group">
+                    <b>Tên loại Acc</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.TenLoaiAcc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TenLoaiAcc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Trạng thái</b>
+                    <div class="">
+                        <select class="form-select mb-3" name="Hide">
+                            @if (Model.Hide == true)
+                            {
+                                <option selected value="true">Ản</option>
+                                <option value="false">Hiển thị</option>
+                            }
+                            else
+                            {
+                                <option selected value="false">Hiển thị</option>
+                                <option value="true">Ẩn</option>
+
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <!-- Ảnh đại diện -->
+                <div class="form-group">
+                    <label for="ImageUpload"><b>Ảnh đại diện</b></label>
+                    <div class="text-center mb-3">
+                        <!-- Hiển thị ảnh hiện tại nếu có -->
+                        <img src="@Model.Image" id="image-preview" alt="Ảnh đại diện" style="max-height: 150px;" class="rounded">
+                    </div>
+                    <input type="file" id="ImageUpload" name="ImageUpload" class="form-control bg-light" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <b>Ảnh đại diện</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Mô tả</b>
+                    <div class="">
+                        @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control MoTa", rows = 5 })
+                        @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Số thứ tự</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.STT, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.STT, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Đã bán </b>
+                    <div class="">
+                        @Html.EditorFor(model => model.DaBan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DaBan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Loại</b>
+                    <div class="">
+                        <select class="form-select mb-3" name="DacBiet">
+                            @if (Model.DacBiet == true)
+                            {
+                                <option selected value="true">Loại random</option>
+                                <option value="false">Loại thường</option>
+                            }
+                            else
+                            {
+                                <option selected value="false">Loại thường</option>
+                                <option value="true">Loại random</option>
+
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Loại Acc Cha</b>
+                    <div class="">
+                        <select name="IDLoaiAccCha" class="form-select">
+                            <option value="">Trống</option>
+                            @foreach (var item in ViewBag.loaiacc)
+                            {
+                                <option @if (Model.IDLoaiAccCha == item.IDLoaiAcc) { <text> selected </text> } value="@item.IDLoaiAcc">@item.TenLoaiAcc</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Loại game</b>
+                    <div class="">
+                        <select name="IDLoaiGame" class="form-select">
+                            @foreach (var item in ViewBag.loaigame)
+                            {
+                                <option @if (Model.IDLoaiGame == item.IDLoaiGame) { <text> selected </text> } value="@item.IDLoaiGame">@item.TenLoaiGame</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group mt-3">
+                    <div class="col-md-offset-2 ">
+                        <input type="submit" value="Lưu lại" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</main>
+
+<script>
+    CKEDITOR.replace("MoTa");
+    // Xem trước ảnh tải lên
+    const imageInput = document.getElementById('ImageUpload');
+    const imagePreview = document.getElementById('image-preview');
+
+    imageInput.addEventListener('change', function () {
+        const file = this.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.addEventListener('load', function () {
+                imagePreview.src = this.result;
+            });
+            reader.readAsDataURL(file);
+        }
+    });
+</script>

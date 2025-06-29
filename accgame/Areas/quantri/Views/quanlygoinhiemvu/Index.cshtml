@@ -1,0 +1,47 @@
+﻿@model IEnumerable<accgame.Context.GoiNhiemVu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <p>
+        @Html.ActionLink("Tạo mới", "Create")
+    </p>
+    <table class="table">
+        <tr class="bg-success text-white">
+            <th>
+                Tên gói nhiệm vụ
+            </th>
+            <th>
+                Giá tiền
+            </th>
+            <th>
+                Loại game
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenGoiNhiemVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaTien)
+                </td>
+                <td class="price">
+                    @item.LoaiGame1.TenLoaiGame
+                </td>
+                <td>
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.IDGoiNhiemVu })|
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.IDGoiNhiemVu })
+                </td>
+            </tr>
+        }
+
+    </table>
+</main>
+

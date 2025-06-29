@@ -1,0 +1,79 @@
+﻿@model accgame.Models.HomeModels
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Code nội bộ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="about about-acc">
+    <div class="form-dangky p-0 border-dangky mt-5">
+        <div class="pb-3 text-center">
+            <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                Danh sách code nội bộ đã mua
+            </h2>
+            <img class="img-fluid" src="/Content/assets/img/AuthDevider.png">
+        </div>
+        <div class="table-responsive p-0" id="divToReplace">
+            <div class="text-center">
+                <a href="/noibo#mua-code" class="btn btn-primary rounded-pill my-3">Trở về trang nội bộ</a>
+
+            </div>
+            <table class="table align-items-center mb-0">
+                <thead>
+                    <tr class="bg-success fs-6">
+                        <th class="text-uppercase text-white text-nowrap">ID</th>
+                        <th class="text-uppercase text-white text-nowrap">GIÁ TRỊ</th>
+                        <th class="text-uppercase text-white text-nowrap">LOẠI CODE</th>
+                        <th class="text-uppercase text-white text-nowrap">THỜI GIAN MUA</th>
+                        <th class="text-uppercase text-white text-nowrap">MÃ CODE</th>
+                        <th class="text-uppercase text-white text-nowrap"></th>
+                    </tr>
+                </thead>
+                <tbody class="fs-6">
+                    @foreach (var item in Model.listCode)
+                    {
+                        <tr class="text-dark">
+                            <td class="align-middle">
+                                <span style="font-weight: 700" class="mb-0 text-sm">#@item.IDCode</span>
+                            </td>
+                            <td class="align-middle">
+                                <span class="">@Convert.ToInt32(item.LoaiCode.Gia).ToString("N0").Replace(",", ".") VNĐ </span>
+                            </td>
+                            <td class="align-middle">
+                                <span class="badge bg-primary">@item.LoaiCode.TenLoaiCode</span>
+                            </td>
+                            <td class="text-sm align-middle">
+                                <span class="badge bg-danger">@item.ThoiGianMua</span>
+                            </td>
+                            <td class="align-middle">
+                                <div id="macode_@item.IDCode">@item.MaCode</div>
+                                @if (item.LoaiCode.CodeNoiBo == true)
+                                {
+                                    <span class="badge bg-danger">Code nội bộ</span>
+                                }
+
+                            </td>
+
+                            <td class="align-middle">
+                                <button class="btn btn-light rounded-pill" onclick="copyToClipboard('#macode_@item.IDCode')"><i class="fas fa-copy"></i> Sao chép</button>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model.listCode, page => Url.Action("codenoibo", new { page }))
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        alert("Sao chép thành công!")
+    }
+</script>

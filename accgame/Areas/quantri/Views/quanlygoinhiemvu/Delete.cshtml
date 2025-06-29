@@ -1,0 +1,50 @@
+﻿@model accgame.Context.GoiNhiemVu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+<main class="content">
+    <h3>Bạn muốn xóa gói này?</h3>
+    <div>
+        <h4>GoiNhiemVu</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenGoiNhiemVu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenGoiNhiemVu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GiaTien)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaTien)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoaiGame)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoaiGame)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</main>
+

@@ -1,0 +1,397 @@
+﻿@model accgame.Models.HomeModels
+@{
+    ViewBag.Title = "Chi tiết tài khoản " + Model.acc.TenAcc;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about about-acc">
+    <div class="container">
+        <div class="MuiBox-root acc-title">
+            <div class="text-center">
+                <h2><span class="td">Thông tin chi tiết</span></h2>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="p-0 ds-acc-wrap position-relative" style="background-color: #f1f3f6; border-radius: 1.5rem">
+
+                    <div class="text-danger fw-bold position-relative" style="z-index: 2">
+                        <div class="position-absolute top-0 mx-auto start-50 translate-middle-x" style="margin-top:-40px; max-width: 100%; width: 500px">
+                            <div class="position-relative text-center px-2 fw-semibold justify-content-center text-white d-flex align-items-center" style="z-index: 2; height: 60px">
+                                <h3>ACC @Model.acc.LoaiGame1.TenLoaiGame</h3>
+                            </div>
+
+                            <img src="/Content/assets/img/honkaititle.png" style="z-index: 1" class="position-absolute bottom-0 end-0 w-100" height="90">
+                        </div>
+                    </div>
+                    <div class="text-center px-0 card-body bg-transparent custom-block-full position-relative">
+                        <h4 class="ten-game ten-game-xem fw-bold text-center p-4 mt-4">@Model.acc.TenAcc</h4>
+                        <div class="swiper swiper-container" style="padding: 7rem; margin-top: -3rem">
+                            <div class="swiper-wrapper">
+                                <!-- Slide ảnh đại diện -->
+                                <div class="swiper-slide">
+                                    <a href="@Model.acc.AnhDaiDien" class="gallery-lightbox" data-gall="gallery-item">
+                                        <img class="img-top-slider h-100 w-100 object-fit-cover" src="@Model.acc.AnhDaiDien" alt="Ảnh đại diện - @Model.acc.TenAcc">
+                                    </a>
+                                </div>
+
+                                <!-- Slide ảnh khác (lặp qua Model.listAnh_Acc) -->
+                                @foreach (var item in Model.listAnh_Acc)
+                                {
+                                    if (item.DuongDanAnh != Model.acc.AnhDaiDien) // Bỏ ảnh trùng với ảnh đại diện
+                                    {
+                                        <div class="swiper-slide">
+                                            <a href="@item.DuongDanAnh" class="gallery-lightbox" data-gall="gallery-item">
+                                                <img class="img-top-slider h-100 w-100 object-fit-cover" src="@item.DuongDanAnh" alt="Ảnh khác - @Model.acc.TenAcc">
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            </div>
+
+                            <!-- Nút điều hướng -->
+                            <div class="swiper-button-prev mobile-nav rounded-3 text-white"></div>
+                            <div class="swiper-button-next mobile-nav rounded-3 text-white"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-7">
+                <div class="p-4 ds-acc-wrap position-relative  mt-md-5 mt-3" style="background-color: #f1f3f6; border-radius: 1.5rem">
+                    <div class="card-body px-0 bg-transparent custom-block-full position-relative">
+                        <h3 class="text-center ten-game fw-bold text-center pb-4">Chi tiết nhân vật và vũ khí</h3>
+                        @if (Model.acc.AnhNhanVat != null && Model.acc.AnhNhanVat != "")
+                        {
+                            <div class="printNhanVat" data-images="@Model.acc.AnhNhanVat" data-names="@Model.acc.TenNhanVat">
+                                <b class="text-dark" style="font-size: 13px">Nhân vật:</b>
+                            </div>
+                        }
+                        @if (Model.acc.AnhVuKhi != null && Model.acc.AnhVuKhi != "")
+                        {
+                            <div class="printNhanVat" data-images="@Model.acc.AnhVuKhi" data-names="@Model.acc.TenVuKhi">
+                                <b class="text-dark mt-2" style="font-size: 13px">Vũ khí 5*:</b>
+                            </div>
+                        }
+                        <div class="MuiBox-root css-chi-tiet-nv mt-3">
+                            @Html.Raw(Model.acc.ChiTiet)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-5">
+                @if (ViewBag.isSaleTet == "1")
+                {
+                    int tongPhanTram = (ViewBag.phanTramTet != null ? Convert.ToInt32(ViewBag.phanTramTet) : 0) + (Model.acc.PhanTram ?? 0);
+
+                    <div class="px-3 mt-5 py-4 rounded" style="background-image: url(../../Content/images/icon/bg-sale.jpg)">
+                        <div class=" d-flex flex-lg-row flex-column align-items-start justify-content-between ">
+                            <div class="">
+                                <p class="text-dark">Mua ngay giá rẻ quá!</p>
+                                <span style="font-size: 16px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm mb-2"> @Convert.ToInt32(Model.acc.GiaGoc).ToString("N0").Replace(",", ".") VNĐ</span>
+                                <div class="d-flex align-items-center p-1 rounded mb-2" style="background: #eeef2f; width: fit-content">
+                                    <img src="~/Content/images/icon/flash-sale.png" width="20px" alt="Alternate Text" />
+                                    <span class="text-danger">- @tongPhanTram%</span>
+                                </div>
+
+                            </div>
+                            <div class="p-3 rounded mt-lg-0 mt-2" style="background: #00000096">
+                                <p class="text-white">Kết thúc sau</p>
+                                <div id="timer" class=" col-md-2"></div>
+
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <span class="text-danger " style="font-size: 13px">Giá và khuyến mãi có thể kết thúc sớm hơn dự kiến!</span>
+                        </div>
+                    </div>
+
+                }
+                <div class="p-4 ds-acc-wrap position-relative @if (ViewBag.isSaleTet == "1") { <text>mt-0</text>}else{ <text>mt-5</text>} " style="background-color: #f1f3f6; border-radius: 1.5rem">
+                    <div class="text-center px-0 card-body bg-transparent custom-block-full position-relative">
+                        <h3 class="ten-game fw-bold text-center pb-2">Mã tài khoản</h3>
+                        <div class="MuiBox-root css-gia-acc">@Model.acc.MaTaiKhoan</div>
+                    </div>
+                    <div class="text-center px-0 card-body bg-transparent custom-block-full position-relative">
+
+                        @if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true && ViewBag.OnOffCtvCollab == true)
+                        {
+
+                            if (Model.acc.GiaCtvCollab != null)
+                            {
+                                var giactvcollab = Model.acc.Gia / 100 * Model.acc.GiaCtvCollab;
+                                <h3 class="ten-game fw-bold text-center pb-2">Giá ( Ctv-Collab )</h3>
+
+                                <div class="MuiBox-root css-gia-acc mb-4">@Convert.ToInt32(giactvcollab).ToString("N0").Replace(",", ".") VNĐ</div>
+                            }
+                            else
+                            {
+                                <h3 class="ten-game fw-bold text-center pb-2">Giá</h3>
+                                <span class="text-danger">( Chưa có giá cho Ctv-Collab! )</span>
+                                if (Model.acc.PhanTram != null && Model.acc.PhanTram != 0)
+                                {
+                                    <p style=" opacity: .8" class="text-dark chitiet-discount d-block text-decoration-line-through text-sm"> @Convert.ToInt32(Model.acc.GiaGoc).ToString("N0").Replace(",", ".") VNĐ</p>
+                                }
+                                <div class="MuiBox-root css-gia-acc mb-4">@Convert.ToInt32(Model.acc.Gia).ToString("N0").Replace(",", ".") VNĐ</div>
+                            }
+                        }
+                        else
+                        {
+
+                            <h3 class="ten-game fw-bold text-center pb-2">Giá</h3>
+                            if (Model.acc.PhanTram != null && Model.acc.PhanTram != 0)
+                            {
+                                <p style="opacity: .5" class="text-dark chitiet-discount d-block text-decoration-line-through text-sm"> @Convert.ToInt32(Model.acc.GiaGoc).ToString("N0").Replace(",", ".") VNĐ</p>
+                            }
+                            <div class="MuiBox-root css-gia-acc mb-4">@Convert.ToInt32(Model.acc.Gia).ToString("N0").Replace(",", ".") VNĐ</div>
+                        }
+                        @if (Model.acc.DaBan == true)
+                        {
+                            <h4 class="text-danger">Tài khoản đã được mua!</h4>
+                        }
+                        else
+                        {
+                            <button data-bs-toggle="modal" data-bs-target="#muanick" class="MuiBox-root mua-hang border-0"> </button>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
+<div class="modal fade" id="muanick" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-3 text-danger fw-bold" id="exampleModalLabel">MUA TÀI KHOẢN</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-danger text-center">
+
+
+                @if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true && ViewBag.OnOffCtvCollab == true)
+                {
+                    var giactvcollab = Model.acc.Gia / 100 * Model.acc.GiaCtvCollab;
+
+                    if (Model.acc.GiaCtvCollab != null)
+                    {
+                        <h3>Giá ( Ctv-Collab ): @Convert.ToInt32(giactvcollab).ToString("N0").Replace(",", ".")đ </h3>
+                        <p class="fs-5">Bạn muốn mua tài khoản <span class="text-dark">@Model.acc.TenAcc</span> với giá <span> @Convert.ToInt32(giactvcollab).ToString("N0").Replace(",", ".")đ</span>?</p>
+                    }
+                    else
+                    {
+                        <h3>Giá:  @Convert.ToInt32(Model.acc.Gia).ToString("N0").Replace(",", ".")đ</h3>
+                        <p class="fs-5">Chưa có giá Ctv cho tk này. Bạn muốn mua tài khoản <span class="text-dark">@Model.acc.TenAcc</span> với giá thường <span class="price"> @Convert.ToInt32(Model.acc.Gia).ToString("N0").Replace(",", ".")đ</span>?</p>
+                    }
+                }
+                else
+                {
+                    <h3>Giá:  @Convert.ToInt32(Model.acc.Gia).ToString("N0").Replace(",", ".")đ</h3>
+                    <p class="fs-5">Bạn muốn mua tài khoản <span class="text-dark">@Model.acc.TenAcc</span> với giá <span> @Convert.ToInt32(Model.acc.Gia).ToString("N0").Replace(",", ".")đ</span> ?</p>
+                }
+                @*
+
+
+                    <h3>Giá: @Model.acc.Gia VNĐ</h3>
+                    <p class="fs-5 text-danger">Bạn muốn mua tài khoản <span class="text-dark">@Model.acc.TenAcc</span> với giá @Model.acc.Gia VNĐ?</p>*@
+
+                @if (Model.acc.MaGiamGia != null)
+                {
+                    <div class="text-dark mb-3">Nhập mã giảm giá để được giảm @Convert.ToInt32(Model.acc.SoTienGiam).ToString("N0").Replace(",", ".") VNĐ</div>
+                    <input id="code" class="form-control text-center" placeholder="Nhập mã giảm giá" />
+                }
+                <div id="change" class="text-center text-primary fw-bold">
+
+                </div>
+
+                <div class="mx-auto" style="display: none" id="loader">
+                    <div colspan="4" class="text-center" style="border-bottom-width: 0px !important">
+                        <div class="spinner-border text-danger text-center" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <a id="muangay" href="/chitiettaikhoan/mua/@Model.acc.IDAcc" class="btn btn-danger rounded-pill" data-ajax="true" data-ajax-loading="#loader" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#change">Mua ngay</a>
+            </div>
+            @if (Session["IDNguoiDung"] == null || Session["IDNguoiDung"].Equals(0))
+            {
+                <span class="text-primary text-center py-3 ">
+                    Bạn phải <a href="/dangnhap" class="btn btn-danger rounded-pill btn-sm mx-2">Đăng nhập</a> mới có thể mua!
+                </span>
+            }
+        </div>
+    </div>
+</div>
+@if (Model.acc.MaGiamGia != null)
+{
+    <script>
+        $("#muangay").click(function (e) {
+            if ($("#code").val() != null) {
+                $("#muangay").attr("href", "/chitiettaikhoan/mua/@Model.acc.IDAcc?code=" + $("#code").val());
+            }
+        });
+    </script>
+}
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+    });
+    var divsWithClass = document.querySelectorAll('.printNhanVat');
+    divsWithClass.forEach(function (div) {
+        var imageUrls = div.getAttribute('data-images').split(',');
+        var nameImage = div.getAttribute('data-names').split(',');
+        if (imageUrls.length !== nameImage.length) {
+            console.error('Độ dài của mảng imageUrls và nameImage không phù hợp');
+            return;
+        }
+        imageUrls.forEach(function (url, index) {
+            var divWrapper = document.createElement("div");
+            var imgElement = document.createElement("img");
+            var spanWrapper = document.createElement("span");
+            spanWrapper.textContent = nameImage[index].trim();
+            imgElement.src = url.trim();
+            imgElement.width = 50;
+            imgElement.height = 50;
+            divWrapper.appendChild(imgElement);
+            divWrapper.appendChild(spanWrapper);
+            div.appendChild(divWrapper);
+        });
+    });
+    const timerDisplay = document.getElementById("timer");
+
+    // Biến đếm ngược
+    let countdownInterval;
+    let remainingTime;
+
+    // Hàm hiển thị thời gian
+    function displayTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secondsLeft = Math.floor(seconds % 60); // Làm tròn số giây
+
+        timerDisplay.innerHTML = `
+<div class="hours">
+    <div class="numbers">${hours.toString().padStart(2, '0')}</div>
+</div> <span>:</span>
+<div class="minutes">
+    <div class="numbers">${minutes.toString().padStart(2, '0')}</div>
+</div> <span>:</span>
+<div class="seconds">
+    <div class="numbers">${secondsLeft.toString().padStart(2, '0')}</div>
+</div>`;
+    }
+    // Hàm bắt đầu đồng hồ đếm ngược
+    function startCountdown(duration) {
+        clearInterval(countdownInterval);
+        remainingTime = duration;
+
+        displayTime(remainingTime);
+
+        countdownInterval = setInterval(() => {
+            remainingTime -= 1;
+
+            if (remainingTime < 0) {
+                clearInterval(countdownInterval);
+
+                // Gửi yêu cầu tới server để cập nhật is_sale_tet = 0
+                $.ajax({
+                    url: '/quantri/CauHinh/StopSaleTet', // URL tới API cập nhật
+                    type: 'POST',
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            alert("Có lỗi xảy ra khi cập nhật trạng thái Sale Tết.");
+                        }
+                    },
+                    error: function () {
+                        alert("Không thể kết nối tới server. Vui lòng kiểm tra lại.");
+                    }
+                });
+
+                return;
+            }
+
+            displayTime(remainingTime);
+        }, 1000);
+    }
+    // Lấy thời gian còn lại từ server
+    function fetchRemainingTime() {
+        $.ajax({
+            url: '/quantri/CauHinh/GetRemainingTime', // Đường dẫn tới API của bạn
+            type: 'GET',
+            success: function (response) {
+                if (response.success) {
+                    const remainingSeconds = response.remainingTime;
+                    if (remainingSeconds > 0) {
+                        startCountdown(remainingSeconds);
+                    } else {
+                        timerDisplay.innerHTML = "<h2>Hết giờ!</h2>";
+                    }
+                } else {
+                    console.error("Không có thời gian còn lại.");
+                }
+            },
+            error: function () {
+                console.error("Lỗi khi lấy thời gian còn lại từ server.");
+            }
+        });
+    }
+
+    // Tự động gọi hàm fetch khi trang được load
+    fetchRemainingTime();
+</script>
+<style>
+
+    .printNhanVat div {
+        position: relative;
+        display: inline-block;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
+    .printNhanVat img {
+        border-radius: 50%;
+        border: 1px solid #808080;
+    }
+
+    .printNhanVat div span {
+        content: attr(data-name);
+        position: absolute;
+        top: -30px;
+        left: 0;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 13px;
+        z-index: 100;
+        opacity: 0;
+        transition: all .3s;
+        border-radius: 10px;
+        padding: 5px 9px;
+        transform: translateX(-50%);
+        visibility: hidden;
+        white-space: nowrap;
+    }
+
+    .printNhanVat div:hover span {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 13px;
+        z-index: 100;
+        opacity: 1;
+        border-radius: 10px;
+        padding: 5px 9px;
+        visibility: initial;
+    }
+</style>

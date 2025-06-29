@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|d:\\webc#\\wibusource\\webwibu\\accgame\\accgame\\areas\\quantri\\controllers\\imagemanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|solutionrelative:accgame\\areas\\quantri\\controllers\\imagemanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|d:\\webc#\\wibusource\\webwibu\\accgame\\accgame\\views\\chitiettaikhoan\\xem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|solutionrelative:accgame\\views\\chitiettaikhoan\\xem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\areas\\quantri\\views\\imagemanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|solutionrelative:accgame\\areas\\quantri\\views\\imagemanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\areas\\quantri\\controllers\\quanlytaikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|solutionrelative:accgame\\areas\\quantri\\controllers\\quanlytaikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\context\\anh_acc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|solutionrelative:accgame\\context\\anh_acc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\context\\acc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDC48300-ED48-4DCB-ACA5-9938A55BFDAB}|accgame\\accgame.csproj|solutionrelative:accgame\\context\\acc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 143,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "xem.cshtml",
+              "DocumentMoniker": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Views\\chitiettaikhoan\\xem.cshtml",
+              "RelativeDocumentMoniker": "accgame\\Views\\chitiettaikhoan\\xem.cshtml",
+              "ToolTip": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Views\\chitiettaikhoan\\xem.cshtml",
+              "RelativeToolTip": "accgame\\Views\\chitiettaikhoan\\xem.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-29T06:53:36.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "quanlytaikhoanController.cs",
+              "DocumentMoniker": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Areas\\quantri\\Controllers\\quanlytaikhoanController.cs",
+              "RelativeDocumentMoniker": "accgame\\Areas\\quantri\\Controllers\\quanlytaikhoanController.cs",
+              "ToolTip": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Areas\\quantri\\Controllers\\quanlytaikhoanController.cs",
+              "RelativeToolTip": "accgame\\Areas\\quantri\\Controllers\\quanlytaikhoanController.cs",
+              "ViewState": "AgIAAPUBAAAAAAAAAAAwwAsCAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T17:47:19.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Anh_Acc.cs",
+              "DocumentMoniker": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Context\\Anh_Acc.cs",
+              "RelativeDocumentMoniker": "accgame\\Context\\Anh_Acc.cs",
+              "ToolTip": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Context\\Anh_Acc.cs",
+              "RelativeToolTip": "accgame\\Context\\Anh_Acc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T17:15:38.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Acc.cs",
+              "DocumentMoniker": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Context\\Acc.cs",
+              "RelativeDocumentMoniker": "accgame\\Context\\Acc.cs",
+              "ToolTip": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Context\\Acc.cs",
+              "RelativeToolTip": "accgame\\Context\\Acc.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAA3wEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T17:15:26.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ImageManagementController.cs",
+              "DocumentMoniker": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Areas\\quantri\\Controllers\\ImageManagementController.cs",
+              "RelativeDocumentMoniker": "accgame\\Areas\\quantri\\Controllers\\ImageManagementController.cs",
+              "ToolTip": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Areas\\quantri\\Controllers\\ImageManagementController.cs",
+              "RelativeToolTip": "accgame\\Areas\\quantri\\Controllers\\ImageManagementController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowGMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T17:06:17.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Areas\\quantri\\Views\\ImageManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "accgame\\Areas\\quantri\\Views\\ImageManagement\\Index.cshtml",
+              "ToolTip": "D:\\WebC#\\WiBuSource\\webwibu\\accgame\\accgame\\Areas\\quantri\\Views\\ImageManagement\\Index.cshtml",
+              "RelativeToolTip": "accgame\\Areas\\quantri\\Views\\ImageManagement\\Index.cshtml",
+              "ViewState": "AgIAACMAAAAAAAAAAAAIwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-28T17:06:12.375Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

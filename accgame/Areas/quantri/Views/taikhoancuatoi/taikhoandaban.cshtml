@@ -1,0 +1,114 @@
+﻿@model IEnumerable<accgame.Context.Acc>
+@{
+    ViewBag.Title = "Tài khoản đã bán";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <form method="get" action="/quantri/taikhoancuatoi/taikhoandaban" class="input-group mb-3">
+                <button type="submit" class="input-group-text" id="basic-addon1">Tìm kiếm</button>
+                <input type="text" required class="form-control" name="search" placeholder="Nhập tên tài khoản hoặc tên người đăng" aria-label="Username" aria-describedby="basic-addon1">
+            </form>
+        </div>
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <a href="/quantri/taikhoancuatoi/themmoi" class="btn btn-primary m-3">Thêm mới tài khoản</a>
+                <div class="card-body">
+                    <div class="text-center">
+                        <a href="/quantri/taikhoancuatoi" class="btn btn-outline-danger m-3">Tài khoản chưa bán</a>
+                        <a href="/quantri/taikhoancuatoi/taikhoandaban" class="btn btn-danger m-3">Tài khoản đã bán</a>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tài khoản</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th class="">Tên tài khoản</th>
+                                <th class="">Loại game</th>
+                                <th class="">Server</th>
+                                <th class="">Giá</th>
+                                <th class="">Thời gian đăng</th>
+                                <th class="">Người mua</th>
+                                <th class="">Thời gian mua</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thoiGian24hDang = item.ThoiGianDang.HasValue
+                                    ? item.ThoiGianDang.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                var thoiGian24hBan = item.ThoiGianBan.HasValue
+                                    ? item.ThoiGianBan.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                <tr>
+                                    <td>#@item.MaTaiKhoan</td>
+                                    <td>
+                                        <a href="/chitiettaikhoan/xem/@item.MaTaiKhoan">
+                                            @item.TenAcc
+                                        </a>
+                                    </td>
+                                    <td>@item.LoaiGame1.TenLoaiGame</td>
+                                    <td>@item.Server</td>
+                                    <td class="price">@item.Gia VNĐ </td>
+                                    <td>@thoiGian24hDang</td>
+                                    <td>@(item.NguoiDung1?.TenNguoiDung ?? "")</td>
+                                    <td>@thoiGian24hBan</td>
+                                    <td>
+                                        <a href="/quantri/taikhoancuatoi/sua/@item.IDAcc" class="badge bg-danger">Sửa</a>
+                                        @*                                        <a href="/quantri/taikhoancuatoi/xoa/@item.IDAcc" onclick="if (confirm('Bạn muốn xóa tài khoản này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                        *@
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/taikhoancuatoi/taikhoandaban?page=1&search=@ViewBag.search">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/taikhoancuatoi/taikhoandaban?page=@i&search=@ViewBag.search">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/taikhoancuatoi/taikhoandaban?page=@i&search=@ViewBag.search">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/taikhoancuatoi/taikhoandaban?page=@i&search=@ViewBag.search">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/taikhoancuatoi/taikhoandaban?page=@i&search=@ViewBag.search">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/taikhoancuatoi/taikhoandaban?page=@ViewBag.last_page&search=@ViewBag.search">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+

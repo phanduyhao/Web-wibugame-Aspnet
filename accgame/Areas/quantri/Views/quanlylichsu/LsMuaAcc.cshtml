@@ -1,0 +1,240 @@
+﻿@model IEnumerable<accgame.Context.Acc>
+@{
+    ViewBag.Title = "Lịch sử mua Acc";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <h2 class="fw-bold border-bottom py-3">Lịch sử mua Acc</h2>
+
+        <div class="col-12 mb-3">
+            <div class="css-timkiem show-loai-acc d-none">
+                <div class="row gx-2 justify-content-center">
+                    @foreach (var listgame in ViewBag.listgame)
+                    {
+                        <div class="text-center mt-2">
+                            <img src="@listgame.Image" width="100" class="img-fluid" />
+                            <h2 class="fw-bold fs-1 desc-top-slider">@listgame.TenLoaiGame</h2>
+                        </div>
+                        foreach (var item in ViewBag.loaiacc)
+                        {
+                            if (item.IDLoaiGame == listgame.IDLoaiGame)
+                            {
+                                <div class=" col-md-3 col-sm-6 col-12">
+                                    <div class="card">
+                                        <img src="@item.Image" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.TenLoaiAcc</h5>
+                                            @if (item.DacBiet == true)
+                                            {
+                                                <a href="/quantri/quanlylichsu/LsMuaAcc/loaiaccdacbiet/@item.IDLoaiAcc" class="btn btn-danger">Xem ngay</a>
+
+                                            }
+                                            else
+                                            {
+                                                <a href="/quantri/quanlylichsu/LsMuaAcc/loaiacc/@item.IDLoaiAcc" class="btn btn-primary">Xem ngay</a>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="css-timkiem">
+                <form class="form-search" method="GET" action="/quantri/quanlylichsu/LsMuaAcc">
+
+                    <div class="d-flex align-items-center mb-4">
+                        <h4 class="ten-game me-3 mb-0">Tìm theo</h4>
+                        <select class="form-select form-select-sm shadow-none select-theloaiacc w-25" id="" name="theloaiacc" aria-label=".form-select-lg example">
+                            <option value="0" selected>Acc Vip</option>
+                            <option value="1">Acc Random + Rr</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputNv" name="searchMa" placeholder="Tìm theo mã số..." value="@ViewBag.searchMa">
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputVk" name="searchTK" placeholder="Tìm theo Tài khoản Acc..." value="@ViewBag.searchTK">
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-12 mb-3">
+                                <select class="form-select form-select-sm shadow-none" id="loaigame" name="loaigame" aria-label=".form-select-lg example">
+                                    <option value="" selected>Chọn Loại game</option>
+                                    @foreach (var loaigame in ViewBag.listgame)
+                                    {
+                                        <option value="@loaigame.IDLoaiGame" @(ViewBag.loaigame == loaigame.IDLoaiGame ? "selected" : "")>@loaigame.TenLoaiGame</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputVk" name="searchND" placeholder="Tìm theo người đăng" value="@ViewBag.searchND">
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputVk" name="searchNM" placeholder="Tìm theo người mua" value="@ViewBag.searchNM">
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-12 mb-3">
+                                <div class="text-nowrap">
+                                    <button type="submit" class="btn btn-danger rounded-pill"><i class="fas fa-search me-2"></i>Tìm kiếm</button>
+                                    <a href="/quantri/quanlylichsu/LsMuaAcc" class="btn btn-secondary rounded-pill ms-2"><i class="fas fa-times me-2"></i>Xóa lọc</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tài khoản</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr class="text-nowrap">
+                                <th>Mã</th>
+                                <th class="">Người bán</th>
+                                <th class="">Ngày đăng</th>
+                                <th class="">Ngày bán</th>
+                                <th class="">Tên Acc</th>
+                                <th class="">Tài khoản</th>
+                                <th class="">Mật khẩu</th>
+                                <th class="">Loại Acc</th>
+                                <th class="">Loại Game</th>
+                                <th class="">Giá bán</th>
+                                <th class="">Người mua</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thoiGian24h = item.ThoiGianBan.HasValue
+                                    ? item.ThoiGianBan.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                var thoiGianDang24h = item.ThoiGianDang.HasValue
+                                    ? item.ThoiGianDang.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                var tenLoaiAcc = item.LoaiAcc?.TenLoaiAcc ?? "";
+                                var tenLoaiGame = item.LoaiGame1?.TenLoaiGame ?? ""; // Null-check added here
+                                <tr>
+                                    <td>#@item.MaTaiKhoan</td>
+                                    <td>@(item.NguoiDung?.TenNguoiDung ?? "")</td>
+                                    <td>@thoiGianDang24h</td>
+                                    <td>@thoiGian24h</td>
+                                    <td>
+                                        <a href="/chitiettaikhoan/xem/@item.MaTaiKhoan">
+                                            @item.TenAcc
+                                        </a>
+                                    </td>
+                                    <td>@item.TaiKhoan</td>
+                                    <td>@item.MatKhau</td>
+                                    <td>@tenLoaiAcc</td>
+                                    <td>@tenLoaiGame</td>
+                                    @if (item.GiaDaMua == null)
+                                    {
+                                        <td class="price">
+                                            <span> @item.Gia</span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        if (item.GiaDaMua != item.Gia)
+                                        {
+                                            <td class="price bg-warning">
+                                                <span class="price">
+                                                    @item.GiaDaMua
+                                                </span>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td class="price">
+                                                @item.GiaDaMua
+                                            </td>
+                                        }
+                                    }
+                                <td>@(item.NguoiDung1?.TenNguoiDung ?? "")</td>
+                                </tr>
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlylichsu/LsMuaAcc?page=1&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND&loaigame=@ViewBag.loaigame&theloaiacc=@ViewBag.theloaiacc&searchNM=@ViewBag.searchNM">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlylichsu/LsMuaAcc?page=@i&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND&loaigame=@ViewBag.loaigame&theloaiacc=@ViewBag.theloaiacc&searchNM=@ViewBag.searchNM">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/quanlylichsu/LsMuaAcc?page=@i&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND&loaigame=@ViewBag.loaigame&theloaiacc=@ViewBag.theloaiacc&searchNM=@ViewBag.searchNM">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlylichsu/LsMuaAcc?page=@i&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND&loaigame=@ViewBag.loaigame&theloaiacc=@ViewBag.theloaiacc&searchNM=@ViewBag.searchNM">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlylichsu/LsMuaAcc?page=@i&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND&loaigame=@ViewBag.loaigame&theloaiacc=@ViewBag.theloaiacc&searchNM=@ViewBag.searchNM">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlylichsu/LsMuaAcc?page=@ViewBag.last_page&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND&loaigame=@ViewBag.loaigame&theloaiacc=@ViewBag.theloaiacc&searchNM=@ViewBag.searchNM">»</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<style>
+    .price{
+        background-color: yellow;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $(".btn-show-loaiacc").click(function () {
+            if ($(".show-loai-acc").hasClass("d-none")) {
+                $(".show-loai-acc").removeClass("d-none").addClass("d-block");
+            } else {
+                $(".show-loai-acc").removeClass("d-block").addClass("d-none");
+            }
+        });
+        $('.select-theloaiacc').on('change', function () {
+            var formSearch = $('.form-search');
+            if ($(this).val() == '0') {
+                formSearch.attr('action', '/quantri/quanlylichsu/LsMuaAcc');
+            } else if ($(this).val() == '1') {
+                formSearch.attr('action', '/quantri/quanlylichsu/LsMuaAccRandom');
+            }
+        });
+    });
+</script>

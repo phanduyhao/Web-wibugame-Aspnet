@@ -1,0 +1,383 @@
+﻿@model accgame.Models.HomeModels
+@{
+    ViewBag.Title = "sua";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Sửa tài khoản</h6>
+                </div>
+                <div class="card-body px-4 pt-0 pb-2">
+                    <form action="/quantri/quanlytaikhoan/sua2/@Model.acc.IDAcc" method="post" enctype="multipart/form-data">
+                        @Html.AntiForgeryToken()
+                        <div class="mb-3">
+                            <label for="TenAcc" class="form-label">Tên tài khoản</label>
+                            <input type="text" required name="TenAcc" value="@Model.acc.TenAcc" class="form-control" id="TenAcc">
+                        </div>
+                        <div class="mb-3">
+                            <label for="LoaiGame" class="form-label">Loại game</label>
+                            <select name="LoaiGame" id="LoaiGame" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                @foreach (var item in Model.listLoaiGame)
+                                {
+                                    <option value="@item.IDLoaiGame" @if (item.IDLoaiGame == Model.acc.LoaiGame) { <text> selected</text>}>@item.TenLoaiGame</option>
+                                }
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Server" class="form-label">Server game</label>
+                            <select name="Server" id="Server" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option @if (Model.acc.Server == "asia") { <text> selected</text>} value="asia">Asia</option>
+                                <option @if (Model.acc.Server == "sea") { <text> selected</text>} value="sea">Sea</option>
+
+                                <option @if (Model.acc.Server == "america") { <text> selected</text>} value="america">America</option>
+
+                                <option @if (Model.acc.Server == "europe") { <text> selected</text>} value="europe">Europe</option>
+
+                                <option @if (Model.acc.Server == "tw_hk_mo") { <text> selected</text>} value="tw_hk_mo">TW, HK, MO</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="TaiKhoan" class="form-label">Tài khoản đăng nhập</label>
+                            <input type="text" required name="TaiKhoan" value="@Model.acc.TaiKhoan" class="form-control" id="TaiKhoan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="MatKhau" class="form-label">Mật khẩu</label>
+                            <input type="text" required name="MatKhau" value="@Model.acc.MatKhau" class="form-control" id="MatKhau">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Gia" class="form-label">Giá Gốc</label>
+                            <input type="number" required name="GiaGoc" value="@Model.acc.GiaGoc" class="form-control" id="Gia" oninput="calculateFinalPrice()">
+                        </div>
+                        <div class="mb-3">
+                            <label for="PhanTram" class="form-label">% Giảm Giá</label>
+                            <input type="number" name="PhanTram" value="@Model.acc.PhanTram" class="form-control" id="PhanTram" oninput="calculateFinalPrice()">
+                        </div>
+                        <div class="mb-3">
+                            <label for="GiaCuoi" class="form-label">Giá Bán Ra:</label>
+                            <h5 id="GiaCuoi" class="text-danger fw-bold">@Model.acc.GiaGoc</h5>
+                        </div>
+                        <div class="mb-3">
+                            <label for="CapKhaiPha" class="form-label">Cấp khai phá</label>
+                            <input type="text" name="CapKhaiPha" value="@Model.acc.CapKhaiPha" class="form-control" id="CapKhaiPha">
+                        </div>
+                        <div class="mb-3 d-flex align-items-center">
+                            <label for="DaBan" class="form-label mb-0 me-3">Đã Bán</label>
+                            <input type="checkbox" name="DaBan" value="true" @(Model.acc.DaBan.HasValue && Model.acc.DaBan.Value ? "checked" : "") id="DaBan" style="width:20px; height:20px">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ChiTiet" class="form-label">Chi tiết</label>
+                            <textarea name="ChiTiet" class="form-control" id="ChiTiet">@Model.acc.ChiTiet</textarea>
+                        </div>
+                        @*<div class="mb-3">
+                                <label for="ThongTinKhac" class="form-label">Thông tin khác</label>
+                                <textarea name="ThongTinKhac" class="form-control" id="ThongTinKhac">@Model.acc.ThongTinKhac</textarea>
+                            </div>*@
+                        <div class="">
+                            <label class="form-label">Nhân vật</label>
+                            <p>Nhân vật: @Model.acc.NhanVat</p>
+                            <span>Chọn lại để sửa, không sửa vui lòng để trống</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="searchNv" class="form-label">Tìm kiếm nhân vật</label>
+                            <input type="text" class="form-control" id="searchNv">
+                        </div>
+                        <div class="row mb-3 row-load" id="loadnhanvat">
+                            @*    @foreach (var item in Model.listNhanVat)
+                                {
+                                    <div class="form-check mx-3 list_nv" data-nv="@item.TenNhanVat">
+                                        <input class="form-check-input" type="checkbox" name="DSNhanVat" value="@item.IDNhanVat" id="nv_@item.IDNhanVat">
+                                        <label class="form-check-label" for="nv_@item.IDNhanVat">
+                                            @item.TenNhanVat
+                                        </label>
+                                    </div>
+                                }*@
+                        </div>
+                        <div class="">
+                            <label class="form-label">Vũ khí</label>
+                            <p>Vũ khí: @Model.acc.VuKhi</p>
+                            <span>Chọn lại để sửa, không sửa vui lòng để trống</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="searchVk" class="form-label">Tìm kiếm vũ khí</label>
+                            <input type="text" class="form-control" id="searchVk">
+                        </div>
+                        <div class="row mb-3 row-load" id="loadvukhi">
+                            @*   @foreach (var item in Model.listVuKhi)
+                                {
+                                    <div class="form-check mx-3 list_vk" data-vk="@item.TenVuKhi">
+                                        <input class="form-check-input" type="checkbox" name="DSVuKhi"
+                                               value="@item.IDVuKhi" id="vk_@item.IDVuKhi">
+                                        <label class="form-check-label" for="vk_@item.IDVuKhi">
+                                            @item.TenVuKhi
+                                        </label>
+                                    </div>
+                                }*@
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="ImageUpload" class="form-label">Ảnh đại diện</label>
+                            <div class="bg-light rounded-2 p-3 p-sm-5 mb-3 text-center">
+                                <img src="@Model.acc.AnhDaiDien" height="700" id="image-preview">
+                            </div>
+                            <input type="file" class="form-control bg-light" id="ImageUpload" accept="image/*" name="ImageUpload">
+                        </div>
+                        <div class="mb-3">
+                            <label for="AnhKhac" class="form-label me-2">Ảnh khác</label>
+                            <div class="d-flex flex-wrap">
+                                @foreach (var item in Model.listAnh_Acc)
+                                {
+                                    <div class="position-relative btn mx-2" id="Anh_@item.IDAnh_Acc">
+                                        <img src="@item.DuongDanAnh" width="60" height="80">
+                                        <a onclick="myFunction(this)" data-value="@item.IDAnh_Acc" class="text-white position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">x</a>
+                                    </div>
+                                }
+                                <div class="position-relative d-flex align-items-center ms-3 my-3" id="previewContainer"></div>
+                            </div>
+
+                            <input type="file" class="form-control bg-light" id="AnhKhac" accept="image/*" name="ImageUploads" multiple onchange="previewImages(event)">
+                            <div class="form-text">Có thể chọn nhiều ảnh</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="IDLoaiAcc" class="form-label">Thể loại acc</label>
+                            <select name="IDLoaiAcc" id="IDLoaiAcc" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option value="">Loại thường</option>
+                                @foreach (var item in Model.listLoaiAcc)
+                                {
+                                    <option @if (item.IDLoaiAcc == Model.acc.IDLoaiAcc) { <text> selected </text> } value="@item.IDLoaiAcc">@item.TenLoaiAcc</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sửa</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+@section Scripts{
+
+    <script>
+        function calculateFinalPrice() {
+            const giaGoc = parseFloat(document.getElementById('Gia').value) || 0;
+            const phanTram = parseFloat(document.getElementById('PhanTram').value) || 0;
+
+            // Tính giá cuối
+            const giaCuoi = giaGoc - (giaGoc * (phanTram / 100));
+
+            // Cập nhật giá cuối vào span với định dạng VNĐ
+            document.getElementById('GiaCuoi').textContent = giaCuoi.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        }
+
+        $(document).ready(function () {
+            calculateFinalPrice();
+            $('#searchNv').on('input', function () {
+                var searchText = $(this).val().trim().toLowerCase(); // Lấy giá trị tìm kiếm và chuyển thành chữ thường
+
+                $('.list_nv').each(function () {
+                    var dataNv = $(this).data('nv').toLowerCase(); // Lấy giá trị data-nv và chuyển thành chữ thường
+
+                    if (dataNv.includes(searchText)) {
+                        $(this).addClass('bg-warning'); // Thêm class bg-warning nếu tìm thấy kết quả
+                    } else {
+                        $(this).removeClass('bg-warning'); // Loại bỏ class bg-warning nếu không tìm thấy kết quả
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#searchVk').on('input', function () {
+                var searchText = $(this).val().trim().toLowerCase(); // Lấy giá trị tìm kiếm và chuyển thành chữ thường
+
+                $('.list_vk').each(function () {
+                    var dataVk = $(this).data('vk').toLowerCase(); // Lấy giá trị data-nv và chuyển thành chữ thường
+
+                    if (dataVk.includes(searchText)) {
+                        $(this).addClass('bg-warning'); // Thêm class bg-warning nếu tìm thấy kết quả
+                    } else {
+                        $(this).removeClass('bg-warning'); // Loại bỏ class bg-warning nếu không tìm thấy kết quả
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        CKEDITOR.replace("ChiTiet");
+    </script>
+    <script>
+        const imageInput = document.getElementById('ImageUpload');
+        const imagePreview = document.getElementById('image-preview');
+
+        imageInput.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function () {
+                    imagePreview.setAttribute('src', this.result);
+                });
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+    <script>
+        function previewImages(event) {
+            var input = event.target;
+            var previewContainer = document.getElementById("previewContainer");
+            previewContainer.innerHTML = ""; // Xóa nội dung hiện tại
+
+            if (input.files && input.files.length > 0) {
+                for (var i = 0; i < input.files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var image = document.createElement("img");
+                        image.src = e.target.result;
+                        image.setAttribute("width", "60");
+                        image.setAttribute("height", "80");
+                        image.setAttribute("class", "mx-2");
+                        previewContainer.appendChild(image);
+                    };
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // Hàm để xóa ảnh khi nhấn "x"
+        function myFunction(element) {
+            var imageId = $(element).data('value');  // Lấy ID ảnh cần xóa
+            removeImage(imageId);
+        }
+
+        // Hàm gửi yêu cầu xóa ảnh đến server
+        function removeImage(imageId) {
+            $.ajax({
+                type: "POST",
+                url: '/quantri/quanlytaikhoan/xoaanh', // Đường dẫn API xóa ảnh
+                data: JSON.stringify({ ID: imageId }),
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    if (response.success) {
+                        $("#Anh_" + imageId).remove(); // Xóa ảnh khỏi giao diện
+                        alert("Xóa ảnh thành công!");
+                    } else {
+                        alert("Xóa ảnh thất bại!");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi trong quá trình xóa ảnh!");
+                }
+            });
+        }
+    </script>
+    <script>
+       $(document).ready(function () {
+        // Lấy id loại game ban đầu
+        const idLoaiGame = $("#LoaiGame").val();
+
+        // Load nhân vật & vũ khí
+        loadGameData(idLoaiGame);
+
+        // Xử lý sự kiện thay đổi loại game
+        $("#LoaiGame").change(function () {
+            const idLoaiGame = $("#LoaiGame").val();
+            loadGameData(idLoaiGame);
+        });
+
+        function loadGameData(idLoaiGame) {
+            // Load danh sách nhân vật & vũ khí từ server
+            $("#loadnhanvat").load(`/quantri/load/loadNV/${idLoaiGame}`, function () {
+                console.log("Nhân vật đã load xong!");
+                checkNhanVat();
+            });
+
+            $("#loadvukhi").load(`/quantri/load/loadVK/${idLoaiGame}`, function () {
+                console.log("Vũ khí đã load xong!");
+                checkVuKhi();
+            });
+           }
+
+
+       function checkNhanVat() {
+            var idAcc = @Model.acc.IDAcc;
+
+            $.getJSON("/quantri/load/GetDanhSachNhanVat", { idAcc: idAcc }, function (response) {
+                if (response.success) {
+                    response.data.forEach(function (name) {
+                        var slug = name.toLowerCase()
+                            .replace(/ /g, "-")
+                            .replace(/\./g, "-")
+                            .replace(/,/g, "-")
+                            .replace(/\(/g, "-")
+                            .replace(/\)/g, "-")
+                            .replace(/&/g, "-")
+                            .replace(/'/g, "")
+                            .replace(/--+/g, "-")  // Xóa các dấu "--" liên tục
+                            .replace(/^-+|-+$/g, ""); // Xóa dấu "-" ở đầu & cuối
+
+                        var checkboxNV = $("#nv_" + slug);
+                        if (checkboxNV.length) {
+                            checkboxNV.prop("checked", true);
+                        } else {
+                            console.warn("Không tìm thấy checkbox nhân vật:", name);
+                        }
+                    });
+                }
+            });
+        }
+
+        function checkVuKhi() {
+            var idAcc = @Model.acc.IDAcc;
+
+            $.getJSON("/quantri/load/GetDanhSachVuKhi", { idAcc: idAcc }, function (response) {
+                if (response.success) {
+                    response.data.forEach(function (name) {
+                        var slug = name.toLowerCase()
+                            .replace(/ /g, "-")
+                            .replace(/\./g, "-")
+                            .replace(/,/g, "-")
+                            .replace(/\(/g, "-")
+                            .replace(/\)/g, "-")
+                            .replace(/&/g, "-")
+                            .replace(/'/g, "")
+                            .replace(/--+/g, "-")  // Xóa các dấu "--" liên tục
+                            .replace(/^-+|-+$/g, ""); // Xóa dấu "-" ở đầu & cuối
+
+                        console.log(slug);
+
+                        var checkboxVK = $("#vk_" + slug);
+                        if (checkboxVK.length) {
+                            checkboxVK.prop("checked", true);
+                        } else {
+                            console.warn("Không tìm thấy checkbox vũ khí:", name);
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    function toggleCheckbox(id) {
+        var checkbox = document.getElementById(id);
+        if (checkbox) {
+            checkbox.checked = !checkbox.checked;
+        }
+    }
+    </script>
+}
+
+

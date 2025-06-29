@@ -1,0 +1,806 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    #timer {
+        color: #F6F4F3;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 24px;
+        letter-spacing: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+        #timer span {
+            font-weight: 700;
+            margin-left: 5px;
+            color: black;
+            font-size: 26px;
+        }
+
+    .days, .hours, .minutes, .seconds {
+        display: inline-block;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .hours, .minutes, .seconds {
+        background: black;
+        color: white;
+        width: 50px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .numbers {
+        text-align: center;
+    }
+
+    .white {
+        position: absolute;
+        background: #F6F4F3;
+        height: 85px;
+        width: 75px;
+        left: 30%;
+        top: 2%;
+    }
+
+    .red {
+        position: absolute;
+        background: #EF2F3C;
+        left: 18%;
+        top: 9%;
+        height: 65px;
+        width: 70px;
+    }
+
+    .blue {
+        position: absolute;
+        background: #276FBF;
+        height: 80px;
+        width: 80px;
+        left: 60%;
+        top: 5%;
+    }
+
+    .balloon {
+        border: 1px solid #000;
+        border-radius: 50% 50% 50% 50%/ 40% 40% 60% 60%;
+        z-index: 2;
+    }
+
+    .eye {
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        top: 40%;
+        left: 22%;
+        background: #000;
+        border-radius: 50%;
+    }
+
+        .eye:after {
+            content: '';
+            left: 35px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+        }
+
+    .mouth {
+        position: absolute;
+        top: 45%;
+        left: 43%;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+    }
+
+    .happy {
+        border: 2px solid;
+        border-color: transparent #000 #000 transparent;
+        transform: rotate(45deg);
+    }
+
+    .triangle {
+        position: absolute;
+        left: 40%;
+        bottom: -10%;
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+    }
+
+    .string {
+        position: absolute;
+        height: 70px;
+        width: 1px;
+        left: 48%;
+        top: 100%;
+        z-index: -1;
+    }
+
+    .star {
+        width: 20px;
+        height: 20px;
+        background: #F6F4F3;
+        -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    .star-red {
+        width: 30px;
+        height: 30px;
+        margin-left: 51px;
+        margin-top: -5px;
+        background: #EF2F3C;
+        -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        text-transform: uppercase;
+        padding: 10px;
+        font-family: 'Lato', sans-serif;
+        font-size: 0.7em;
+    }
+
+        footer p {
+            letter-spacing: 3px;
+            color: #EF2F3C;
+        }
+
+        footer a {
+            color: #F6F4F3;
+            text-decoration: none;
+        }
+
+            footer a:hover {
+                color: #276FBF;
+            }
+</style>
+<main class="content">
+    <div class="card">
+        <div class="card-header pb-0">
+            <h4 class="text-danger">Cấu hình Sale Tết</h4>
+        </div>
+        <div class="card-body">
+            <div class="form-horizontal">
+                <div class="form-group d-flex">
+                    <b class="fw-bold">Bật Sale Tết</b>
+                    <div class="col-md-10 ms-3">
+                        <input type="checkbox" id="isSaleTet" value=""
+                               @(ViewBag.isSaleTet == "1" ? "checked" : "")
+                               style="width:20px; height:20px">
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal ">
+                <div class="form-group d-flex align-items-center text-nowrap">
+                    <b class="me-3 fw-bold">Thời gian Sale:</b>
+                    <input id="timeSaleTet" type="number" step="0.01" min="0.01"
+                           value="@ViewBag.timeSaleTet" placeholder="Nhập số giờ (VD: 1, 2, 0.5)"
+                           class="form-control me-3 w-25">
+                    <button id="updateTimeSale" class="btn btn-success fw-bold text-dark">Cập nhật</button>
+                </div>
+
+                <div id="timer" class="mb-3"></div>
+
+            </div>
+            <div class="form-horizontal">
+                <div class="form-group d-flex align-items-center text-nowrap">
+                    <b class="me-3 fw-bold">% Sale:</b>
+                    <input id="phanTramSale" type="number" min="0" max="100"
+                           value="@ViewBag.phanTramSale" placeholder="Nhập %"
+                           class="form-control me-3 w-25">
+                    <button id="updatePercentSale" class="btn btn-success fw-bold text-dark">Cập nhật</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>Cấu hình bật tắt Ctv-Collab</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/ctvCollab" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group d-flex">
+                        <b>Trạng thái</b>
+                        <div class="col-md-10 ms-3">
+                            <input type="checkbox" value="true" name="isctvcollab" @(ViewBag.ctvCollab == "active" ? "checked" : "") style="width:20px; height:20px">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>Cấu hình thông báo Nạp Thẻ Cào</h4>
+        </div>
+        <div class="card-body">
+            <div class="form-horizontal">
+                <div class="form-group d-flex">
+                    <b class="fw-bold">Bật Thông báo</b>
+                    <div class="col-md-10 ms-3">
+                        <input type="checkbox" id="isThongBaoNapTheCao" value=""
+                               @(ViewBag.isThongBaoNapTheCao == "1" ? "checked" : "")
+                               style="width:20px; height:20px">
+                    </div>
+                </div>
+            </div>
+            <form action="/quantri/cauhinh/thongBaoNapTheCao" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="mb-3">
+                        <label for="noidung" class="form-label">Chi tiết</label>
+                        <textarea name="noidung" class="form-control" id="thongbaonapthecao"> @Html.Raw( ViewBag.thongBaoNapTheCao)</textarea>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>Cấu hình tỷ lệ nạp thẻ</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/ptnapthe">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Nhập giá trị phần trăm</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.ptNapThe" class="form-control" name="pt">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>Thông tin trang</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/infoPage" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Nhập hình ảnh trang chủ</b>
+                        <div class="mb-10">
+                            <img src="@ViewBag.logo" width="120" height="40" class="object-fit-cover" />
+                        </div>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control" name="logo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Nhập hình ảnh banner trang chủ</b>
+                        <div class="mb-10">
+                            <img src="@ViewBag.bannerHome" width="120" height="40" class="object-fit-cover" />
+                        </div>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control" name="banner_home">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Nhập mô tả phần chân trang</b>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="footer_detail">@ViewBag.footerDetail</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Nhập mô tả trang chủ</b>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="home_title">@ViewBag.homeTitle</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4>TThông tin trang</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/infoPage" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Nhập hình ảnh trang chủ</b>
+                        <div class="mb-10">
+                            <img src="@ViewBag.logo" width="120" height="40" class="object-fit-cover" />
+                        </div>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control" name="logo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Nhập mô tả phần chân trang</b>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="footer_detail">@ViewBag.footerDetail</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Nhập mô tả trang chủ</b>
+                        <div class="col-md-10">
+
+                            <textarea class="form-control" name="home_title">@ViewBag.homeTitle</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card-header">
+            <h4>Ảnh dịch vụ</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/dichvu" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Nhập đường dẫn ảnh nạp game</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.napGame" class="form-control" name="nap_game">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Nhập đường dẫn ảnh cày thuê</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.cayThue" class="form-control" name="cay_thue">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>Cấu hình thông báo trang chủ</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/home" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Nhập tiêu đề</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.TieuDeTrangChu" class="form-control" name="tieude">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="noidung" class="form-label">Chi tiết</label>
+                        <textarea name="noidung" class="form-control" id="noidung"> @Html.Raw( ViewBag.NoiDungTrangChu)</textarea>
+                    </div>
+                    <div class="text-danger fw-bold">
+                        @ViewBag.loihome
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>Cấu hình thông tin trang chủ</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/TopHome" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Nhập tiêu đề</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.TieuDeTopTrangChu" class="form-control" name="tieude">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="noidung" class="form-label">Chi tiết</label>
+                        <textarea name="noidung" class="form-control" id="noidung2"> @Html.Raw( ViewBag.NoiDungTopTrangChu)</textarea>
+                    </div>
+                    <div class="text-danger fw-bold">
+                        @ViewBag.loihome
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4>Cấu hình thông tin social</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/social" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Facebook</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.facebook" class="form-control" name="facebook">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Link hỗ trợ</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.hoTro" class="form-control" name="ho_tro">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Link liên hệ thu acc (Zalo, fb)</label>
+                        <input type="text" value="@ViewBag.thuAcc" class="form-control" name="thu_acc">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Link check uy tín</label>
+                        <input type="text" value="@ViewBag.checkUt" class="form-control" name="check_ut">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Số điện thoại</label>
+                        <input type="text" value="@ViewBag.sdt" class="form-control" name="sdt">
+                    </div>
+                    <div class="text-danger fw-bold">
+                        @ViewBag.loisocial
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4>Cấu hình thông tin nạp</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/cauhinh/nap" method="post">
+                @Html.AntiForgeryToken()
+                <h4>Cấu hình Ngân hàng</h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Số tài khoản</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.stk" class="form-control" name="stk">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Chủ tài khoản</label>
+                        <input type="text" value="@ViewBag.chuNh" class="form-control" name="chu_tk_ngan_hang">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ngân hàng</label>
+                        <select class="form-select" name="ngan_hang">
+                            <option @if (ViewBag.nganhang == "mb_bank") { <text> selected </text> } value="mb_bank">MB Bank (Quân đội)</option>
+                            <option @if (ViewBag.nganhang == "acb") { <text> selected </text> } value="acb">ACB - Á Châu</option>
+                            <option @if (ViewBag.nganhang == "vietcombank") { <text> selected </text> } value="vietcombank">Vietcombank - Ngân hàng Ngoại thương</option>
+                            <option @if (ViewBag.nganhang == "vietinbank") { <text> selected </text> } value="vietinbank">Vietinbank - Ngân hàng Thương mại</option>
+                        </select>
+                    </div>
+                </div>
+                <h4 class="mt-4">Cấu hình Nạp MOMO</h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Số MOMO</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.momo" class="form-control" name="momo">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Chủ tài khoản MOMO</label>
+                        <input type="text" value="@ViewBag.chummm" class="form-control" name="chu_tk_momo">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Token MOMO</label>
+                        <input type="text" value="@ViewBag.token_mm" class="form-control" name="token_mm">
+                    </div>
+                    <div class="text-danger fw-bold">
+                        @ViewBag.loimomo
+                    </div>
+                </div>
+                <h4 class="mt-4">Cấu hình Nạp thẻ cào</h4>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Parner Id </b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.parnerId" class="form-control" name="parner_id">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Parner Key</label>
+                        <input type="text" value="@ViewBag.parnerKey" class="form-control" name="parner_key">
+                    </div>
+                    <div class="text-danger fw-bold">
+                        @ViewBag.loimomo
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Lưu thông tin" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>Key trang web</h4>
+        </div>
+        <div class="card-body">
+            <input class="form-control" readonly value="@ViewBag.key_web" />
+            <div class="mt-2">
+                <label class="form-label">Link callback nạp thẻ</label>
+                <input class="form-control" readonly value="https://@ViewBag.tenmien/napthecao/callback/@ViewBag.key_web" />
+            </div>
+            <div class="mt-2">
+                <label class="form-label">Link callback bank</label>
+                <input class="form-control" readonly value="https://@ViewBag.tenmien/apiNap/callBack" />
+            </div>
+        </div>
+    </div>
+
+</main>
+@section Scripts{
+    <script>
+        CKEDITOR.replace("noidung");
+        CKEDITOR.replace("noidung2");
+        CKEDITOR.replace("thongbaonapthecao");
+
+    </script>
+}
+
+<script>
+
+    const timerDisplay = document.getElementById("timer");
+
+    // Biến đếm ngược
+    let countdownInterval;
+    let remainingTime;
+
+    // Hàm hiển thị thời gian
+    function displayTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secondsLeft = Math.floor(seconds % 60); // Làm tròn số giây
+
+        timerDisplay.innerHTML = `
+        <div class="hours">
+            <div class="numbers">${hours.toString().padStart(2, '0')}</div>
+        </div> <span>:</span>
+        <div class="minutes">
+            <div class="numbers">${minutes.toString().padStart(2, '0')}</div>
+        </div> <span>:</span>
+        <div class="seconds">
+            <div class="numbers">${secondsLeft.toString().padStart(2, '0')}</div>
+        </div>`;
+    }
+
+
+    // Hàm bắt đầu đồng hồ đếm ngược
+    function startCountdown(duration) {
+        clearInterval(countdownInterval);
+        remainingTime = duration;
+
+        displayTime(remainingTime);
+
+        countdownInterval = setInterval(() => {
+            remainingTime -= 1;
+
+            if (remainingTime < 0) {
+                clearInterval(countdownInterval);
+                timerDisplay.innerHTML = "<h2>Hết giờ!</h2>";
+
+                // Gửi yêu cầu tới server để cập nhật is_sale_tet = 0
+                $.ajax({
+                    url: '/quantri/CauHinh/StopSaleTet', // URL tới API cập nhật
+                    type: 'POST',
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            alert("Có lỗi xảy ra khi cập nhật trạng thái Sale Tết.");
+                        }
+                    },
+                    error: function () {
+                        alert("Không thể kết nối tới server. Vui lòng kiểm tra lại.");
+                    }
+                });
+
+                return;
+            }
+
+            displayTime(remainingTime);
+        }, 1000);
+    }
+
+
+    // Lấy thời gian còn lại từ server
+    function fetchRemainingTime() {
+        $.ajax({
+            url: '/quantri/CauHinh/GetRemainingTime', // Đường dẫn tới API của bạn
+            type: 'GET',
+            success: function (response) {
+                if (response.success) {
+                    const remainingSeconds = response.remainingTime;
+                    if (remainingSeconds > 0) {
+                        startCountdown(remainingSeconds);
+                    } else {
+                        timerDisplay.innerHTML = "<h2>Hết giờ!</h2>";
+                    }
+                } else {
+                    console.error("Không có thời gian còn lại.");
+                }
+            },
+            error: function () {
+                console.error("Lỗi khi lấy thời gian còn lại từ server.");
+            }
+        });
+    }
+
+    // Tự động gọi hàm fetch khi trang được load
+    fetchRemainingTime();
+
+
+
+    $('#isSaleTet').on('change', function () {
+        const isSaleTet = $(this).is(':checked');
+
+        $.ajax({
+            url: '/quantri/CauHinh/IsSaleTet',
+            type: 'POST',
+            data: {
+                isSaleTet: isSaleTet
+            },
+            success: function (response) {
+                window.location.reload();
+
+            },
+            error: function () {
+                alert("Có lỗi xảy ra. Vui lòng thử lại!");
+            }
+        });
+    });
+
+    $('#updateTimeSale').on('click', function () {
+        const timeSaleTet = parseFloat($('#timeSaleTet').val());
+        if (isNaN(timeSaleTet) || timeSaleTet <= 0) {
+            alert("Vui lòng nhập thời gian hợp lệ!");
+            return;
+        }
+
+        $.ajax({
+            url: '/quantri/CauHinh/TimerSale',
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify({
+                timeSaleTet: timeSaleTet
+            }),
+            success: function (response) {
+                if (response.success) {
+                    window.location.reload();
+                } else {
+                    alert("Không thể cập nhật thời gian Sale Tết: " + response.message);
+                }
+            },
+            error: function () {
+                alert("Có lỗi xảy ra. Vui lòng thử lại!");
+            }
+        });
+    });
+
+
+    $('#updatePercentSale').on('click', function () {
+        const phanTramSale = parseInt($('#phanTramSale').val());
+
+        if (isNaN(phanTramSale) || phanTramSale < 0 || phanTramSale > 100) {
+            alert("Vui lòng nhập phần trăm hợp lệ (0-100)!");
+            return;
+        }
+
+        $.ajax({
+            url: '/quantri/CauHinh/PercentSale',
+            type: 'POST',
+            data: {
+                phanTramSale: phanTramSale
+            },
+            success: function (response) {
+                window.location.reload();
+
+            },
+            error: function () {
+                alert("Có lỗi xảy ra. Vui lòng thử lại!");
+            }
+        });
+    });
+
+    $('#isThongBaoNapTheCao').on('change', function () {
+        const isThongBaoNapTheCao = $(this).is(':checked');
+
+        $.ajax({
+            url: '/quantri/CauHinh/isThongBaoNapTheCao',
+            type: 'POST',
+            data: {
+                isThongBaoNapTheCao: isThongBaoNapTheCao
+            },
+            success: function (response) {
+                window.location.reload();
+
+            },
+            error: function () {
+                alert("Có lỗi xảy ra. Vui lòng thử lại!");
+            }
+        });
+    });
+
+</script>

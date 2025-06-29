@@ -1,0 +1,89 @@
+﻿@model PagedList.IPagedList<accgame.Context.NapTien>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Lịch sử nạp tiền ( ATM + MOMO )";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="row">
+        <h2 class="fw-bold border-bottom py-3">Lịch sử nạp tiền ( ATM + MOMO )</h2>
+
+        <div class="col-12">
+            <div class="css-timkiem">
+                <form class="form-search" method="GET" action="/quantri/quanlynap">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-6 col-12 mb-3">
+                                <select class="form-select form-select-sm shadow-none" id="sapxep" name="loai" aria-label=".form-select-lg example">
+                                    <option value="10" selected>Tất cả</option>
+                                    <option value="atm" @if (ViewBag.loai == "atm") { <text> selected</text> }>Nạp ATM</option>
+                                    <option value="momo" @if (ViewBag.loai == "momo") { <text> selected</text> }>Nạp MOMO</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputNv" name="searchMa" placeholder="Tìm theo mã số..." value="@ViewBag.searchMa">
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputVk" name="searchND" placeholder="Tìm theo người đăng" value="@ViewBag.searchND">
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 mb-3">
+                                <div class="text-center text-nowrap">
+                                    <button type="submit" class="btn btn-danger rounded-pill"><i class="fas fa-search me-2"></i>Tìm kiếm</button>
+                                    <a href="/quantri/quanlynap" class="btn btn-secondary rounded-pill ms-2"><i class="fas fa-times me-2"></i>Xóa lọc</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Quản lý nạp</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover my-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th class="">Tên người dùng</th>
+                                    <th class="">Loại</th>
+                                    <th class="">Thời gian</th>
+                                    <th class="">Số tiền nạp</th>
+                                    <th class="">Số tiền nhận</th>
+                                    <th class="">Số dư trước nạp</th>
+                                    <th class="">Số dư sau nạp</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var thoiGian24h = item.thoigian.HasValue
+                                        ? item.thoigian.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                        : string.Empty;
+                                    <tr>
+                                        <td>#@item.IdNapTien</td>
+                                        <td>@item.NguoiDung.TenNguoiDung</td>
+                                        <td>@item.Noidung</td>
+                                        <td>@thoiGian24h</td>
+                                        <td>@Convert.ToInt32(item.SoTien).ToString("N0").Replace(",", ".")</td>
+                                        <td>@Convert.ToInt32(item.SoTien).ToString("N0").Replace(",", ".")</td>
+                                        <td>@Convert.ToInt32(item.TruocNap).ToString("N0").Replace(",", ".")</td>
+                                        <td>@Convert.ToInt32(item.SauNap).ToString("N0").Replace(",", ".")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchMa = ViewBag.searchMa, searchND = ViewBag.searchND, loai = ViewBag.loai }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

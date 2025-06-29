@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2647854a72fd4886b32548fda950147c" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="accgameModel.AccRandom" Width="1.5" PointX="3" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.Anh_Acc" Width="1.5" PointX="11.25" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.ApiAcc" Width="1.5" PointX="8.25" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.Banner" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.BienDongSoDu" Width="1.5" PointX="3" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.CaiDat" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.CaiDatVongQuay" Width="1.5" PointX="0.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.CayThue" Width="1.5" PointX="9" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.Code" Width="1.5" PointX="3" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.GiaiThuongVongQuay" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.GoiNap" Width="1.5" PointX="6.75" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.GoiNhiemVu" Width="1.5" PointX="6.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.Image" Width="1.5" PointX="3" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.LoaiAcc" Width="1.5" PointX="6.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.LoaiCode" Width="1.5" PointX="0.75" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.LoaiGame" Width="1.5" PointX="4.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.NapGame" Width="1.5" PointX="9" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.NapTien" Width="1.5" PointX="3" PointY="66.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.NguoiDung" Width="1.5" PointX="0.75" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.NhanVat" Width="1.5" PointX="6.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.RutTien" Width="1.5" PointX="3" PointY="71.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.SettingApi" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.Video" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.VongQuay" Width="1.5" PointX="3" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="accgameModel.VuKhi" Width="1.5" PointX="6.75" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="accgameModel.FK_AccRandom_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_AccRandom_NguoiDung1" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_Anh_Acc_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_BienDongSoDu_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_VongQuay_CaiDatVongQuay" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_CayThue_GoiNhiemVu" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_CayThue_LoaiGame" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_CayThue_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_CayThue_NguoiDung1" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_Code_LoaiCode" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_Code_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_GoiNap_LoaiGame" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_NapGame_GoiNap" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_GoiNhiemVu_LoaiGame" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_Image_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_LoaiAcc_LoaiGame" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_LoaiCode_LoaiGame" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_NhanVat_LoaiGame" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_VuKhi_LoaiGame" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_NapGame_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_NapTien_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_RutTien_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_VongQuay_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="accgameModel.FK_CayThue_GoiNhiemVu1" />
+        <EntityTypeShape EntityType="accgameModel.AdminCongTien" Width="1.5" PointX="3" PointY="43.75" />
+        <AssociationConnector Association="accgameModel.FK_AdminCongTien_NguoiDung" />
+        <AssociationConnector Association="accgameModel.FK_AdminCongTien_NguoiDung1" />
+        <EntityTypeShape EntityType="accgameModel.Acc" Width="1.5" PointX="12" PointY="19.625" />
+        <AssociationConnector Association="accgameModel.FK_Acc_LoaiAcc" />
+        <AssociationConnector Association="accgameModel.FK_Acc_LoaiGame" />
+        <AssociationConnector Association="accgameModel.FK_Acc_NguoiDung" />
+        <AssociationConnector Association="accgameModel.FK_Acc_NguoiDung1" />
+        <AssociationConnector Association="accgameModel.FK_Anh_Acc_Acc" />
+        <AssociationConnector Association="accgameModel.FK_ApiAcc_Acc" />
+        <EntityTypeShape EntityType="accgameModel.DanhMuc" Width="1.5" PointX="9" PointY="22.125" />
+        <AssociationConnector Association="accgameModel.FK_AccRandom_DanhMuc" />
+        <AssociationConnector Association="accgameModel.FK_DanhMuc_LoaiAcc" />
+        <AssociationConnector Association="accgameModel.FK_DanhMuc_LoaiGame" />
+        <AssociationConnector Association="accgameModel.FK_DanhMuc_NguoiDung" />
+        <AssociationConnector Association="accgameModel.FK_NapGame_NguoiDung1" />
+        <AssociationConnector Association="accgameModel.FK_NapTien_NguoiDung1" />
+        <AssociationConnector Association="accgameModel.FK_LoaiAcc_LoaiAcc" />
+        <AssociationConnector Association="accgameModel.FK_LoaiAcc_LoaiAcc1" />
+        <EntityTypeShape EntityType="accgameModel.OldPass" Width="1.5" PointX="3" PointY="28" />
+        <AssociationConnector Association="accgameModel.FK_OldPass_NguoiDung" />
+        <EntityTypeShape EntityType="accgameModel.AccRandomDamua" Width="1.5" PointX="5.25" PointY="32" />
+        <AssociationConnector Association="accgameModel.FK_AccRandomDamua_AccRandom" />
+        <EntityTypeShape EntityType="accgameModel.AdminNotifyRead" Width="1.5" PointX="5.25" PointY="41.75" />
+        <EntityTypeShape EntityType="accgameModel.NotifyUser" Width="1.5" PointX="3" PointY="48.75" />
+        <AssociationConnector Association="accgameModel.FK_AdminNotifyRead_NguoiDung" />
+        <AssociationConnector Association="accgameModel.FK_AdminNotifyRead_NotifyUser" />
+        <AssociationConnector Association="accgameModel.FK_NotifyUser_Admin" />
+        <AssociationConnector Association="accgameModel.FK_NotifyUser_NguoiDung" />
+        <EntityTypeShape EntityType="accgameModel.AnAcc" Width="1.5" PointX="3" PointY="13.5" />
+        <AssociationConnector Association="accgameModel.FK_AnAcc_NguoiDung" />
+        <AssociationConnector Association="accgameModel.FK_NapGame_NguoiPick" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

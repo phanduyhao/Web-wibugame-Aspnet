@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "mua";
+    Layout = null;
+}
+
+@if (ViewBag.thongbao == 1)
+{
+    <span class="text-primary">Bạn phải <a href="/dangnhap" class="btn btn-danger rounded-pill btn-sm mx-2">Đăng nhập</a> mới có thể mua tài khoản này!</span>
+}
+else if (ViewBag.thongbao == 2)
+{
+    <span class="text-primary">Lỗi! Không tìm thấy tài khoản này!</span>
+}
+else if (ViewBag.thongbao == 3)
+{
+    <span class="text-primary">Lỗi! Tài khoản này đã được mua bởi người dùng khác!</span>
+}
+else if (ViewBag.thongbao == 4)
+{
+    <span class="text-primary">Lỗi! Tài khoản này đã bị xóa!</span>
+}
+else if (ViewBag.thongbao == 5)
+{
+    <p class="fs-5 text-primary fw-bold">Số tiền trong tài khoản không đủ!</p>
+    <p class="text-primary">Bạn phải <a href="#" class="btn btn-danger rounded-pill btn-sm mx-2">Nạp tiền</a> mới có thể mua tài khoản này!</p>
+    <p class="fs-5 text-primary fw-bold">Số tiền hiện tại: <span class="text-danger">@ViewBag.tien VNĐ</span> </p>
+}
+else
+{
+    <span class="text-primary fw-bold">Mua tài khoản thành công! Nhấn vào đây để xem thông tin tài khoản</span>
+    <a href="/taikhoandamua" class="btn btn-danger rounded-pill">Tài khoản đã mua</a>
+}

@@ -1,0 +1,176 @@
+﻿@model PagedList.IPagedList<accgame.Context.VongQuay>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<section class="about row g-3" style="background-image: url('/Content/images/bg-vq.jpg')">
+
+    <div class="MuiBox-root acc-title col-12">
+        <div class="text-center py-2" style="background-color: rgb(0 0 0 / 52%);">
+            
+            <h2 class="fw-bold fs-1 desc-top-slider">
+                Vòng quay may mắn
+            </h2>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="mx-auto" style="max-width: 500px">
+            <div class="position-relative">
+                <div class="overflow-hidden">
+                    <img class="img-fluid position-relative" style="transition: cubic-bezier(0.075, 0.82, 0.165, 1) 7s;" id="vongquay" src="~/Content/images/vongquay.png">
+
+                </div>
+                <button class="shadow-none top-50 start-50 position-absolute btn btn-primary bg-transparent border-0" style="width: 150px; height: 150px; transform: translate(-50%, -50%);">
+                    <img src="~/Content/images/quayngay.png" class="img-fluid" />
+                </button>
+                <button id="btn_quay" class="shadow-none top-50 start-50 position-absolute btn btn-primary bg-transparent border-0" style="width: 150px; height: 150px; transform: translate(-50%, -50%);">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="text-center py-2" style="background-color: rgb(0 0 0 / 52%);">
+            <div class="container">
+                
+                <h2 class="fw-bold fs-1 text-light">
+                    Lịch sử vòng quay
+                </h2>
+
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0" id="taikhoan">
+                        <thead>
+                            <tr class="bg-success fs-6">
+                                <th class="text-uppercase text-white text-nowrap">ID</th>
+                                <th class="text-uppercase text-white text-nowrap">THỜI GIAN</th>
+                                <th class="text-uppercase text-white text-nowrap">THÔNG TIN</th>
+                            </tr>
+                        </thead>
+                        <tbody class="fs-6">
+                            @foreach (var item in Model)
+                            {
+                                <tr class="text-white">
+                                    <td class="align-middle">
+                                        <span style="font-weight: 700" class="mb-0 text-sm">#@item.IDVongQuay</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span style="font-weight: 400" class="mb-0 text-sm text-nowrap">@item.ThoiGian</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span class="fw-bold text-nowrap">@item.NoiDung</span>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="text-center py-2" style="background-color: rgb(0 0 0 / 52%);">
+            <div class="container">
+               
+                <h2 class="fw-bold fs-1 text-light">
+                    Thể lệ
+                </h2>
+                <div class="text-light text-start">
+                    <p>- Vòng quay tỷ lệ 100% trúng 1 trong các tài khoản sau đây: </p>
+                    <p><span class="fw-bold fs-5">CHAR 5* + WP</span> = Nhân vật 5 sao + vũ khí 5 sao</p>
+                    <p><span class="fw-bold fs-5">CHAR LIMITED</span> = Nhân vật trong vòng quay giới hạn</p>
+                    <p><span class="fw-bold fs-5">ONE CHAR 5*</span> = Tài khoản với một nhân vật 5 sao ngẫu nhiên</p>
+                    <p><span class="fw-bold fs-5">>2 CHAR 5*</span> = Tài khoản ít nhất 2 nhân vật 5 sao ngẫu nhiên</p>
+                    <p><span class="fw-bold fs-5">ACC REROLL</span> = Tài khoản reroll thông thường giá trị 7 đến 100k</p>
+                    <p><span class="fw-bold fs-5">ACC REROLL VIP</span> = Tài khoản reroll VIP giá trị trên 100k</p>
+                    <p><span class="fw-bold fs-5">LƯU Ý</span> = Tài khoản sẽ được hiển thị tại "LỊCH SỬ VÒNG QUAY" của bạn sau khi vòng quay kết thúc</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<button type="button" id="clickbtn" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+</button>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Vòng quay</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body text-danger" id="rutthuongBody">
+
+                    <div class="text-center fw-bold fs-2" id="tb">Thông báo!</div>
+                    <div class="text-center fw-bold fs-4" id="changeTB">
+                        <span id="thongbao"></span>
+
+                    </div>
+                    <div class="text-center fw-bold fs-4 d-block mt-3" id="changeTB">
+                        <a href="/nguoidung/lichsuquay" class="btn btn-primary rounded-pill" id="change_button">Xem lịch sử</a>
+                    </div>
+                </div>
+                <div id="phaohoa"><div class="pyro"><div class="before"></div><div class="after"></div></div></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    var solanquay = 1;
+    $("#btn_quay").click(function () {
+        $("#phaohoa").html("");
+        $("#btn_quay").css("display", "none");
+        $("#change_button").text("");
+        $.ajax({
+            type: "POST",
+            url: "/vongquay/postvq",
+            data: JSON.stringify(),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                if (data.error == 1) {
+                    $("#clickbtn").click();
+                    $("#tb").html("<i class=\"fas fa-exclamation text-danger\" style=\"font-size: 80px\"></i>");
+                    $("#thongbao").text(data.mesage);
+                    $("#btn_quay").css("display", "block");
+                    $("#change_button").attr("href", "/dangnhap").text("Đăng nhập");
+                }
+                else if (data.error == 2) {
+                    $("#clickbtn").click();
+                    $("#tb").html("<i class=\"fas fa-exclamation text-danger\" style=\"font-size: 80px\"></i>");
+                    $("#thongbao").text(data.mesage);
+                    $("#btn_quay").css("display", "block");
+                    $("#change_button").attr("href", "/napthecao").text("Nạp thẻ");
+                }
+                else {
+                    quay(data.id * -60);
+                    $("#thongbao").text(data.mesage);
+                    setTimeout(function () {
+                        $("#tb").html("Chúc mừng!")
+                        $("#phaohoa").html("<div class=\"pyro\"><div class=\"before\"></div><div class=\"after\"></div></div>");
+                        $("#clickbtn").click();
+                        $("#btn_quay").css("display", "block");
+                        $("#change_button").attr("href", "/vongquay#taikhoan").text("Xem tài khoản");
+                    }, 7000)
+                }
+
+                console.log(data.id);
+            }
+        });
+    })
+    function quay(goc) {
+        var sovquay = 2520 * solanquay + goc;
+        console.log(sovquay);
+        $("#vongquay").css("rotate", sovquay + "deg");
+        $("#vongquay").css("-webkit-transform", sovquay + "deg");
+        solanquay += 1;
+    }
+</script>

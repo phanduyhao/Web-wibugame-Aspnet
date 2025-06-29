@@ -1,0 +1,235 @@
+﻿@model IEnumerable<accgame.Context.Acc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="css-timkiem">
+                <h4 class="ten-game">Tìm theo</h4>
+                <div class="row">
+
+                </div>
+                <div class="mb-3">
+                    <form method="GET" action="/quantri/quanlytaikhoan/loaiacc/@ViewBag.idLoaiAcc">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-6 col-12 mb-3">
+                                <select class="form-select form-select-sm shadow-none" id="sapxep" name="sapxep" aria-label=".form-select-lg example">
+                                    <option value="10" selected>Tình trạng</option>
+                                    <option value="0" @(ViewBag.sapxep == "0" ? "selected" : "")>Acc chưa bán</option>
+                                    <option value="1" @(ViewBag.sapxep == "1" ? "selected" : "")>Acc đã bán</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputNv" name="searchMa" placeholder="Tìm theo mã số..." value="@ViewBag.searchMa">
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputVk" name="searchTK" placeholder="Tìm theo Tài khoản Acc..." value="@ViewBag.searchTK">
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12 mb-3">
+                                <input class="form-control shadow-none" type="text" id="searchInputND" name="searchND" placeholder="Tìm theo người đăng" value="@ViewBag.searchND">
+                            </div>
+                            <div class="col-3">
+                                <div class="text-nowrap">
+                                    <button type="submit" class="btn btn-danger rounded-pill"><i class="fas fa-search me-2"></i>Tìm kiếm</button>
+                                    <a href="/quantri/quanlytaikhoan/loaiacc/@ViewBag.idLoaiAcc" class="btn btn-secondary rounded-pill ms-2"><i class="fas fa-times me-2"></i>Xóa lọc</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <div class="w-100">
+                    <a href="/quantri/quanlytaikhoan/themmoi/@ViewBag.idLoaiAcc" class="btn btn-primary m-3">Thêm mới tài khoản</a>
+                    <a href="/quantri/quanlytaikhoan/LoadSoLuongTaiKhoan/@ViewBag.idLoaiAcc" class="btn btn-primary m-3">Load lại số lượng tài khoản chưa bán</a>
+
+                </div>
+                @if (TempData["notify"] != null)
+                {
+                    <div class="p-3 m-3 rounded-4 bg-danger text-white">
+                        @TempData["notify"]
+                    </div>
+                }
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tài khoản</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr class="text-nowrap">
+                                <th>Mã</th>
+                                <th class="">Người đăng</th>
+                                <th class="">Ngày đăng</th>
+                                <th class="">Ngày bán</th>
+                                <th class="">Mô tả</th>
+                                <th class="">Tên TK</th>
+                                <th class="">Mật khẩu</th>
+                                <th class="">Tình trạng</th>
+                                <th class="">Loại Acc</th>
+                                <th class="">Giá gốc</th>
+                                <th class="">% Giảm</th>
+                                @if (@ViewBag.isSaleTet == "1")
+                                {
+                                    <th class="">% Sale Tết</th>
+                                }
+                                <th class="">Giá bán</th>
+                                <th class="">Giá Ctv-Collab</th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thoiGian24h = item.ThoiGianDang.HasValue
+                                    ? item.ThoiGianDang.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                var thoiGianBan24h = item.ThoiGianBan.HasValue
+                                     ? item.ThoiGianBan.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                     : string.Empty;
+                                var tenLoaiAcc = item.LoaiAcc?.TenLoaiAcc ?? "";
+                                var giactvcollab = item.Gia / 100 * item.GiaCtvCollab;
+
+                                <tr>
+                                    <td>#@item.MaTaiKhoan</td>
+                                    <td>@(item.NguoiDung?.TenNguoiDung ?? "")</td>
+                                    <td>@thoiGian24h</td>
+                                    <td>@thoiGianBan24h</td>
+                                    <td>
+                                        <a href="/chitiettaikhoan/xem/@item.MaTaiKhoan">
+                                            @item.TenAcc
+                                        </a>
+                                    </td>
+                                    <td>@item.TaiKhoan</td>
+                                    <td>@item.MatKhau</td>
+                                    @if (item.DaBan == true)
+                                    {
+                                        <td class="text-danger fw-bold">Đã bán</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-success fw-bold">Chưa bán</td>
+                                    }
+
+                                    <td>@tenLoaiAcc</td>
+                                    <td class="price">@item.GiaGoc VNĐ </td>
+                                    <td class="">@item.PhanTram % </td>
+                                    @if (@ViewBag.isSaleTet == "1")
+                                    {
+                                        <td class="">@ViewBag.phanTramSaleTet % </td>
+                                    }
+                                    <td class="price">@item.Gia VNĐ </td>
+                                    <td class="">@item.GiaCtvCollab % ( <span class="price">@giactvcollab VNĐ</span> ) </td>
+
+                                    <td class="text-nowrap">
+                                        @if (item.DaBan == true)
+                                        {
+                                            <a href="/quantri/quanlytaikhoan/xoa/@item.IDAcc?page=@ViewBag.page&sapxep=@ViewBag.sapxep&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND" onclick="if (confirm('Bạn muốn xóa tài khoản này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                            <a href="/quantri/quanlytaikhoan/LamMoiTaiKhoanThuong/@item.IDAcc" onclick="if (confirm('Bạn muốn làm mới tài khoản này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-warning">Làm mới</a>
+
+                                        }
+                                        else
+                                        {
+                                            <a href="/quantri/quanlytaikhoan/sua/@item.IDAcc" class="badge bg-danger">Sửa</a>
+                                            <a href="/quantri/quanlytaikhoan/xoa/@item.IDAcc" onclick="if (confirm('Bạn muốn xóa tài khoản này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                            <a href="/quantri/quanlytaikhoan/LamMoiTaiKhoanThuong/@item.IDAcc" onclick="if (confirm('Bạn muốn làm mới tài khoản này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-warning">Làm mới</a>
+
+                                        }
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlytaikhoan/loaiacc/@ViewBag.idLoaiAcc?page=1&sapxep=@ViewBag.sapxep&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlytaikhoan/loaiacc/@ViewBag.idLoaiAcc?page=@i&sapxep=@ViewBag.sapxep&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/quanlytaikhoan/loaiacc/@ViewBag.idLoaiAcc?page=@i&sapxep=@ViewBag.sapxep&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlytaikhoan/loaiacc/@ViewBag.idLoaiAcc?page=@i&sapxep=@ViewBag.sapxep&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlytaikhoan/loaiacc/@ViewBag.idLoaiAcc?page=@i&sapxep=@ViewBag.sapxep&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlytaikhoan/loaiacc/@ViewBag.idLoaiAcc?page=@ViewBag.last_page&sapxep=@ViewBag.sapxep&searchMa=@ViewBag.searchMa&searchTK=@ViewBag.searchTK&searchND=@ViewBag.searchND">»</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    @if (TempData["SuccessThem"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Thêm mới thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["SuccessSua"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Chỉnh sửa thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["SuccessXoa"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Xóa thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Kiểm tra nếu phần tử success toast tồn tại
+        var successToastElement = document.getElementById('successToast');
+        if (successToastElement) {
+            var successToast = new bootstrap.Toast(successToastElement);
+            successToast.show();
+        }
+    });
+</script>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<accgame.Context.Acc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <form method="get" action="/quantri/quanlyaccrandom/timkiem" class="input-group mb-3">
+                <button type="submit" class="input-group-text" id="basic-addon1">Tìm kiếm</button>
+                <input type="text" required class="form-control" name="search" placeholder="Nhập tên tài khoản hoặc tên người đăng" aria-label="Username" aria-describedby="basic-addon1">
+            </form>
+        </div>
+        <div class="col-12 d-flex">
+
+            <div class="card flex-fill">
+                <a href="/quantri/quanlyaccrandom/themmoi" class="btn btn-primary m-3">Thêm mới tài khoản</a>
+                <div class="card-body">
+                    <div class="text-center">
+                        <a href="/quantri/quanlyaccrandom" class="btn btn-danger m-3">Tài khoản chưa bán</a>
+                        <a href="/quantri/quanlyaccrandom/taikhoandaban" class="btn btn-outline-danger m-3">Tài khoản đã bán</a>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tài khoản</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th class="">Tài khoản</th>
+                                <th class="">Mật khẩu</th>
+                                <th class="">Loại game</th>
+                                <th class="">Server</th>
+                                <th class="">Giá</th>
+                                <th class="">Người bán</th>
+                                <th class="">Thời gian đăng</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thoiGian24h = item.ThoiGianDang.HasValue
+                                    ? item.ThoiGianDang.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                <tr>
+                                    <td>#@item.MaTaiKhoan</td>
+                                    <td>@item.TaiKhoan</td>
+                                    <td>@item.MatKhau</td>
+                                    @if (item.LoaiGame == 1)
+                                    {
+                                        <td>ACC VIP STAR RAIL</td>
+                                    }
+                                    else
+                                    {
+                                        <td>ACC KHỞI ĐẦU STAR RAIL</td>
+                                    }
+                                    <td>@item.Server</td>
+                                    <td class="price">@item.Gia VNĐ </td>
+                                    <td>@item.NguoiDung.TenNguoiDung</td>
+                                    <td>@thoiGian24h</td>
+                                    <td>
+                                        <a href="/quantri/quanlyaccrandom/sua/@item.IDAcc" class="badge bg-danger">Sửa</a>
+                                        @if (item.DaBan != true)
+                                        {
+                                            <a href="/quantri/quanlyaccrandom/xoa/@item.IDAcc" onclick="if (confirm('Bạn muốn xóa tài khoản này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+

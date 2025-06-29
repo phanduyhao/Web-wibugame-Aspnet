@@ -1,0 +1,13 @@
+﻿@if (ViewBag.xemxu == -1)
+{
+    <div>
+        <p class="text-primary fw-bold">Bạn phải <a href="/dangnhap" class="text-uppercase">đăng nhập</a> mới có thể nạp tiền!</p>
+    </div>
+}
+else
+{
+    <div>
+        <p class="text-primary fw-bold">Số tiền bạn đang có: @ViewBag.xemxu VNĐ</p>
+    </div>
+}
+

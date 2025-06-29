@@ -1,0 +1,519 @@
+﻿@model accgame.Context.NguoiDung
+
+@{
+    ViewBag.Title = "Chỉnh sửa người dùng";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    @if(Model.Block == true)
+    {
+        <h2 class="text-danger fw-bold">Tài khoản đang bị khóa!</h2>
+    }
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="fs-5">Tổng tiền nạp</h5>
+                    <h3>@Convert.ToInt32(Model.TienNap).ToString("N0").Replace(",", ".")đ</h3>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="fs-5">Acc đã mua</h5>
+                    <h3>@ViewBag.accMua</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="fs-5">Cày thuê</h5>
+                    <h3>@ViewBag.LuotCayThua</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="fs-5">Nạp game</h5>
+                    <h3>@ViewBag.LuotNapGame</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Cộng tiền thành viên</h4>
+                </div>
+                <div class="card-body">
+                    <form class="custom-form" id="money_plus" action="/quantri/quanlynguoidung/AdminCongTien/@Model.IDNguoiDung" data-notify-success="Cộng tiền người dùng thành công!">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" value="true" name="congtien" />
+                        <div class="form-group">
+                            <b>Số tiền</b>
+                            <div class="">
+                                <input class="form-control text-box single-line" id="sotien" name="sotien" type="number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <b>Lý do</b>
+                            <div class="">
+                                <textarea class="form-control" name="lido" required></textarea>
+                            </div>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn btn-success rounded-pill w-100 button-submit" data-hn-form="#money_plus">Cộng tiền</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Trừ tiền thành viên</h4>
+                </div>
+                <div class="card-body">
+                    <form class="custom-form" id="money_plus" action="/quantri/quanlynguoidung/AdminCongTien/@Model.IDNguoiDung" data-notify-success="Trừ tiền người dùng thành công!">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" value="false" name="congtien" />
+                        <div class="form-group">
+                            <b>Số tiền</b>
+                            <div class="">
+                                <input class="form-control text-box single-line" id="sotien" name="sotien" type="number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <b>Lý do</b>
+                            <div class="">
+                                <textarea class="form-control" name="lido" required></textarea>
+                            </div>
+                        </div>
+                        <div class="">
+                            <button type="submit" class="btn btn-danger rounded-pill w-100 button-submit" data-hn-form="#money_plus">Trừ tiền</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Chỉnh sửa người dùng</h4>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                <div class="form-horizontal row">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.IDNguoiDung)
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <b>Tài khoản</b>
+                            <div class="">
+                                @Html.EditorFor(model => model.TenNguoiDung, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TenNguoiDung, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 data-p" data-p="@Model.MatKhau">
+                        <label for="MatKhau">Mật khẩu</label>
+                        <!-- Mật khẩu ban đầu ẩn đi -->
+                        <div class="position-relative">
+                            <input type="password" id="MatKhau" name="MatKhau" value="••••••••" class="form-control" disabled="disabled" />
+                            <button type="button" id="btn-show-passwords" class="btn btn-primary position-absolute top-0 bottom-0 end-0" data-bs-toggle="modal" data-bs-target="#exampleModal">Sửa</button>
+
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade mt-2" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display:none">
+                            <div class="modal-dialog p-3 border">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Nhập mật khẩu Cấp 2</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="adminPasswordForm">
+                                            <div class="form-group">
+                                                <label for="adminPassword">Mật khẩu Admin</label>
+                                                <input type="password" class="form-control" id="adminPassword" placeholder="Nhập mật khẩu Cấp 2">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                        <button type="button" class="btn btn-primary" id="submitAdminPassword">Xác nhận</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <b>Email</b>
+                            <div class="">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <b>Số tiền</b>
+                            <div class="">
+                                @Html.EditorFor(model => model.Tien, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tien, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <b>Cấp độ người dùng</b>
+                            <div class="d-flex align-items-center">
+                                <!-- Hidden field to store current LeverAdmin value -->
+                                @Html.HiddenFor(model => model.LeverAdmin)
+
+                                <select class="form-select me-3" name="LeverAdminSelect" id="leverAdminSelect" disabled>
+                                    <option value="0" @(Model.LeverAdmin == 0 ? "selected" : "")>Dân thường</option>
+                                    <option value="2" @(Model.LeverAdmin == 2 ? "selected" : "")>Cộng tác viên</option>
+                                    <option value="3" @(Model.LeverAdmin == 3 ? "selected" : "")>Quản lý</option>
+                                    <option value="1" @(Model.LeverAdmin == 1 ? "selected" : "")>Quản trị viên</option>
+                                </select>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Chọn</button>
+                            </div>
+                        </div>
+
+                        <!-- Modal logic remains the same -->
+                        <div class="modal fade mt-2" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true" style="display:none">
+                            <div class="modal-dialog p-3 border">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModal2Label">Nhập mật khẩu Cấp 2</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="adminPasswordForm2">
+                                            <div class="form-group">
+                                                <label for="adminPassword">Mật khẩu Cấp 2</label>
+                                                <input type="password" class="form-control" id="adminPassword2" placeholder="Nhập mật khẩu Cấp 2">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                        <button type="button" class="btn btn-primary" id="submitAdminPassword2">Xác nhận</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional code for Ctv Collab -->
+                        <div class="form-group">
+                            <b>Ctv Collab</b>
+                            <div class="mb-3 d-flex align-items-center">
+                                <input type="checkbox" name="CtvCollab" value="true" @(Model.CtvCollab.HasValue && Model.CtvCollab.Value ? "checked" : "") id="CtvCollab" style="width:20px; height:20px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <b>Số tiền đã nạp</b>
+                            <div class="">
+                                @Html.EditorFor(model => model.TienNap, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.TienNap, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @if (ViewBag.levelND == 1)
+                        {
+
+                            <div class="form-group">
+                                <b>Mật khẩu cấp 2:</b>
+                                <div class="">
+                                    <input type="text" class="Matkhauc2" name="MatKhau2" value="" placeholder="*******" />
+                                </div>
+                            </div>
+
+                            <div class="form-group PassTwoConfirm d-none">
+                                <b>Nhập lại Mật khẩu cấp 2 hiện tại:</b>
+                                <div class="">
+                                    <input type="text" class="Matkhauc2hientai" name="Matkhauc2hientai" value="" placeholder="*******" />
+                                </div>
+                                <p class="text-danger error-mk2 d-none">Mật khẩu cấp 2 hiện tại không đúng, mời nhập lại!</p>
+                                <button type="button" class="btn btn-primary mt-2 confirmPass2-btn" data-mk2="@ViewBag.mkc2">Xác nhận</button>
+                            </div>
+
+                        }
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <b>Tiền nạp trong tháng</b>
+                            <div class="">
+                                @Html.EditorFor(model => model.TienNapThang, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TienNapThang, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <b>Phần trăm hoa hồng</b>
+                            <div class="">
+                                @Html.EditorFor(model => model.Phantramhoahong, new { htmlAttributes = new { @class = "form-control", step = "0.0000001", Type = "number" } })
+                                @Html.ValidationMessageFor(model => model.Phantramhoahong, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group text-danger fw-bold">
+                            <b>Khóa tài khoản</b>
+                            <div class="">
+                                <input type="checkbox" name="Block" value="true" @(Model.Block.HasValue && Model.Block.Value ? "checked" : "") id="Block" style="width:20px; height:20px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group text-danger fw-bold">
+                            <b>Nội dung khóa</b>
+                            <div class="">
+                                <textarea class="form-control" name="BlockContent">@Model.BlockContent</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12">
+                        <div class="form-group mt-3">
+                            <div class="col-md-offset-2 ">
+                                <button type="submit" value="Lưu lại" class="btn btn-primary w-100 rounded-pill luulai" >Lưu lại </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                }
+            </div>
+        </div>
+        <div class="card mt-5">
+            <div class="card-header">
+                <h4>Biến động số dư</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Số tiền</th>
+                                <th>Lời nhắn</th>
+                                <th>Tiền trước</th>
+                                <th>Tiền sau</th>
+                                <th>Thời gian</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+</main>
+<script>
+
+    $(document).ready(function () {
+        var isLuulai = 0;
+        $('.luulai').on('click', function (e) {
+            e.preventDefault();
+
+            // Kiểm tra xem phần tử `.PassTwoConfirm` có tồn tại trong DOM hay không
+            if ($('.PassTwoConfirm').length > 0) {
+                if (isLuulai == 0) {
+                    let matkhauc2_val = $('.Matkhauc2').val();
+                    if (matkhauc2_val.trim() !== "") {
+                        $('.PassTwoConfirm').removeClass('d-none');
+
+                        $('.confirmPass2-btn').on('click', function (e) {
+                            let mk2_current = $(this).data('mk2'); // Lấy giá trị mật khẩu cấp 2 từ thuộc tính data
+                            let inputValue = $('.Matkhauc2hientai').val().trim(); // Lấy giá trị từ ô nhập và xóa khoảng trắng hai đầu
+
+                            if (mk2_current == inputValue) {
+                                $('.PassTwoConfirm').addClass('d-none'); // Ẩn form nhập lại mật khẩu cấp 2
+                                $('.error-mk2').addClass('d-none'); // Đảm bảo thông báo lỗi cũng bị ẩn nếu trước đó hiện
+                                isLuulai = 1;
+                            } else {
+                                $('.error-mk2').removeClass('d-none'); // Hiển thị thông báo lỗi
+                            }
+                        });
+                    } else {
+                        $(this).closest('form').submit();
+                    }
+                } else {
+                    $(this).closest('form').submit();
+                }
+            } else {
+                // Không có `.PassTwoConfirm`, chỉ thực hiện gửi form
+                $(this).closest('form').submit();
+            }
+        });
+
+        $('#example').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                "url": "/quantri/quanlynguoidung/BienDongSoDu/@Model.IDNguoiDung",
+                "type": "POST",
+                "dataType": "json",
+                "dataSrc": function (json) {
+                    return json.data.map(function (item) {
+                        var date = new Date(parseInt(item.ThoiGian.substr(6)));
+                        var formattedDate = date.getFullYear() + '-' +
+                            ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+                            ('0' + date.getDate()).slice(-2) + ' ' +
+                            ('0' + date.getHours()).slice(-2) + ':' +
+                            ('0' + date.getMinutes()).slice(-2) + ':' +
+                            ('0' + date.getSeconds()).slice(-2);
+                        item.ThoiGian = formattedDate;
+
+                        // Định dạng số tiền thành "000.000 VNĐ"
+                        item.SoTien = formatCurrency(item.SoTien);
+                        item.TienTruoc = formatCurrency(item.TienTruoc);
+                        item.TienSau = formatCurrency(item.TienSau);
+
+                        return item;
+                    });
+                }
+            },
+            "columns": [
+                { "data": "IDBienDongSoDu" },
+                { "data": "SoTien" },
+                { "data": "LoiNhan" },
+                { "data": "TienTruoc" },
+                { "data": "TienSau" },
+                { "data": "ThoiGian" }
+            ],
+            "createdRow": function (row, data, dataIndex) {
+                $('td', row).eq(0).addClass('id-class');
+                $('td', row).eq(1).addClass('sotien-class');
+                $('td', row).eq(2).addClass('loinhan-class');
+                $('td', row).eq(3).addClass('tientruoc-class');
+                $('td', row).eq(4).addClass('tiensau-class');
+                $('td', row).eq(5).addClass('thoigian-class');
+            }
+        });
+
+        // Hàm định dạng số tiền thành "000.000 VNĐ"
+       /* function formatCurrency(amount) {
+            return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " VNĐ";
+        }*/
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('vi-VN', { style: 'decimal', minimumFractionDigits: 0 }).format(amount) + ' VNĐ';
+        }
+    });
+   $('#submitAdminPassword').click(function () {
+    var adminPassword = $('#adminPassword').val();
+
+    if (adminPassword.trim() === '') {
+        alert('Vui lòng nhập mật khẩu.');
+        return;
+    }
+
+    // Gửi yêu cầu AJAX tới server để kiểm tra mật khẩu admin
+    $.ajax({
+        url: '@Url.Action("CheckAdminPassword", "quanlynguoidung")',
+        type: 'POST',
+        data: { password: adminPassword },
+        success: function (response) {
+            if (response.success) {
+                // Nếu mật khẩu admin đúng, hiển thị mật khẩu tất cả người dùng
+                $('.data-p').each(function () {
+                    $(this).find('#MatKhau').val($(this).data('p')); // Cập nhật nội dung ô mật khẩu thành mật khẩu thực tế
+                    // Bỏ thuộc tính disabled để người dùng có thể chỉnh sửa
+                    $(this).find('#MatKhau').removeAttr('disabled');
+
+                    $(this).find('#MatKhau').attr('type', 'text');
+                });
+                $('#exampleModal').modal('hide'); // Đóng modal
+            } else {
+                // Hiển thị thông báo lỗi trong modal thay vì dùng alert
+                $('#adminPassword').after('<div class="text-danger">Mật khẩu Cấp 2 không đúng! Vui lòng thử lại.</div>');
+            }
+        },
+        error: function () {
+            alert('Có lỗi xảy ra! Vui lòng thử lại.');
+        }
+    });
+});
+  $('#submitAdminPassword2').click(function () {
+        var adminPassword = $('#adminPassword2').val();
+
+        if (adminPassword.trim() === '') {
+            alert('Vui lòng nhập mật khẩu.');
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Action("CheckAdminPassword", "quanlynguoidung")',
+            type: 'POST',
+            data: { password: adminPassword },
+            success: function (response) {
+                if (response.success) {
+                    // Enable select for changing LeverAdmin
+                    $('#leverAdminSelect').removeAttr('disabled');
+
+                    // When modal is confirmed, update hidden field with the selected value
+                    $('#leverAdminSelect').change(function() {
+                        $('input[name="LeverAdmin"]').val($(this).val());
+                    });
+
+                    $('#exampleModal2').modal('hide');
+                } else {
+                    $('#adminPassword2').after('<div class="text-danger">Mật khẩu Cấp 2 không đúng! Vui lòng thử lại.</div>');
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra! Vui lòng thử lại.');
+            }
+        });
+    });
+
+</script>
+
+
+<style>
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0.5rem 1rem;
+        margin: 0.25rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+    }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: #007bff;
+            color: white !important;
+        }
+</style>

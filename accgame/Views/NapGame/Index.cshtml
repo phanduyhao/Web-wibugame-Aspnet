@@ -1,0 +1,80 @@
+﻿@model IEnumerable<accgame.Context.NapGame>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="about about-acc">
+    <div class="container mt-5">
+        <div class="form-dangky p-0 border-dangky">
+            <div class="pb-3 text-center">
+                <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                    Danh sách nạp game
+                </h2>
+                <img class="img-fluid" src="/Content/assets/img/AuthDevider.png">
+            </div>
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                    <thead>
+                        <tr class="bg-success fs-6">
+                            <th class="text-uppercase text-white text-nowrap">ID</th>
+                            <th class="text-uppercase text-white text-nowrap">GIÁ TRỊ</th>
+                            <th class="text-uppercase text-white text-nowrap">TRẠNG THÁI</th>
+                            <th class="text-uppercase text-white text-nowrap">UID</th>
+                            <th class="text-uppercase text-white text-nowrap">TÊN ĐĂNG NHẬP</th>
+                            <th class="text-uppercase text-white text-nowrap">SỐ ĐIỆN THOẠI</th>
+                            <th class="text-uppercase text-white text-nowrap">GÓI NẠP</th>
+                            <th class="text-uppercase text-white text-nowrap">SỐ LƯỢNG</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fs-6">
+                        @foreach (var item in Model)
+                        {
+                            <tr class="text-dark">
+                                <td class="align-middle">
+                                    <span style="font-weight: 700" class="mb-0 text-sm">#@item.IDNapGame</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span class="">@Convert.ToInt32(item.SoTien).ToString("N0").Replace(",", ".")đ </span>
+                                </td>
+                                <td class="text-sm align-middle">
+                                    @if (item.HoanThanh == true)
+                                    {
+                                        <span class="badge bg-success">Đã hoàn thành</span>
+                                    }
+                                    else if (item.HoanThanh == false)
+                                    {
+                                        <span class="badge bg-dark">Đã hủy</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Đang chờ</span>
+                                    }
+                                </td>
+                                <td>
+                                    <p class="fw-semibold mb-0">@item.UID</p>
+                                    <p class="text-xs mb-0 text-nowrap fst-italic">Nv: @item.TenNhanVat</p>
+                                </td>
+                                <td class="text-sm align-middle">
+                                    <span class="">@item.TenDangNhap</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span class="">@item.SoDienThoai</span>
+                                </td>
+                                <td class="align-middle">
+                                    @item.GoiNap.TenGoi
+                                </td>
+                                <td class="align-middle">
+                                    @item.SoLuong
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</section>
+

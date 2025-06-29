@@ -1,0 +1,816 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M682WH38');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>
+        @{
+            Html.RenderAction("renderTenMien", "Home");
+        } - @ViewBag.Title
+    </title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta property="og:image" content="~/Content/images/thumblink.jpg" />
+
+    <!-- Favicons -->
+    <link href="~/Content/assets/img/logo.png" rel="icon">
+    <link href="~/Content/assets/img/logo.png" rel="apple-touch-icon">
+    <link href="~/Content/assets/css/stylesheet.css" rel="stylesheet" />
+    <link href="/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/Content/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/Content/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/Content/assets/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta name="google-site-verification" content="TCR6hm5DVIYn3BKgOyh9QlmL-VoBHJY_FzyaxiVzUUE" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="position-relative">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M682WH38"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    @{
+        Html.RenderAction("render", "Home");
+    }
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-cente mt-3 mx-2 m-lg-0 p rounded p-2 py-lg-4">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+            <h1 class="logo me-2"><a href="/"><img src="@{Html.RenderAction("renderLogo", "Home");}" class="" /></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="/Content/assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar order-last order-lg-0 mx-auto">
+                <ul>
+                    <li class="d-block d-lg-none text-center text-uppercase">
+                        <h1>
+                            <span class="change-domain"></span>
+                        </h1>
+                    </li>
+                    <li class="d-block d-lg-none "><hr class="css-3ga64c"></li>
+
+                    <li><a class="nav-link scrollto @ViewBag.trangchu" href="/">Trang chủ</a></li>
+                    <li class="dropdown">
+                        <a class="nav-link scrollto @ViewBag.napthecao @ViewBag.napatm @ViewBag.napmomo"><span>Nạp Tiền</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a class="nav-link scrollto @ViewBag.napthecao" href="/napthecao">Nạp thẻ cào</a></li>
+                            <li><a class="nav-link scrollto @ViewBag.napatm" href="/NapTien/ATM">Nạp ATM</a></li>
+                            @*                            <li><a class="nav-link scrollto @ViewBag.napmomo" href="/napmomo">Nạp MOMO</a></li>
+                            *@
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link scrollto @ViewBag.napgame @ViewBag.napgame1 @ViewBag.napgame2 @ViewBag.napgame3 @ViewBag.napgame4"><span>Nạp Game</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a class="nav-link scrollto @ViewBag.napgame" href="/napgame">Lịch sử nạp game</a></li>
+                            <li><a class="nav-link scrollto @ViewBag.napgame1" href="/napgame/listpackage/1">Nạp game GENSHIN IMPACT</a></li>
+                            <li><a class="nav-link scrollto @ViewBag.napgame2" href="/napgame/listpackage/2">Nạp game HONKAI STAR RAIL</a></li>
+                            <li><a class="nav-link scrollto @ViewBag.napgame3" href="/napgame/listpackage/3">Nạp game WUTHERING WAVES</a></li>
+                            <li><a class="nav-link scrollto @ViewBag.napgame4" href="/napgame/listpackage/4">Nạp game ZENLESS ZONE ZERO</a></li>
+
+
+                        </ul>
+                    </li>
+                    @* <li class="dropdown">
+                            <a class="nav-link scrollto"><span>Mua tài khoản</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                @{
+                                    Html.RenderAction("renderGame", "Home");
+                                }
+                            </ul>
+                        </li>*@
+                    @if (Session["IDNguoiDung"] == null || Session["IDNguoiDung"].Equals(0))
+                    {
+                        <li><a target="_blank" class="nav-link scrollto" href="https://docs.google.com/document/d/1n9twW7EH-_zsgIeI_-HJGeyRo9Z6tU8E5F9Fn5O-zLk/edit">CSBH</a></li>
+                        <li><a href="/dangnhap" class="book-a-table-btn nav-link scrollto text-center d-block d-lg-none">Đăng nhập</a></li>
+                    }
+                    else
+                    {
+                        <li><a class="nav-link scrollto @ViewBag.tkdm" href="/taikhoandamua">Lịch sử mua</a></li>
+                        <li><a target="_blank" class="nav-link scrollto" href="https://docs.google.com/document/d/1n9twW7EH-_zsgIeI_-HJGeyRo9Z6tU8E5F9Fn5O-zLk/edit">CSBH</a></li>
+
+                        <li class="dropdown dropdown-mobile">
+                            <a class="loadTien book-a-table-btn nav-link scrollto text-center dropdown px-4 py-2 d-block d-lg-none">Tài khoản</a>
+                            <ul class="mt-2 pt-0">
+                                <li><a href="/nguoidung/hoso">Hồ sơ</a></li>
+                                @if (Convert.ToInt16(Session["levelAdmin"]) == 2 || Convert.ToInt16(Session["levelAdmin"]) == 1)
+                                {
+                                    if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true)
+                                    {
+                                        <li><a href="/danhmuc/ListDanhMucCollab">Cộng tác viên ( Ctv-Collab )</a></li>
+                                        if (ViewBag.OnOffCtvCollab != true)
+                                        {
+                                            <li class="d-flex">
+                                                <a class="text-black">Bật Ctv-Collab</a>
+                                                <input class="onOffCtvCollab" type="checkbox" name="OnOffCtvCollab" />
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="d-flex">
+                                                <a class="text-black">Tắt Ctv-Collab</a>
+                                                <input class="onOffCtvCollab" type="checkbox" name="OnOffCtvCollab" checked="checked" />
+                                            </li>
+                                        }
+                                        <li><a href="/quantri/Dashboard">Treo Acc</a></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/quantri/Dashboard">Cộng tác viên</a></li>
+
+                                    }
+                                }
+                                @if (Convert.ToInt16(Session["levelAdmin"]) == 1)
+                                {
+                                    <li><a href="/quantri/trangchu">Quản trị</a></li>
+                                }
+                                @*    @if (Convert.ToInt16(Session["levelAdmin"]) == 2 || Convert.ToInt16(Session["levelAdmin"]) == 1)
+                                    {
+                                        <li><a href="/quantri/Dashboard">Cộng tác viên</a></li>
+                                    }*@
+                                @if (Convert.ToInt16(Session["levelAdmin"]) == 3 || Convert.ToInt16(Session["levelAdmin"]) == 1 || Convert.ToInt16(Session["levelAdmin"]) == 3)
+                                {
+                                    <li><a href="/quantri/QLichSuBanAcc/AccVip">Quản lý</a></li>
+                                }
+                                <li><a href="/dangxuat">Đăng xuất</a></li>
+
+                            </ul>
+                        </li>
+
+                    }
+
+                </ul>
+
+            </nav><!-- .navbar -->
+
+
+            @if (Session["IDNguoiDung"] == null || Session["IDNguoiDung"].Equals(0))
+            {
+                <a href="/dangnhap" style="--clr:#39FF14" class="css-button-link scrollto text-center d-none d-lg-flex"><span>Đăng nhập</span><i></i></a>
+            }
+            else
+            {
+                <div class="navbar">
+                    <button data-bs-toggle="modal" data-bs-target="#notify" class="border-0 bg-transparent notify-button position-relative d-lg-block d-none" onclick="markNotificationsAsRead()">
+                        @if (ViewBag.UnreadNotifyCount != null && (int)ViewBag.UnreadNotifyCount > 0)
+                        {
+                            <img src="~/Content/images/icon/Thông báo ĐỘNG.gif" width="100" class="rounded-circle img-notify" alt="Alternate Text" />
+                            <span id="notifyBadge" class="badge bg-danger position-absolute" style="right:30px">@ViewBag.UnreadNotifyCount</span>
+                        }
+                        else
+                        {
+                            <img src="~/Content/images/icon/TB tĩnh trắng.png" width="100" class="rounded-circle img-notify" alt="Alternate Text" />
+
+                        }
+                    </button>
+
+                    <ul>
+                        <li class="dropdown d-block button-link-wrap dropdown-mobile">
+                            <a style="--clr:#39FF14" class="loadTien css-button-link d-none d-lg-flex dropdown"><span>Tài khoản</span><i></i></a>
+                            <ul class="mt-2">
+                                <li><a href="/nguoidung/hoso">Hồ sơ</a></li>
+                                @if (Convert.ToInt16(Session["levelAdmin"]) == 0 && ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true)
+                                {
+                                    <li><a href="/danhmuc/ListDanhMucCollab">Cộng tác viên ( Ctv-Collab )</a></li>
+                                    if (ViewBag.OnOffCtvCollab != true)
+                                    {
+                                        <li class="d-flex">
+                                            <a class="text-black">Bật Ctv-Collab</a>
+                                            <input class="onOffCtvCollab" type="checkbox" name="OnOffCtvCollab" />
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="d-flex">
+                                            <a class="text-black">Tắt Ctv-Collab</a>
+                                            <input class="onOffCtvCollab" type="checkbox" name="OnOffCtvCollab" checked="checked" />
+                                        </li>
+                                    }
+                                }
+                                @if (Convert.ToInt16(Session["levelAdmin"]) == 1)
+                                {
+                                    <li><a href="/quantri/trangchu">Quản trị</a></li>
+                                }
+                                @if (Convert.ToInt16(Session["levelAdmin"]) == 2 || Convert.ToInt16(Session["levelAdmin"]) == 1)
+                                {
+                                    if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true)
+                                    {
+                                        <li><a href="/danhmuc/ListDanhMucCollab">Cộng tác viên ( Ctv-Collab )</a></li>
+                                        if (ViewBag.OnOffCtvCollab != true)
+                                        {
+                                            <li class="d-flex">
+                                                <a class="text-black">Bật Ctv-Collab</a>
+                                                <input class="onOffCtvCollab" type="checkbox" name="OnOffCtvCollab" />
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="d-flex">
+                                                <a class="text-black">Tắt Ctv-Collab</a>
+                                                <input class="onOffCtvCollab" type="checkbox" name="OnOffCtvCollab" checked="checked" />
+                                            </li>
+                                        }
+                                        <li><a href="/quantri/Dashboard">Treo Acc</a></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li><a href="/quantri/Dashboard">Cộng tác viên</a></li>
+
+                                    }
+                                }
+                                @if (Convert.ToInt16(Session["levelAdmin"]) == 3 || Convert.ToInt16(Session["levelAdmin"]) == 1 || Convert.ToInt16(Session["levelAdmin"]) == 3)
+                                {
+                                    <li><a href="/quantri/QLichSuBanAcc/AccVip">Quản lý</a></li>
+                                }
+                                <li><a href="/dangxuat">Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            }
+
+        </div>
+
+        @if (Session["IDNguoiDung"] == null || Session["IDNguoiDung"].Equals(0))
+        {
+            <a href="/dangnhap" style="--clr:#39FF14" class="css-button-link scrollto text-center d-lg-none d-block text-nowrap"><span>Đăng nhập</span><i></i></a>
+
+        }
+        else
+        {
+            <div class="d-flex align-items-center">
+                <button data-bs-toggle="modal" data-bs-target="#notify" class="border-0 bg-transparent notify-button position-relative d-block d-lg-none" onclick="markNotificationsAsRead()">
+                    @if (ViewBag.UnreadNotifyCount != null && (int)ViewBag.UnreadNotifyCount > 0)
+                    {
+                        <img src="~/Content/images/icon/TB động đen.gif" width="100" class="rounded-circle img-notify" alt="Alternate Text" />
+                        <span id="notifyBadge" class="badge bg-danger position-absolute" style="right:30px">@ViewBag.UnreadNotifyCount</span>
+                    }
+                    else
+                    {
+                        <img src="~/Content/images/icon/Tb tĩnh Đen.png" width="100" class="rounded-circle img-notify" alt="Alternate Text" />
+                    }
+                </button>
+                @*<div id="mobile-nav-trigger" class="bg-transparent position-relative d-block d-lg-none pe-4">
+                        <img src="~/Content/images/icon/Menu.png" width="40" class="img-menu" alt="Alternate Text" />
+
+                    </div>*@
+            </div>
+
+        }
+
+    </header><!-- End Header -->
+
+
+    @if (Session["IDNguoiDung"] != null)
+    {
+        <div id="header" class="fixed-bottom d-lg-none d-block text-center mb-3 mx-2 m-lg-0 p rounded py-2">
+            <div class=" d-flex align-items-center justify-content-around">
+                <a class="text-center" href="/">
+                    <img src="~/Content/images/icon/Trang chủ.png" width="25" alt="Alternate Text" />
+                    <p class="mb-0 text-dark" style="font-size:12px">Trang chủ</p>
+                </a>
+                <a class="text-center" href="/taikhoandamua">
+                    <img src="~/Content/images/icon/Lịch sử mua.png" width="25" alt="Alternate Text" />
+                    <p class="mb-0 text-dark" style="font-size:12px">Lịch sử mua</p>
+                </a>
+                <a class="text-center" href="/NapTien/ATM">
+                    <img src="~/Content/images/icon/Nạp tiền.png" width="25" alt="Alternate Text" />
+                    <p class="mb-0 text-dark" style="font-size:12px">Nạp tiền</p>
+                </a>
+                <a class="text-center" href="https://www.facebook.com/WIBUGAME.VN.99">
+                    <img src="~/Content/images/icon/Liên hệ shop.png" width="25" alt="Alternate Text" />
+                    <p class="mb-0 text-dark" style="font-size:12px">Liên hệ Shop</p>
+                </a>
+                <div id="mobile-nav-trigger2" class="text-center" href="/">
+                    <img src="~/Content/images/icon/Menu.png" width="25" alt="Alternate Text" />
+                    <p class="mb-0 text-dark" style="font-size:12px">Menu</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav id="navbar2" class="navbar order-last order-lg-0 mx-auto d-none">
+            <a class="loadTien book-a-table-btn nav-link scrollto text-center dropdown px-4 py-2 d-lg-block d-none">Tài khoản</a>
+            <a class="loadTien book-a-table-btn nav-link scrollto bg-white text-dark text-center dropdown px-4 py-2 d-lg-none d-flex justify-content-start">Tài khoản</a>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                    <a target="_blank" href="/nguoidung/hoso" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                        <img src="~/Content/images/icon/Hồ sơ.png" width="30" alt="Alternate Text" />
+                        <p class="mb-0 mt-2">Hồ sơ</p>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a target="_blank" href="/#Danhsachgame" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                        <img src="~/Content/images/icon/MUA ACC.png" width="30" alt="Alternate Text" />
+                        <p class="mb-0 mt-2">Mua Acc</p>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a target="_blank" href="https://www.facebook.com/WIBUGAME.VN.99/" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                        <img src="~/Content/images/icon/BÁN ACC.png" width="30" alt="Alternate Text" />
+                        <p class="mb-0 mt-2">Bán Acc</p>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a target="_blank" href="/#dichvugame" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                        <img src="~/Content/images/icon/NẠP GAME.png" width="30" alt="Alternate Text" />
+                        <p class="mb-0 mt-2">Nạp Game</p>
+                    </a>
+                </div>
+                @* <div class="col-6">
+                        <a href="#" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                            <img src="~/Content/images/icon/CSKH.png" width="30" alt="Alternate Text" />
+                            <p class="mb-0 mt-2">CSKH</p>
+                        </a>
+                    </div>*@
+                @if (Convert.ToInt16(Session["levelAdmin"]) == 2 || Convert.ToInt16(Session["levelAdmin"]) == 1)
+                {
+                    if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true)
+                    {
+                        <div class="col-6">
+                            <a href="/danhmuc/ListDanhMucCollab" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                                <img src="~/Content/images/icon/Cộng tác viên.png" width="30" alt="Alternate Text" />
+                                <p class="mb-0 mt-2">Cộng tác viên</p>
+                            </a>
+                        </div>
+
+                        if (ViewBag.OnOffCtvCollab != true)
+                        {
+                            <div class="col-6">
+                                <div class=" bg-white text-dark text-center rounded pt-2 d-flex flex-column justify-content-center m-2">
+                                    <input class="onOffCtvCollab" type="checkbox" name="OnOffCtvCollab" />
+                                    <a class="text-danger d-block pt-1 my-0">Bật Ctv-Collab</a>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-6">
+                                <div class=" bg-white text-dark text-center rounded pt-3 d-flex flex-column justify-content-center m-2">
+                                    <input class="onOffCtvCollab" type="checkbox" name="OnOffCtvCollab" checked="checked" />
+                                    <a class="text-danger d-block">Tắt Ctv-Collab</a>
+                                </div>
+                            </div>
+                        }
+                        <div class="col-6">
+                            <a href="/quantri/Dashboard" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                                <img src="~/Content/images/icon/treoacc.png" width="30" alt="Alternate Text" />
+                                <p class="mb-0 mt-2">Treo Acc</p>
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-6">
+                            <a href="/quantri/Dashboard" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                                <img src="~/Content/images/icon/Cộng tác viên.png" width="30" alt="Alternate Text" />
+                                <p class="mb-0 mt-2">Cộng tác viên</p>
+                            </a>
+                        </div>
+
+                    }
+                }
+                @if (Convert.ToInt16(Session["levelAdmin"]) == 1)
+                {
+                    <div class="col-6">
+                        <a href="/quantri/trangchu" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                            <img src="~/Content/images/icon/Quản trị.png" width="30" alt="Alternate Text" />
+                            <p class="mb-0 mt-2">Quản trị</p>
+                        </a>
+                    </div>
+                }
+                @*    @if (Convert.ToInt16(Session["levelAdmin"]) == 2 || Convert.ToInt16(Session["levelAdmin"]) == 1)
+                    {
+                        <li><a href="/quantri/Dashboard">Cộng tác viên</a></li>
+                    }*@
+                @if (Convert.ToInt16(Session["levelAdmin"]) == 3 || Convert.ToInt16(Session["levelAdmin"]) == 1 || Convert.ToInt16(Session["levelAdmin"]) == 3)
+                {
+                    <div class="col-6">
+                        <a href="/quantri/QLichSuBanAcc/AccVip" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                            <img src="~/Content/images/icon/Quản lý.png" width="30" alt="Alternate Text" />
+                            <p class="mb-0 mt-2">Quản lý</p>
+                        </a>
+                    </div>
+                }
+                <div class="col-6">
+                    <a href="/dangxuat" class="bg-white text-dark text-center rounded py-2 d-block m-2">
+                        <img src="~/Content/images/icon/Đăng xuất.png" width="30" alt="Alternate Text" />
+                        <p class="mb-0 mt-2">Đăng xuất</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    }
+
+    <!-- Modal Notify -->
+    <div class="modal fade" id="notify" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog notify-modal">
+            <div class="modal-content notify-content">
+                <div class="modal-header notify-header">
+                    <h1 class="modal-title fs-3 text-danger fw-bold" id="exampleModalLabel">Thông báo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body notify-body">
+                    <div class="notifications">
+                        @if (ViewBag.NotifyUser != null)
+                        {
+                            foreach (var notify in (List<accgame.Context.NotifyUser>)ViewBag.NotifyUser)
+                            {
+                                if (notify.IsAdminPost == true)
+                                {
+                                    <div class="notify-item p-3 mb-3 border-bottom bg-light border border-primary">
+                                        <h6 class="text-danger">Thông báo từ Admin:</h6>
+                                        @Html.Raw(notify.Contents) <!-- Render nội dung HTML -->
+                                        <p class="text-end text-primary"><i>@notify.Thoigian</i></p>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="notify-item p-3 mb-3 border-bottom bg-light border border-primary">
+                                        @Html.Raw(notify.Contents) <!-- Render nội dung HTML -->
+                                        <p class="text-end text-primary"><i>@notify.Thoigian</i></p>
+                                    </div>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <p>Không có thông báo nào.</p>
+                        }
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <main id="main">
+        @RenderBody()
+    </main>
+
+    <!-- ======= Footer ======= -->
+    @{
+        Html.RenderAction("renderFooter", "Home");
+    }
+    <!-- End Footer -->
+    <div>
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center active"><i class="bi bi-arrow-up-short"></i></a>
+        <a href="https://tinyurl.com/wibugame-contact" target="_blank" class="back-to-top d-flex border-0 bg-transparent active d-none d-lg-block" style="bottom: 70px">
+            <img src="~/Content/images/icon/messenger.png" width="44" alt="Alternate Text" />
+        </a>
+    </div>
+    <script>
+        function markNotificationsAsRead() {
+            $.ajax({
+                url: '/Notify/MarkAllNotificationsAsRead', // Thay "YourController" bằng tên controller của bạn
+                type: 'POST',
+                data: {}, // Dữ liệu gửi đi (nếu cần)
+                success: function (response) {
+                    if (response.success) {
+                        // Xóa hoặc ẩn badge khi thành công
+                        $('#notifyBadge').remove(); // Xóa thẻ badge
+                    } else {
+                        console.error('Failed to mark notifications as read: ', response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('AJAX Error: ', error);
+                }
+            });
+        }
+        $(document).ready(function () {
+            $('.onOffCtvCollab').change(function () {
+                var isChecked = $(this).is(':checked');
+
+                $.ajax({
+                    type: "POST",
+                    url: '/nguoidung/ToggleCtvCollab',
+                    data: { isChecked: isChecked },
+                    success: function (response) {
+                        if (response.success) {
+                            setTimeout(function () {
+                                location.reload();
+                            }, 500); // Đợi 1 giây rồi reload lại trang
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert("Có lỗi xảy ra. Vui lòng thử lại.");
+                    }
+                });
+            });
+        });
+        $(document).ready(function () {
+            $('.dropdown-mobile > a').on('click', function (e) {
+                e.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
+
+                var $dropdown = $(this).next('ul'); // Chọn phần tử <ul> kế tiếp
+
+                // Toggle class 'dropdown-active' trên phần tử <ul>
+                $dropdown.toggleClass('dropdown-active');
+            });
+        });
+        $(document).ready(function () {
+            $(".loadTien").load("/home/renderMoney");
+            // Bắt sự kiện khi giá trị của ô tìm kiếm thay đổi
+            $('#searchInputNv').on('input', function () {
+
+                var searchText = $(this).val().toLowerCase(); // Lấy giá trị nhập vào và chuyển thành chữ thường
+                if (searchText) {
+                    $('.form-check-labelnv').each(function () {
+                        if ($(this).text().toLowerCase().indexOf(searchText) === -1) {
+                            $(this).hide();
+                        } else {
+                            $(this).show();
+                        }
+                    });
+                }
+
+            });
+        });
+        $(document).ready(function () {
+            // Bắt sự kiện khi giá trị của ô tìm kiếm thay đổi
+            $('#searchInputVk').on('input', function () {
+
+                var searchText = $(this).val().toLowerCase(); // Lấy giá trị nhập vào và chuyển thành chữ thường
+                if (searchText) {
+                    $('.form-check-labelvk').each(function () {
+                        if ($(this).text().toLowerCase().indexOf(searchText) === -1) {
+                            $(this).hide();
+                        } else {
+                            $(this).show();
+                        }
+                    });
+                }
+
+            });
+        });
+
+        /*function toggleNavbar() {
+            const navbar = document.querySelector('#navbar');
+            const navbarToggle = document.querySelector('.mobile-nav-toggle');
+
+            navbar.classList.toggle('navbar-mobile');
+
+            if (navbarToggle) {
+                navbarToggle.classList.toggle('bi-list');
+                navbarToggle.classList.toggle('bi-x');
+            }
+        }
+
+        document.querySelector('#mobile-nav-trigger2').addEventListener('click', toggleNavbar);
+
+        document.addEventListener('click', function (e) {
+            if (e.target.matches('.navbar .dropdown > a') && document.querySelector('#navbar').classList.contains('navbar-mobile')) {
+                e.preventDefault();
+                e.target.nextElementSibling.classList.toggle('dropdown-active');
+            }
+        }, true);
+
+        document.addEventListener('click', function (e) {
+            const navbar = document.querySelector("#navbar");
+            navbar.classList.remove("mx-auto");
+            navbar.classList.add("me-auto");
+            if (e.target.matches('.scrollto')) {
+                if (document.querySelector(e.target.hash)) {
+                    e.preventDefault();
+
+                    const navbar = document.querySelector('#navbar');
+                    if (navbar.classList.contains('navbar-mobile')) {
+                        navbar.classList.remove('navbar-mobile');
+                        const navbarToggle = document.querySelector('.mobile-nav-toggle');
+                        if (navbarToggle) {
+                            navbarToggle.classList.toggle('bi-list');
+                            navbarToggle.classList.toggle('bi-x');
+                        }
+                    }
+                    scrollto(e.target.hash);
+                }
+            }
+        }, true);*/
+
+        function toggleNavbar2() {
+            const navbar2 = document.querySelector('#navbar2');
+            const navbarToggle2 = document.querySelector('.mobile-nav-toggle');
+
+            navbar2.classList.toggle('navbar-mobile');
+
+            if (navbarToggle2) {
+                navbarToggle2.classList.toggle('bi-list');
+                navbarToggle2.classList.toggle('bi-x');
+            }
+        }
+        const navbar2 = document.querySelector('#navbar2');
+        const menu = document.querySelector('#mobile-nav-trigger2');
+        menu.addEventListener('click', function () {
+            if (navbar2.classList.contains('d-none')) {
+                navbar2.classList.remove('d-none')
+                navbar2.classList.add('d-block')
+
+            } else {
+                navbar2.classList.add('d-none')
+                navbar2.classList.remove('d-block')
+
+            }
+        });
+        document.querySelector('#mobile-nav-trigger2').addEventListener('click', toggleNavbar2);
+
+        document.addEventListener('click', function (e) {
+            if (e.target.matches('.navbar .dropdown > a') && document.querySelector('#navbar2').classList.contains('navbar-mobile')) {
+                e.preventDefault();
+                e.target.nextElementSibling.classList.toggle('dropdown-active');
+            }
+        }, true);
+
+        document.addEventListener('click', function (e) {
+            const navbar2 = document.querySelector("#navbar2");
+            navbar2.classList.remove("mx-auto");
+            navbar2.classList.add("me-auto");
+            if (e.target.matches('.scrollto')) {
+                if (document.querySelector(e.target.hash)) {
+                    e.preventDefault();
+
+                    const navbar2 = document.querySelector('#navbar2');
+                    if (navbar2.classList.contains('navbar-mobile')) {
+                        navbar2.classList.remove('navbar-mobile');
+                        navbar2.classList.add('d-none');
+                        const navbarToggle2 = document.querySelector('.mobile-nav-toggle');
+                        if (navbarToggle2) {
+                            navbarToggle2.classList.toggle('bi-list');
+                            navbarToggle2.classList.toggle('bi-x');
+                        }
+                    }
+                    scrollto(e.target.hash);
+                }
+            }
+        }, true);
+
+    </script>
+    <style>
+        section {
+            padding-bottom: 600px !important;
+        }
+
+        .notifications p {
+            color: black;
+            margin-bottom: 0;
+        }
+
+        .notifications a {
+            color: deepskyblue;
+        }
+
+        .notify-dialog {
+            max-width: 800px; /* Đặt chiều rộng tối đa cho modal */
+            margin: 1.75rem auto; /* Căn giữa modal */
+        }
+
+        .notify-content {
+            max-height: 80vh; /* Giới hạn chiều cao modal (80% viewport height) */
+            overflow: hidden; /* Ẩn overflow */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .notify-header {
+            flex-shrink: 0; /* Đặt các phần header và footer không bị co */
+        }
+
+        .notify-body {
+            flex-grow: 1; /* Cho phép phần body co giãn */
+            overflow-y: auto; /* Thêm thanh cuộn dọc */
+            max-height: calc(80vh - 10px); /* Chiều cao cố định cho nội dung trừ header và footer */
+        }
+
+        .mobile-nav-toggle.bi-list {
+            display: none !important;
+        }
+        /* CSS cho phần trang */
+        .pagination-container {
+            text-align: center;
+        }
+
+        .pagination {
+            display: inline-block;
+            margin: 20px auto;
+        }
+
+            .pagination li {
+                display: inline-block;
+                margin-right: 5px;
+                margin-top: 15px;
+            }
+
+                .pagination li a {
+                    color: #333;
+                    padding: 6px 12px;
+                    text-decoration: none;
+                    border: 1px solid #fff;
+                    border-radius: 4px;
+                    font-size: 15px;
+                    background: #ddd;
+                }
+
+                .pagination li.active a {
+                    background-color: #a70030;
+                    color: #fff;
+                    border-color: #a70030;
+                }
+
+                .pagination li.disabled a {
+                    color: #777;
+                    cursor: not-allowed;
+                }
+
+                .pagination li span {
+                    color: #777;
+                    padding: 6px 12px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                }
+
+                .pagination li.disabled span {
+                    color: #777;
+                    background-color: #fff;
+                    border-color: #ddd;
+                    cursor: not-allowed;
+                }
+
+        .notify-item {
+            border-radius: 20px;
+            font-size: 16px;
+            color: black;
+        }
+
+        #navbar2 {
+            padding: 100px 10px;
+            z-index: 10;
+        }
+
+        .onOffCtvCollab {
+            height: 30px; /* Chiều cao của checkbox */
+            cursor: pointer; /* Thêm hiệu ứng con trỏ khi hover */
+        }
+
+            .onOffCtvCollab:checked {
+                accent-color: #ff0000; /* Đổi màu khi checkbox được chọn */
+            }
+    </style>
+    <!-- Vendor JS Files -->
+    @*    <script src="/Content/assets/vendor/aos/aos.js"></script>*@
+    <script src="/Content/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Content/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/Content/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/Content/assets/vendor/php-email-form/validate.js"></script>
+    <script src="/Content/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/Content/assets/js/main.js"></script>
+
+</body>
+
+</html>

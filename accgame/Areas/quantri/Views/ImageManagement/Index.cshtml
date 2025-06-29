@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Delete Old Sold Acc Images";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+
+}
+<main class="content">
+    <div class="container">
+
+        <div id="messageBox"></div>
+
+        <button id="deleteBtn" class="btn btn-danger mb-4">Delete Old Sold Acc Images</button>
+        <h4 class="mt-4">Danh sách ảnh sẽ bị xóa:</h4>
+        <div class="row row-cols-2 row-cols-md-4 g-3">
+            @foreach (string path in ViewBag.ImagePaths)
+            {
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body p-2">
+                            <p class="card-text mb-0">@path</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="modal fade" id="processingModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center p-4">
+                    <div class="spinner-border text-primary mb-3" role="status"></div>
+                    <h5>Đang xóa ảnh...</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("deleteBtn").addEventListener("click", function () {
+            if (!confirm("Bạn có chắc chắn muốn xóa ảnh của các tài khoản đã bán hơn 1 tháng?")) return;
+
+            // Hiện modal đang xử lý
+            const modal = new bootstrap.Modal(document.getElementById('processingModal'));
+            modal.show();
+
+            fetch('/quantri/delete-images-than-more-month/delete-old-sold-images', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const box = document.getElementById("messageBox");
+                    modal.hide(); // Ẩn modal khi hoàn tất
+                    if (data.success) {
+                        box.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+                    } else {
+                        box.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+                    }
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                })
+                .catch(error => {
+                    modal.hide(); // Ẩn modal nếu lỗi
+                    document.getElementById("messageBox").innerHTML =
+                        `<div class="alert alert-danger">Lỗi kết nối hoặc server không phản hồi.</div>`;
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                });
+        });
+
+    </script>
+
+</main>

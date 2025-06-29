@@ -1,0 +1,1624 @@
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\accgame\accgame\accgame\bin\accgame.dll.config
+D:\project\accgame\accgame\accgame\bin\accgame.dll
+D:\project\accgame\accgame\accgame\bin\accgame.pdb
+D:\project\accgame\accgame\accgame\bin\roslyn\csc.exe
+D:\project\accgame\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\accgame\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\accgame\accgame\accgame\bin\roslyn\csi.exe
+D:\project\accgame\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\accgame\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\accgame\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\accgame\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\accgame\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\accgame\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\accgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\accgame\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\accgame\accgame\accgame\bin\EntityFramework.dll
+D:\project\accgame\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\accgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\accgame\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\accgame\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\accgame\accgame\accgame\bin\PagedList.dll
+D:\project\accgame\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\accgame\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\accgame\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\accgame\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\accgame\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\accgame\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\accgame\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\accgame\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\accgame\accgame\accgame\bin\WebGrease.dll
+D:\project\accgame\accgame\accgame\bin\EntityFramework.xml
+D:\project\accgame\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\accgame\accgame\accgame\bin\PagedList.xml
+D:\project\accgame\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\accgame\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\accgame\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\accgame\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\accgame\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\accgame\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\accgame\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\accgame\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\accgame\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\accgame\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\accgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\accgame\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\accgame\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\accgame\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\accgame\accgame\accgame\obj\Debug\accgame.dll
+D:\project\accgame\accgame\accgame\obj\Debug\accgame.pdb
+E:\project\yohoshop\accgame\accgame\bin\accgame.dll.config
+E:\project\yohoshop\accgame\accgame\bin\accgame.dll
+E:\project\yohoshop\accgame\accgame\bin\accgame.pdb
+E:\project\yohoshop\accgame\accgame\bin\roslyn\csc.exe
+E:\project\yohoshop\accgame\accgame\bin\roslyn\csc.exe.config
+E:\project\yohoshop\accgame\accgame\bin\roslyn\csc.rsp
+E:\project\yohoshop\accgame\accgame\bin\roslyn\csi.exe
+E:\project\yohoshop\accgame\accgame\bin\roslyn\csi.exe.config
+E:\project\yohoshop\accgame\accgame\bin\roslyn\csi.rsp
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.AppContext.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Console.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Net.Http.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\project\yohoshop\accgame\accgame\bin\roslyn\vbc.exe
+E:\project\yohoshop\accgame\accgame\bin\roslyn\vbc.exe.config
+E:\project\yohoshop\accgame\accgame\bin\roslyn\vbc.rsp
+E:\project\yohoshop\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+E:\project\yohoshop\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+E:\project\yohoshop\accgame\accgame\bin\Antlr3.Runtime.dll
+E:\project\yohoshop\accgame\accgame\bin\EntityFramework.dll
+E:\project\yohoshop\accgame\accgame\bin\EntityFramework.SqlServer.dll
+E:\project\yohoshop\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\project\yohoshop\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+E:\project\yohoshop\accgame\accgame\bin\Newtonsoft.Json.dll
+E:\project\yohoshop\accgame\accgame\bin\PagedList.dll
+E:\project\yohoshop\accgame\accgame\bin\PagedList.Mvc.dll
+E:\project\yohoshop\accgame\accgame\bin\System.Web.Helpers.dll
+E:\project\yohoshop\accgame\accgame\bin\System.Web.Mvc.dll
+E:\project\yohoshop\accgame\accgame\bin\System.Web.Optimization.dll
+E:\project\yohoshop\accgame\accgame\bin\System.Web.Razor.dll
+E:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+E:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.dll
+E:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+E:\project\yohoshop\accgame\accgame\bin\WebGrease.dll
+E:\project\yohoshop\accgame\accgame\bin\EntityFramework.xml
+E:\project\yohoshop\accgame\accgame\bin\EntityFramework.SqlServer.xml
+E:\project\yohoshop\accgame\accgame\bin\PagedList.xml
+E:\project\yohoshop\accgame\accgame\bin\PagedList.Mvc.xml
+E:\project\yohoshop\accgame\accgame\bin\System.Web.Helpers.xml
+E:\project\yohoshop\accgame\accgame\bin\System.Web.Mvc.xml
+E:\project\yohoshop\accgame\accgame\bin\System.Web.Optimization.xml
+E:\project\yohoshop\accgame\accgame\bin\System.Web.Razor.xml
+E:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.xml
+E:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+E:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+E:\project\yohoshop\accgame\accgame\bin\Newtonsoft.Json.xml
+E:\project\yohoshop\accgame\accgame\bin\Antlr3.Runtime.pdb
+E:\project\yohoshop\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\project\yohoshop\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+E:\project\yohoshop\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+E:\project\yohoshop\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+E:\project\yohoshop\accgame\accgame\obj\Debug\accgame.dll
+E:\project\yohoshop\accgame\accgame\obj\Debug\accgame.pdb
+D:\project\yohoshop\accgame\accgame\bin\accgame.dll.config
+D:\project\yohoshop\accgame\accgame\bin\accgame.dll
+D:\project\yohoshop\accgame\accgame\bin\accgame.pdb
+D:\project\yohoshop\accgame\accgame\bin\roslyn\csc.exe
+D:\project\yohoshop\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\yohoshop\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\yohoshop\accgame\accgame\bin\roslyn\csi.exe
+D:\project\yohoshop\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\yohoshop\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\yohoshop\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\yohoshop\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\yohoshop\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\yohoshop\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\yohoshop\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\yohoshop\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\yohoshop\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\yohoshop\accgame\accgame\bin\EntityFramework.dll
+D:\project\yohoshop\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\yohoshop\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\yohoshop\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\yohoshop\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\yohoshop\accgame\accgame\bin\PagedList.dll
+D:\project\yohoshop\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\yohoshop\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\yohoshop\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\yohoshop\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\yohoshop\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\yohoshop\accgame\accgame\bin\WebGrease.dll
+D:\project\yohoshop\accgame\accgame\bin\EntityFramework.xml
+D:\project\yohoshop\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\yohoshop\accgame\accgame\bin\PagedList.xml
+D:\project\yohoshop\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\yohoshop\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\yohoshop\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\yohoshop\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\yohoshop\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\yohoshop\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\yohoshop\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\yohoshop\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\yohoshop\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\yohoshop\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\yohoshop\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\yohoshop\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\yohoshop\accgame\accgame\obj\Debug\accgame.dll
+D:\project\yohoshop\accgame\accgame\obj\Debug\accgame.pdb
+D:\project\somishopgame\accgame\accgame\bin\accgame.dll.config
+D:\project\somishopgame\accgame\accgame\bin\accgame.dll
+D:\project\somishopgame\accgame\accgame\bin\accgame.pdb
+D:\project\somishopgame\accgame\accgame\bin\roslyn\csc.exe
+D:\project\somishopgame\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\somishopgame\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\somishopgame\accgame\accgame\bin\roslyn\csi.exe
+D:\project\somishopgame\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\somishopgame\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\somishopgame\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\somishopgame\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\somishopgame\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\somishopgame\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\somishopgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\somishopgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\somishopgame\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\somishopgame\accgame\accgame\bin\EntityFramework.dll
+D:\project\somishopgame\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\somishopgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\somishopgame\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\somishopgame\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\somishopgame\accgame\accgame\bin\PagedList.dll
+D:\project\somishopgame\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\somishopgame\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\somishopgame\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\somishopgame\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\somishopgame\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\somishopgame\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\somishopgame\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\somishopgame\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\somishopgame\accgame\accgame\bin\WebGrease.dll
+D:\project\somishopgame\accgame\accgame\bin\EntityFramework.xml
+D:\project\somishopgame\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\somishopgame\accgame\accgame\bin\PagedList.xml
+D:\project\somishopgame\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\somishopgame\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\somishopgame\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\somishopgame\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\somishopgame\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\somishopgame\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\somishopgame\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\somishopgame\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\somishopgame\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\somishopgame\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\somishopgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\somishopgame\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\somishopgame\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\somishopgame\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\somishopgame\accgame\accgame\obj\Debug\accgame.dll
+D:\project\somishopgame\accgame\accgame\obj\Debug\accgame.pdb
+D:\project\yuanshop\accgame\accgame\bin\accgame.dll.config
+D:\project\yuanshop\accgame\accgame\bin\accgame.dll
+D:\project\yuanshop\accgame\accgame\bin\accgame.pdb
+D:\project\yuanshop\accgame\accgame\bin\roslyn\csc.exe
+D:\project\yuanshop\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\yuanshop\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\yuanshop\accgame\accgame\bin\roslyn\csi.exe
+D:\project\yuanshop\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\yuanshop\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\yuanshop\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\yuanshop\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\yuanshop\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\yuanshop\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\yuanshop\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\yuanshop\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\yuanshop\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\yuanshop\accgame\accgame\bin\EntityFramework.dll
+D:\project\yuanshop\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\yuanshop\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\yuanshop\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\yuanshop\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\yuanshop\accgame\accgame\bin\PagedList.dll
+D:\project\yuanshop\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\yuanshop\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\yuanshop\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\yuanshop\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\yuanshop\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\yuanshop\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\yuanshop\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\yuanshop\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\yuanshop\accgame\accgame\bin\WebGrease.dll
+D:\project\yuanshop\accgame\accgame\bin\EntityFramework.xml
+D:\project\yuanshop\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\yuanshop\accgame\accgame\bin\PagedList.xml
+D:\project\yuanshop\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\yuanshop\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\yuanshop\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\yuanshop\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\yuanshop\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\yuanshop\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\yuanshop\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\yuanshop\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\yuanshop\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\yuanshop\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\yuanshop\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\yuanshop\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\yuanshop\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\yuanshop\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\yuanshop\accgame\accgame\obj\Debug\accgame.dll
+D:\project\yuanshop\accgame\accgame\obj\Debug\accgame.pdb
+D:\project\yuanshop\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+D:\project\yuanshop\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+D:\project\yuanshop\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+D:\project\yuanshop\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+D:\project\yuanshop\accgame\accgame\bin\Magick.NET.Core.dll
+D:\project\yuanshop\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+D:\project\yuanshop\accgame\accgame\bin\Magick.NET.Core.xml
+D:\project\mihozo\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+D:\project\mihozo\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+D:\project\mihozo\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+D:\project\mihozo\accgame\accgame\bin\accgame.dll.config
+D:\project\mihozo\accgame\accgame\bin\accgame.dll
+D:\project\mihozo\accgame\accgame\bin\accgame.pdb
+D:\project\mihozo\accgame\accgame\bin\roslyn\csc.exe
+D:\project\mihozo\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\mihozo\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\mihozo\accgame\accgame\bin\roslyn\csi.exe
+D:\project\mihozo\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\mihozo\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\mihozo\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\mihozo\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\mihozo\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\mihozo\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\mihozo\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\mihozo\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\mihozo\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\mihozo\accgame\accgame\bin\EntityFramework.dll
+D:\project\mihozo\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\mihozo\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+D:\project\mihozo\accgame\accgame\bin\Magick.NET.Core.dll
+D:\project\mihozo\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\mihozo\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\mihozo\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\mihozo\accgame\accgame\bin\PagedList.dll
+D:\project\mihozo\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\mihozo\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\mihozo\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\mihozo\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\mihozo\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\mihozo\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\mihozo\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\mihozo\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\mihozo\accgame\accgame\bin\WebGrease.dll
+D:\project\mihozo\accgame\accgame\bin\EntityFramework.xml
+D:\project\mihozo\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\mihozo\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+D:\project\mihozo\accgame\accgame\bin\Magick.NET.Core.xml
+D:\project\mihozo\accgame\accgame\bin\PagedList.xml
+D:\project\mihozo\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\mihozo\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\mihozo\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\mihozo\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\mihozo\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\mihozo\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\mihozo\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\mihozo\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\mihozo\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\mihozo\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\mihozo\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\mihozo\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\mihozo\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\mihozo\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\mihozo\accgame\accgame\obj\Debug\accgame.dll
+D:\project\mihozo\accgame\accgame\obj\Debug\accgame.pdb
+D:\project\shopwuthering\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+D:\project\shopwuthering\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+D:\project\shopwuthering\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+D:\project\shopwuthering\accgame\accgame\bin\accgame.dll.config
+D:\project\shopwuthering\accgame\accgame\bin\accgame.dll
+D:\project\shopwuthering\accgame\accgame\bin\accgame.pdb
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\csc.exe
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\csi.exe
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\shopwuthering\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\shopwuthering\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\shopwuthering\accgame\accgame\bin\EntityFramework.dll
+D:\project\shopwuthering\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\shopwuthering\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+D:\project\shopwuthering\accgame\accgame\bin\Magick.NET.Core.dll
+D:\project\shopwuthering\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\shopwuthering\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\shopwuthering\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\shopwuthering\accgame\accgame\bin\PagedList.dll
+D:\project\shopwuthering\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\shopwuthering\accgame\accgame\bin\WebGrease.dll
+D:\project\shopwuthering\accgame\accgame\bin\EntityFramework.xml
+D:\project\shopwuthering\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\shopwuthering\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+D:\project\shopwuthering\accgame\accgame\bin\Magick.NET.Core.xml
+D:\project\shopwuthering\accgame\accgame\bin\PagedList.xml
+D:\project\shopwuthering\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\shopwuthering\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\shopwuthering\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\shopwuthering\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\shopwuthering\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\shopwuthering\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\shopwuthering\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\shopwuthering\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\shopwuthering\accgame\accgame\obj\Debug\accgame.dll
+D:\project\shopwuthering\accgame\accgame\obj\Debug\accgame.pdb
+D:\project\wibugame\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+D:\project\wibugame\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+D:\project\wibugame\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+D:\project\wibugame\accgame\accgame\bin\accgame.dll.config
+D:\project\wibugame\accgame\accgame\bin\accgame.dll
+D:\project\wibugame\accgame\accgame\bin\accgame.pdb
+D:\project\wibugame\accgame\accgame\bin\roslyn\csc.exe
+D:\project\wibugame\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\wibugame\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\wibugame\accgame\accgame\bin\roslyn\csi.exe
+D:\project\wibugame\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\wibugame\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\wibugame\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\wibugame\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\wibugame\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\wibugame\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\wibugame\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\wibugame\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\wibugame\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\wibugame\accgame\accgame\bin\EntityFramework.dll
+D:\project\wibugame\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\wibugame\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+D:\project\wibugame\accgame\accgame\bin\Magick.NET.Core.dll
+D:\project\wibugame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\wibugame\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\wibugame\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\wibugame\accgame\accgame\bin\PagedList.dll
+D:\project\wibugame\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\wibugame\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\wibugame\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\wibugame\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\wibugame\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\wibugame\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\wibugame\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\wibugame\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\wibugame\accgame\accgame\bin\WebGrease.dll
+D:\project\wibugame\accgame\accgame\bin\EntityFramework.xml
+D:\project\wibugame\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\wibugame\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+D:\project\wibugame\accgame\accgame\bin\Magick.NET.Core.xml
+D:\project\wibugame\accgame\accgame\bin\PagedList.xml
+D:\project\wibugame\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\wibugame\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\wibugame\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\wibugame\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\wibugame\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\wibugame\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\wibugame\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\wibugame\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\wibugame\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\wibugame\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\wibugame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\wibugame\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\wibugame\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\wibugame\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\wibugame\accgame\accgame\obj\Debug\accgame.dll
+D:\project\wibugame\accgame\accgame\obj\Debug\accgame.pdb
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.Auth.dll
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.Core.dll
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.dll
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.PeopleService.v1.dll
+D:\project\wibugame\accgame\accgame\bin\System.CodeDom.dll
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.pdb
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.xml
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.Auth.pdb
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.Auth.xml
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.Core.pdb
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.Core.xml
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.PeopleService.v1.pdb
+D:\project\wibugame\accgame\accgame\bin\Google.Apis.PeopleService.v1.xml
+D:\project\wibugame\accgame\accgame\bin\System.CodeDom.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\accgame.dll.config
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\accgame.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\accgame.pdb
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\csc.exe
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\csc.exe.config
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\csc.rsp
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\csi.exe
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\csi.exe.config
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\csi.rsp
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Console.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\vbc.exe
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\vbc.rsp
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\EntityFramework.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.Auth.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.Core.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Magick.NET.Core.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\PagedList.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\PagedList.Mvc.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.CodeDom.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.Helpers.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.Mvc.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.Optimization.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.Razor.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.WebPages.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\WebGrease.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\EntityFramework.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.pdb
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.Auth.pdb
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.Auth.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.Core.pdb
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.Core.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.pdb
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Magick.NET.Core.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\PagedList.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\PagedList.Mvc.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.CodeDom.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.Helpers.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.Mvc.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.Optimization.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.Razor.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.WebPages.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\ACCGAME-HẢI\accgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ACCGAME-HẢI\accgame\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\ACCGAME-HẢI\accgame\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\ACCGAME-HẢI\accgame\accgame\accgame\obj\Debug\accgame.csproj.Up2Date
+D:\ACCGAME-HẢI\accgame\accgame\accgame\obj\Debug\accgame.dll
+D:\ACCGAME-HẢI\accgame\accgame\accgame\obj\Debug\accgame.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\accgame.dll.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\accgame.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\accgame.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\csc.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\csc.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\csc.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\csi.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\csi.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\csi.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.AppContext.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Console.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Net.Http.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\vbc.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\vbc.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\vbc.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Antlr3.Runtime.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\EntityFramework.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\EntityFramework.SqlServer.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.Auth.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.Core.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Magick.NET.Core.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Newtonsoft.Json.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\PagedList.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\PagedList.Mvc.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.CodeDom.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.Helpers.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.Mvc.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.Optimization.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.Razor.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.WebPages.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\WebGrease.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\EntityFramework.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\EntityFramework.SqlServer.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.Auth.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.Auth.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.Core.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.Core.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Magick.NET.Core.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Newtonsoft.Json.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\PagedList.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\PagedList.Mvc.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.CodeDom.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.Helpers.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.Mvc.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.Optimization.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.Razor.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.WebPages.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Antlr3.Runtime.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\obj\Debug\accgame.csproj.Up2Date
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\obj\Debug\accgame.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\obj\Debug\accgame.pdb
+D:\project\wibugame\Hao\accgame\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\wibugame\Hao\accgame\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\accgame.dll.config
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\accgame.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\accgame.pdb
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\csc.exe
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\csi.exe
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\EntityFramework.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.Auth.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.Core.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Magick.NET.Core.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\PagedList.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.CodeDom.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\WebGrease.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\EntityFramework.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.pdb
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.Auth.pdb
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.Auth.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.Core.pdb
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.Core.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.pdb
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Google.Apis.PeopleService.v1.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Magick.NET.Core.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\PagedList.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.CodeDom.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\wibugame\Hao\accgame\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\wibugame\Hao\accgame\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\wibugame\Hao\accgame\accgame\accgame\obj\Debug\accgame.dll
+D:\project\wibugame\Hao\accgame\accgame\accgame\obj\Debug\accgame.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\FirebaseAdmin.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Api.Gax.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Api.Gax.Rest.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Microsoft.Bcl.AsyncInterfaces.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Buffers.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Collections.Immutable.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Memory.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Numerics.Vectors.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Runtime.CompilerServices.Unsafe.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Threading.Tasks.Extensions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.ValueTuple.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\FirebaseAdmin.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Api.Gax.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Api.Gax.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Api.Gax.Rest.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Google.Api.Gax.Rest.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Microsoft.Bcl.AsyncInterfaces.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Buffers.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Collections.Immutable.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Memory.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Numerics.Vectors.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Runtime.CompilerServices.Unsafe.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.Threading.Tasks.Extensions.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\accgame\accgame\accgame\bin\System.ValueTuple.xml
+D:\project\wibugame\new\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+D:\project\wibugame\new\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+D:\project\wibugame\new\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+D:\project\wibugame\new\accgame\accgame\bin\accgame.dll.config
+D:\project\wibugame\new\accgame\accgame\bin\accgame.dll
+D:\project\wibugame\new\accgame\accgame\bin\accgame.pdb
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\csc.exe
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\csc.exe.config
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\csc.rsp
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\csi.exe
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\csi.exe.config
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\csi.rsp
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Console.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\vbc.exe
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\vbc.rsp
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\project\wibugame\new\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\project\wibugame\new\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\project\wibugame\new\accgame\accgame\bin\EntityFramework.dll
+D:\project\wibugame\new\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\project\wibugame\new\accgame\accgame\bin\FirebaseAdmin.dll
+D:\project\wibugame\new\accgame\accgame\bin\Google.Api.Gax.dll
+D:\project\wibugame\new\accgame\accgame\bin\Google.Api.Gax.Rest.dll
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.Auth.dll
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.Core.dll
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.dll
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.PeopleService.v1.dll
+D:\project\wibugame\new\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+D:\project\wibugame\new\accgame\accgame\bin\Magick.NET.Core.dll
+D:\project\wibugame\new\accgame\accgame\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\project\wibugame\new\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\project\wibugame\new\accgame\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\project\wibugame\new\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\project\wibugame\new\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\project\wibugame\new\accgame\accgame\bin\PagedList.dll
+D:\project\wibugame\new\accgame\accgame\bin\PagedList.Mvc.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Buffers.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.CodeDom.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Collections.Immutable.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Memory.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Numerics.Vectors.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Threading.Tasks.Extensions.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.ValueTuple.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.Helpers.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.Mvc.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.Optimization.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.Razor.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.WebPages.dll
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\project\wibugame\new\accgame\accgame\bin\WebGrease.dll
+D:\project\wibugame\new\accgame\accgame\bin\EntityFramework.xml
+D:\project\wibugame\new\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\project\wibugame\new\accgame\accgame\bin\FirebaseAdmin.xml
+D:\project\wibugame\new\accgame\accgame\bin\Google.Api.Gax.pdb
+D:\project\wibugame\new\accgame\accgame\bin\Google.Api.Gax.xml
+D:\project\wibugame\new\accgame\accgame\bin\Google.Api.Gax.Rest.pdb
+D:\project\wibugame\new\accgame\accgame\bin\Google.Api.Gax.Rest.xml
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.pdb
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.xml
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.Auth.pdb
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.Auth.xml
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.Core.pdb
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.Core.xml
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.PeopleService.v1.pdb
+D:\project\wibugame\new\accgame\accgame\bin\Google.Apis.PeopleService.v1.xml
+D:\project\wibugame\new\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+D:\project\wibugame\new\accgame\accgame\bin\Magick.NET.Core.xml
+D:\project\wibugame\new\accgame\accgame\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\project\wibugame\new\accgame\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\project\wibugame\new\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\project\wibugame\new\accgame\accgame\bin\PagedList.xml
+D:\project\wibugame\new\accgame\accgame\bin\PagedList.Mvc.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Buffers.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.CodeDom.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Collections.Immutable.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Memory.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Numerics.Vectors.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Threading.Tasks.Extensions.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.ValueTuple.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.Helpers.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.Mvc.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.Optimization.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.Razor.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.WebPages.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\project\wibugame\new\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\project\wibugame\new\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\project\wibugame\new\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\project\wibugame\new\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\project\wibugame\new\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\project\wibugame\new\accgame\accgame\obj\Debug\accgame.csproj.CopyComplete
+D:\project\wibugame\new\accgame\accgame\obj\Debug\accgame.dll
+D:\project\wibugame\new\accgame\accgame\obj\Debug\accgame.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Magick.Native-Q8-arm64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Magick.Native-Q8-x64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Magick.Native-Q8-x86.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\accgame.dll.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\accgame.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\accgame.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\csc.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\csc.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\csc.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\csi.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\csi.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\csi.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.AppContext.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Collections.Immutable.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Console.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Globalization.Calendars.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.IO.Compression.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.IO.FileSystem.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Net.Http.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Net.Sockets.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Reflection.Metadata.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.ValueTuple.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Xml.XPath.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\vbc.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\vbc.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\vbc.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\VBCSCompiler.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\roslyn\VBCSCompiler.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Antlr3.Runtime.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\EntityFramework.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\EntityFramework.SqlServer.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\FirebaseAdmin.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Api.Gax.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Api.Gax.Rest.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.Auth.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.Core.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.PeopleService.v1.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Magick.NET.Core.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Microsoft.Bcl.AsyncInterfaces.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Microsoft.Web.Infrastructure.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Newtonsoft.Json.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\PagedList.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\PagedList.Mvc.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Buffers.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.CodeDom.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Collections.Immutable.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Memory.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Numerics.Vectors.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Runtime.CompilerServices.Unsafe.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Threading.Tasks.Extensions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.ValueTuple.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.Helpers.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.Mvc.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.Optimization.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.Razor.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.WebPages.Deployment.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.WebPages.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.WebPages.Razor.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\WebGrease.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\EntityFramework.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\EntityFramework.SqlServer.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\FirebaseAdmin.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Api.Gax.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Api.Gax.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Api.Gax.Rest.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Api.Gax.Rest.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.Auth.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.Auth.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.Core.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.Core.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.PeopleService.v1.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Google.Apis.PeopleService.v1.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Magick.NET.Core.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Microsoft.Bcl.AsyncInterfaces.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Newtonsoft.Json.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\PagedList.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\PagedList.Mvc.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Buffers.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.CodeDom.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Collections.Immutable.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Memory.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Numerics.Vectors.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Runtime.CompilerServices.Unsafe.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Threading.Tasks.Extensions.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.ValueTuple.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.Helpers.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.Mvc.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.Optimization.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.Razor.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.WebPages.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.WebPages.Deployment.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\System.Web.WebPages.Razor.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Antlr3.Runtime.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\obj\Debug\accgame.csproj.Up2Date
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\obj\Debug\accgame.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source A Phương\accgame\obj\Debug\accgame.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Magick.Native-Q8-arm64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Magick.Native-Q8-x64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Magick.Native-Q8-x86.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\accgame.dll.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\accgame.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\accgame.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\csc.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\csc.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\csc.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\csi.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\csi.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\csi.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.AppContext.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Collections.Immutable.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Console.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Globalization.Calendars.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.IO.Compression.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.IO.FileSystem.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Net.Http.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Net.Sockets.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Reflection.Metadata.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.ValueTuple.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Xml.XPath.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\vbc.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\vbc.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\vbc.rsp
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\VBCSCompiler.exe
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\roslyn\VBCSCompiler.exe.config
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Antlr3.Runtime.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\EntityFramework.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\EntityFramework.SqlServer.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\FirebaseAdmin.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Api.Gax.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Api.Gax.Rest.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.Auth.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.Core.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.PeopleService.v1.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Magick.NET.Core.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Microsoft.Bcl.AsyncInterfaces.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Microsoft.Web.Infrastructure.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Newtonsoft.Json.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\PagedList.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\PagedList.Mvc.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Buffers.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.CodeDom.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Collections.Immutable.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Memory.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Numerics.Vectors.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Runtime.CompilerServices.Unsafe.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Threading.Tasks.Extensions.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.ValueTuple.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.Helpers.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.Mvc.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.Optimization.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.Razor.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.WebPages.Deployment.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.WebPages.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.WebPages.Razor.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\WebGrease.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\EntityFramework.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\EntityFramework.SqlServer.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\FirebaseAdmin.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Api.Gax.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Api.Gax.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Api.Gax.Rest.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Api.Gax.Rest.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.Auth.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.Auth.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.Core.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.Core.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.PeopleService.v1.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Google.Apis.PeopleService.v1.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Magick.NET.Core.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Microsoft.Bcl.AsyncInterfaces.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Newtonsoft.Json.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\PagedList.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\PagedList.Mvc.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Buffers.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.CodeDom.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Collections.Immutable.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Memory.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Numerics.Vectors.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Runtime.CompilerServices.Unsafe.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Threading.Tasks.Extensions.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.ValueTuple.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.Helpers.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.Mvc.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.Optimization.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.Razor.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.WebPages.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.WebPages.Deployment.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\System.Web.WebPages.Razor.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Antlr3.Runtime.pdb
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\obj\Debug\accgame.csproj.Up2Date
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\obj\Debug\accgame.dll
+I:\LÀM THUÊ WEBSITE\WEB HẢI - ACC GAME\Source Wibu\accgame\obj\Debug\accgame.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Magick.Native-Q8-arm64.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Magick.Native-Q8-x64.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Magick.Native-Q8-x86.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\accgame.dll.config
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\accgame.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\accgame.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\csc.exe
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\csc.exe.config
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\csc.rsp
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\csi.exe
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\csi.exe.config
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\csi.rsp
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.Managed.Core.targets
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.AppContext.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Collections.Immutable.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Console.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Globalization.Calendars.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.IO.Compression.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.IO.FileSystem.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Net.Http.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Net.Sockets.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Reflection.Metadata.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.ValueTuple.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Xml.XmlDocument.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Xml.XPath.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\vbc.exe
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\vbc.exe.config
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\vbc.rsp
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\VBCSCompiler.exe
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\roslyn\VBCSCompiler.exe.config
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Antlr3.Runtime.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\EntityFramework.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\EntityFramework.SqlServer.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\FirebaseAdmin.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Api.Gax.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Api.Gax.Rest.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.Auth.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.Core.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.PeopleService.v1.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Magick.NET.Core.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Microsoft.Bcl.AsyncInterfaces.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Microsoft.Web.Infrastructure.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Newtonsoft.Json.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\PagedList.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\PagedList.Mvc.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Buffers.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.CodeDom.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Collections.Immutable.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Memory.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Numerics.Vectors.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Threading.Tasks.Extensions.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.ValueTuple.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.Helpers.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.Mvc.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.Optimization.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.Razor.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.WebPages.Deployment.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.WebPages.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.WebPages.Razor.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\WebGrease.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\EntityFramework.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\EntityFramework.SqlServer.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\FirebaseAdmin.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Api.Gax.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Api.Gax.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Api.Gax.Rest.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Api.Gax.Rest.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.Auth.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.Auth.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.Core.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.Core.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.PeopleService.v1.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Google.Apis.PeopleService.v1.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Magick.NET-Q8-AnyCPU.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Magick.NET.Core.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Microsoft.Bcl.AsyncInterfaces.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Newtonsoft.Json.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\PagedList.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\PagedList.Mvc.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Buffers.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.CodeDom.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Collections.Immutable.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Memory.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Numerics.Vectors.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Threading.Tasks.Extensions.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.ValueTuple.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.Helpers.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.Mvc.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.Optimization.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.Razor.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.WebPages.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.WebPages.Deployment.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\System.Web.WebPages.Razor.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Antlr3.Runtime.pdb
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\obj\Debug\accgame.csproj.AssemblyReference.cache
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\obj\Debug\accgame.csproj.CoreCompileInputs.cache
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\obj\Debug\accgame.csproj.Up2Date
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\obj\Debug\accgame.dll
+D:\WebC#\WiBuSource\webwibu\accgame\accgame\obj\Debug\accgame.pdb

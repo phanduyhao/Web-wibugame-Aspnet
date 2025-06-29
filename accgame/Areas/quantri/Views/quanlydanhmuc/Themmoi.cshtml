@@ -1,0 +1,161 @@
+﻿@model accgame.Context.DanhMuc
+
+@{
+    ViewBag.Title = "Thêm mới danh mục";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <form method="post" action="/quantri/quanlydanhmuc/themmoi" enctype="multipart/form-data">
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <b>Loại game</b>
+                                <div class="">
+                                    <select name="LoaiGame" id="LoaiGame" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option value="@ViewBag.idLoaiGame">@ViewBag.tenLoaiGame</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Loại danh mục</b>
+                                <div class="">
+                                    <select name="IDLoaiAcc" id="IDLoaiAcc" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option value="@ViewBag.idLoaiAcc">@ViewBag.tenLoaiAcc</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Tên danh mục</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.TenDanhMuc, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TenDanhMuc, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Mô tả</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Thông báo khi mua Acc</b>
+                                <div class="">
+                                    @Html.TextAreaFor(model => model.ThongBaoMuaAcc, new { @class = "form-control ThongBaoMuaAcc", rows = 5 })
+                                    @Html.ValidationMessageFor(model => model.ThongBaoMuaAcc, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ImageUpload"><b>Ảnh đại diện</b></label>
+                                <div class="text-center mb-3">
+                                    <!-- Hiển thị ảnh hiện tại nếu có -->
+                                    <img src="" id="image-preview" height="500" alt="Ảnh đại diện" class="rounded">
+                                </div>
+                                <input type="file" id="ImageUpload" name="ImageUpload" class="form-control bg-light" accept="image/*">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control bg-light" id="ImageUpload" name="ImageUploadLink">
+                            </div>
+                            <div class="form-group">
+                                <b>Cấp độ</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.DanhMucLevel, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DanhMucLevel, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <b>Lượt roll</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.LuotRoll, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.LuotRoll, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Số thứ tự</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.STT, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.STT, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            @*<div class="form-group">
+                                    <b>Hiện có</b>
+                                    <div class="">
+                                        @Html.EditorFor(model => model.HienCo, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.HienCo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+
+                            <div class="form-group">
+                                <b>Đã bán</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.DaBan, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DaBan, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <b>Giá</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Giá Ctv-Collab</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.GiaCtvCollab, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Tài khoản nội bộ?</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.TaiKhoanNoiBo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TaiKhoanNoiBo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 mt-4">
+                                    <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</main>
+
+<script>
+    // Xem trước ảnh tải lên
+    const imageInput = document.getElementById('ImageUpload');
+    const imagePreview = document.getElementById('image-preview');
+
+    imageInput.addEventListener('change', function () {
+        const file = this.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.addEventListener('load', function () {
+                imagePreview.src = this.result;
+            });
+            reader.readAsDataURL(file);
+        }
+    });
+    CKEDITOR.replace("ThongBaoMuaAcc");
+
+</script>
+

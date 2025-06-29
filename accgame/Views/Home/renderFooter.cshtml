@@ -1,0 +1,125 @@
+﻿@model IEnumerable<accgame.Context.LoaiGame>
+@{
+    Layout = null;
+}
+<footer class="position-absolute bottom-0 end-0 start-0 p-5 text-center" style="
+    background: rgba(0, 0, 0, 0.85);
+">
+    @*<div class="arrow arrow--top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="270.11" height="649.9" overflow="visible">
+            <style>
+                .geo-arrow {
+                    fill: none;
+                    stroke: #fff;
+                    stroke-width: 2;
+                    stroke-miterlimit: 10
+                }
+            </style>
+            <g class="item-to bounce-1">
+                <path class="geo-arrow draw-in" d="M135.06 142.564L267.995 275.5 135.06 408.434 2.125 275.499z" />
+            </g>
+            <circle class="geo-arrow item-to bounce-2" cx="194.65" cy="69.54" r="7.96" />
+            <circle class="geo-arrow draw-in" cx="194.65" cy="39.5" r="7.96" />
+            <circle class="geo-arrow item-to bounce-3" cx="194.65" cy="9.46" r="7.96" />
+            <g class="geo-arrow item-to bounce-2">
+                <path class="st0 draw-in" d="M181.21 619.5l13.27 27 13.27-27zM194.48 644.5v-552" />
+            </g>
+        </svg>
+    </div>
+    <div class="arrow arrow--bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="31.35" height="649.9" overflow="visible">
+            <style>
+                .geo-arrow {
+                    fill: none;
+                    stroke: #fff;
+                    stroke-width: 2;
+                    stroke-miterlimit: 10
+                }
+            </style>
+            <g class="item-to bounce-1">
+                <circle class="geo-arrow item-to bounce-3" cx="15.5" cy="580.36" r="7.96" />
+                <circle class="geo-arrow draw-in" cx="15.5" cy="610.4" r="7.96" />
+                <circle class="geo-arrow item-to bounce-2" cx="15.5" cy="640.44" r="7.96" />
+                <g class="item-to bounce-2">
+                    <path class="geo-arrow draw-in" d="M28.94 30.4l-13.26-27-13.27 27zM15.68 5.4v552" />
+                </g>
+            </g>
+        </svg>
+    </div>*@
+    <div class="main">
+        <div class="main__text-wrapper">
+           @* <svg style="z-index: 2" xmlns="http://www.w3.org/2000/svg" class="dotted-circle" width="352" height="352" overflow="visible">
+                <circle cx="176" cy="176" r="174" fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="12.921,11.9271" />
+            </svg>*@
+            <div class="container text-center position-relative" style="z-index: 3">
+                <a href="/">
+                    <img src="@{Html.RenderAction("renderLogo", "Home");}" width="250" />
+                </a>
+                <p class="fw-bold mt-3">
+                    @ViewBag.footerDetail
+                </p>
+                <p class="border-bottom mx-auto" style="max-width: 500px"></p>
+                <div class="text-center mb-4">
+                    <a href="/" class="me-3 text-nowrap lh-lg"><i class="fas fa-home me-1"></i>Trang chủ</a>
+                    <a href="/NapTien/ATM" class="me-3 text-nowrap lh-lg"><i class="far fa-money-bill-alt me-1"></i>Nạp tiền</a>
+                    <a href="@ViewBag.facebook" target="_blank"><i class="fab fa-facebook me-1"></i>Facebook</a>
+
+                </div>
+                <div class="text-center mb-0">
+                    @*<a href="tel: @ViewBag.sdt" class="me-3"><i class="fas fa-phone-square-alt me-1"></i>@ViewBag.sdt</a>*@
+                    <a href="#" class="me-3"><i class="far fa-clock me-1"></i>Work Time 8h00 - 23h00</a>
+                    <a href="/vongquay" class="text-nowrap lh-lg"><i class="fas fa-dharmachakra me-1"></i>Vòng quay may mắn</a>
+
+                </div>
+            </div>
+            <div class="container mt-3" style="z-index: 10; position: relative">
+                <div class="copyright">
+                    &copy; Copyright <strong><span class="change-domain"></span></strong>. All Rights Reserved
+                </div>
+              @*  <div class="credits mt-2">
+                    Website được thiết kế bởi <a class="text-warning" style="z-index: 10" href="https://www.facebook.com/haihaihai22">Hải Hoàng Nguyễn</a>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+        $(".change-domain").html("@ViewBag.tenmien");
+</script>
+<div id="menu-right" class="menu-right d-none d-md-block">
+    <div class="d-flex justify-content-center menu-right-wrap align-items-center">
+        <button id="button_menu_right" class="menu-right-button d-flex justify-content-center align-items-center">
+            <i class="bi bi-caret-left-fill menu-right-button__icon"></i>
+        </button>
+        <div class="menu-right-card active">
+            <img class="img-right-card" src="/Content/images/avatars/PaimonPayment.png">
+            <a href="@ViewBag.hoTro" class="d-flex justify-content-between mt-4 mb-3 menu-right-link align-items-center">
+                <i class="bi bi-chat-dots-fill fs-4 icon-menu-right"></i>
+                <div>Hỗ trợ</div>
+            </a>
+            <a href="@ViewBag.checkUt" class="d-flex justify-content-between my-3 menu-right-link align-items-center">
+                <i class="bi bi-check-circle-fill fs-4 icon-menu-right"></i>
+                <div>Check UT</div>
+            </a>
+            <a href="@ViewBag.thuAcc" target="_blank" class="d-flex justify-content-between my-3 menu-right-link align-items-center">
+                <i class="bi bi-chat-right-quote-fill fs-4 icon-menu-right"></i>
+                <div>Thu acc</div>
+            </a>
+            <a href="@ViewBag.facebook" target="_blank" class="d-flex justify-content-between mb-4 menu-right-link align-items-center">
+                <i class="bi bi-facebook fs-4 icon-menu-right"></i>
+                <div>Facebook</div>
+            </a>
+            <a href="/vongquay" class="d-flex justify-content-between mb-4 menu-right-link align-items-center">
+                <i class="bi bi-gear-fill fs-4 icon-menu-right"></i>
+                <div>Vòng quay</div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $("#button_menu_right").on("click", function () {
+        $("#menu-right").toggleClass("active");
+    });
+</script>

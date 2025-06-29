@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="accgameModelStoreContainer" CdmEntityContainer="accgameEntities">
+    <EntitySetMapping Name="AccRandoms">
+      <EntityTypeMapping TypeName="accgameModel.AccRandom">
+        <MappingFragment StoreEntitySet="AccRandom">
+          <ScalarProperty Name="MatKhauMail" ColumnName="MatKhauMail" />
+          <ScalarProperty Name="MatKhauMailKhoiPhuc" ColumnName="MatKhauMailKhoiPhuc" />
+          <ScalarProperty Name="MailKhoiPhuc" ColumnName="MailKhoiPhuc" />
+          <ScalarProperty Name="MatKhauOutlook" ColumnName="MatKhauOutlook" />
+          <ScalarProperty Name="ThoiGianDang" ColumnName="ThoiGianDang" />
+          <ScalarProperty Name="GiaDaMua" ColumnName="GiaDaMua" />
+          <ScalarProperty Name="IDOldAcc" ColumnName="IDOldAcc" />
+          <ScalarProperty Name="IDAccRandom" ColumnName="IDAccRandom" />
+          <ScalarProperty Name="IDDanhMuc" ColumnName="IDDanhMuc" />
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="ThongTinKhac" ColumnName="ThongTinKhac" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+          <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+          <ScalarProperty Name="IDNguoiMua" ColumnName="IDNguoiMua" />
+          <ScalarProperty Name="ThoiGianBan" ColumnName="ThoiGianBan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Anh_Acc">
+      <EntityTypeMapping TypeName="accgameModel.Anh_Acc">
+        <MappingFragment StoreEntitySet="Anh_Acc">
+          <ScalarProperty Name="IDAnh_Acc" ColumnName="IDAnh_Acc" />
+          <ScalarProperty Name="DuongDanAnh" ColumnName="DuongDanAnh" />
+          <ScalarProperty Name="IDAcc" ColumnName="IDAcc" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApiAccs">
+      <EntityTypeMapping TypeName="accgameModel.ApiAcc">
+        <MappingFragment StoreEntitySet="ApiAcc">
+          <ScalarProperty Name="IdApi" ColumnName="IdApi" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="IDAcc" ColumnName="IDAcc" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="accgameModel.Banner">
+        <MappingFragment StoreEntitySet="Banner">
+          <ScalarProperty Name="IDBanner" ColumnName="IDBanner" />
+          <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BienDongSoDus">
+      <EntityTypeMapping TypeName="accgameModel.BienDongSoDu">
+        <MappingFragment StoreEntitySet="BienDongSoDu">
+          <ScalarProperty Name="IDBienDongSoDu" ColumnName="IDBienDongSoDu" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="TruTien" ColumnName="TruTien" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="LoiNhan" ColumnName="LoiNhan" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="TienTruoc" ColumnName="TienTruoc" />
+          <ScalarProperty Name="TienSau" ColumnName="TienSau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaiDats">
+      <EntityTypeMapping TypeName="accgameModel.CaiDat">
+        <MappingFragment StoreEntitySet="CaiDat">
+          <ScalarProperty Name="ThoiGianCapNhat" ColumnName="ThoiGianCapNhat" />
+          <ScalarProperty Name="IDCaiDat" ColumnName="IDCaiDat" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="MaCaiDat" ColumnName="MaCaiDat" />
+          <ScalarProperty Name="ThoiGianHet" ColumnName="ThoiGianHet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaiDatVongQuays">
+      <EntityTypeMapping TypeName="accgameModel.CaiDatVongQuay">
+        <MappingFragment StoreEntitySet="CaiDatVongQuay">
+          <ScalarProperty Name="IDCaiDatVongQuay" ColumnName="IDCaiDatVongQuay" />
+          <ScalarProperty Name="TyLe1" ColumnName="TyLe1" />
+          <ScalarProperty Name="TyLe2" ColumnName="TyLe2" />
+          <ScalarProperty Name="TyLe3" ColumnName="TyLe3" />
+          <ScalarProperty Name="TyLe4" ColumnName="TyLe4" />
+          <ScalarProperty Name="TyLe5" ColumnName="TyLe5" />
+          <ScalarProperty Name="TyLe6" ColumnName="TyLe6" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="LoaiVong" ColumnName="LoaiVong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CayThues">
+      <EntityTypeMapping TypeName="accgameModel.CayThue">
+        <MappingFragment StoreEntitySet="CayThue">
+          <ScalarProperty Name="IDCayThue" ColumnName="IDCayThue" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="IDGoiNhiemVu" ColumnName="IDGoiNhiemVu" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Server" ColumnName="Server" />
+          <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="HoanThanh" ColumnName="HoanThanh" />
+          <ScalarProperty Name="ThoiGianHoanThanh" ColumnName="ThoiGianHoanThanh" />
+          <ScalarProperty Name="ThoiGianGui" ColumnName="ThoiGianGui" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+          <ScalarProperty Name="IDNguoiNhan" ColumnName="IDNguoiNhan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Codes">
+      <EntityTypeMapping TypeName="accgameModel.Code">
+        <MappingFragment StoreEntitySet="Code">
+          <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+          <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
+          <ScalarProperty Name="ThoiGianMua" ColumnName="ThoiGianMua" />
+          <ScalarProperty Name="MaCode" ColumnName="MaCode" />
+          <ScalarProperty Name="IDLoaiCode" ColumnName="IDLoaiCode" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+          <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiaiThuongVongQuays">
+      <EntityTypeMapping TypeName="accgameModel.GiaiThuongVongQuay">
+        <MappingFragment StoreEntitySet="GiaiThuongVongQuay">
+          <ScalarProperty Name="IDGiaiThuongVongQuay" ColumnName="IDGiaiThuongVongQuay" />
+          <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+          <ScalarProperty Name="ThongTin" ColumnName="ThongTin" />
+          <ScalarProperty Name="ThoiGianBan" ColumnName="ThoiGianBan" />
+          <ScalarProperty Name="LoaiGiai" ColumnName="LoaiGiai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoiNaps">
+      <EntityTypeMapping TypeName="accgameModel.GoiNap">
+        <MappingFragment StoreEntitySet="GoiNap">
+          <ScalarProperty Name="ThoigianAn" ColumnName="ThoigianAn" />
+          <ScalarProperty Name="An" ColumnName="An" />
+          <ScalarProperty Name="X2LanDau" ColumnName="X2LanDau" />
+          <ScalarProperty Name="LinkHdUID" ColumnName="LinkHdUID" />
+          <ScalarProperty Name="LoaiNap" ColumnName="LoaiNap" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+          <ScalarProperty Name="IDGoiNap" ColumnName="IDGoiNap" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="TenGoi" ColumnName="TenGoi" />
+          <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+          <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoiNhiemVus">
+      <EntityTypeMapping TypeName="accgameModel.GoiNhiemVu">
+        <MappingFragment StoreEntitySet="GoiNhiemVu">
+          <ScalarProperty Name="IDGoiNhiemVu" ColumnName="IDGoiNhiemVu" />
+          <ScalarProperty Name="TenGoiNhiemVu" ColumnName="TenGoiNhiemVu" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+          <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="accgameModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="IDImage" ColumnName="IDImage" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiAccs">
+      <EntityTypeMapping TypeName="accgameModel.LoaiAcc">
+        <MappingFragment StoreEntitySet="LoaiAcc">
+          <ScalarProperty Name="IDLoaiAccCha" ColumnName="IDLoaiAccCha" />
+          <ScalarProperty Name="IDLoaiAcc" ColumnName="IDLoaiAcc" />
+          <ScalarProperty Name="TenLoaiAcc" ColumnName="TenLoaiAcc" />
+          <ScalarProperty Name="DangBan" ColumnName="DangBan" />
+          <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="DacBiet" ColumnName="DacBiet" />
+          <ScalarProperty Name="IDLoaiGame" ColumnName="IDLoaiGame" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="Server" ColumnName="Server" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiCodes">
+      <EntityTypeMapping TypeName="accgameModel.LoaiCode">
+        <MappingFragment StoreEntitySet="LoaiCode">
+          <ScalarProperty Name="IDLoaiCode" ColumnName="IDLoaiCode" />
+          <ScalarProperty Name="TenLoaiCode" ColumnName="TenLoaiCode" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+          <ScalarProperty Name="CodeNoiBo" ColumnName="CodeNoiBo" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiGames">
+      <EntityTypeMapping TypeName="accgameModel.LoaiGame">
+        <MappingFragment StoreEntitySet="LoaiGame">
+          <ScalarProperty Name="IDLoaiGame" ColumnName="IDLoaiGame" />
+          <ScalarProperty Name="TenLoaiGame" ColumnName="TenLoaiGame" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="AnhNapGame" ColumnName="AnhNapGame" />
+          <ScalarProperty Name="AnhCayThue" ColumnName="AnhCayThue" />
+          <ScalarProperty Name="DichVuCayThue" ColumnName="DichVuCayThue" />
+          <ScalarProperty Name="DichVuNapGame" ColumnName="DichVuNapGame" />
+          <ScalarProperty Name="DichVuCode" ColumnName="DichVuCode" />
+          <ScalarProperty Name="AnhCode" ColumnName="AnhCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NapGames">
+      <EntityTypeMapping TypeName="accgameModel.NapGame">
+        <MappingFragment StoreEntitySet="NapGame">
+          <ScalarProperty Name="IDNguoiPick" ColumnName="IDNguoiPick" />
+          <ScalarProperty Name="AdminEdit" ColumnName="AdminEdit" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="IDNguoiDuyet" ColumnName="IDNguoiDuyet" />
+          <ScalarProperty Name="IDNapGame" ColumnName="IDNapGame" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Server" ColumnName="Server" />
+          <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="HoanThanh" ColumnName="HoanThanh" />
+          <ScalarProperty Name="ThoiGianHoanThanh" ColumnName="ThoiGianHoanThanh" />
+          <ScalarProperty Name="ThoiGianGui" ColumnName="ThoiGianGui" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+          <ScalarProperty Name="IDGoiNap" ColumnName="IDGoiNap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NapTiens">
+      <EntityTypeMapping TypeName="accgameModel.NapTien">
+        <MappingFragment StoreEntitySet="NapTien">
+          <ScalarProperty Name="IDNguoiDuyet" ColumnName="IDNguoiDuyet" />
+          <ScalarProperty Name="IdNapTien" ColumnName="IdNapTien" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="Magd" ColumnName="Magd" />
+          <ScalarProperty Name="Noidung" ColumnName="Noidung" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="thoigian" ColumnName="thoigian" />
+          <ScalarProperty Name="request_id" ColumnName="request_id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="serial" ColumnName="serial" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="telco" ColumnName="telco" />
+          <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+          <ScalarProperty Name="atm" ColumnName="atm" />
+          <ScalarProperty Name="TruocNap" ColumnName="TruocNap" />
+          <ScalarProperty Name="SauNap" ColumnName="SauNap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiDungs">
+      <EntityTypeMapping TypeName="accgameModel.NguoiDung">
+        <MappingFragment StoreEntitySet="NguoiDung">
+          <ScalarProperty Name="LockedUntil" ColumnName="LockedUntil" />
+          <ScalarProperty Name="LastPasswordRequestTime" ColumnName="LastPasswordRequestTime" />
+          <ScalarProperty Name="FailedPasswordRequests" ColumnName="FailedPasswordRequests" />
+          <ScalarProperty Name="SessionID_Mobile" ColumnName="SessionID_Mobile" />
+          <ScalarProperty Name="SessionID_Desktop" ColumnName="SessionID_Desktop" />
+          <ScalarProperty Name="ResetTokenExpiry" ColumnName="ResetTokenExpiry" />
+          <ScalarProperty Name="ResetPasswordToken" ColumnName="ResetPasswordToken" />
+          <ScalarProperty Name="BlockContent" ColumnName="BlockContent" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="LockoutEndTime" ColumnName="LockoutEndTime" />
+          <ScalarProperty Name="FailedLoginAttempts" ColumnName="FailedLoginAttempts" />
+          <ScalarProperty Name="MatKhau2" ColumnName="MatKhau2" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="OnOffCtvCollab" ColumnName="OnOffCtvCollab" />
+          <ScalarProperty Name="CtvCollab" ColumnName="CtvCollab" />
+          <ScalarProperty Name="GoogleAccount" ColumnName="GoogleAccount" />
+          <ScalarProperty Name="OldAccount" ColumnName="OldAccount" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="TenNguoiDung" ColumnName="TenNguoiDung" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Tien" ColumnName="Tien" />
+          <ScalarProperty Name="NgayThamGia" ColumnName="NgayThamGia" />
+          <ScalarProperty Name="LeverAdmin" ColumnName="LeverAdmin" />
+          <ScalarProperty Name="MatMa" ColumnName="MatMa" />
+          <ScalarProperty Name="ThoiVang" ColumnName="ThoiVang" />
+          <ScalarProperty Name="TienNap" ColumnName="TienNap" />
+          <ScalarProperty Name="HoaHong" ColumnName="HoaHong" />
+          <ScalarProperty Name="TienNapThang" ColumnName="TienNapThang" />
+          <ScalarProperty Name="Phantramhoahong" ColumnName="Phantramhoahong" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="OldPass" ColumnName="OldPass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanVats">
+      <EntityTypeMapping TypeName="accgameModel.NhanVat">
+        <MappingFragment StoreEntitySet="NhanVat">
+          <ScalarProperty Name="IDNhanVat" ColumnName="IDNhanVat" />
+          <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Sao" ColumnName="Sao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RutTiens">
+      <EntityTypeMapping TypeName="accgameModel.RutTien">
+        <MappingFragment StoreEntitySet="RutTien">
+          <ScalarProperty Name="IDRutTien" ColumnName="IDRutTien" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="SoTienRut" ColumnName="SoTienRut" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="SoTienNhan" ColumnName="SoTienNhan" />
+          <ScalarProperty Name="NganHang" ColumnName="NganHang" />
+          <ScalarProperty Name="NguoiNhan" ColumnName="NguoiNhan" />
+          <ScalarProperty Name="SoTaiKhoan" ColumnName="SoTaiKhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SettingApis">
+      <EntityTypeMapping TypeName="accgameModel.SettingApi">
+        <MappingFragment StoreEntitySet="SettingApi">
+          <ScalarProperty Name="IDSettingApi" ColumnName="IDSettingApi" />
+          <ScalarProperty Name="DomainWebsite" ColumnName="DomainWebsite" />
+          <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="accgameModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="IDVideo" ColumnName="IDVideo" />
+          <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VongQuays">
+      <EntityTypeMapping TypeName="accgameModel.VongQuay">
+        <MappingFragment StoreEntitySet="VongQuay">
+          <ScalarProperty Name="IDVongQuay" ColumnName="IDVongQuay" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="LoaiGiai" ColumnName="LoaiGiai" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="IDCaiDatVongQuay" ColumnName="IDCaiDatVongQuay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VuKhis">
+      <EntityTypeMapping TypeName="accgameModel.VuKhi">
+        <MappingFragment StoreEntitySet="VuKhi">
+          <ScalarProperty Name="IDVuKhi" ColumnName="IDVuKhi" />
+          <ScalarProperty Name="TenVuKhi" ColumnName="TenVuKhi" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Sao" ColumnName="Sao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminCongTiens">
+      <EntityTypeMapping TypeName="accgameModel.AdminCongTien">
+        <MappingFragment StoreEntitySet="AdminCongTien">
+          <ScalarProperty Name="HuyDon" ColumnName="HuyDon" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SoDuSauCong" ColumnName="SoDuSauCong" />
+          <ScalarProperty Name="SoDuTruocCong" ColumnName="SoDuTruocCong" />
+          <ScalarProperty Name="CongTien" ColumnName="CongTien" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="Lydo" ColumnName="Lydo" />
+          <ScalarProperty Name="IDNguoiCong" ColumnName="IDNguoiCong" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+          <ScalarProperty Name="IdAdminCongTien" ColumnName="IdAdminCongTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accs">
+      <EntityTypeMapping TypeName="accgameModel.Acc">
+        <MappingFragment StoreEntitySet="Acc">
+          <ScalarProperty Name="An" ColumnName="An" />
+          <ScalarProperty Name="GiaGoc" ColumnName="GiaGoc" />
+          <ScalarProperty Name="PhanTram" ColumnName="PhanTram" />
+          <ScalarProperty Name="GiaDaMua" ColumnName="GiaDaMua" />
+          <ScalarProperty Name="GiaCtvCollab" ColumnName="GiaCtvCollab" />
+          <ScalarProperty Name="IDOldAcc" ColumnName="IDOldAcc" />
+          <ScalarProperty Name="IDLoaiAcc" ColumnName="IDLoaiAcc" />
+          <ScalarProperty Name="TenVuKhi" ColumnName="TenVuKhi" />
+          <ScalarProperty Name="AnhVuKhi" ColumnName="AnhVuKhi" />
+          <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+          <ScalarProperty Name="AnhNhanVat" ColumnName="AnhNhanVat" />
+          <ScalarProperty Name="SoTienGiam" ColumnName="SoTienGiam" />
+          <ScalarProperty Name="MaGiamGia" ColumnName="MaGiamGia" />
+          <ScalarProperty Name="RanDom" ColumnName="RanDom" />
+          <ScalarProperty Name="AccKhoiDau" ColumnName="AccKhoiDau" />
+          <ScalarProperty Name="AccVip" ColumnName="AccVip" />
+          <ScalarProperty Name="TaiKhoanNoiBo" ColumnName="TaiKhoanNoiBo" />
+          <ScalarProperty Name="CapKhaiPha" ColumnName="CapKhaiPha" />
+          <ScalarProperty Name="ThongTinKhac" ColumnName="ThongTinKhac" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+          <ScalarProperty Name="VuKhi" ColumnName="VuKhi" />
+          <ScalarProperty Name="NhanVat" ColumnName="NhanVat" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+          <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+          <ScalarProperty Name="ThoiGianBan" ColumnName="ThoiGianBan" />
+          <ScalarProperty Name="ThoiGianDang" ColumnName="ThoiGianDang" />
+          <ScalarProperty Name="IDNguoiMua" ColumnName="IDNguoiMua" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="ChiTiet" ColumnName="ChiTiet" />
+          <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+          <ScalarProperty Name="Server" ColumnName="Server" />
+          <ScalarProperty Name="TenAcc" ColumnName="TenAcc" />
+          <ScalarProperty Name="IDAcc" ColumnName="IDAcc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhMucs">
+      <EntityTypeMapping TypeName="accgameModel.DanhMuc">
+        <MappingFragment StoreEntitySet="DanhMuc">
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="GhiChuAcc" ColumnName="GhiChuAcc" />
+          <ScalarProperty Name="CauHinhDangNhieuAcc" ColumnName="CauHinhDangNhieuAcc" />
+          <ScalarProperty Name="ThongBaoMuaAcc" ColumnName="ThongBaoMuaAcc" />
+          <ScalarProperty Name="GiaCtvCollab" ColumnName="GiaCtvCollab" />
+          <ScalarProperty Name="Ar" ColumnName="Ar" />
+          <ScalarProperty Name="IDOldDanhMuc" ColumnName="IDOldDanhMuc" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="Server" ColumnName="Server" />
+          <ScalarProperty Name="IDLoaiAcc" ColumnName="IDLoaiAcc" />
+          <ScalarProperty Name="random" ColumnName="random" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="TaiKhoanNoiBo" ColumnName="TaiKhoanNoiBo" />
+          <ScalarProperty Name="AnhDanhMuc" ColumnName="AnhDanhMuc" />
+          <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+          <ScalarProperty Name="HienCo" ColumnName="HienCo" />
+          <ScalarProperty Name="LuotRoll" ColumnName="LuotRoll" />
+          <ScalarProperty Name="DanhMucLevel" ColumnName="DanhMucLevel" />
+          <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
+          <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+          <ScalarProperty Name="IDDanhMuc" ColumnName="IDDanhMuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OldPasses">
+      <EntityTypeMapping TypeName="accgameModel.OldPass">
+        <MappingFragment StoreEntitySet="OldPass">
+          <ScalarProperty Name="oldPassword" ColumnName="oldPassword" />
+          <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccRandomDamuas">
+      <EntityTypeMapping TypeName="accgameModel.AccRandomDamua">
+        <MappingFragment StoreEntitySet="AccRandomDamua">
+          <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+          <ScalarProperty Name="Server" ColumnName="Server" />
+          <ScalarProperty Name="IdAccRandom" ColumnName="IdAccRandom" />
+          <ScalarProperty Name="Danhmuc" ColumnName="Danhmuc" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminNotifyReads">
+      <EntityTypeMapping TypeName="accgameModel.AdminNotifyRead">
+        <MappingFragment StoreEntitySet="AdminNotifyRead">
+          <ScalarProperty Name="IdNguoidung" ColumnName="IdNguoidung" />
+          <ScalarProperty Name="IdNotifyUser" ColumnName="IdNotifyUser" />
+          <ScalarProperty Name="IdStatusAdminNotify" ColumnName="IdStatusAdminNotify" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotifyUsers">
+      <EntityTypeMapping TypeName="accgameModel.NotifyUser">
+        <MappingFragment StoreEntitySet="NotifyUser">
+          <ScalarProperty Name="Thoigian" ColumnName="Thoigian" />
+          <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+          <ScalarProperty Name="IsAdminPost" ColumnName="IsAdminPost" />
+          <ScalarProperty Name="IdNguoidung" ColumnName="IdNguoidung" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="IdNotify" ColumnName="IdNotify" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnAccs">
+      <EntityTypeMapping TypeName="accgameModel.AnAcc">
+        <MappingFragment StoreEntitySet="AnAcc">
+          <ScalarProperty Name="IsAdminAn" ColumnName="IsAdminAn" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="AnAccRR" ColumnName="AnAccRR" />
+          <ScalarProperty Name="AnAccVip" ColumnName="AnAccVip" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

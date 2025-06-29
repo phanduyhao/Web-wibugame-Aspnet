@@ -1,0 +1,107 @@
+﻿@model IEnumerable<accgame.Context.Acc>
+@{
+    ViewBag.Title = "Quản lý tài khoản nội bộ!";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <a href="/quantri/quanlytaikhoanNB/themmoi" class="btn btn-primary m-3">Thêm mới tài khoản</a>
+                <div class="card-body">
+                    <div class="text-center">
+                        <a href="/quantri/quanlytaikhoanNB" class="btn btn-danger m-3">Tài khoản chưa bán</a>
+                        <a href="/quantri/quanlytaikhoanNB/taikhoandaban" class="btn btn-outline-danger m-3">Tài khoản đã bán</a>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tài khoản</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th class="">Tài khoản</th>
+                                <th class="">Mật khẩu</th>
+                                <th class="">Loại game</th>
+                                <th class="">Server</th>
+                                <th class="">Giá</th>
+                                <th class="">Người bán</th>
+                                <th class="">Thời gian đăng</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thoiGian24h = item.ThoiGianDang.HasValue
+                                    ? item.ThoiGianDang.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                <tr>
+                                    <td>#@item.MaTaiKhoan</td>
+                                    <td>@item.TaiKhoan</td>
+                                    <td>@item.MatKhau</td>
+                                    @if (item.LoaiGame == 1)
+                                    {
+                                        <td>Honkai Star Rail</td>
+                                    }
+                                    else
+                                    {
+                                        <td>GenShin Inpact</td>
+                                    }
+                                    <td>@item.Server</td>
+                                    <td class="price">@item.Gia VNĐ </td>
+                                    <td>@item.NguoiDung.TenNguoiDung</td>
+                                    <td>@thoiGian24h</td>
+                                    <td>
+                                        <a href="/quantri/quanlytaikhoanNB/sua/@item.IDAcc" class="badge bg-danger">Sửa</a>
+                                        <a href="/quantri/quanlytaikhoanNB/xoa/@item.IDAcc" onclick="if (confirm('Bạn muốn xóa tài khoản này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlytaikhoanNB?page=1">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlytaikhoanNB?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/quanlytaikhoanNB?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlytaikhoanNB?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlytaikhoanNB?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlytaikhoanNB?page=@ViewBag.last_page">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+

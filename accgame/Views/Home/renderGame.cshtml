@@ -1,0 +1,11 @@
+﻿
+@model IEnumerable<accgame.Context.LoaiGame>
+@{
+    Layout = null;
+}
+
+
+@foreach(var item in Model)
+{
+    <li><a href="/danhsach/loaigame/@item.Slug">@item.TenLoaiGame</a></li>
+}

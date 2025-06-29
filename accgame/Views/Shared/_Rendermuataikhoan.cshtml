@@ -1,0 +1,37 @@
+﻿
+
+
+@if (ViewBag.thongbao == 1)
+{
+    <span class="text-primary">Bạn phải <a href="/dangnhap" class="btn btn-danger rounded-pill btn-sm mx-2">Đăng nhập</a> mới có thể mua tài khoản này!</span>
+}
+else if (ViewBag.thongbao == 2)
+{
+    <p class="fs-5 text-primary fw-bold">Số tiền trong tài khoản không đủ!</p>
+    <p class="text-primary">Bạn phải <a href="/naptien/ATM" class="btn btn-danger rounded-pill btn-sm mx-2">Nạp tiền</a> mới có thể mua tài khoản này!</p>
+    <p class="fs-5 text-primary fw-bold">Số tiền hiện tại: <span class="text-danger">@ViewBag.tien VNĐ</span> </p>
+}
+else if (ViewBag.thongbao == 3)
+{
+    <span class="text-primary fw-bold">Đã hết tài khoản, bạn hãy quay lại sau nhé!</span>
+}
+else if (ViewBag.thongbao == 4)
+{
+    <span class="text-primary fw-bold">Số lượng tài khoản bạn chọn vượt quá số lượng tài khoản đang có, bạn hãy nhập số lượng tài khoản thấp hơn!</span>
+    <p><b>Số tài khoản đang có: @ViewBag.count</b></p>
+}
+else if (ViewBag.thongbao == 5)
+{
+    <span class="text-primary fw-bold">Số lượng tài khoản không được nhỏ hơn 0!</span>
+
+}
+else if (ViewBag.thongbao == 10)
+{
+    <span class="text-primary fw-bold">Tài khoản của bạn đã bị khóa! Không thể mua!</span>
+
+}
+else
+{
+    <span class="text-primary fw-bold">Mua tài khoản thành công! Nhấn vào đây để xem thông tin tài khoản</span>
+    <a href="/taikhoandamua" class="btn btn-danger rounded-pill">Tài khoản đã mua</a>
+}

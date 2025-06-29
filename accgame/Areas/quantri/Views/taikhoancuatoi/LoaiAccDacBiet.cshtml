@@ -1,0 +1,87 @@
+﻿@model IEnumerable<accgame.Context.DanhMuc>
+@{
+    ViewBag.Title = "Loại Acc " + ViewBag.tenLoai;
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+
+<main class="content">
+    <h1>@ViewBag.tenLoai</h1>
+    <div class="w-100 mb-3">
+        <a href="/quantri/rerollcuatoi/themmoi/@ViewBag.idDanhMuc" class="btn btn-primary m-3">Thêm mới danh mục</a>
+    </div>
+    <div class="row gx-2 justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+                <div class="card">
+                    <img src="@item.AnhDanhMuc" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.TenDanhMuc</h5>
+                        <h5 class="price fw-bold">@item.Gia VNĐ </h5>
+                       
+
+                        <div class="row align-items-center">
+                            <div class="col-xxl-8 col-12 text-nowrap">
+                                <a href="/quantri/rerollcuatoi/danhsachacc/@item.IDDanhMuc" class="btn btn-danger">Xem danh sách</a>
+                            </div>
+                            <div class="col-xxl-4 col-12 text-xxl-end text-start">
+                                <a href="/quantri/rerollcuatoi/sua/@item.IDDanhMuc" class="badge bg-danger my-2">Sửa</a>
+                                <a href="/quantri/rerollcuatoi/xoa/@item.IDDanhMuc" onclick="if (confirm('Bạn muốn xóa danh mục này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    @if (TempData["SuccessThem"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Thêm mới thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["SuccessSua"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Chỉnh sửa thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["SuccessXoa"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Xóa thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+</main>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Kiểm tra nếu phần tử success toast tồn tại
+        var successToastElement = document.getElementById('successToast');
+        if (successToastElement) {
+            var successToast = new bootstrap.Toast(successToastElement);
+            successToast.show();
+        }
+    });
+</script>

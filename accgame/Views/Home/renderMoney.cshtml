@@ -1,0 +1,68 @@
+﻿@model accgame.Context.NguoiDung
+
+@{
+    Layout = null;
+}
+
+<style>
+    .custom-div2 {
+        width: 150px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+</style>
+
+@if (Model != null && Model.Tien > 1000)
+{
+    <div class="custom-div2 me-2">
+        <span class="me-2 truncate">@Model.TenNguoiDung</span>
+    </div>
+    <span class="text-lowercase">
+        @Convert.ToInt32(Model.Tien).ToString("N0")<text>đ</text>
+    </span>
+}
+else
+{
+    <div class="custom-div2">
+        <span class="truncate">@Model.TenNguoiDung</span>
+    </div>  }
+
+<script>
+    $(document).ready(function () {
+        if ($(window).width() <= 992) {
+            $('.truncate').each(function () {
+                var $this = $(this);
+                var text = $this.text().trim();
+                var maxLength = 6; // Độ dài tối đa của đoạn text trước khi cắt ngắn
+
+                if (text.length > maxLength) {
+                    var truncatedText = text.substring(0, maxLength) + '****';
+                    $this.text(truncatedText);
+                }
+            });
+        }
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() <= 992) {
+            $('.truncate').each(function () {
+                var $this = $(this);
+                var text = $this.text().trim();
+                var maxLength = 6; // Độ dài tối đa của đoạn text trước khi cắt ngắn
+
+                if (text.length > maxLength) {
+                    var truncatedText = text.substring(0, maxLength) + '****';
+                    $this.text(truncatedText);
+                }
+            });
+        } else {
+            $('.truncate').each(function () {
+                var $this = $(this);
+                var originalText = $this.attr('data-original-text');
+                if (originalText) {
+                    $this.text(originalText);
+                }
+            });
+        }
+    });
+</script>

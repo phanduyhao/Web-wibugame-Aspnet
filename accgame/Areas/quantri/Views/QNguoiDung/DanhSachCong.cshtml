@@ -1,0 +1,135 @@
+﻿@model PagedList.IPagedList<accgame.Context.AdminCongTien>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout2.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-body">
+            <form class="input-group mb-2">
+                <button class="input-group-text btn btn-danger fw-bold">Tìm kiếm</button>
+                <input type="text" class="form-control" name="search" placeholder="Tìm kiếm lý do, tên người cộng, tên người nhận">
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Số tiền
+                        </th>
+                        <th>
+                            Người Nhận
+                        </th>
+                        <th>
+                            Admin
+                        </th>
+                        <th>
+                            Lý do
+                        </th>
+                        <th>
+                            Thời gian
+                        </th>
+                        <th>
+                            Loại
+                        </th>
+                        <th>
+                            Số dư trước khi thực hiện
+                        </th>
+                        <th>
+                            Số dư sau khi thực hiện
+                        </th>
+                        <th>
+                            Hành động
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        var thoiGian24h = item.ThoiGian.HasValue
+                            ? item.ThoiGian.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                            : string.Empty;
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdAdminCongTien)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SoTien)
+                            </td>
+                            <td>
+                                @(item.NguoiDung?.TenNguoiDung ?? "")
+                            </td>
+                            <td>
+                                @(item.NguoiDung1?.TenNguoiDung ?? "")
+                            </td>
+                            <td>
+                                @item.Lydo
+                            </td>
+                            <td>
+                                @thoiGian24h
+                            </td>
+                            <td>
+                                @if (item.HuyDon == null)
+                                {
+                                    if (item.CongTien == true)
+                                    {
+                                        <span class="badge badge-sm bg-primary">Cộng tiền</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-sm bg-danger">Trừ tiền</span>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="badge badge-sm bg-dark">Đơn Hủy</span>
+                                }
+
+                            </td>
+                            <td>
+                                @item.SoDuTruocCong
+                            </td>
+                            <td>
+                                @item.SoDuSauCong
+                            </td>
+                            <td>
+                            <td>
+                                @if (item.Status == true)
+                                {
+                                    <button class="btn btn-danger opacity-50" disabled>Đã duyệt!</button>
+                                }
+                                else if (item.HuyDon == true)
+                                {
+                                    <button class="btn btn-dark opacity-50" disabled>Đã hủy!</button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-primary opacity-100" disabled>Đang chờ!</button>
+
+                                }
+                            </td>
+
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("DanhSachCong", new { page, search = ViewBag.search }))
+
+    </div>
+</main>
+
+
+

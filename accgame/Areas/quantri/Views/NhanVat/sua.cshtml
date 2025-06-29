@@ -1,0 +1,74 @@
+﻿@model accgame.Context.NhanVat
+
+@{
+    ViewBag.Title = "Chỉnh sửa người dùng";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-header">
+            <h4>Chỉnh sửa Nhân Vật</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IDNhanVat)
+                @if (ViewBag.notify != null)
+                {
+                    <div class="bg-danger p-3 rounded-2 text-light mb-3" role="alert">@ViewBag.notify</div>
+                }
+
+                <div class="form-group">
+                    <b>Tên nhân vật</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.TenNhanVat, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TenNhanVat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Loại game</b>
+                    <div class="">
+                        <select class="form-select mb-3" name="loaigame">
+                            @foreach (var item in ViewBag.loaiGame)
+                            {
+                                <option @if (item.IDLoaiGame == Model.LoaiGame) { <text> selected </text> } value="@item.IDLoaiGame">@item.TenLoaiGame</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Avatar</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Cấp sao</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.Sao, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <div class="col-md-offset-2 ">
+                        <input type="submit" value="Lưu lại" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</main>
+
+

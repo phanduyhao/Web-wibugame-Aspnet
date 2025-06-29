@@ -1,0 +1,148 @@
+﻿@model IEnumerable<accgame.Context.GoiNap>
+@{
+    ViewBag.Title = "Nạp Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about about-acc">
+    <div class="container mt-5">
+        <div class="d-flex align-items-center justify-content-center mh-100">
+            <div class="w-100" style="">
+                <div class="text-center form-dangky shadow-lg p-2 p-sm-4 rounded-1">
+                    <form action="/napgame/themmoi/@ViewBag.idLoaiGame" class="border-dangky" enctype="multipart/form-data" method="post">
+
+                        <input required="" name="LoaiGame" value="@ViewBag.idLoaiGame" type="hidden">
+
+                        <div class="pb-3">
+                            <h1 class="tiennguoidung d-none">@ViewBag.tien</h1>
+                            <h1 class="tiengoinap d-none">@ViewBag.selectedGoiNap.Gia</h1>
+
+                            <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                                Nạp game @ViewBag.loaigame
+                            </h2>
+                            <img class="img-fluid" src="/Content/assets/img/AuthDevider.png">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <select class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="IDGoiNap" name="IDGoiNap">
+                                <!-- Hiển thị gói đã chọn -->
+                                <option value="@ViewBag.selectedGoiNap.IDGoiNap">
+                                    @Convert.ToInt32(ViewBag.selectedGoiNap.Gia).ToString("N0").Replace(",", ".") đ - @ViewBag.selectedGoiNap.TenGoi
+                                </option>
+                            </select>
+                        </div>
+                        <div class="py-2 py-sm-3"> 
+                            <input placeholder="Điền số lượng gói cần nạp" required class="form-control input-soluong login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="SoLuong" name="SoLuong" value="" type="number" min="1"
+                               oninvalid="this.setCustomValidity('Vui lòng nhập số lượng gói nạp !')"
+                               oninput="this.setCustomValidity('')">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Điền UID (User ID)" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="UID" required="" name="UID" value="@ViewBag.UID" type="text">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Điền tên đăng nhập @if (ViewBag.idLoaiGame != 3) { <text> ( tài khoản HoYoverse ) </text> } else { <text> ( tài khoản Kuro Games ) </text> } " class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="TenDangNhap" required="" name="TenDangNhap" value="@ViewBag.TenDangNhap" type="text">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Điền mật khẩu tài khoản nạp" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="MatKhau" required="" name="MatKhau" value="@ViewBag.MatKhau" type="text">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Điền server" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="Server" required="" name="Server" value="@ViewBag.Server" type="text">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Điền tên trong game" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="TenNhanVat" required="" name="TenNhanVat" value="@ViewBag.TenNhanVat" type="text">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Điền số điện thoại" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="SoDienThoai" required name="SoDienThoai" value="@ViewBag.SoDienThoai" type="number">
+                        </div>
+
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Điền ghi chú (nếu có)" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="GhiChu" name="GhiChu" value="@ViewBag.GhiChu" type="text">
+                        </div>
+
+                        <div class="text-danger">
+                            @ViewBag.loi
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-12">
+                                <button type="submit" class="col-lg-4 col-sm-9 col-12 btn position-relative shadow-none text-center mt-3">
+                                    <img class="img-fluid" src="/Content/assets/img/Layer-button.png">
+                                    <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white text-nowrap">Nạp ngay</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-danger text-dark mt-4" role="alert" style="background: #ddd5c8">
+            <a href="/NapGame" class="btn btn-primary rounded-pill mb-3">
+                Danh sách đơn nạp game của bạn
+            </a>
+            <div class="">
+                <p>
+                    <font color="#000000">
+                        <span style="font-weight: bolder;">
+                            <span style="font-family: Arial;">Lưu ý!!!&nbsp;Bạn hãy đổi mật khẩu tài khoản game khi trạng thái là Thành công hoặc Hủy.</span>
+                        </span>
+                    </font>
+                </p>
+                <p>
+                    <font color="#000000">
+                        <span style="font-weight: bolder;">
+                            <span style="font-family: Arial;">Tất cả gói nạp đá sáng thế đều chưa tính bonus trong game và bảo hành hoàn toàn khi âm nguyên thạch</span>
+                        </span>
+                    </font>
+                </p>
+                <p>
+                    <span style="color: rgb(255, 0, 0); font-family: Arial; font-weight: 700;">+ Shop chỉ lấy mã qua SĐT @ViewBag.sdt hoặc zalo @ViewBag.sdt ( không cung cấp mã cho bất kì ai ngoài số trên )</span>
+                    <br>
+                </p>
+                <p>
+                    <span style="color: rgb(255, 0, 0); font-family: Arial; font-weight: 700;">+ Trong thời gian nạp quý khách có thể chơi game bình thường, nếu có người vô nạp thì các bạn chỉ cần chờ 15p sau rồi đăng nhập rồi chơi nhé !!!</span>
+                    <span style="font-weight: bolder;">
+                        <span style="font-family: Arial; background-color: rgb(255, 255, 255);">
+                            <font color="#ff0000" style=""><br></font>
+                        </span>
+                    </span>
+                </p><p>
+                    <font color="#000000">
+                        <span style="font-weight: bolder;">
+                            <span style="font-family: Arial;">Những điều bạn cần chú ý khi nạp tại Shop&nbsp;&nbsp;</span>
+                        </span>
+                    </font>
+                </p><p>
+                    <font color="#000000">
+                        <span style="font-weight: bolder;"><span style="font-family: Arial;">1 : Tài khoản đăng nhập là tài khoản Mihoyo bao gồm tên tài khoản + mật khẩu chứ không phải đăng nhập bằng liên kết thứ 3 ( FB + GG + TW + PSN ... )&nbsp;</span></span>
+                    </font>
+                </p><p><font color="#000000"><span style="font-weight: bolder;"><span style="font-family: Arial;">2 : Sau khi đã lên đơn quý khách vui lòng đợi Shop gọi để lấy mã xác nhận đăng nhập vô game nạp, quý khách vui lòng không xóa thiết bị đăng nhập + đổi pass khi đơn hàng chưa trong trạng thái THÀNH CÔNG. Đừng xóa thiết bị để lần sau nếu có nạp tiếp thì sẽ không cần mã nhé mọi người!</span></span></font></p><p><font color="#000000"><span style="font-weight: bolder;"><span style="font-family: Arial;">&nbsp;3 : Shop sẽ cố gắng xong sớm nhất cho mọi người nên mọi người hãy thông cảm và đừng hối Shop nhé&nbsp; &lt;3 .&nbsp;</span></span></font></p><p><font color="#000000"><span style="font-weight: bolder;"><span style="font-family: Arial;">Shop sẽ Hủy đơn nếu dính các trường hợp sau :&nbsp;</span></span></font></p><p><font color="#000000"><span style="font-weight: bolder;"><span style="font-family: Arial;">1 Sai tài khoản + Mật khẩu hoặc đăng nhập bằng Liên kết thứ 3!</span></span></font></p><p><font color="#000000"><span style="font-weight: bolder;"><span style="font-family: Arial;">2 Không thể liên lạc được với khách qua SĐT !</span></span></font></p><p><font color="#000000"><span style="font-weight: bolder;"><span style="font-family: Arial;">NÊN IBOX PAGE NGAY NẾU ĐƠN HỦY NẠP ĐỂ BIẾT VẤN ĐỀ Ở ĐÂU</span></span></font></p>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $("form").submit(function (event) {
+        // Lấy giá trị tiền của người dùng và tiền gói nạp
+        var tienNguoiDung = parseFloat($(".tiennguoidung").text()); // Giá trị tiền người dùng
+        var tienGoiNap = parseFloat($(".tiengoinap").text()); // Giá trị tiền gói nạp
+        var soLuong = parseInt($(".input-soluong").val()); // Số lượng
+
+        // Gán giá trị mặc định cho soLuong nếu null hoặc rỗng
+        if (isNaN(soLuong) || soLuong <= 0) {
+            soLuong = 1;
+        }
+
+        // Kiểm tra nếu tiền người dùng không đủ
+        if (isNaN(tienNguoiDung) || tienNguoiDung < (tienGoiNap * soLuong)) {
+            event.preventDefault(); // Ngừng gửi form
+            alert("Không đủ tiền để nạp!");
+        }
+    });
+
+    document.querySelector("form").addEventListener("submit", function (event) {
+        var IDGoiNap = document.getElementById("IDGoiNap").value;
+        if (IDGoiNap == 0) {
+            event.preventDefault();
+            alert("Bạn chưa chọn gói nạp!");
+        }
+    });
+
+</script>

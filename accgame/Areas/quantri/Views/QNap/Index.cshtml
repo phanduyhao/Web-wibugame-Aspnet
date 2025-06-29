@@ -1,0 +1,126 @@
+﻿@model PagedList.IPagedList<accgame.Context.NapTien>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout2.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <form method="get" class="input-group mb-3">
+                <button type="submit" class="input-group-text" id="basic-addon1">Tìm kiếm</button>
+                <input type="hidden" name="loai" value="@ViewBag.loai" />
+                <input type="text" required class="form-control" name="search" placeholder="Nhập ID, email, tên người dùng" aria-label="Username" aria-describedby="basic-addon1">
+            </form>
+        </div>
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Quản lý nạp</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex gap-3 flex-wrap mb-3">
+                        <a class="btn @if (ViewBag.loai != "bank" && ViewBag.loai != "card") {<text>btn-danger</text> } else {<text>btn-outline-danger </text>  } " href="?loai=">Tất cả</a>
+
+                        <a class="btn @if (ViewBag.loai == "bank") {<text>btn-danger</text> } else {<text>btn-outline-danger </text>  } " href="?loai=bank">Nạp bank</a>
+
+                        <a class="btn @if (ViewBag.loai == "card") {<text>btn-danger</text> } else {<text>btn-outline-danger </text>  } " href="?loai=card">Nạp thẻ cào</a>
+
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover my-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th class="">Tên người dùng</th>
+                                    <th class="">Loại</th>
+                                    <th>Mệnh giá</th>
+                                    <th>Tên thẻ</th>
+                                    <th>Trạng thái</th>
+                                    <th class="">Thời gian</th>
+                                    <th class="">Số tiền nạp</th>
+                                    <th class="">Số tiền nhận</th>
+                                    <th class="">Số dư trước nạp</th>
+                                    <th class="">Số dư sau nạp</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var thoiGian24h = item.thoigian.HasValue
+                                        ? item.thoigian.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                        : string.Empty;
+                                    <tr>
+                                        <td>#@item.IdNapTien</td>
+                                        <td>@item.NguoiDung.TenNguoiDung</td>
+                                        @if (item.Magd != null)
+                                        {
+                                            <td>@item.Noidung</td>
+                                        }
+                                        else
+                                        {
+                                            <td>Thẻ cào (@item.Noidung)</td>
+                                        }
+                                        <td>@item.amount</td>
+                                        <td>@item.telco</td>
+                                        <td>
+                                            @if (item.Noidung != "Nạp ATM" && item.Noidung != "Nạp MOMO")
+                                            {
+                                                if (item.trangthai == null)
+                                                {
+                                                    <span class="badge bg-warning">Đang chờ</span>
+                                                }
+                                                else if (item.trangthai == false)
+                                                {
+                                                    <span class="badge bg-danger">Thất bại</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-success">Thành công</span>
+                                                }
+                                            }
+                                        </td>
+                                        <td>@thoiGian24h</td>
+                                        @if (item.Magd != null)
+                                        {
+                                            <td>@Convert.ToInt32(item.SoTien).ToString("N0").Replace(",", ".")</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@Convert.ToInt32(item.amount).ToString("N0").Replace(",", ".")</td>
+                                        }
+                                        @if (item.Magd != null)
+                                        {
+                                            <td>@Convert.ToInt32(item.SoTien).ToString("N0").Replace(",", ".")</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@Convert.ToInt32(item.SoTien).ToString("N0").Replace(",", ".")</td>
+                                        }
+                                        <td>@Convert.ToInt32(item.TruocNap).ToString("N0").Replace(",", ".")</td>
+                                        <td>@Convert.ToInt32(item.SauNap).ToString("N0").Replace(",", ".")</td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        @Html.PagedListPager(Model, page => Url.Action("index", new { page, search = ViewBag.search, loai = ViewBag.loai }))
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</main>
+

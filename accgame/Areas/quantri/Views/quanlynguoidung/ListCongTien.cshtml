@@ -1,0 +1,160 @@
+﻿@model PagedList.IPagedList<accgame.Context.AdminCongTien>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-body">
+            <form class="input-group mb-2">
+                <button class="input-group-text btn btn-danger fw-bold">Tìm kiếm</button>
+                <input type="text" class="form-control" name="search" placeholder="Tìm kiếm lý do, tên người cộng, tên người nhận">
+                <div class="col-xl-2 col-md-4">
+                    <select id="rowsPerPage" name="rows" class="form-control me-2">
+                        <option value="10" @(ViewBag.Rows == 10 ? "selected" : "")>10 dòng</option>
+                        <option value="20" @(ViewBag.Rows == 20 ? "selected" : "")>20 dòng</option>
+                        <option value="50" @(ViewBag.Rows == 50 ? "selected" : "")>50 dòng</option>
+                        <option value="100" @(ViewBag.Rows == 100 ? "selected" : "")>100 dòng</option>
+                        <option value="150" @(ViewBag.Rows == 150 ? "selected" : "")>150 dòng</option>
+                        <option value="200" @(ViewBag.Rows == 200 ? "selected" : "")>200 dòng</option>
+                        <option value="250" @(ViewBag.Rows == 250 ? "selected" : "")>250 dòng</option>
+                        <option value="300" @(ViewBag.Rows == 300 ? "selected" : "")>300 dòng</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Số tiền
+                        </th>
+                        <th>
+                            Người Nhận
+                        </th>
+                        <th>
+                            Admin
+                        </th>
+                        <th>
+                            Lý do
+                        </th>
+                        <th>
+                            Thời gian
+                        </th>
+                        <th>
+                            Loại
+                        </th>
+                        <th>
+                            Số dư trước khi thực hiện
+                        </th>
+                        <th>
+                            Số dư sau khi thực hiện
+                        </th>
+                        <th>
+                            Hành động
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        var thoiGian24h = item.ThoiGian.HasValue
+                            ? item.ThoiGian.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                            : string.Empty;
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdAdminCongTien)
+                            </td>
+                            <td class="price">
+                                @Html.DisplayFor(modelItem => item.SoTien)
+                            </td>
+                            <td>
+                                @(item.NguoiDung?.TenNguoiDung ?? "")
+                            </td>
+                            <td>
+                                @(item.NguoiDung1?.TenNguoiDung ?? "")
+                            </td>
+                            <td>
+                                @item.Lydo
+                            </td>
+                            <td>
+                                @thoiGian24h
+                            </td>
+                            <td>
+                                @if (item.HuyDon == null)
+                                {
+                                    if (item.CongTien == true)
+                                    {
+                                        <span class="badge badge-sm bg-primary">Cộng tiền</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-sm bg-danger">Trừ tiền</span>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="badge badge-sm bg-dark">Đơn Hủy</span>
+                                }
+
+                            </td>
+                            <td class="price">
+                                @item.SoDuTruocCong
+                            </td>
+                            <td class="price">
+                                @if (item.HuyDon == true)
+                                {
+                                    @item.NguoiDung.Tien
+                                }
+                                else
+                                {
+                                    @item.SoDuSauCong
+                                }
+                            </td>
+                            <td>
+                            <td>
+                                @if (item.Status == true)
+                                {
+                                    <button class="btn btn-primary opacity-50" disabled>Đã duyệt</button>
+                                }
+                                else if (item.HuyDon == true)
+                                {
+                                    <button class="btn btn-danger opacity-50" disabled>Đã hủy đơn</button>
+                                }
+                                else
+                                {
+                                    <form class="custom-form mb-2" action="/quantri/quanlynguoidung/PostCongTien/@item.IdAdminCongTien" data-notify-success="Thực hiện thành công!" method="post">
+                                        <button type="submit" class="btn btn-primary">Duyệt đơn!</button>
+                                    </form>
+                                    <form class="custom-form" action="/quantri/quanlynguoidung/HuyDon/@item.IdAdminCongTien" data-notify-success="Đã hủy đơn thành công!" method="post">
+                                        <button type="submit" class="btn btn-danger">Hủy đơn</button>
+                                    </form>
+                                }
+                            </td>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("ListCongTien", new { page, search = ViewBag.search, rows = ViewBag.Rows }))
+
+    </div>
+</main>
+
+
+

@@ -1,0 +1,700 @@
+﻿@model accgame.Models.HomeModels
+
+
+
+<!-- ======= Hero Section ======= -->
+<style>
+    .custom-div {
+        width: 200px; /* Đặt chiều rộng mặc định */
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .game-sale-tet .active{
+        color: black !important;
+    }
+    .game-sale-tet {
+        background: #dcdddf8c;
+        width: fit-content;
+    }
+
+</style>
+<section id="hero" class="d-flex align-items-center" style="background-attachment: fixed">
+    <div class="container position-relative text-center text-lg-start pt-0 mt-100">
+        <div class="row mt-5 mt-lg-0">
+
+            @if (ViewBag.TieuDeTopTrangChu != "")
+            {
+                <div class="col-xl-7 col-xxl-8 d-flex align-items-center justify-content-center position-relative" data-aos="fade-up" data-aos-delay="200">
+                    <div style="background-color: #212529a1" class="card border-danger w-100">
+                        <div class="card-header fs-5 border-danger text-center">
+                            @ViewBag.TieuDeTopTrangChu
+                        </div>
+                        <div class="card-body">
+                            <div class="text-light text-custom-a">
+                                @Html.Raw(ViewBag.NoiDungTopTrangChu)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-xl-9 col-xxl-8" data-aos="fade-up" data-aos-delay="100">
+                    @if (!string.IsNullOrEmpty(ViewBag.bannerHome))
+                    {
+                        <img class="img-fluid" src="@ViewBag.bannerHome" />
+                    }
+                    else
+                    {
+                        <img class="img-fluid" src="~/Content/images/slide-wibu.gif" />
+                    }
+                </div>
+            }
+            <div class="col-xl-3 col-xxl-4 d-none d-lg-flex align-items-center justify-content-center position-relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="card xTech-bntbox w-100 mt-5 mt-xl-0">
+                    <div class="card-header fs-5 border-bottom text-center">
+                        TOP NẠP TIỀN
+                    </div>
+                    <div class="card-body">
+                        <div class="">
+                            @for (int i = 0; i < Model.listNguoiDung.Count && i < 6; i++)
+                            {
+                                var item = Model.listNguoiDung[i];
+                                string icon = "";
+
+                                if (i == 0)
+                                {
+                                    icon = "<span class='text-warning fs-4'>🥇</span>"; // Icon vàng
+                                }
+                                else if (i == 1)
+                                {
+                                    icon = "<span class='text-secondary fs-4'>🥈</span>"; // Icon bạc
+                                }
+                                else if (i == 2)
+                                {
+                                    icon = "<span class='text-warning fs-4' style='color:#cd7f32;'>🥉</span>"; // Icon đồng
+                                }
+                                else
+                                {
+                                    icon = "<span class='text-warning fs-3' style='color:#cd7f32;'>🎖️</span>"; // Icon đồng
+                                }
+
+                                <div class="text-primary d-flex justify-content-between align-items-center border-bottom py-2">
+                                    <div class="custom-div d-flex align-items-center">
+                                        @Html.Raw(icon)  <!-- Thêm icon nếu có -->
+                                        <div class="truncate ms-2">
+                                            @item.TenNguoiDung
+                                        </div>
+                                    </div>
+                                    <div class="btn btn-info rounded-pill btn-sm">
+                                        @Convert.ToInt32(item.TienNapThang).ToString("N0").Replace(",", ".") vnđ
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 d-lg-none d-flex align-items-center justify-content-center position-relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="card xTech-bntbox w-100 mt-5 mt-xl-0">
+                    <div class="card-header border-0 text-center bg-white text-dark" style="font-size: 16px; font-weight:400">
+                        TOP NẠP TIỀN
+                    </div>
+                    <div class="card-body overflow-hidden bg-white ">
+                        <!-- Container cuộn ngang tự động -->
+                        <div class="marquee">
+                            <div class="marquee-content marquee-topnaptien">
+                                @foreach (var item in Model.listNguoiDung.Concat(Model.listNguoiDung)) // Nhân đôi danh sách
+                                {
+                                    string icon = item == Model.listNguoiDung[0] ? "<span class='text-warning fs-4'>🥇</span>" :
+                                                  item == Model.listNguoiDung[1] ? "<span class='text-secondary fs-4'>🥈</span>" :
+                                                  item == Model.listNguoiDung[2] ? "<span class='text-warning fs-4' style='color:#cd7f32;'>🥉</span>" :
+                                                  "<span class='text-warning fs-3' style='color:#cd7f32;'>🎖️</span>"; // Icon chung
+
+                                    <div class="marquee-item">
+                                        <div class="text-primary d-flex flex-column align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                @Html.Raw(icon)  <!-- Thêm icon nếu có -->
+                                                <div class="d-flex align-items-center text-dark">
+                                                    <div class="truncate text-center me-2">
+                                                        @item.TenNguoiDung
+                                                    </div>
+                                                    <span>
+                                                        :  @Convert.ToInt32(item.TienNapThang).ToString("N0").Replace(",", ".") vnđ
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-center position-relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-body overflow-hidden py-1 mt-5 rounded nft xTech-bntbox" style="background: white !important;">
+                    <!-- Container cuộn ngang tự động -->
+                    <div class="marquee">
+                        <div class="marquee-content">
+                            @foreach (var notification in ViewBag.RecentNotifications)
+                            {
+
+                                <div class="marquee-item">
+                                    <div class="text-primary d-flex flex-column align-items-center">
+                                        <div class="d-flex align-items-center text-dark">
+                                            <img src="~/Content/images/icon/rocket.gif" width="50" alt="Alternate Text" class="rocket" style="transform: rotate(-90deg)" />
+                                            @Html.Raw(@notification)
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+            </div>
+
+            @if (@ViewBag.isSaleTet == "1")
+            {
+                <div class="row g-3 mt-3 justify-content-center">
+                    <div class="MuiBox-root acc-title mb-3">
+                        <div class="text-center">
+                            <h2 class="fw-bold fs-1 desc-top-slider">Sale Tết 2025</h2>
+                        </div>
+                    </div>
+                    <nav>
+                        <div class="nav nav-tabs border-0 justify-content-center game-sale-tet mx-auto rounded p-3" id="nav-tab" role="tablist">
+                            <button class="nav-link  active  rounded border-0 text-dark" id="genshin-tab" data-bs-toggle="tab" data-bs-target="#genshin" type="button" role="tab" aria-controls="genshin" aria-selected="true">GHENSHIN</button>
+                            <button class="nav-link  rounded border-0 text-dark" id="honkai-star-rail-tab" data-bs-toggle="tab" data-bs-target="#honkai-star-rail" type="button" role="tab" aria-controls="honkai-star-rail" aria-selected="true">HONKAI</button>
+                            <button class="nav-link  rounded border-0 text-dark" id="wuthering-waves-tab" data-bs-toggle="tab" data-bs-target="#wuthering-waves" type="button" role="tab" aria-controls="wuthering-waves" aria-selected="true">WUWA</button>
+                            <button class="nav-link  rounded border-0 text-dark" id="zenless-zone-zero-tab" data-bs-toggle="tab" data-bs-target="#zenless-zone-zero" type="button" role="tab" aria-controls="zenless-zone-zero" aria-selected="true">ZENLESS</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content rounded position-relative border-dangky" id="nav-tabContent" style="background: #f8f9fad6;">
+                        <div class="my-3 row">
+                            <div class="col-2 text-start">
+                                <img class="p-1 img-flashsale" src="~/Content/images/flash-saleq.png" alt="Alternate Text" style="background: yellow;" />
+                            </div>
+                            <div id="timer" class=" col-md-2 col-6 ms-md-5 ms-xl-0 ms-sm-3 ms-5"></div>
+                        </div>
+                        @foreach (var item in Model.listLoaiGame)
+                        {
+                            <div class="tab-pane fade @if (item.Slug == "genshin") { <text>show active</text> }" id="@item.Slug" role="tabpanel" aria-labelledby="@item.Slug-tab">
+                                <h2 class="text-end xemtatca">
+                                    <a href="/danhsach/loaigame/@item.Slug" class="text-dark" style="text-decoration: underline">
+                                        Xem tất cả >
+                                    </a>
+                                </h2>
+                                <div class="row mt-3">
+                                    @if (Model.listAcc != null)
+                                    {
+                                        foreach (var item2 in Model.listAcc.Where(m => m.LoaiGame == item.IDLoaiGame))
+                                        {
+                                            <div data-aos="zoom-in" class="col-6 col-sm-6 col-lg-3">
+                                                <div class="p-1">
+                                                    <div class="custom-block-image-wrap p-1 p-sm-2">
+                                                        <a href="/chitiettaikhoan/xem/@item2.MaTaiKhoan">
+                                                            <img src="@item2.AnhDaiDien" class="custom-block-image custom-block-image__new img-fluid" alt="">
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="mt-3 mb-2 text-center">
+                                                        <h6 class="mb-2">
+                                                            <a href="/chitiettaikhoan/xem/@item2.MaTaiKhoan" class="fw-bold ten-game max-height-tengame">
+                                                                @item2.TenAcc
+                                                            </a>
+                                                        </h6>
+
+                                                        @if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true && ViewBag.OnOffCtvCollab == true)
+                                                        {
+                                                            if (item2.GiaCtvCollab != null)
+                                                            {
+                                                                var giactvcollab = item2.Gia / 100 * item2.GiaCtvCollab;
+
+                                                                <div class="w-100 p-sm-3 p-2 text-center border rounded-3 fw-bold" style="background-color: #f7f5ed">
+                                                                    <span class="text-danger">Giá ( Ctv-Collab ): <br /> @Convert.ToInt32(giactvcollab).ToString("N0").Replace(",", ".")đ</span>
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="w-100 p-sm-3 p-2 text-center border rounded-3 fw-bold" style="background-color: #f7f5ed">
+                                                                    <span style="font-size: 12px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm"> Chưa có giá cho Ctv-Collab! <br /> @Convert.ToInt32(item2.GiaGoc).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                                    <span class="text-danger">Chưa có giá cho Ctv-Collab! <br /> @Convert.ToInt32(item2.Gia).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                                </div>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            int tongPhanTram = (ViewBag.phanTramTet != null ? Convert.ToInt32(ViewBag.phanTramTet) : 0) + (item2.PhanTram ?? 0);
+                                                            <div class="w-100 p-sm-3 p-2 text-center border rounded-3 fw-bold" style="background-color: #f7f5ed">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <span style="font-size: 12px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm"> @Convert.ToInt32(item2.GiaGoc).ToString("N0").Replace(",", ".") </span>
+                                                                    <div class="d-flex align-items-center ms-3 p-0 p-md-1 badge" style="background: #eeef2f">
+                                                                        <img src="~/Content/images/icon/flash-sale.png" width="20px" alt="Alternate Text" />
+                                                                        <span class="text-danger">- @tongPhanTram%</span>
+                                                                    </div>
+                                                                </div>
+                                                                <span class="text-danger gia-moi">@Convert.ToInt32(item2.Gia).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                            </div>
+                                                        }
+
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="fw-bold text-danger fs-5">
+                                                            <i class="fas fa-dot-circle me-2"></i>
+                                                            Còn hàng
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+            <div class="row g-3 mt-3 justify-content-center" id="Danhsachgame">
+                <div class="text-center mt-5">
+                    <h2 class="fw-bold fs-1 desc-top-slider text-uppercase">Danh sách Games</h2>
+                </div>
+                @if (Model.listLoaiGame != null)
+                {
+                    foreach (var item2 in Model.listLoaiGame)
+                    {
+                        <div data-aos="zoom-in" class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="nft xTech-bntbox">
+                                <a href="/danhsach/accgame/@item2.Slug" class="main m-1">
+                                    <img class="tokenImage" src="@item2.Image" alt="NFT">
+                                    <h2 class="text-center mt-3 mb-1 mb-md-3 ten-loai-acc text-dark">@item2.TenLoaiGame</h2>
+
+                                    <!-- Hiển thị tổng số Đang bán và Đã bán bằng ViewBag -->
+                                    <div class="tokenInfo text-dark px-lg-5 d-flex flex-column fs-6">
+                                        <div class="price text-dark d-flex flex-column">
+                                            <div class="d-flex align-items-center">
+                                                <ins>◘</ins>
+                                                <p><span style="color: #575e64">Đang bán:</span> @(ViewBag.DangBanDictionary[item2.IDLoaiGame])</p>
+                                            </div>
+                                            @*                                        <p> @(ViewBag.DangBanDictionary[item2.IDLoaiGame])</p>
+                                            *@
+                                        </div>
+                                        <div class="duration text-dark d-flex flex-column mt-2">
+                                            <div class="d-flex align-items-center">
+                                                <ins>◷</ins>
+                                                <p><span style="color: #575e64">Đã bán:</span> @(ViewBag.DaBanDictionary[item2.IDLoaiGame])</p>
+                                            </div>
+                                            @*                                        <p> @(ViewBag.DaBanDictionary[item2.IDLoaiGame])</p>
+                                            *@
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+
+                @if (ViewBag.showDichVu == true)
+                {
+                    <div class="text-center mt-5" id="dichvugame">
+                        <h2 class="fw-bold fs-1 desc-top-slider text-uppercase">Dịch vụ game</h2>
+                    </div>
+                    foreach (var item in Model.listLoaiGame.Where(m => m.DichVuNapGame == true))
+                    {
+                        <div data-aos="zoom-in" class="col-6 col-lg-4 col-xl-3">
+                            <div class="nft xTech-bntbox">
+                                <a href="/napgame/ListPackage/@item.IDLoaiGame" class="main m-1">
+                                    <img class="tokenImage text-dark" src="@item.AnhNapGame" alt="NFT">
+                                    <h2 class="text-center my-3 ten-loai-acc">Nạp Game @item.TenLoaiGame</h2>
+                                    <div class="tokenInfo">
+                                        <div class="price text-dark">
+                                            <ins class="text-dark">◘</ins>
+                                            <p style="font-size: 12px" class="text-dark">Nạp</p>
+                                        </div>
+                                        <div class="duration">
+                                            <ins class="text-dark">◷</ins>
+                                            <p style="font-size: 12px" class="text-capitalize text-dark">@item.TenLoaiGame</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <!--<div class="creator">
+                            <div class="wrapper">
+                                <img src="/Content/images/icon-card.jpg" alt="Creator">
+                            </div>-->
+                                    @*                                    <p><ins class="text-dark">Cung cấp bởi</ins> <span class="change-domain text-dark"></span></p>
+                                    *@                                <!--</div>-->
+                                </a>
+                            </div>
+                        </div>
+                    }
+                    <div data-aos="zoom-in" class="col-6 col-lg-4 col-xl-3">
+                        <div class="nft xTech-bntbox">
+                            <a href="/danhmuc/loaiacc/acc-reroll" class="main m-1">
+                                <img class="tokenImage text-dark" src="~/Content/images/mailwhite.png" alt="NFT">
+                                <h2 class="text-center my-3 ten-loai-acc">MAIL OUTLOOK TRẮNG THÔNG TIN (ĐÃ MỞ KHÓA)</h2>
+                                <div class="tokenInfo">
+                                    <div class="price text-dark">
+                                        <ins class="text-dark">◘</ins>
+                                        <p style="font-size: 12px" class="text-dark">Nạp</p>
+                                    </div>
+                                    <div class="duration">
+                                        <ins class="text-dark">Mail trắng thông tin</ins>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!--<div class="creator">
+                        <div class="wrapper">
+                            <img src="/Content/images/icon-card.jpg" alt="Creator">
+                        </div>-->
+                                @*                                    <p><ins class="text-dark">Cung cấp bởi</ins> <span class="change-domain text-dark"></span></p>
+                                *@                                <!--</div>-->
+                            </a>
+                        </div>
+                    </div>
+
+                    foreach (var item in Model.listLoaiGame.Where(m => m.DichVuCayThue == true))
+                    {
+                        <div data-aos="zoom-in" class="col-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="nft xTech-bntbox">
+                                <a href="/caythue/themmoi/@item.IDLoaiGame" class="main">
+                                    <img class="tokenImage" src="@item.AnhCayThue" alt="NFT">
+                                    <h2 class="text-center my-3 ten-loai-acc text-dark">Cày thuê @item.TenLoaiGame</h2>
+                                    <div class="tokenInfo">
+                                        <div class="price">
+                                            <ins class="text-dark">◘</ins>
+                                            <p style="font-size: 12px" class="text-dark">Cày thuê</p>
+                                        </div>
+                                        <div class="duration">
+                                            <ins class="text-dark">◷</ins>
+                                            <p style="font-size: 12px" class="text-capitalize text-dark">@item.TenLoaiGame</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <!--<div class="creator">
+                            <div class="wrapper">
+                                <img src="/Content/images/icon-card.jpg" alt="Creator">
+                            </div>-->
+                                    @*                                    <p><ins class="text-dark">Cung cấp bởi</ins> <span class="change-domain text-dark"></span></p>
+                                    *@                                <!--</div>-->
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+                    foreach (var item in Model.listLoaiGame.Where(m => m.DichVuCode == true))
+                    {
+                        <div data-aos="zoom-in" class="col-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="nft">
+                                <a href="/MuaCode/index/@item.Slug" class="main">
+                                    <img class="tokenImage" src="@item.AnhCode" alt="NFT">
+                                    <h2 class="text-center my-3 ten-loai-acc">Mua code @item.TenLoaiGame</h2>
+                                    <div class="tokenInfo">
+                                        <div class="price">
+                                            <ins class="text-dark">◘</ins>
+                                            <p style="font-size: 12px" class="text-dark">Mua code</p>
+                                        </div>
+                                        <div class="duration">
+                                            <ins class="text-dark">◷</ins>
+                                            <p style="font-size: 12px" class="text-capitalize text-dark">@item.TenLoaiGame</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <!--<div class="creator">
+                            <div class="wrapper">
+                                <img src="/Content/images/icon-card.jpg" alt="Creator">
+                            </div>-->
+                                    @*                                    <p><ins class="text-dark">Cung cấp bởi</ins> <span class="change-domain text-dark"></span></p>
+                                    *@                                <!--</div>-->
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+            @foreach (var item in Model.listLoaiGame)
+            {
+                <div class="p-sm-4 p-2 mb-5 ds-acc-wrap position-relative" style="background-color: #f1f3f6; border-radius: 1.5rem; margin-top: 120px">
+                    <div style="margin-top: -50px; z-index: 2" class="text-danger fw-bold position-relative">
+                        <div class="position-relative mx-auto" style="max-width: 500px">
+                            <div class="position-relative text-center px-2 fw-semibold justify-content-center text-white d-flex align-items-center" style="z-index: 2; height: 60px">
+                                <h3>Hàng mới về @item.TenLoaiGame</h3>
+                            </div>
+
+                            <img src="/Content/assets/img/honkaititle.png" style="z-index: 1" class="position-absolute bottom-0 end-0 w-100" height="90">
+                        </div>
+                    </div>
+                    <div class="card-body bg-transparent custom-block-full position-relative">
+                        <div class="row g-3">
+                            @if (Model.listAcc != null)
+                            {
+                                foreach (var item2 in Model.listAcc.Where(m => m.LoaiGame == item.IDLoaiGame))
+                                {
+                                    <div data-aos="zoom-in" class="col-6 col-sm-6 col-lg-3">
+                                        <div class="p-1">
+                                            <div class="custom-block-image-wrap p-1 p-sm-2">
+                                                <a href="/chitiettaikhoan/xem/@item2.MaTaiKhoan">
+                                                    <img src="@item2.AnhDaiDien" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+
+                                            <div class="mt-3 mb-2 text-center">
+                                                <h6 class="mb-2">
+                                                    <a href="/chitiettaikhoan/xem/@item2.MaTaiKhoan" class="fw-bold ten-game max-height-tengame">
+                                                        @item2.TenAcc
+                                                    </a>
+                                                </h6>
+
+                                                @if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true && ViewBag.OnOffCtvCollab == true)
+                                                {
+                                                    if (item2.GiaCtvCollab != null)
+                                                    {
+                                                        var giactvcollab = item2.Gia / 100 * item2.GiaCtvCollab;
+
+                                                        <div class="w-100 p-sm-3 p-2 text-center border rounded-3 fw-bold" style="background-color: #f7f5ed">
+                                                            <span class="text-danger">Giá ( Ctv-Collab ): <br /> @Convert.ToInt32(giactvcollab).ToString("N0").Replace(",", ".")đ</span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="w-100 p-sm-3 p-2 text-center border rounded-3 fw-bold" style="background-color: #f7f5ed">
+                                                            @{
+                                                                if (item2.PhanTram != null && item2.PhanTram != 0)
+                                                                {
+                                                                    <span style="font-size: 12px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm"> Chưa có giá cho Ctv-Collab! <br /> @Convert.ToInt32(item2.GiaGoc).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                                }
+                                                            }
+                                                            <span class="text-danger">Chưa có giá cho Ctv-Collab! <br /> @Convert.ToInt32(item2.Gia).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                        </div>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <div class="w-100 p-sm-3 p-2 text-center border rounded-3 fw-bold" style="background-color: #f7f5ed">
+                                                        @{
+                                                            if (item2.PhanTram != null && item2.PhanTram != 0)
+                                                            {
+                                                                <span style="font-size: 12px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm"> @Convert.ToInt32(item2.GiaGoc).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                            }
+                                                        }
+                                                        <span class="text-danger">@Convert.ToInt32(item2.Gia).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                    </div>
+                                                }
+
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="fw-bold text-danger fs-5">
+                                                    <i class="fas fa-dot-circle me-2"></i>
+                                                    Còn hàng
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+
+                        </div>
+                    </div>
+                    <div class="position-absolute bottom-0 start-0 end-0 text-center" style="z-index: 2; margin-bottom: -40px">
+
+                        <a href="/danhsach/loaigame/@item.Slug" class="col-md-4 col-6 position-relative text-center">
+                            <img class="img-fluid" src="/Content/assets/img/Layer-button.png">
+                            <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white">Xem thêm</span>
+                        </a>
+                        @*<a href="https://www.facebook.com/SomiShopGenshin" class="col-md-4 col-6 position-relative text-center">
+                        <img class="img-fluid" src="/Content/assets/img/Layer-button.png">
+                        <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white">Xem thêm</span>
+                    </a>*@
+                    </div>
+                </div>
+            }
+
+        </div>
+</section><!-- End Hero -->
+<!--<section id="about" class="about">
+
+    <div class="container">
+
+    </div>
+</section>-->
+<!-- End About Section -->
+@if (ViewBag.TieuDeTrangChu != "")
+{
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-0 m-0 position-relative">
+                <div class="border-dangky p-0">
+                    <div class="modal-header">
+                        <div class="modal-title fw-bold text-danger" id="exampleModalLabel">@ViewBag.TieuDeTrangChu</div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark noidung_thongbao">
+@*                        <img src="~/Content/images/Salewibugame.jpg" class="w-100 mb-3" alt="Alternate Text" />
+*@                        @Html.Raw(ViewBag.NoiDungTrangChu)
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info rounded-pill" data-bs-dismiss="modal">Đóng</button>
+                        <button id="dong_60p" type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Đóng 60 phút</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button type="button" id="buttonClick" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    </button>
+    <script>
+        function setCookie(name, value, hours) {
+            var expirationDate = new Date();
+            expirationDate.setTime(expirationDate.getTime() + (hours * 60 * 60 * 1000));
+            var expires = "expires=" + expirationDate.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        };
+        function getCookieValue(cookieName) {
+            var cookies = document.cookie.split(";"); // Tách chuỗi cookie thành các cookie riêng biệt
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith(cookieName + "=")) {
+                    return cookie.substring(cookieName.length + 1);
+                }
+            }
+            return null;
+        };
+        $(window).load(function () {
+            var tb = getCookieValue("tb");
+            if (tb != "true") {
+                $("#buttonClick").click();
+            }
+            $("#dong_60p").click(function () {
+                console.log("test");
+                setCookie("tb", "true", 1);
+            });
+        });
+
+    </script>
+}
+
+<style>
+    .noidung_thongbao a {
+        color: blue !important;
+    }
+
+    .text-custom-a a {
+        color: yellow !important;
+        font-weight: bold;
+    }
+
+        .text-custom-a a:hover {
+            color: burlywood !important;
+        }
+   
+</style>
+<script>
+    $(document).ready(function () {
+        $("#menu-right").toggleClass("active");
+        $('.truncate').each(function () {
+            var $this = $(this);
+            var text = $this.text().trim();
+            var maxLength = 10; // Độ dài tối đa của đoạn text trước khi cắt ngắn
+
+            if (text.length < 6) {
+                var truncatedText = text.substring(0, maxLength) + '**';
+                $this.text(truncatedText);
+            } else {
+                var truncatedText = text.substring(0, maxLength) + '****';
+                $this.text(truncatedText);
+            }
+        });
+
+        const timerDisplay = document.getElementById("timer");
+
+        // Biến đếm ngược
+        let countdownInterval;
+        let remainingTime;
+
+        // Hàm hiển thị thời gian
+        function displayTime(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secondsLeft = Math.floor(seconds % 60); // Làm tròn số giây
+
+            timerDisplay.innerHTML = `
+     <div class="hours">
+         <div class="numbers">${hours.toString().padStart(2, '0')}</div>
+     </div> <span>:</span>
+     <div class="minutes">
+         <div class="numbers">${minutes.toString().padStart(2, '0')}</div>
+     </div> <span>:</span>
+     <div class="seconds">
+         <div class="numbers">${secondsLeft.toString().padStart(2, '0')}</div>
+     </div>`;
+        }
+        // Hàm bắt đầu đồng hồ đếm ngược
+        function startCountdown(duration) {
+            clearInterval(countdownInterval);
+            remainingTime = duration;
+
+            displayTime(remainingTime);
+
+            countdownInterval = setInterval(() => {
+                remainingTime -= 1;
+
+                if (remainingTime < 0) {
+                    clearInterval(countdownInterval);
+
+                    // Gửi yêu cầu tới server để cập nhật is_sale_tet = 0
+                    $.ajax({
+                        url: '/quantri/CauHinh/StopSaleTet', // URL tới API cập nhật
+                        type: 'POST',
+                        success: function (response) {
+                            if (response.success) {
+                                window.location.reload();
+                            } else {
+                                alert("Có lỗi xảy ra khi cập nhật trạng thái Sale Tết.");
+                            }
+                        },
+                        error: function () {
+                            alert("Không thể kết nối tới server. Vui lòng kiểm tra lại.");
+                        }
+                    });
+
+                    return;
+                }
+
+                displayTime(remainingTime);
+            }, 1000);
+        }
+        // Lấy thời gian còn lại từ server
+        function fetchRemainingTime() {
+            $.ajax({
+                url: '/quantri/CauHinh/GetRemainingTime', // Đường dẫn tới API của bạn
+                type: 'GET',
+                success: function (response) {
+                    if (response.success) {
+                        const remainingSeconds = response.remainingTime;
+                        if (remainingSeconds > 0) {
+                            startCountdown(remainingSeconds);
+                        } else {
+                            timerDisplay.innerHTML = "<h2>Hết giờ!</h2>";
+                        }
+                    } else {
+                        console.error("Không có thời gian còn lại.");
+                    }
+                },
+                error: function () {
+                    console.error("Lỗi khi lấy thời gian còn lại từ server.");
+                }
+            });
+        }
+
+        // Tự động gọi hàm fetch khi trang được load
+        fetchRemainingTime();
+    });
+</script>

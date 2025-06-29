@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>
+        Chuyển hướng đăng nhập
+    </title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Favicons -->
+    <link href="~/Content/assets/img/MiHoYo_O_logo.webp.png" rel="icon">
+    <link href="~/Content/assets/img/MiHoYo_O_logo.webp.png" rel="apple-touch-icon">
+    <link href="~/Content/assets/css/stylesheet.css" rel="stylesheet" />
+    <link href="/Content/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/Content/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/Content/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/Content/assets/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta name="google-site-verification" content="TCR6hm5DVIYn3BKgOyh9QlmL-VoBHJY_FzyaxiVzUUE" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+
+</head>
+<body style="background: url('/Content/assets/img/1335406.png')">
+    <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
+        <div class="text-center">
+            <h1 class="display-5 mb-4">Chuyển Hướng Đang Xảy Ra</h1>
+            <p class="lead mb-4">Bạn sẽ được chuyển hướng đến trang đăng nhập trong <span id="countdown" class="fw-bold">2</span> giây.</p>
+            <a href="/dangnhap" class="btn btn-primary btn-lg">Chuyển Hướng Ngay</a>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Đếm ngược thời gian
+        let countdownElement = document.getElementById('countdown');
+        let countdown = 2; // Số giây để đếm ngược
+
+        const intervalId = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            if (countdown <= 0) {
+                clearInterval(intervalId);
+                window.location.href = '/dangnhap'; // URL để chuyển hướng
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

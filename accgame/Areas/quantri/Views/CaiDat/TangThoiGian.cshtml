@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+<main class="content">
+
+    <div class="card">
+        <div class="card-header">
+            <h4>Tăng thời gian</h4>
+            <p class="fw-bold text-danger">Ngày hết hạn: @ViewBag.thoiHan</p>
+        </div>
+        <div class="card-body">
+            <form method="post" action="/quantri/caidat/TangThoiGian">
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <b>Nhập tài khoản</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.TaiKhoan" required class="form-control" name="TaiKhoan" placeholder="Nhập tài khoản">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Nhập mật khẩu</b>
+                        <div class="col-md-10">
+                            <input type="text" value="@ViewBag.MatKhau" required class="form-control" name="MatKhau" placeholder="Nhập mật khẩu">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <b>Nhập số ngày muốn tăng</b>
+                        <div class="col-md-10">
+                            <input type="number" required class="form-control" name="thoigian" placeholder="Nhập số ngày muốn tăng">
+                        </div>
+                    </div>
+                    <div class="text-danger fw-bold">
+                        @ViewBag.loi
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Gửi" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</main>
+

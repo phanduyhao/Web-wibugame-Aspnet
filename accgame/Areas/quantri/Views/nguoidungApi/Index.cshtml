@@ -1,0 +1,88 @@
+﻿@model IEnumerable<accgame.Context.LoaiGame>
+@{
+    ViewBag.Title = "Quản lý loại game";
+    Layout = "~/areas/quantri/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<main class="content">
+    <div class="row">
+        @if (ViewBag.loi != null)
+        {
+            <div class="col-12">
+                <div class="alert-danger">
+                    @ViewBag.loi
+                </div>
+            </div>
+        }
+
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <div>
+                        <input id="search-input" class="form-control" placeholder="Nhập nội dung tìm kiếm"/>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="userTable" class="table table-hover my-0">
+                            <thead>
+                                <tr>
+                                    <th>username</th>
+                                    <th class="">email</th>
+                                    <th class="">cash</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+        $(document).ready(function () {
+            function fetchData(search) {
+                $.ajax({
+                    url: '@ViewBag.urlApi' + "api/list-user.php",
+                    method: 'GET',
+                    data: { search: search },
+                    success: function (response) {
+                        if (response.status === "success") {
+                            const data = response.data;
+                            let tableRows = '';
+                            data.forEach(user => {
+                                tableRows += `
+                                    <tr>
+                                        <td>${user.username}</td>
+                                        <td>${user.password}</td>
+                                        <td>${user.email}</td>
+                                        <td>${user.cash}</td>
+                                        <td>${user.phone}</td>
+                                    </tr>
+                                `;
+                            });
+                            $('#userTable tbody').html(tableRows);
+                        } else {
+                            alert("Failed to fetch data");
+                        }
+                    },
+                    error: function (error) {
+                        alert("Error fetching data: " + JSON.stringify(error));
+                    }
+                });
+            }
+
+            // Initial fetch without search
+            fetchData('');
+
+            // Fetch data on input change
+            $("#search-input").on("input", function () {
+                const search = $(this).val();
+                fetchData(search);
+            });
+        });
+</script>

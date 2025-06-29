@@ -1,0 +1,91 @@
+﻿@model accgame.Context.AccRandom
+@using accgame.Context;
+@{
+    var dbContext = new accgameEntities();
+    var danhMucList = dbContext.DanhMucs.ToList();
+}
+@{
+    ViewBag.Title = "themacc";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3>Thêm mới tài khoản</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <b>Chọn danh mục</b>
+                    <div class="">
+                        @Html.DropDownList("IDDanhMuc", new SelectList(danhMucList, "IDDanhMuc", "TenDanhMuc"), htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDDanhMuc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Tài khoản</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Mật khẩu</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Mật khẩu mail Outlook</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MatKhauOutlook, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhauOutlook, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Mail khôi phục</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MailKhoiPhuc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MailKhoiPhuc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Mật khẩu mail khôi phục</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MatKhauMailKhoiPhuc, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhauMailKhoiPhuc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Mật khẩu mail</b>
+                    <div class="">
+                        @Html.EditorFor(model => model.MatKhauMail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MatKhauMail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <div class="col-md-offset-2 ">
+                        <input type="submit" value="Thêm mới" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+</main>
+
+
+@{
+    dbContext.Dispose();
+}

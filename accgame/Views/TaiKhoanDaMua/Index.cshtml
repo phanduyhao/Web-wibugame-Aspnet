@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Tài khoản đã mua";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about about-acc">
+    <div class="container">
+        <div class="MuiBox-root" style="margin-top: 95px; margin-bottom: 40px">
+            <div class="text-center">
+                <h2 class="fw-bold fs-1 desc-top-slider">Tài khoản đã mua</h2>
+            </div>
+        </div>
+        <div class="row g-4 mt-3 justify-content-center">
+            <div data-aos="zoom-in" class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div class="nft">
+                    <a href="/TaiKhoanDaMua/TaiKhoanThuong" class='main'>
+                        <img class='tokenImage' src="~/Content/images/banner-2.jpg" alt="NFT" />
+                        <h2>Tài khoản VIP</h2>
+                        <div class='tokenInfo'>
+                            <div class="price">
+                                <ins>◘</ins>
+                                <p>Số tài khoản: @ViewBag.sotkthuong</p>
+                            </div>
+                            <div class="duration">
+                                <ins>◷</ins>
+                                <p>Giá trị: @Convert.ToInt32(ViewBag.giatritkthuong).ToString("N0").Replace(",", ".")đ</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="text-center">
+                            <span class="btn btn-primary rounded-pill shadow fw-bold fs-5">Xem ngay</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div data-aos="zoom-in" class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div class="nft">
+                    <a href="/TaiKhoanDaMua/TaiKhoanReroll" class='main'>
+                        <img class='tokenImage' src="~/Content/images/banner-1.jpg" alt="NFT" />
+                        <h2>Reroll + Random</h2>
+                        <div class='tokenInfo'>
+                            <div class="price">
+                                <ins>◘</ins>
+                                <p>Số tài khoản: @ViewBag.sotkreroll</p>
+                            </div>
+                            <div class="duration">
+                                <ins>◷</ins>
+                                <p>Giá trị: @ViewBag.giatritkreroll.ToString("N0").Replace(",", ".")đ</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="text-center">
+                            <span class="btn btn-primary rounded-pill shadow fw-bold fs-5">Xem ngay</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

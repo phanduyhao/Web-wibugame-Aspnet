@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .notify-item {
+        background: rgb(242 238 31 / 62%);
+        border-radius: 20px;
+        font-size: 16px;
+    }
+    ..notify-item p{
+        margin-bottom: 0;
+    }
+    .body-notify-before {
+        flex-grow: 1;
+        overflow-y: auto;
+        max-height: calc(80vh - 10px);
+    }
+</style>
+<main class="content">
+    <div class="card">
+        <div class="card-header">
+            <h4>Đăng thông báo</h4>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/quanlythongbao/PostThongBao" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="mb-3">
+                        <textarea name="contents" class="form-control" id="noidung"></textarea>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Đăng" class="btn btn-danger" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>Thông báo đã đăng trước đó</h4>
+        </div>
+        <div class="card-body body-notify-before">
+            @foreach (var notify in @ViewBag.thongbaoadmin)
+            {
+                <div class="row px-3">
+                    <div class="notify-item p-3 mb-3 border-bottom bg-light border border-primary col-md-11">
+                        @Html.Raw(notify.Contents) <!-- Render nội dung HTML -->
+                        <p class="text-end text-primary"><i>@notify.Thoigian</i></p>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-danger btn-sm px-3 py-1 rounded-3" onclick="deleteNotification(@notify.IdNotify)">
+                            Xóa
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @if (TempData["success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["success"]
+        </div>
+    }
+
+    @if (TempData["error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["error"]
+        </div>
+    }
+
+</main>
+
+@section Scripts {
+    <script>
+        CKEDITOR.replace("noidung");
+        function deleteNotification(id) {
+            if (confirm("Bạn có chắc muốn xóa thông báo này không?")) {
+                console.log("ID gửi: ", id); // Xem ID được gửi
+                $.ajax({
+                    url: '/quantri/quanlythongbao/DeleteNotification',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (response) {
+                        if (response.success) {
+                            location.reload(); // Tải lại trang
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error: ", xhr.responseText); // Hiển thị chi tiết lỗi
+                        alert("Có lỗi xảy ra. Vui lòng thử lại!");
+                    }
+                });
+            }
+        }
+
+    </script>
+}

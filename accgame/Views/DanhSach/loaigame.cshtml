@@ -1,0 +1,444 @@
+﻿@model accgame.Models.HomeModels
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Acc " + ViewBag.loaigame;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var hasQueryString = !string.IsNullOrEmpty(Request.QueryString.ToString());
+}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container">
+ <div class="MuiBox-root acc-title">
+     <div class="text-center">
+@*         <img src="@ViewBag.logoGame" width="100" class="img-fluid">
+*@         <h2 class="fw-bold fs-1 desc-top-slider">Acc @ViewBag.loaigame</h2>
+     </div>
+ </div>        <div class="py-4 position-relative ds-acc-wrap" style="background-color: #f1f3f6; border-radius: 1.5rem">
+            <form class="row p-sm-4 m-1 g-4">
+                <div class="col-lg-3 p-0 p-sm-3" style="z-index: 991">
+                    <div class="css-timkiem">
+                        <h4 class="ten-game">Tìm theo</h4>
+                        @if (hasQueryString)
+                        {
+                            <button type="button" class="btn btn-secondary rounded-pill" id="resetFilter"><i class="fas fa-times me-2"></i>Xóa lọc</button>
+                        }
+                        <div id="accordionExample">
+                            <div class="my-3">
+                                <label for="searchInputNv" class="form-label ten-game">Tìm nhân vật</label>
+                                <input class="form-control shadow-none" type="text" id="searchInputNv" placeholder="Tìm kiếm nhân vật..." value="@ViewBag.searchInputNv">
+
+                                <div class="mt-3">
+                                    @foreach (var item in Model.listNhanVat)
+                                    {
+                                        <span>
+                                            <input class="form-check-inputnv input-search"
+                                                   type="checkbox"
+                                                   name="nhanvat"
+                                                   value="@item.TenNhanVat"
+                                                   id="nhanvat_@item.IDNhanVat"
+                                                   @if (ViewBag.nhanVat != null && ((string[])ViewBag.nhanVat).Contains(item.TenNhanVat.ToString())) { <text> checked</text>
+                                                    } />
+                                            <label class="form-check-labelnv" for="nhanvat_@item.IDNhanVat">
+                                                @item.TenNhanVat
+                                            </label>
+                                        </span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="my-3">
+                                <label for="searchInputVk" class="form-label ten-game">Tìm vũ khí</label>
+                                <input class="form-control shadow-none" type="text" id="searchInputVk" placeholder="Tìm kiếm vũ khí..." value="@ViewBag.searchInputVk">
+
+                                <div class="mt-3">
+                                    @foreach (var item in Model.listVuKhi)
+                                    {
+                                        <span>
+                                            <input class="form-check-input input-search" type="checkbox" name="vukhi" value="@item.TenVuKhi" id="vukhi_@item.IDVuKhi"
+                                                   @if (ViewBag.vukhi != null && ((string[])ViewBag.vukhi).Contains(item.TenVuKhi.ToString())) { <text> checked</text>
+                                                      } />
+                                            <label class="form-check-labelvk" for="vukhi_@item.IDVuKhi">
+                                                @item.TenVuKhi
+                                            </label>
+                                        </span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3">
+                            <label for="timtheoma" class="form-label ten-game">Tìm theo mã</label>
+                            <input type="text" value="@ViewBag.timtheoma" class="form-control shadow-none" name="timtheoma" id="timtheoma" placeholder="Tìm theo mã">
+                        </div>
+                        <div class="my-3">
+                            <label for="CapKhaiPha" class="form-label ten-game">Cấp khai phá</label>
+                            <input type="number" value="@ViewBag.CapKhaiPha" class="form-control shadow-none" name="CapKhaiPha" id="CapKhaiPha" placeholder="Cấp khai phá">
+                        </div>
+                        <div class="mb-3">
+                            <label for="timtheogia" class="form-label ten-game">Tìm khoảng giá</label>
+                            <select class="form-select form-select-sm mb-3 shadow-none" id="timtheogia" name="timtheogia" aria-label=".form-select-lg example">
+                                <option value="0" @(ViewBag.timtheogia == 0 ? "selected" : "")>Tất cả</option>
+                                <option value="1" @(ViewBag.timtheogia == 1 ? "selected" : "")>Dưới 20k</option>
+                                <option value="2" @(ViewBag.timtheogia == 2 ? "selected" : "")>20k - 100k</option>
+                                <option value="3" @(ViewBag.timtheogia == 3 ? "selected" : "")>100k - 200k</option>
+                                <option value="4" @(ViewBag.timtheogia == 4 ? "selected" : "")>200k - 300k</option>
+                                <option value="5" @(ViewBag.timtheogia == 5 ? "selected" : "")>300k - 400k</option>
+                                <option value="6" @(ViewBag.timtheogia == 6 ? "selected" : "")>400k - 500k</option>
+                                <option value="7" @(ViewBag.timtheogia == 7 ? "selected" : "")>500k - 700k</option>
+                                <option value="8" @(ViewBag.timtheogia == 8 ? "selected" : "")>700k - 1tr</option>
+                                <option value="9" @(ViewBag.timtheogia == 9 ? "selected" : "")>1tr - 2tr</option>
+                                <option value="10" @(ViewBag.timtheogia == 10 ? "selected" : "")>2tr - 3tr</option>
+                                <option value="11" @(ViewBag.timtheogia == 11 ? "selected" : "")>3tr - 4tr</option>
+                                <option value="12" @(ViewBag.timtheogia == 12 ? "selected" : "")>4tr - 6tr</option>
+                                <option value="13" @(ViewBag.timtheogia == 13 ? "selected" : "")>6tr - 8tr</option>
+                                <option value="14" @(ViewBag.timtheogia == 14 ? "selected" : "")>8tr - 10tr</option>
+                                <option value="15" @(ViewBag.timtheogia == 15 ? "selected" : "")>Trên 10 triệu</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sapxep" class="form-label ten-game">Server</label>
+                            <select class="form-select form-select-sm mb-3 shadow-none" id="server" name="server" aria-label=".form-select-lg example">
+                                <option value="">Chọn server</option>
+                                <option value="asia" @(ViewBag.server == "asia" ? "selected" : "")>Asia</option>
+                                <option value="sea" @(ViewBag.server == "sea" ? "selected" : "")>Sea</option>
+
+                                <option value="america" @(ViewBag.server == "america" ? "selected" : "")>America</option>
+                                <option value="europe" @(ViewBag.server == "europe" ? "selected" : "")>Europe</option>
+                                <option value="tw_hk_mo" @(ViewBag.server == "tw_hk_mo" ? "selected" : "")>TW, HK, MO</option>
+                                
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sapxep" class="form-label ten-game">Sắp xếp theo giá</label>
+                            <select class="form-select form-select-sm mb-3 shadow-none" id="sapxep" name="sapxep" aria-label=".form-select-lg example">
+                                <option value="10" @(ViewBag.sapxep == 10 ? "selected" : "")>Mặc định</option>
+                                <option value="0" @(ViewBag.sapxep == 0 ? "selected" : "")>Từ thấp đến cao</option>
+                                <option value="1" @(ViewBag.sapxep == 1 ? "selected" : "")>Từ cao xuống thấp</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="text-center">
+                                <button class="btn btn-danger rounded-pill"><i class="fas fa-search me-2"></i>Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 p-0 p-sm-3" style="z-index: 3">
+                    <div class="row g-3">
+                        @if (ViewBag.isSaleTet == "1")
+                        {
+                            <div class="my-3 row">
+                                <div class="col-2 text-start">
+                                    <img class="p-1 img-flashsale" src="~/Content/images/flash-saleq.png" alt="Alternate Text" style="background: yellow;" />
+                                </div>
+                                <div id="timer" class=" col-md-2 col-6 ms-md-5 ms-sm-3 ms-5"></div>
+                            </div>
+                        }
+                        @if (Model.listPageAcc != null && Model.listPageAcc.Any())
+                        {
+                            foreach (var item in Model.listPageAcc)
+                            {
+                                <div data-aos="zoom-in" class="col-12 col-md-6 col-xl-4">
+                                    <div class="h-100">
+                                        <div class="m-0 rounded-2 h-100" style="background-color: #f1f3f6">
+                                            <div class="custom-block-image-wrap p-1">
+                                                <a class="position-relative d-block" href="/chitiettaikhoan/xem/@item.MaTaiKhoan">
+                                                    <img src="@item.AnhDaiDien" class="custom-block-image custom-block-image__new img-fluid img-loaigame" alt="">
+                                                    <div class="bg-danger text-light position-absolute bottom-0 left-0 px-1" style="font-size: 14px">@item.MaTaiKhoan</div>
+                                                </a>
+                                            </div>
+                                            <div class="mt-3 mb-2 text-center">
+                                                <h6 class="mb-1 px-2">
+                                                    <a href="/chitiettaikhoan/xem/@item.MaTaiKhoan" class="fw-bold text-dark max-height-tengame">
+                                                        @item.TenAcc
+                                                    </a>
+                                                </h6>
+                                                <p class="text-danger server-acc mt-2" style="font-size: 12px">Server: @item.Server | AR Level: @item.CapKhaiPha</p>
+                                                @if (item.AnhNhanVat != null && item.AnhNhanVat != "")
+                                                {
+                                                    <div class="printNhanVat" data-images="@item.AnhNhanVat" data-names="@item.TenNhanVat">
+                                                        <b class="text-dark" style="font-size: 13px">Nhân vật:</b>
+                                                    </div>
+                                                }
+                                                @if (item.AnhVuKhi != null && item.AnhVuKhi != "")
+                                                {
+                                                    <div class="printNhanVat" data-images="@item.AnhVuKhi" data-names="@item.TenVuKhi">
+                                                        <b class="text-dark mt-2" style="font-size: 13px">Vũ khí 5*:</b>
+                                                    </div>
+                                                }
+                                                <div class="px-2">
+                                                    @if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true && ViewBag.OnOffCtvCollab == true)
+                                                    {
+                                                        if (item.GiaCtvCollab != null)
+                                                        {
+                                                            var giactvcollab = item.Gia / 100 * item.GiaCtvCollab;
+
+                                                            <div class="w-100 p-3  mt-3 text-center border rounded-3 fw-bold" style="background-color: #fff">
+                                                                <span class="text-danger" style="font-size:12px">( Giá Ctv-Collab )</span>
+                                                                <br />
+                                                                <span style="color: rgb(81, 168, 206)">@Convert.ToInt32(giactvcollab).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+
+                                                            <div class="w-100 p-3  mt-3 text-center border rounded-3 fw-bold" style="background-color: #fff">
+                                                                @{
+                                                                    if (item.PhanTram != null && item.PhanTram != 0)
+                                                                    {
+                                                                        <span style="font-size: 12px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm"> @Convert.ToInt32(item.GiaGoc).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                                    }
+                                                                }
+                                                                <span class="text-danger" style="font-size:12px">( Chưa có giá cho Ctv-Collab! )</span>
+                                                                <br />
+                                                                <span style="color: rgb(81, 168, 206)">@Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                            </div>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        if (ViewBag.isSaleTet == "1")
+                                                        {
+                                                            int tongPhanTram = (ViewBag.phanTramTet != null ? Convert.ToInt32(ViewBag.phanTramTet) : 0) + (item.PhanTram ?? 0);
+                                                            <div class="w-100 p-sm-3 p-2 text-center border rounded-3 fw-bold" style="background-color: #f7f5ed">
+                                                                <div class="d-flex align-items-center justify-content-center">
+                                                                    <span style="font-size: 12px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm"> @Convert.ToInt32(item.GiaGoc).ToString("N0").Replace(",", ".") </span>
+                                                                    <div class="d-flex align-items-center ms-3 p-0 p-md-1 badge" style="background: #eeef2f">
+                                                                        <img src="~/Content/images/icon/flash-sale.png" width="20px" alt="Alternate Text" />
+                                                                        <span class="text-danger">- @tongPhanTram%</span>
+                                                                    </div>
+                                                                </div>
+                                                                <span class="text-danger">@Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+
+                                                            <div class="w-100 p-3  mt-3 text-center border rounded-3 fw-bold" style="background-color: #fff">
+                                                                @{
+                                                                    if (item.PhanTram != null && item.PhanTram != 0)
+                                                                    {
+                                                                        <span style="font-size: 12px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm gia-moi"> @Convert.ToInt32(item.GiaGoc).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                                    }
+                                                                }
+                                                                <span style="color: rgb(81, 168, 206)">@Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            <h3 class="text-danger text-center">
+                                Không có acc như yêu cầu, vui lòng quay lại sau!
+                            </h3>
+                        }
+                        @{
+                            var nhanvatParams = new List<string>();
+                            if (Model.nhanvat != null)
+                            {
+                                foreach (var item in Model.nhanvat)
+                                {
+                                    nhanvatParams.Add($"nhanvat={HttpUtility.UrlEncode(item)}");
+                                }
+                            }
+                            var queryString = string.Join("&", nhanvatParams);
+                            if (!string.IsNullOrEmpty(queryString))
+                            {
+                                queryString = "&" + queryString;
+                            }
+                            var vukhiParams = new List<string>();
+                            if (Model.vukhi != null)
+                            {
+                                foreach (var item in Model.vukhi)
+                                {
+                                    vukhiParams.Add($"vukhi={HttpUtility.UrlEncode(item)}");
+                                }
+                            }
+                            var queryStringVk = string.Join("&", vukhiParams);
+                            if (!string.IsNullOrEmpty(queryStringVk))
+                            {
+                                queryStringVk = "&" + queryStringVk;
+                            }
+                        }
+                        <div class="col-12">
+                            @Html.PagedListPager(Model.listPageAcc, page => Url.Action("loaigame", new { page, CapKhaiPha = Model.CapKhaiPha, timtheogia = Model.timtheogia, timtheoma = Model.timtheoma, sapxep = Model.sapxep, id = ViewBag.slug, server = ViewBag.server }) + queryString + queryStringVk)
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section><!-- End About Section -->
+
+<script>
+    var divsWithClass = document.querySelectorAll('.printNhanVat');
+    divsWithClass.forEach(function (div) {
+        var imageUrls = div.getAttribute('data-images').split(',');
+        var nameImage = div.getAttribute('data-names').split(',');
+        if (imageUrls.length !== nameImage.length) {
+            console.error('Độ dài của mảng imageUrls và nameImage không phù hợp');
+            return;
+        }
+        imageUrls.forEach(function (url, index) {
+            var divWrapper = document.createElement("div");
+            var imgElement = document.createElement("img");
+            var spanWrapper = document.createElement("span");
+            spanWrapper.textContent = nameImage[index].trim();
+            imgElement.src = url.trim();
+            imgElement.width = 30;
+            imgElement.height = 30;
+            divWrapper.appendChild(imgElement);
+            divWrapper.appendChild(spanWrapper);
+            div.appendChild(divWrapper);
+        });
+    });
+    const timerDisplay = document.getElementById("timer");
+
+    // Biến đếm ngược
+    let countdownInterval;
+    let remainingTime;
+
+    // Hàm hiển thị thời gian
+    function displayTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secondsLeft = Math.floor(seconds % 60); // Làm tròn số giây
+
+        timerDisplay.innerHTML = `
+<div class="hours">
+    <div class="numbers">${hours.toString().padStart(2, '0')}</div>
+</div> <span>:</span>
+<div class="minutes">
+    <div class="numbers">${minutes.toString().padStart(2, '0')}</div>
+</div> <span>:</span>
+<div class="seconds">
+    <div class="numbers">${secondsLeft.toString().padStart(2, '0')}</div>
+</div>`;
+    }
+    // Hàm bắt đầu đồng hồ đếm ngược
+    function startCountdown(duration) {
+        clearInterval(countdownInterval);
+        remainingTime = duration;
+
+        displayTime(remainingTime);
+
+        countdownInterval = setInterval(() => {
+            remainingTime -= 1;
+
+            if (remainingTime < 0) {
+                clearInterval(countdownInterval);
+
+                // Gửi yêu cầu tới server để cập nhật is_sale_tet = 0
+                $.ajax({
+                    url: '/quantri/CauHinh/StopSaleTet', // URL tới API cập nhật
+                    type: 'POST',
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.reload();
+                        } else {
+                            alert("Có lỗi xảy ra khi cập nhật trạng thái Sale Tết.");
+                        }
+                    },
+                    error: function () {
+                        alert("Không thể kết nối tới server. Vui lòng kiểm tra lại.");
+                    }
+                });
+
+                return;
+            }
+
+            displayTime(remainingTime);
+        }, 1000);
+    }
+    // Lấy thời gian còn lại từ server
+    function fetchRemainingTime() {
+        $.ajax({
+            url: '/quantri/CauHinh/GetRemainingTime', // Đường dẫn tới API của bạn
+            type: 'GET',
+            success: function (response) {
+                if (response.success) {
+                    const remainingSeconds = response.remainingTime;
+                    if (remainingSeconds > 0) {
+                        startCountdown(remainingSeconds);
+                    } else {
+                        timerDisplay.innerHTML = "<h2>Hết giờ!</h2>";
+                    }
+                } else {
+                    console.error("Không có thời gian còn lại.");
+                }
+            },
+            error: function () {
+                console.error("Lỗi khi lấy thời gian còn lại từ server.");
+            }
+        });
+    }
+
+    // Tự động gọi hàm fetch khi trang được load
+    fetchRemainingTime();
+    document.getElementById('resetFilter').addEventListener('click', function () {
+        // Lấy URL hiện tại
+        var currentUrl = window.location.href;
+        // Tìm vị trí dấu '?'
+        var queryStart = currentUrl.indexOf('?');
+        // Nếu có dấu '?', cắt URL trước dấu '?', nếu không thì giữ nguyên URL
+        var newUrl = queryStart > -1 ? currentUrl.substring(0, queryStart) : currentUrl;
+        // Điều hướng đến URL mới
+        window.location.href = newUrl;
+    });
+
+</script>
+
+<style>
+    
+    .printNhanVat div {
+        position: relative;
+        display: inline-block;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
+    .printNhanVat img {
+        border-radius: 50%;
+        border: 1px solid #808080;
+    }
+
+    .printNhanVat div span {
+        content: attr(data-name);
+        position: absolute;
+        top: -30px;
+        left: 0;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 13px;
+        z-index: 100;
+        opacity: 0;
+        transition: all .3s;
+        border-radius: 10px;
+        padding: 5px 9px;
+        transform: translateX(-50%);
+        visibility: hidden;
+        white-space: nowrap;
+    }
+
+    .printNhanVat div:hover span {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 13px;
+        z-index: 100;
+        opacity: 1;
+        border-radius: 10px;
+        padding: 5px 9px;
+        visibility: initial;
+    }
+</style>

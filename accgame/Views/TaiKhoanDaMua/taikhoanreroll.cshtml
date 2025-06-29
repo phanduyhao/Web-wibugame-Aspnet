@@ -1,0 +1,209 @@
+﻿@model accgame.Models.HomeModels
+@{
+    ViewBag.Title = "Tài khoản reroll đã mua";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about about-acc">
+    <style>
+        .ghichu a{
+            color: blue !important;
+        }
+    </style>
+    <div class="container">
+        <div class="MuiBox-root" style="margin-top: 95px; margin-bottom: 40px">
+            <div class="text-center">
+
+                <h2 class="fw-bold fs-1 desc-top-slider">Tài khoản Reroll đã mua</h2>
+            </div>
+        </div>
+        <div class="row g-4 mt-3 justify-content-center">
+
+        </div>
+        <div class="card p-3 shadow">
+            <div class="card-body px-0 pb-2 mt-3" id="#dsthe">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr class="bg-success">
+                                <th class="text-uppercase text-white text-nowrap">LOẠI</th>
+                                <th></th>
+                                <th class="text-uppercase text-white text-nowrap">TÀI KHOẢN</th>
+                                <th class="text-uppercase text-white text-nowrap">MẬT KHẨU</th>
+                                <th class="text-uppercase text-white text-nowrap">THỜI GIAN</th>
+                                <th class="text-uppercase text-white text-nowrap">SỐ TIỀN</th>
+                                <th class="text-uppercase text-white text-nowrap">THÔNG TIN KHÁC</th>
+                                @*                                <th class="text-uppercase text-white text-nowrap">Mật khẩu mail (thông tin khác nếu có)</th>
+                                *@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.listAccRandomDamua)
+                            {
+                                <tr class="">
+
+                                    <td class="text-sm align-middle">
+                                        <span class="badge bg-danger">@item.Danhmuc</span>
+                                    </td>
+
+                                    <td class="align-middle">
+                                        <button class="btn btn-primary btn-sm rounded-pill fw-bold fs-6 text-nowrap" data-bs-toggle="modal" data-bs-target="#acc_@item.ID">Xem thông tin</button>
+                                    </td>
+                                    <td class="align-middle">
+                                        <p class="fw-semibold mb-0">@item.AccRandom.TaiKhoan</p>
+                                    </td>
+                                    <td class="align-middle"><p class="text-xs mb-0 text-nowrap">@item.AccRandom.MatKhau</p></td>
+                                    <td class="align-middle">
+                                        <span style="font-weight: 700" class="mb-0 text-sm">@Convert.ToDateTime(item.AccRandom.ThoiGianBan).ToString("dd/MM/yyyy")</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span class="badge bg-primary">
+                                            @if (item.AccRandom.GiaDaMua != null)
+                                            {
+                                                <span>@Convert.ToInt32(item.AccRandom.GiaDaMua).ToString("N0").Replace(",", ".") VNĐ</span>
+                                            }
+                                            else
+                                            {
+                                                <span>
+                                                    @Convert.ToInt32(item.AccRandom.DanhMuc.Gia).ToString("N0").Replace(",", ".")VNĐ
+                                                </span>
+                                            }
+                                        </span>
+                                    </td>
+                                    <td class="align-middle">@item.AccRandom.ThongTinKhac</td>
+                                </tr>
+
+
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+                @foreach (var item in Model.listAccRandomDamua)
+                {
+                    <div class="modal fade" id="acc_@item.ID" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content" style="font-size: 14px">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel"> @item.AccRandom.DanhMuc.LoaiAcc.TenLoaiAcc #@item.IdAccRandom</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-dark">
+                                    <div class="fw-normal mb-3">
+                                        <b>Mô tả:</b> <span class="text-uppercase">@item.Danhmuc</span>
+                                    </div>
+                                    @if (@item.AccRandom.TaiKhoan != null)
+                                    {
+                                        <b>Tài khoản</b>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="taikhoan_@item.ID" class="form-control" value="@item.AccRandom.TaiKhoan">
+                                            <button class="btn btn-outline-secondary shadow-none" type="button" onclick="copyToClipboard('#taikhoan_@item.ID')">Sao chép</button>
+                                        </div>
+                                    }
+                                    @if (@item.AccRandom.MatKhau != null)
+                                    {
+                                        <b>Mật khẩu</b>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="matkhau_@item.ID" class="form-control" value="@item.AccRandom.MatKhau">
+                                            <button class="btn btn-outline-secondary shadow-none" type="button" onclick="copyToClipboard('#matkhau_@item.ID')">Sao chép</button>
+                                        </div>
+                                    }
+                                    @if (@item.AccRandom.MatKhauOutlook != null)
+                                    {
+                                        <b>Mật khẩu Mail Outlook</b>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="matkhauoutlook_@item.ID" class="form-control" value="@item.AccRandom.MatKhauOutlook">
+                                            <button class="btn btn-outline-secondary shadow-none" type="button" onclick="copyToClipboard('#matkhauoutlook_@item.ID')">Sao chép</button>
+                                        </div>
+                                    }
+                                    @if (@item.AccRandom.MailKhoiPhuc != null)
+                                    {
+                                        <b>Mail khôi phục</b>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="mailkhoiphuc_@item.ID" class="form-control" value="@item.AccRandom.MailKhoiPhuc">
+                                            <button class="btn btn-outline-secondary shadow-none" type="button" onclick="copyToClipboard('#mailkhoiphuc_@item.ID')">Sao chép</button>
+                                        </div>
+                                    }
+                                    @if (@item.AccRandom.MatKhauMailKhoiPhuc != null)
+                                    {
+                                        <b>Mật Khẩu Mail khôi phục</b>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="matkhaumailkhoiphuc_@item.ID" class="form-control" value="@item.AccRandom.MatKhauMailKhoiPhuc">
+                                            <button class="btn btn-outline-secondary shadow-none" type="button" onclick="copyToClipboard('#matkhaumailkhoiphuc_@item.ID')">Sao chép</button>
+                                        </div>
+                                    }
+                                    @if (@item.AccRandom.MatKhauMail != null)
+                                    {
+                                        <b>Mật Khẩu Mail</b>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="matkhaumail_@item.ID" class="form-control" value="@item.AccRandom.MatKhauMail">
+                                            <button class="btn btn-outline-secondary shadow-none" type="button" onclick="copyToClipboard('#matkhaumail_@item.ID')">Sao chép</button>
+                                        </div>
+                                    }
+
+                                    <div class="fw-normal mb-3">
+                                        <b>Ghi chú:</b>
+                                        <div class="mb-3 alert ghichu alert-danger" style="font-size:12px">
+                                            @Html.Raw(item.AccRandom.DanhMuc.GhiChuAcc)
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row" style="font-size: 12px">
+                                        <div class="col-6 text-center">
+                                            <b>Giá bán: </b><span class="price">
+                                                @if (item.AccRandom.GiaDaMua != null)
+                                                {
+                                                    <span>@Convert.ToInt32(item.AccRandom.GiaDaMua).ToString("N0").Replace(",", ".") VNĐ</span>
+
+                                                }
+                                                else
+                                                {
+                                                    <span>
+                                                        @Convert.ToInt32(item.AccRandom.DanhMuc.Gia).ToString("N0").Replace(",", ".")VNĐ
+                                                    </span>
+                                                }
+                                            </span>
+                                        </div>
+                                        <div class="col-6">
+                                            <b>Server: </b><span>@item.Server</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 text-center">
+                                        @{
+                                            var thoiGian24h = item.AccRandom.ThoiGianBan.HasValue ? item.AccRandom.ThoiGianBan.Value.ToString("HH:mm:ss dd/MM/yyyy") : string.Empty;
+                                        }
+                                        <i class="fw-normal d-block" style="font-size: 12px">@thoiGian24h</i>
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>1
+<script>
+
+    function copyToClipboard(selector) {
+        var copyText = document.querySelector(selector);
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(copyText.value)
+                .then(() => {
+                    alert("Sao chép thành công!");
+                })
+                .catch(err => {
+                    alert("Không thể sao chép: " + err);
+                });
+        } else {
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Sao chép thành công!");
+        }
+    }
+</script>

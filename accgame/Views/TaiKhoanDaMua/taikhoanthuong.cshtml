@@ -1,0 +1,183 @@
+﻿@model IEnumerable<accgame.Context.Acc>
+@{
+    ViewBag.Title = "taikhoanthuong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about about-acc">
+    <div class="container">
+        <div class="MuiBox-root" style="margin-top: 95px; margin-bottom: 40px">
+            <div class="text-center">
+                
+                <h2 class="fw-bold fs-1 desc-top-slider">Tài khoản đã mua</h2>
+            </div>
+           @* <div>
+                <button class="btn btn-danger" id="loadTaiKhoan">Load tài khoản ở phiên bản cũ</button>
+            </div>*@
+        </div>
+        <div class="row g-4 mt-3 justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div data-aos="zoom-in" class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="nft">
+                        <div class='main'>
+                            <h2>
+                                <a href="/chitiettaikhoan/xem/@item.MaTaiKhoan" class="fw-bold ten-game max-height-tengame fs-6">
+                                    @item.TenAcc
+                                </a>
+                            </h2>
+                            <div class='tokenInfo'>
+                                <div class="price">
+                                    <ins>◘</ins>
+                                    @if (item.GiaDaMua != null)
+                                    {
+                                        <span>@Convert.ToInt32(item.GiaDaMua).ToString("N0").Replace(",", ".") VNĐ</span>
+                                    }
+                                    else
+                                    {
+                                        <p>Giá: @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ</p>
+
+                                    }
+                                </div>
+                                <div class="duration">
+                                    <ins>◷</ins>
+                                    <p>Ngày mua: @Convert.ToDateTime(item.ThoiGianBan).ToString("dd/MM/yyyy")</p>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="text-center">
+                                <button class="btn btn-primary btn-sm rounded-pill fw-bold fs-6 mt-3" data-bs-toggle="modal" data-bs-target="#acc_@item.IDAcc">Xem thông tin</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="acc_@item.IDAcc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" style="max-width: 390px">
+                        <div class="modal-content" style="font-size: 14px">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Thông tin tài khoản #@item.MaTaiKhoan</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-dark">
+                                <div class="fw-normal mb-3">
+                                    <b>Mô tả:</b> @item.TenAcc
+                                </div>
+                                <b>Tài khoản</b>
+                                <div class="input-group mb-3">
+                                    <input type="text" id="taikhoan_@item.IDAcc" class="form-control" value="@item.TaiKhoan">
+                                    <button class="btn btn-outline-secondary shadow-none" type="button" onclick="copyToClipboard('#taikhoan_@item.IDAcc')">Sao chép</button>
+                                </div>
+                                <b>Mật khẩu</b>
+                                <div class="input-group mb-3">
+                                    <input type="text" id="matkhau_@item.IDAcc" class="form-control" value="@item.MatKhau">
+                                    <button class="btn btn-outline-secondary shadow-none" type="button" onclick="copyToClipboard('#matkhau_@item.IDAcc')">Sao chép</button>
+                                </div>
+                                <div class="fw-normal mb-3">
+                                    <b>Thông tin khác:</b> @item.ThongTinKhac
+                                </div>
+                                <div class="mb-3 row" style="font-size: 12px">
+                                    <div class="col-6">
+                                        @if (item.PhanTram != null && item.PhanTram != 0)
+                                        {
+                                        <p style="opacity: .5" class="text-dark mb-1 d-block text-decoration-line-through text-sm"> Giá gốc: @Convert.ToInt32(item.GiaGoc).ToString("N0").Replace(",", ".") đ</p>
+                                        }
+                                        <b>Giá bán: </b><span class="price">@Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <b>Server: </b><span>@item.Server</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 text-center">
+                                    <img class="img-fluid" src="@item.AnhDaiDien" />
+                                    @{ 
+                                        var thoiGian24h = item.ThoiGianBan.HasValue
+                        ? item.ThoiGianBan.Value.ToString("HH:mm:ss dd/MM/yyyy")
+                        : string.Empty;
+                                    }
+                                    <i class="fw-normal d-block" style="font-size: 10px">@thoiGian24h</i>
+                                </div>
+                                <div class="mb-3 alert alert-danger" style="font-size: 12px">
+                                    <p>- Chụp ảnh màn hình trang này và gửi vào shop để shop hỗ trợ đổi thông tin đối với acc dính liên kết mail</p>
+                                    <p>- Để đảm bảo an toàn cho tài khoản vui lòng thay đổi mật khẩu sau khi hoàn tất giao dịch.!</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<script>
+
+    $(document).ready(function () {
+
+        $("#loadTaiKhoan").click(function () {
+            var button = $(this);
+            button.attr("disabled", true);
+            axios.post(`/taikhoandamua/loadAccOld`).then(function (response) {
+                if (response.data.status === "success") {
+                    Swal.fire({
+                        text: "Load danh sách tài khoản thành công!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        },
+                        didClose: function () {
+                            location.reload();
+                        }
+                    });
+                } else {
+                    console.log(JSON.stringify(response.data));
+                    Swal.fire({
+                        text: response.data.status,
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+                }
+                button.attr("disabled", false);
+            }).catch(function (error) {
+                Swal.fire({
+                    text: "Có lỗi xảy ra, vui lòng thử lại!",
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Đóng",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<script>
+    function copyToClipboard(selector) {
+        var copyText = document.querySelector(selector);
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(copyText.value)
+                .then(() => {
+                    alert("Sao chép thành công!");
+                })
+                .catch(err => {
+                    alert("Không thể sao chép: " + err);
+                });
+        } else {
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Sao chép thành công!");
+        }
+    }
+</script>

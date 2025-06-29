@@ -1,0 +1,135 @@
+﻿@model accgame.Context.GoiNap
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    @using (Html.BeginForm("Create", "quanlygoinapgame", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Gói nạp game</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!-- Tên gói -->
+        <div class="form-group">
+            <label for="TenGoi" class="col-sm-2 col-form-label">Tên gói</label>
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.TenGoi, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.TenGoi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Giá tiền -->
+        <div class="form-group">
+            <label for="Gia" class="col-sm-2 col-form-label">Giá tiền</label>
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control", type = "number", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Số thứ tự -->
+        <div class="form-group">
+            <label for="SoThuTu" class="col-sm-2 col-form-label">Số thứ tự</label>
+            <div class="col-sm-10">
+                @Html.EditorFor(model => model.SoThuTu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoThuTu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Loại game -->
+        <div class="form-group">
+            <label for="LoaiGame" class="col-sm-2 col-form-label">Loại game</label>
+            <div class="col-sm-10">
+                <select name="LoaiGame" id="LoaiGame" class="form-control" required>
+                    @foreach (var item in ViewBag.loaiGame)
+                    {
+                        <option value="@item.IDLoaiGame">@item.TenLoaiGame</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.LoaiGame, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Loại nạp -->
+        <div class="form-group">
+            <label for="LoaiNap" class="col-sm-2 col-form-label">Loại nạp</label>
+            <div class="col-sm-10">
+                <select name="LoaiNap" id="LoaiNap" class="form-control" required>
+                    <option value="1">Nạp Login</option>
+                    <option value="2">Nạp UID</option>
+                    <!-- Bạn có thể thêm các loại nạp khác nếu cần -->
+                </select>
+                @Html.ValidationMessageFor(model => model.LoaiNap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!-- X2 Lan Dau -->
+        <div class="form-group">
+            <label for="X2LanDau" class="col-sm-2 col-form-label">X2 Lần Đầu</label>
+            <div class="col-sm-10">
+                <input type="checkbox" name="X2LanDau" value="true" />
+            </div>
+        </div>
+
+
+
+        <!-- Ảnh -->
+        <div class="form-group">
+            <label for="Anh" class="col-sm-2 col-form-label">Ảnh gói nạp</label>
+            <div class="col-sm-10">
+                <input type="file" name="Anh" id="Anh" class="form-control" accept="image/*" />
+                <div id="imgPreview" class="mt-2" style="display:none;">
+                    <img id="previewImage" src="#" alt="Preview Image" class="img-fluid" style="max-height: 300px;" />
+                </div>
+                @Html.ValidationMessageFor(model => model.Anh, "", new { @class = "text-danger" })
+            </div>
+            <div class="mb-3 mt-3">
+                <label>Link ảnh</label>
+                <input type="text" class="form-control bg-light" id="ImageUpload" name="ImageUploadLink">
+            </div>
+        </div>
+        <!-- Thời gian hẹn giờ ẩn -->
+        <div class="form-group">
+            <label for="ThoiGianAn" class="col-sm-2 col-form-label">Thời gian ẩn gói</label>
+            <div class="col-sm-10">
+                <input type="datetime-local" name="ThoiGianAn" class="form-control" />
+                <small class="form-text text-muted">Bỏ trống nếu không muốn tự động ẩn gói.</small>
+            </div>
+        </div>
+
+        <!-- Nút gửi -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo mới" class="btn btn-primary mt-3" />
+            </div>
+        </div>
+    </div>
+    }
+</main>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Lắng nghe sự kiện khi người dùng chọn file ảnh
+        $("#Anh").change(function (e) {
+            var reader = new FileReader();  // Khởi tạo FileReader để đọc file ảnh
+            var file = e.target.files[0];   // Lấy file được chọn
+
+            // Kiểm tra nếu file là ảnh
+            if (file && file.type.startsWith("image")) {
+                reader.onload = function (event) {
+                    // Gán ảnh preview cho thẻ img
+                    $("#previewImage").attr("src", event.target.result);
+                    // Hiển thị div chứa ảnh preview
+                    $("#imgPreview").show();
+                };
+
+                // Đọc file ảnh dưới dạng URL
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>

@@ -1,0 +1,52 @@
+﻿@model accgame.Context.GiaiThuongVongQuay
+
+@{
+    ViewBag.Title = "taomoi";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="content">
+    <div class="container-fluid">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Thêm giải thưởng</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <b>Loại giải</b>
+                <div class="col-md-10">
+                    <select class="form-control" name="LoaiGiai">
+                        <option value="1">Char 5* + wp</option>
+                        <option value="2">Char limited</option>
+                        <option value="3">One char 5*</option>
+                        <option value="4">>2 char 5*</option>
+                        <option value="5">Acc reroll</option>
+                        <option value="6">Acc reroll Vip</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <b>Thông tin</b>
+                <div class="col-md-10">
+                    <textarea class="form-control" name="thongtintaikhoan" placeholder="Tài khoản: tai_khoan_1 - Mật khẩu: mat_khau_1"></textarea>
+                    <span>Thông tin mỗi tài khoản được phân cách bằng dấu enter xuống dòng!</span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Tạo mới" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+
+
+    </div>
+</main>

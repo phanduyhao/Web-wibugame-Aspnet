@@ -1,0 +1,96 @@
+﻿@model accgame.Context.DanhMuc
+
+@{
+    ViewBag.Title = "Themmoi";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <form method="post" action="/quantri/quanlydanhmuc/ThemmoiRandom" enctype="multipart/form-data">
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <b>Loại game</b>
+                                <div class="">
+                                    <select name="LoaiGame" id="LoaiGame" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option value="1">HonKai Star Rail</option>
+                                        <option value="2">GenShin Impact</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <b>Tên danh mục</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.TenDanhMuc, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TenDanhMuc, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Mô tả</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ImageUpload" class="form-label">Ảnh đại diện</label>
+                                <div class="bg-light rounded-2 p-3 p-sm-5 mb-3 text-center">
+                                    <img src="@Model.AnhDanhMuc" height="150" id="image-preview">
+                                </div>
+                                <input required type="text" value="@Model.AnhDanhMuc" class="form-control bg-light" id="ImageUpload" name="ImageUpload">
+                            </div>
+                            <div class="form-group">
+                                <b>Số thứ tự</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.STT, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.STT, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <b>Giá</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <b>Tài khoản nội bộ?</b>
+                                <div class="">
+                                    @Html.EditorFor(model => model.TaiKhoanNoiBo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TaiKhoanNoiBo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 mt-4">
+                                    <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</main>
+
+<script>
+    const imageInput = document.getElementById('ImageUpload');
+    const imagePreview = document.getElementById('image-preview');
+
+    imageInput.addEventListener('change', function () {
+        imagePreview.setAttribute('src', this.value);
+    });
+</script>

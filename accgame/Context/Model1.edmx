@@ -1,0 +1,2488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="accgameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Acc">
+          <Key>
+            <PropertyRef Name="IDAcc" />
+          </Key>
+          <Property Name="IDAcc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenAcc" Type="nvarchar" MaxLength="500" />
+          <Property Name="Server" Type="nvarchar" MaxLength="100" />
+          <Property Name="MaTaiKhoan" Type="nvarchar" MaxLength="50" />
+          <Property Name="ChiTiet" Type="nvarchar(max)" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="IDNguoiMua" Type="int" />
+          <Property Name="ThoiGianDang" Type="datetime" />
+          <Property Name="ThoiGianBan" Type="datetime" />
+          <Property Name="DaBan" Type="bit" />
+          <Property Name="Xoa" Type="bit" />
+          <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="350" />
+          <Property Name="NhanVat" Type="nvarchar" MaxLength="1000" />
+          <Property Name="VuKhi" Type="nvarchar" MaxLength="1000" />
+          <Property Name="LoaiGame" Type="int" />
+          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="500" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="500" />
+          <Property Name="ThongTinKhac" Type="nvarchar" MaxLength="500" />
+          <Property Name="CapKhaiPha" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaiKhoanNoiBo" Type="bit" />
+          <Property Name="AccVip" Type="bit" />
+          <Property Name="AccKhoiDau" Type="bit" />
+          <Property Name="RanDom" Type="bit" />
+          <Property Name="PhanTram" Type="int" />
+          <Property Name="MaGiamGia" Type="nvarchar" MaxLength="150" />
+          <Property Name="SoTienGiam" Type="int" />
+          <Property Name="AnhNhanVat" Type="nvarchar(max)" />
+          <Property Name="TenNhanVat" Type="nvarchar(max)" />
+          <Property Name="AnhVuKhi" Type="nvarchar(max)" />
+          <Property Name="TenVuKhi" Type="nvarchar(max)" />
+          <Property Name="IDLoaiAcc" Type="int" />
+          <Property Name="IDOldAcc" Type="int" />
+          <Property Name="GiaCtvCollab" Type="int" />
+          <Property Name="GiaDaMua" Type="int" />
+          <Property Name="GiaGoc" Type="int" />
+          <Property Name="An" Type="bit" />
+        </EntityType>
+        <EntityType Name="AccRandom">
+          <Key>
+            <PropertyRef Name="IDAccRandom" />
+          </Key>
+          <Property Name="IDAccRandom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDDanhMuc" Type="int" />
+          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="500" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="500" />
+          <Property Name="ThongTinKhac" Type="nvarchar" MaxLength="500" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="Xoa" Type="bit" />
+          <Property Name="DaBan" Type="bit" />
+          <Property Name="IDNguoiMua" Type="int" />
+          <Property Name="ThoiGianBan" Type="datetime" />
+          <Property Name="IDOldAcc" Type="int" />
+          <Property Name="GiaDaMua" Type="int" />
+          <Property Name="ThoiGianDang" Type="datetime" />
+          <Property Name="MatKhauOutlook" Type="nvarchar" MaxLength="500" />
+          <Property Name="MailKhoiPhuc" Type="nvarchar" MaxLength="500" />
+          <Property Name="MatKhauMailKhoiPhuc" Type="nvarchar" MaxLength="500" />
+          <Property Name="MatKhauMail" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AccRandomDamua">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Danhmuc" Type="nvarchar" MaxLength="500" />
+          <Property Name="IdAccRandom" Type="int" />
+          <Property Name="Server" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghichu" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AdminCongTien">
+          <Key>
+            <PropertyRef Name="IdAdminCongTien" />
+          </Key>
+          <Property Name="IdAdminCongTien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoTien" Type="bigint" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="IDNguoiCong" Type="int" />
+          <Property Name="Lydo" Type="nvarchar" MaxLength="550" />
+          <Property Name="ThoiGian" Type="datetime" />
+          <Property Name="CongTien" Type="bit" />
+          <Property Name="SoDuTruocCong" Type="bigint" />
+          <Property Name="SoDuSauCong" Type="bigint" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="HuyDon" Type="bit" />
+        </EntityType>
+        <EntityType Name="AdminNotifyRead">
+          <Key>
+            <PropertyRef Name="IdStatusAdminNotify" />
+          </Key>
+          <Property Name="IdStatusAdminNotify" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdNotifyUser" Type="int" />
+          <Property Name="IdNguoidung" Type="int" />
+        </EntityType>
+        <EntityType Name="AnAcc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AnAccVip" Type="bit" />
+          <Property Name="AnAccRR" Type="bit" />
+          <Property Name="IdUser" Type="int" />
+          <Property Name="IsAdminAn" Type="bit" />
+        </EntityType>
+        <EntityType Name="Anh_Acc">
+          <Key>
+            <PropertyRef Name="IDAnh_Acc" />
+          </Key>
+          <Property Name="IDAnh_Acc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DuongDanAnh" Type="nvarchar" MaxLength="500" />
+          <Property Name="IDAcc" Type="int" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="AnhDaiDien" Type="bit" />
+          <Property Name="ThoiGian" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ApiAcc">
+          <Key>
+            <PropertyRef Name="IdApi" />
+          </Key>
+          <Property Name="IdApi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Website" Type="nvarchar" MaxLength="150" />
+          <Property Name="IDAcc" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="IDBanner" />
+          </Key>
+          <Property Name="IDBanner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DuongDan" Type="nvarchar" MaxLength="150" />
+          <Property Name="STT" Type="int" />
+        </EntityType>
+        <EntityType Name="BienDongSoDu">
+          <Key>
+            <PropertyRef Name="IDBienDongSoDu" />
+          </Key>
+          <Property Name="IDBienDongSoDu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoTien" Type="bigint" />
+          <Property Name="TruTien" Type="bit" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="LoiNhan" Type="nvarchar" MaxLength="150" />
+          <Property Name="ThoiGian" Type="datetime" />
+          <Property Name="TienTruoc" Type="bigint" />
+          <Property Name="TienSau" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CaiDat">
+          <Key>
+            <PropertyRef Name="IDCaiDat" />
+          </Key>
+          <Property Name="IDCaiDat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="4000" />
+          <Property Name="MaCaiDat" Type="nvarchar" MaxLength="50" />
+          <Property Name="ThoiGianHet" Type="datetime" />
+          <Property Name="ThoiGianCapNhat" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CaiDatVongQuay">
+          <Key>
+            <PropertyRef Name="IDCaiDatVongQuay" />
+          </Key>
+          <Property Name="IDCaiDatVongQuay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TyLe1" Type="float" />
+          <Property Name="TyLe2" Type="float" />
+          <Property Name="TyLe3" Type="float" />
+          <Property Name="TyLe4" Type="float" />
+          <Property Name="TyLe5" Type="float" />
+          <Property Name="TyLe6" Type="float" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="LoaiVong" Type="int" />
+        </EntityType>
+        <EntityType Name="CayThue">
+          <Key>
+            <PropertyRef Name="IDCayThue" />
+          </Key>
+          <Property Name="IDCayThue" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="IDGoiNhiemVu" Type="int" />
+          <Property Name="SoTien" Type="int" />
+          <Property Name="UID" Type="nvarchar" MaxLength="150" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="450" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="450" />
+          <Property Name="Server" Type="nvarchar" MaxLength="250" />
+          <Property Name="TenNhanVat" Type="nvarchar" MaxLength="250" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="1500" />
+          <Property Name="HoanThanh" Type="bit" />
+          <Property Name="ThoiGianHoanThanh" Type="datetime" />
+          <Property Name="ThoiGianGui" Type="datetime" />
+          <Property Name="LoaiGame" Type="int" />
+          <Property Name="IDNguoiNhan" Type="int" />
+        </EntityType>
+        <EntityType Name="Code">
+          <Key>
+            <PropertyRef Name="IDCode" />
+          </Key>
+          <Property Name="IDCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GiaTri" Type="int" />
+          <Property Name="ThoiGianMua" Type="datetime" />
+          <Property Name="MaCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="IDLoaiCode" Type="int" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="DaBan" Type="bit" />
+          <Property Name="Xoa" Type="bit" />
+        </EntityType>
+        <EntityType Name="DanhMuc">
+          <Key>
+            <PropertyRef Name="IDDanhMuc" />
+          </Key>
+          <Property Name="IDDanhMuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoaiGame" Type="int" />
+          <Property Name="TenDanhMuc" Type="nvarchar" MaxLength="500" />
+          <Property Name="DanhMucLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="LuotRoll" Type="nvarchar" MaxLength="50" />
+          <Property Name="HienCo" Type="int" />
+          <Property Name="DaBan" Type="int" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="Xoa" Type="bit" />
+          <Property Name="AnhDanhMuc" Type="nvarchar" MaxLength="500" />
+          <Property Name="TaiKhoanNoiBo" Type="bit" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+          <Property Name="STT" Type="int" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="random" Type="bit" />
+          <Property Name="IDLoaiAcc" Type="int" />
+          <Property Name="Server" Type="nvarchar" MaxLength="50" />
+          <Property Name="slug" Type="nvarchar" MaxLength="150" />
+          <Property Name="IDOldDanhMuc" Type="int" />
+          <Property Name="Ar" Type="nvarchar" MaxLength="50" />
+          <Property Name="GiaCtvCollab" Type="int" />
+          <Property Name="ThongBaoMuaAcc" Type="nvarchar" MaxLength="500" />
+          <Property Name="GhiChuAcc" Type="nvarchar(max)" />
+          <Property Name="CauHinhDangNhieuAcc" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Hide" Type="bit" />
+        </EntityType>
+        <EntityType Name="GiaiThuongVongQuay">
+          <Key>
+            <PropertyRef Name="IDGiaiThuongVongQuay" />
+          </Key>
+          <Property Name="IDGiaiThuongVongQuay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DaBan" Type="bit" />
+          <Property Name="ThongTin" Type="nvarchar" MaxLength="350" />
+          <Property Name="ThoiGianBan" Type="datetime" />
+          <Property Name="LoaiGiai" Type="int" />
+        </EntityType>
+        <EntityType Name="GoiNap">
+          <Key>
+            <PropertyRef Name="IDGoiNap" />
+          </Key>
+          <Property Name="IDGoiNap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="TenGoi" Type="nvarchar" MaxLength="300" />
+          <Property Name="Xoa" Type="bit" />
+          <Property Name="SoThuTu" Type="int" />
+          <Property Name="LoaiGame" Type="int" />
+          <Property Name="Anh" Type="nvarchar" MaxLength="255" />
+          <Property Name="LoaiNap" Type="int" />
+          <Property Name="LinkHdUID" Type="nvarchar" MaxLength="255" />
+          <Property Name="X2LanDau" Type="bit" />
+          <Property Name="An" Type="bit" />
+          <Property Name="ThoigianAn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GoiNhiemVu">
+          <Key>
+            <PropertyRef Name="IDGoiNhiemVu" />
+          </Key>
+          <Property Name="IDGoiNhiemVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenGoiNhiemVu" Type="nvarchar" MaxLength="500" />
+          <Property Name="GiaTien" Type="int" />
+          <Property Name="LoaiGame" Type="int" />
+          <Property Name="Xoa" Type="bit" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="IDImage" />
+          </Key>
+          <Property Name="IDImage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="DuongDan" Type="nvarchar" MaxLength="100" />
+          <Property Name="ThoiGian" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LoaiAcc">
+          <Key>
+            <PropertyRef Name="IDLoaiAcc" />
+          </Key>
+          <Property Name="IDLoaiAcc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiAcc" Type="nvarchar" MaxLength="150" />
+          <Property Name="DangBan" Type="int" />
+          <Property Name="DaBan" Type="int" />
+          <Property Name="Image" Type="nvarchar" MaxLength="500" />
+          <Property Name="slug" Type="nvarchar" MaxLength="150" />
+          <Property Name="DacBiet" Type="bit" />
+          <Property Name="IDLoaiGame" Type="int" />
+          <Property Name="STT" Type="int" />
+          <Property Name="Hide" Type="bit" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+          <Property Name="Server" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDLoaiAccCha" Type="int" />
+        </EntityType>
+        <EntityType Name="LoaiCode">
+          <Key>
+            <PropertyRef Name="IDLoaiCode" />
+          </Key>
+          <Property Name="IDLoaiCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiCode" Type="nvarchar" MaxLength="500" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="Xoa" Type="bit" />
+          <Property Name="CodeNoiBo" Type="bit" />
+          <Property Name="LoaiGame" Type="int" />
+        </EntityType>
+        <EntityType Name="LoaiGame">
+          <Key>
+            <PropertyRef Name="IDLoaiGame" />
+          </Key>
+          <Property Name="IDLoaiGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiGame" Type="nvarchar" MaxLength="150" />
+          <Property Name="Slug" Type="nvarchar" MaxLength="150" />
+          <Property Name="Image" Type="nvarchar" MaxLength="500" />
+          <Property Name="Hide" Type="bit" />
+          <Property Name="STT" Type="int" />
+          <Property Name="AnhNapGame" Type="nvarchar" MaxLength="150" />
+          <Property Name="AnhCayThue" Type="nvarchar" MaxLength="150" />
+          <Property Name="DichVuCayThue" Type="bit" />
+          <Property Name="DichVuNapGame" Type="bit" />
+          <Property Name="DichVuCode" Type="bit" />
+          <Property Name="AnhCode" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="NapGame">
+          <Key>
+            <PropertyRef Name="IDNapGame" />
+          </Key>
+          <Property Name="IDNapGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="SoTien" Type="int" />
+          <Property Name="UID" Type="nvarchar" MaxLength="150" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="450" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="450" />
+          <Property Name="Server" Type="nvarchar" MaxLength="250" />
+          <Property Name="TenNhanVat" Type="nvarchar" MaxLength="250" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="1500" />
+          <Property Name="HoanThanh" Type="bit" />
+          <Property Name="ThoiGianHoanThanh" Type="datetime" />
+          <Property Name="ThoiGianGui" Type="datetime" />
+          <Property Name="LoaiGame" Type="int" />
+          <Property Name="IDGoiNap" Type="int" />
+          <Property Name="IDNguoiDuyet" Type="int" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="AdminEdit" Type="bit" />
+          <Property Name="IDNguoiPick" Type="int" />
+        </EntityType>
+        <EntityType Name="NapTien">
+          <Key>
+            <PropertyRef Name="IdNapTien" />
+          </Key>
+          <Property Name="IdNapTien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="Magd" Type="nvarchar" MaxLength="250" />
+          <Property Name="Noidung" Type="nvarchar" MaxLength="250" />
+          <Property Name="SoTien" Type="bigint" />
+          <Property Name="thoigian" Type="datetime" />
+          <Property Name="request_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="code" Type="nvarchar" MaxLength="50" />
+          <Property Name="serial" Type="nvarchar" MaxLength="50" />
+          <Property Name="amount" Type="int" />
+          <Property Name="telco" Type="nvarchar" MaxLength="50" />
+          <Property Name="trangthai" Type="bit" />
+          <Property Name="atm" Type="bit" />
+          <Property Name="TruocNap" Type="bigint" />
+          <Property Name="SauNap" Type="bigint" />
+          <Property Name="IDNguoiDuyet" Type="int" />
+        </EntityType>
+        <EntityType Name="NguoiDung">
+          <Key>
+            <PropertyRef Name="IDNguoiDung" />
+          </Key>
+          <Property Name="IDNguoiDung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNguoiDung" Type="nvarchar" MaxLength="500" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="Tien" Type="bigint" />
+          <Property Name="NgayThamGia" Type="datetime" />
+          <Property Name="LeverAdmin" Type="int" />
+          <Property Name="MatMa" Type="int" />
+          <Property Name="ThoiVang" Type="int" />
+          <Property Name="TienNap" Type="int" />
+          <Property Name="HoaHong" Type="int" />
+          <Property Name="TienNapThang" Type="int" />
+          <Property Name="Phantramhoahong" Type="float" />
+          <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="50" />
+          <Property Name="OldPass" Type="nvarchar" MaxLength="150" />
+          <Property Name="GoogleAccount" Type="bit" />
+          <Property Name="OldAccount" Type="bit" />
+          <Property Name="CtvCollab" Type="bit" />
+          <Property Name="OnOffCtvCollab" Type="bit" />
+          <Property Name="SessionID" Type="nvarchar" MaxLength="100" />
+          <Property Name="MatKhau2" Type="nvarchar" MaxLength="500" />
+          <Property Name="FailedLoginAttempts" Type="int" />
+          <Property Name="LockoutEndTime" Type="datetime" />
+          <Property Name="Block" Type="bit" />
+          <Property Name="BlockContent" Type="nvarchar(max)" />
+          <Property Name="ResetPasswordToken" Type="nvarchar" MaxLength="150" />
+          <Property Name="ResetTokenExpiry" Type="datetime" />
+          <Property Name="SessionID_Desktop" Type="nvarchar" MaxLength="50" />
+          <Property Name="SessionID_Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="FailedPasswordRequests" Type="int" />
+          <Property Name="LastPasswordRequestTime" Type="datetime" />
+          <Property Name="LockedUntil" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NhanVat">
+          <Key>
+            <PropertyRef Name="IDNhanVat" />
+          </Key>
+          <Property Name="IDNhanVat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNhanVat" Type="nvarchar" MaxLength="500" />
+          <Property Name="LoaiGame" Type="int" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+          <Property Name="Sao" Type="int" />
+        </EntityType>
+        <EntityType Name="NotifyUser">
+          <Key>
+            <PropertyRef Name="IdNotify" />
+          </Key>
+          <Property Name="IdNotify" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contents" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsRead" Type="bit" />
+          <Property Name="IdNguoidung" Type="int" />
+          <Property Name="IsAdminPost" Type="bit" />
+          <Property Name="IdAdmin" Type="int" />
+          <Property Name="Thoigian" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OldPass">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oldPassword" Type="nvarchar" MaxLength="500" />
+          <Property Name="IDNguoiDung" Type="int" />
+        </EntityType>
+        <EntityType Name="RutTien">
+          <Key>
+            <PropertyRef Name="IDRutTien" />
+          </Key>
+          <Property Name="IDRutTien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="SoTienRut" Type="bigint" />
+          <Property Name="TrangThai" Type="bit" />
+          <Property Name="ThoiGian" Type="datetime" />
+          <Property Name="SoTienNhan" Type="bigint" />
+          <Property Name="NganHang" Type="nvarchar" MaxLength="500" />
+          <Property Name="NguoiNhan" Type="nvarchar" MaxLength="500" />
+          <Property Name="SoTaiKhoan" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="SettingApi">
+          <Key>
+            <PropertyRef Name="IDSettingApi" />
+          </Key>
+          <Property Name="IDSettingApi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DomainWebsite" Type="nvarchar" MaxLength="150" />
+          <Property Name="ApiKey" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="IDVideo" />
+          </Key>
+          <Property Name="IDVideo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DuongDan" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="VongQuay">
+          <Key>
+            <PropertyRef Name="IDVongQuay" />
+          </Key>
+          <Property Name="IDVongQuay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNguoiDung" Type="int" />
+          <Property Name="LoaiGiai" Type="int" />
+          <Property Name="GiaTien" Type="int" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="350" />
+          <Property Name="ThoiGian" Type="datetime" />
+          <Property Name="IDCaiDatVongQuay" Type="int" />
+        </EntityType>
+        <EntityType Name="VuKhi">
+          <Key>
+            <PropertyRef Name="IDVuKhi" />
+          </Key>
+          <Property Name="IDVuKhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenVuKhi" Type="nvarchar" MaxLength="500" />
+          <Property Name="LoaiGame" Type="int" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+          <Property Name="Sao" Type="int" />
+        </EntityType>
+        <EntityContainer Name="accgameModelStoreContainer">
+          <EntitySet Name="Acc" EntityType="Self.Acc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccRandom" EntityType="Self.AccRandom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccRandomDamua" EntityType="Self.AccRandomDamua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminCongTien" EntityType="Self.AdminCongTien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminNotifyRead" EntityType="Self.AdminNotifyRead" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnAcc" EntityType="Self.AnAcc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Anh_Acc" EntityType="Self.Anh_Acc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApiAcc" EntityType="Self.ApiAcc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BienDongSoDu" EntityType="Self.BienDongSoDu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CaiDat" EntityType="Self.CaiDat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CaiDatVongQuay" EntityType="Self.CaiDatVongQuay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CayThue" EntityType="Self.CayThue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Code" EntityType="Self.Code" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiaiThuongVongQuay" EntityType="Self.GiaiThuongVongQuay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoiNap" EntityType="Self.GoiNap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoiNhiemVu" EntityType="Self.GoiNhiemVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiAcc" EntityType="Self.LoaiAcc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiCode" EntityType="Self.LoaiCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiGame" EntityType="Self.LoaiGame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NapGame" EntityType="Self.NapGame" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NapTien" EntityType="Self.NapTien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVat" EntityType="Self.NhanVat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotifyUser" EntityType="Self.NotifyUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OldPass" EntityType="Self.OldPass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RutTien" EntityType="Self.RutTien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SettingApi" EntityType="Self.SettingApi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VongQuay" EntityType="Self.VongQuay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VuKhi" EntityType="Self.VuKhi" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="accgameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccRandom">
+          <Key>
+            <PropertyRef Name="IDAccRandom" />
+          </Key>
+          <Property Name="IDAccRandom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDDanhMuc" Type="Int32" />
+          <Property Name="TaiKhoan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ThongTinKhac" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="Xoa" Type="Boolean" />
+          <Property Name="DaBan" Type="Boolean" />
+          <Property Name="IDNguoiMua" Type="Int32" />
+          <Property Name="ThoiGianBan" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_AccRandom_NguoiDung" FromRole="AccRandom" ToRole="NguoiDung" />
+          <NavigationProperty Name="NguoiDung1" Relationship="Self.FK_AccRandom_NguoiDung1" FromRole="AccRandom" ToRole="NguoiDung" />
+          <Property Name="IDOldAcc" Type="Int32" />
+          <NavigationProperty Name="DanhMuc" Relationship="accgameModel.FK_AccRandom_DanhMuc" FromRole="AccRandom" ToRole="DanhMuc" />
+          <Property Name="GiaDaMua" Type="Int32" />
+          <Property Name="ThoiGianDang" Type="DateTime" Precision="3" />
+          <Property Name="MatKhauOutlook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MailKhoiPhuc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhauMailKhoiPhuc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccRandomDamuas" Relationship="accgameModel.FK_AccRandomDamua_AccRandom" FromRole="AccRandom" ToRole="AccRandomDamua" />
+          <Property Name="MatKhauMail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Anh_Acc">
+          <Key>
+            <PropertyRef Name="IDAnh_Acc" />
+          </Key>
+          <Property Name="IDAnh_Acc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DuongDanAnh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IDAcc" Type="Int32" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="AnhDaiDien" Type="Boolean" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_Anh_Acc_NguoiDung" FromRole="Anh_Acc" ToRole="NguoiDung" />
+          <NavigationProperty Name="Acc" Relationship="accgameModel.FK_Anh_Acc_Acc" FromRole="Anh_Acc" ToRole="Acc" />
+        </EntityType>
+        <EntityType Name="ApiAcc">
+          <Key>
+            <PropertyRef Name="IdApi" />
+          </Key>
+          <Property Name="IdApi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Website" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IDAcc" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Acc" Relationship="accgameModel.FK_ApiAcc_Acc" FromRole="ApiAcc" ToRole="Acc" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="IDBanner" />
+          </Key>
+          <Property Name="IDBanner" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DuongDan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BienDongSoDu">
+          <Key>
+            <PropertyRef Name="IDBienDongSoDu" />
+          </Key>
+          <Property Name="IDBienDongSoDu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoTien" Type="Int64" />
+          <Property Name="TruTien" Type="Boolean" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="LoiNhan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <Property Name="TienTruoc" Type="Int64" />
+          <Property Name="TienSau" Type="Int64" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_BienDongSoDu_NguoiDung" FromRole="BienDongSoDu" ToRole="NguoiDung" />
+        </EntityType>
+        <EntityType Name="CaiDat">
+          <Key>
+            <PropertyRef Name="IDCaiDat" />
+          </Key>
+          <Property Name="IDCaiDat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoiDung" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="MaCaiDat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGianHet" Type="DateTime" Precision="3" />
+          <Property Name="ThoiGianCapNhat" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CaiDatVongQuay">
+          <Key>
+            <PropertyRef Name="IDCaiDatVongQuay" />
+          </Key>
+          <Property Name="IDCaiDatVongQuay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TyLe1" Type="Double" />
+          <Property Name="TyLe2" Type="Double" />
+          <Property Name="TyLe3" Type="Double" />
+          <Property Name="TyLe4" Type="Double" />
+          <Property Name="TyLe5" Type="Double" />
+          <Property Name="TyLe6" Type="Double" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="LoaiVong" Type="Int32" />
+          <NavigationProperty Name="VongQuays" Relationship="Self.FK_VongQuay_CaiDatVongQuay" FromRole="CaiDatVongQuay" ToRole="VongQuay" />
+        </EntityType>
+        <EntityType Name="CayThue">
+          <Key>
+            <PropertyRef Name="IDCayThue" />
+          </Key>
+          <Property Name="IDCayThue" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="IDGoiNhiemVu" Type="Int32" />
+          <Property Name="SoTien" Type="Int32" />
+          <Property Name="UID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Server" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TenNhanVat" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="HoanThanh" Type="Boolean" />
+          <Property Name="ThoiGianHoanThanh" Type="DateTime" Precision="3" />
+          <Property Name="ThoiGianGui" Type="DateTime" Precision="3" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <Property Name="IDNguoiNhan" Type="Int32" />
+          <NavigationProperty Name="LoaiGame1" Relationship="Self.FK_CayThue_GoiNhiemVu" FromRole="CayThue" ToRole="LoaiGame" />
+          <NavigationProperty Name="LoaiGame2" Relationship="Self.FK_CayThue_LoaiGame" FromRole="CayThue" ToRole="LoaiGame" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_CayThue_NguoiDung" FromRole="CayThue" ToRole="NguoiDung" />
+          <NavigationProperty Name="NguoiDung1" Relationship="Self.FK_CayThue_NguoiDung1" FromRole="CayThue" ToRole="NguoiDung" />
+          <NavigationProperty Name="GoiNhiemVu" Relationship="accgameModel.FK_CayThue_GoiNhiemVu1" FromRole="CayThue" ToRole="GoiNhiemVu" />
+        </EntityType>
+        <EntityType Name="Code">
+          <Key>
+            <PropertyRef Name="IDCode" />
+          </Key>
+          <Property Name="IDCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GiaTri" Type="Int32" />
+          <Property Name="ThoiGianMua" Type="DateTime" Precision="3" />
+          <Property Name="MaCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IDLoaiCode" Type="Int32" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="DaBan" Type="Boolean" />
+          <Property Name="Xoa" Type="Boolean" />
+          <NavigationProperty Name="LoaiCode" Relationship="Self.FK_Code_LoaiCode" FromRole="Code" ToRole="LoaiCode" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_Code_NguoiDung" FromRole="Code" ToRole="NguoiDung" />
+        </EntityType>
+        <EntityType Name="GiaiThuongVongQuay">
+          <Key>
+            <PropertyRef Name="IDGiaiThuongVongQuay" />
+          </Key>
+          <Property Name="IDGiaiThuongVongQuay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DaBan" Type="Boolean" />
+          <Property Name="ThongTin" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGianBan" Type="DateTime" Precision="3" />
+          <Property Name="LoaiGiai" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GoiNap">
+          <Key>
+            <PropertyRef Name="IDGoiNap" />
+          </Key>
+          <Property Name="IDGoiNap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="TenGoi" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Xoa" Type="Boolean" />
+          <Property Name="SoThuTu" Type="Int32" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <NavigationProperty Name="LoaiGame1" Relationship="Self.FK_GoiNap_LoaiGame" FromRole="GoiNap" ToRole="LoaiGame" />
+          <NavigationProperty Name="NapGames" Relationship="Self.FK_NapGame_GoiNap" FromRole="GoiNap" ToRole="NapGame" />
+          <Property Name="Anh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiNap" Type="Int32" />
+          <Property Name="LinkHdUID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="X2LanDau" Type="Boolean" />
+          <Property Name="An" Type="Boolean" />
+          <Property Name="ThoigianAn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="GoiNhiemVu">
+          <Key>
+            <PropertyRef Name="IDGoiNhiemVu" />
+          </Key>
+          <Property Name="IDGoiNhiemVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenGoiNhiemVu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GiaTien" Type="Int32" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <Property Name="Xoa" Type="Boolean" />
+          <NavigationProperty Name="LoaiGame1" Relationship="Self.FK_GoiNhiemVu_LoaiGame" FromRole="GoiNhiemVu" ToRole="LoaiGame" />
+          <NavigationProperty Name="CayThues" Relationship="accgameModel.FK_CayThue_GoiNhiemVu1" FromRole="GoiNhiemVu" ToRole="CayThue" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="IDImage" />
+          </Key>
+          <Property Name="IDImage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="DuongDan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_Image_NguoiDung" FromRole="Image" ToRole="NguoiDung" />
+        </EntityType>
+        <EntityType Name="LoaiAcc">
+          <Key>
+            <PropertyRef Name="IDLoaiAcc" />
+          </Key>
+          <Property Name="IDLoaiAcc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiAcc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DangBan" Type="Int32" />
+          <Property Name="DaBan" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="slug" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DacBiet" Type="Boolean" />
+          <Property Name="IDLoaiGame" Type="Int32" />
+          <Property Name="STT" Type="Int32" />
+          <Property Name="Hide" Type="Boolean" />
+          <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Server" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoaiGame" Relationship="Self.FK_LoaiAcc_LoaiGame" FromRole="LoaiAcc" ToRole="LoaiGame" />
+          <NavigationProperty Name="Accs" Relationship="accgameModel.FK_Acc_LoaiAcc" FromRole="LoaiAcc" ToRole="Acc" />
+          <NavigationProperty Name="DanhMucs" Relationship="accgameModel.FK_DanhMuc_LoaiAcc" FromRole="LoaiAcc" ToRole="DanhMuc" />
+          <Property Name="IDLoaiAccCha" Type="Int32" />
+          <NavigationProperty Name="LoaiAcc1" Relationship="accgameModel.FK_LoaiAcc_LoaiAcc1" FromRole="LoaiAcc" ToRole="LoaiAcc1" />
+          <NavigationProperty Name="LoaiAcc2" Relationship="accgameModel.FK_LoaiAcc_LoaiAcc1" FromRole="LoaiAcc1" ToRole="LoaiAcc" />
+        </EntityType>
+        <EntityType Name="LoaiCode">
+          <Key>
+            <PropertyRef Name="IDLoaiCode" />
+          </Key>
+          <Property Name="IDLoaiCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="Xoa" Type="Boolean" />
+          <Property Name="CodeNoiBo" Type="Boolean" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <NavigationProperty Name="Codes" Relationship="Self.FK_Code_LoaiCode" FromRole="LoaiCode" ToRole="Code" />
+          <NavigationProperty Name="LoaiGame1" Relationship="Self.FK_LoaiCode_LoaiGame" FromRole="LoaiCode" ToRole="LoaiGame" />
+        </EntityType>
+        <EntityType Name="LoaiGame">
+          <Key>
+            <PropertyRef Name="IDLoaiGame" />
+          </Key>
+          <Property Name="IDLoaiGame" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiGame" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Slug" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Hide" Type="Boolean" />
+          <Property Name="STT" Type="Int32" />
+          <Property Name="AnhNapGame" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="AnhCayThue" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DichVuCayThue" Type="Boolean" />
+          <Property Name="DichVuNapGame" Type="Boolean" />
+          <Property Name="DichVuCode" Type="Boolean" />
+          <Property Name="AnhCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CayThues" Relationship="Self.FK_CayThue_GoiNhiemVu" FromRole="LoaiGame" ToRole="CayThue" />
+          <NavigationProperty Name="CayThues1" Relationship="Self.FK_CayThue_LoaiGame" FromRole="LoaiGame" ToRole="CayThue" />
+          <NavigationProperty Name="GoiNaps" Relationship="Self.FK_GoiNap_LoaiGame" FromRole="LoaiGame" ToRole="GoiNap" />
+          <NavigationProperty Name="GoiNhiemVus" Relationship="Self.FK_GoiNhiemVu_LoaiGame" FromRole="LoaiGame" ToRole="GoiNhiemVu" />
+          <NavigationProperty Name="LoaiAccs" Relationship="Self.FK_LoaiAcc_LoaiGame" FromRole="LoaiGame" ToRole="LoaiAcc" />
+          <NavigationProperty Name="LoaiCodes" Relationship="Self.FK_LoaiCode_LoaiGame" FromRole="LoaiGame" ToRole="LoaiCode" />
+          <NavigationProperty Name="NhanVats" Relationship="Self.FK_NhanVat_LoaiGame" FromRole="LoaiGame" ToRole="NhanVat" />
+          <NavigationProperty Name="VuKhis" Relationship="Self.FK_VuKhi_LoaiGame" FromRole="LoaiGame" ToRole="VuKhi" />
+          <NavigationProperty Name="Accs" Relationship="accgameModel.FK_Acc_LoaiGame" FromRole="LoaiGame" ToRole="Acc" />
+          <NavigationProperty Name="DanhMucs" Relationship="accgameModel.FK_DanhMuc_LoaiGame" FromRole="LoaiGame" ToRole="DanhMuc" />
+        </EntityType>
+        <EntityType Name="NapGame">
+          <Key>
+            <PropertyRef Name="IDNapGame" />
+          </Key>
+          <Property Name="IDNapGame" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="SoTien" Type="Int32" />
+          <Property Name="UID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Server" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TenNhanVat" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="HoanThanh" Type="Boolean" />
+          <Property Name="ThoiGianHoanThanh" Type="DateTime" Precision="3" />
+          <Property Name="ThoiGianGui" Type="DateTime" Precision="3" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <Property Name="IDGoiNap" Type="Int32" />
+          <NavigationProperty Name="GoiNap" Relationship="Self.FK_NapGame_GoiNap" FromRole="NapGame" ToRole="GoiNap" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_NapGame_NguoiDung" FromRole="NapGame" ToRole="NguoiDung" />
+          <Property Name="IDNguoiDuyet" Type="Int32" />
+          <NavigationProperty Name="NguoiDung1" Relationship="accgameModel.FK_NapGame_NguoiDung1" FromRole="NapGame" ToRole="NguoiDung" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="AdminEdit" Type="Boolean" />
+          <Property Name="IDNguoiPick" Type="Int32" />
+          <NavigationProperty Name="NguoiDung2" Relationship="accgameModel.FK_NapGame_NguoiPick" FromRole="NapGame" ToRole="NguoiDung" />
+        </EntityType>
+        <EntityType Name="NapTien">
+          <Key>
+            <PropertyRef Name="IdNapTien" />
+          </Key>
+          <Property Name="IdNapTien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="Magd" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Noidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SoTien" Type="Int64" />
+          <Property Name="thoigian" Type="DateTime" Precision="3" />
+          <Property Name="request_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="telco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trangthai" Type="Boolean" />
+          <Property Name="atm" Type="Boolean" />
+          <Property Name="TruocNap" Type="Int64" />
+          <Property Name="SauNap" Type="Int64" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_NapTien_NguoiDung" FromRole="NapTien" ToRole="NguoiDung" />
+          <Property Name="IDNguoiDuyet" Type="Int32" />
+          <NavigationProperty Name="NguoiDung1" Relationship="accgameModel.FK_NapTien_NguoiDung1" FromRole="NapTien" ToRole="NguoiDung" />
+        </EntityType>
+        <EntityType Name="NguoiDung">
+          <Key>
+            <PropertyRef Name="IDNguoiDung" />
+          </Key>
+          <Property Name="IDNguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNguoiDung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Tien" Type="Int64" />
+          <Property Name="NgayThamGia" Type="DateTime" Precision="3" />
+          <Property Name="LeverAdmin" Type="Int32" />
+          <Property Name="MatMa" Type="Int32" />
+          <Property Name="ThoiVang" Type="Int32" />
+          <Property Name="TienNap" Type="Int32" />
+          <Property Name="HoaHong" Type="Int32" />
+          <Property Name="TienNapThang" Type="Int32" />
+          <Property Name="Phantramhoahong" Type="Double" />
+          <Property Name="AnhDaiDien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OldPass" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccRandoms" Relationship="Self.FK_AccRandom_NguoiDung" FromRole="NguoiDung" ToRole="AccRandom" />
+          <NavigationProperty Name="AccRandoms1" Relationship="Self.FK_AccRandom_NguoiDung1" FromRole="NguoiDung" ToRole="AccRandom" />
+          <NavigationProperty Name="Anh_Acc" Relationship="Self.FK_Anh_Acc_NguoiDung" FromRole="NguoiDung" ToRole="Anh_Acc" />
+          <NavigationProperty Name="BienDongSoDus" Relationship="Self.FK_BienDongSoDu_NguoiDung" FromRole="NguoiDung" ToRole="BienDongSoDu" />
+          <NavigationProperty Name="CayThues" Relationship="Self.FK_CayThue_NguoiDung" FromRole="NguoiDung" ToRole="CayThue" />
+          <NavigationProperty Name="CayThues1" Relationship="Self.FK_CayThue_NguoiDung1" FromRole="NguoiDung" ToRole="CayThue" />
+          <NavigationProperty Name="Codes" Relationship="Self.FK_Code_NguoiDung" FromRole="NguoiDung" ToRole="Code" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Image_NguoiDung" FromRole="NguoiDung" ToRole="Image" />
+          <NavigationProperty Name="NapGames" Relationship="Self.FK_NapGame_NguoiDung" FromRole="NguoiDung" ToRole="NapGame" />
+          <NavigationProperty Name="NapTiens" Relationship="Self.FK_NapTien_NguoiDung" FromRole="NguoiDung" ToRole="NapTien" />
+          <NavigationProperty Name="RutTiens" Relationship="Self.FK_RutTien_NguoiDung" FromRole="NguoiDung" ToRole="RutTien" />
+          <NavigationProperty Name="VongQuays" Relationship="Self.FK_VongQuay_NguoiDung" FromRole="NguoiDung" ToRole="VongQuay" />
+          <NavigationProperty Name="AdminCongTiens" Relationship="accgameModel.FK_AdminCongTien_NguoiDung" FromRole="NguoiDung" ToRole="AdminCongTien" />
+          <NavigationProperty Name="AdminCongTiens1" Relationship="accgameModel.FK_AdminCongTien_NguoiDung1" FromRole="NguoiDung" ToRole="AdminCongTien" />
+          <NavigationProperty Name="Accs" Relationship="accgameModel.FK_Acc_NguoiDung" FromRole="NguoiDung" ToRole="Acc" />
+          <NavigationProperty Name="Accs1" Relationship="accgameModel.FK_Acc_NguoiDung1" FromRole="NguoiDung" ToRole="Acc" />
+          <NavigationProperty Name="DanhMucs" Relationship="accgameModel.FK_DanhMuc_NguoiDung" FromRole="NguoiDung" ToRole="DanhMuc" />
+          <Property Name="OldAccount" Type="Boolean" />
+          <Property Name="GoogleAccount" Type="Boolean" />
+          <NavigationProperty Name="NapGames1" Relationship="accgameModel.FK_NapGame_NguoiDung1" FromRole="NguoiDung" ToRole="NapGame" />
+          <Property Name="CtvCollab" Type="Boolean" />
+          <NavigationProperty Name="NapTiens1" Relationship="accgameModel.FK_NapTien_NguoiDung1" FromRole="NguoiDung" ToRole="NapTien" />
+          <Property Name="OnOffCtvCollab" Type="Boolean" />
+          <Property Name="SessionID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FailedLoginAttempts" Type="Int32" />
+          <Property Name="LockoutEndTime" Type="DateTime" Precision="3" />
+          <Property Name="Block" Type="Boolean" />
+          <Property Name="BlockContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResetPasswordToken" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ResetTokenExpiry" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OldPasses" Relationship="accgameModel.FK_OldPass_NguoiDung" FromRole="NguoiDung" ToRole="OldPass" />
+          <Property Name="SessionID_Desktop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SessionID_Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdminNotifyReads" Relationship="accgameModel.FK_AdminNotifyRead_NguoiDung" FromRole="NguoiDung" ToRole="AdminNotifyRead" />
+          <NavigationProperty Name="NotifyUsers" Relationship="accgameModel.FK_NotifyUser_Admin" FromRole="NguoiDung" ToRole="NotifyUser" />
+          <NavigationProperty Name="NotifyUsers1" Relationship="accgameModel.FK_NotifyUser_NguoiDung" FromRole="NguoiDung" ToRole="NotifyUser" />
+          <NavigationProperty Name="AnAccs" Relationship="accgameModel.FK_AnAcc_NguoiDung" FromRole="NguoiDung" ToRole="AnAcc" />
+          <Property Name="FailedPasswordRequests" Type="Int32" />
+          <Property Name="LastPasswordRequestTime" Type="DateTime" Precision="3" />
+          <Property Name="LockedUntil" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="NapGames2" Relationship="accgameModel.FK_NapGame_NguoiPick" FromRole="NguoiDung" ToRole="NapGame" />
+          </EntityType>
+        <EntityType Name="NhanVat">
+          <Key>
+            <PropertyRef Name="IDNhanVat" />
+          </Key>
+          <Property Name="IDNhanVat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNhanVat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Sao" Type="Int32" />
+          <NavigationProperty Name="LoaiGame1" Relationship="Self.FK_NhanVat_LoaiGame" FromRole="NhanVat" ToRole="LoaiGame" />
+        </EntityType>
+        <EntityType Name="RutTien">
+          <Key>
+            <PropertyRef Name="IDRutTien" />
+          </Key>
+          <Property Name="IDRutTien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="SoTienRut" Type="Int64" />
+          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <Property Name="SoTienNhan" Type="Int64" />
+          <Property Name="NganHang" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NguoiNhan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SoTaiKhoan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_RutTien_NguoiDung" FromRole="RutTien" ToRole="NguoiDung" />
+        </EntityType>
+        <EntityType Name="SettingApi">
+          <Key>
+            <PropertyRef Name="IDSettingApi" />
+          </Key>
+          <Property Name="IDSettingApi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DomainWebsite" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ApiKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="IDVideo" />
+          </Key>
+          <Property Name="IDVideo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DuongDan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VongQuay">
+          <Key>
+            <PropertyRef Name="IDVongQuay" />
+          </Key>
+          <Property Name="IDVongQuay" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="LoaiGiai" Type="Int32" />
+          <Property Name="GiaTien" Type="Int32" />
+          <Property Name="NoiDung" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <Property Name="IDCaiDatVongQuay" Type="Int32" />
+          <NavigationProperty Name="CaiDatVongQuay" Relationship="Self.FK_VongQuay_CaiDatVongQuay" FromRole="VongQuay" ToRole="CaiDatVongQuay" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK_VongQuay_NguoiDung" FromRole="VongQuay" ToRole="NguoiDung" />
+        </EntityType>
+        <EntityType Name="VuKhi">
+          <Key>
+            <PropertyRef Name="IDVuKhi" />
+          </Key>
+          <Property Name="IDVuKhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenVuKhi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <Property Name="Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Sao" Type="Int32" />
+          <NavigationProperty Name="LoaiGame1" Relationship="Self.FK_VuKhi_LoaiGame" FromRole="VuKhi" ToRole="LoaiGame" />
+        </EntityType>
+        <Association Name="FK_AccRandom_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="AccRandom" Type="Self.AccRandom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="AccRandom">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccRandom_NguoiDung1">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="AccRandom" Type="Self.AccRandom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="AccRandom">
+              <PropertyRef Name="IDNguoiMua" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Anh_Acc_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="Anh_Acc" Type="Self.Anh_Acc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="Anh_Acc">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BienDongSoDu_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="BienDongSoDu" Type="Self.BienDongSoDu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="BienDongSoDu">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VongQuay_CaiDatVongQuay">
+          <End Role="CaiDatVongQuay" Type="Self.CaiDatVongQuay" Multiplicity="0..1" />
+          <End Role="VongQuay" Type="Self.VongQuay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaiDatVongQuay">
+              <PropertyRef Name="IDCaiDatVongQuay" />
+            </Principal>
+            <Dependent Role="VongQuay">
+              <PropertyRef Name="IDCaiDatVongQuay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CayThue_GoiNhiemVu">
+          <End Role="LoaiGame" Type="Self.LoaiGame" Multiplicity="0..1" />
+          <End Role="CayThue" Type="Self.CayThue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="CayThue">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CayThue_LoaiGame">
+          <End Role="LoaiGame" Type="Self.LoaiGame" Multiplicity="0..1" />
+          <End Role="CayThue" Type="Self.CayThue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="CayThue">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CayThue_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="CayThue" Type="Self.CayThue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="CayThue">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CayThue_NguoiDung1">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="CayThue" Type="Self.CayThue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="CayThue">
+              <PropertyRef Name="IDNguoiNhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Code_LoaiCode">
+          <End Role="LoaiCode" Type="Self.LoaiCode" Multiplicity="0..1" />
+          <End Role="Code" Type="Self.Code" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiCode">
+              <PropertyRef Name="IDLoaiCode" />
+            </Principal>
+            <Dependent Role="Code">
+              <PropertyRef Name="IDLoaiCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Code_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="Code" Type="Self.Code" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="Code">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoiNap_LoaiGame">
+          <End Role="LoaiGame" Type="Self.LoaiGame" Multiplicity="0..1" />
+          <End Role="GoiNap" Type="Self.GoiNap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="GoiNap">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapGame_GoiNap">
+          <End Role="GoiNap" Type="Self.GoiNap" Multiplicity="0..1" />
+          <End Role="NapGame" Type="Self.NapGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoiNap">
+              <PropertyRef Name="IDGoiNap" />
+            </Principal>
+            <Dependent Role="NapGame">
+              <PropertyRef Name="IDGoiNap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoiNhiemVu_LoaiGame">
+          <End Role="LoaiGame" Type="Self.LoaiGame" Multiplicity="0..1" />
+          <End Role="GoiNhiemVu" Type="Self.GoiNhiemVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="GoiNhiemVu">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoaiAcc_LoaiGame">
+          <End Role="LoaiGame" Type="Self.LoaiGame" Multiplicity="0..1" />
+          <End Role="LoaiAcc" Type="Self.LoaiAcc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="LoaiAcc">
+              <PropertyRef Name="IDLoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoaiCode_LoaiGame">
+          <End Role="LoaiGame" Type="Self.LoaiGame" Multiplicity="0..1" />
+          <End Role="LoaiCode" Type="Self.LoaiCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="LoaiCode">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVat_LoaiGame">
+          <End Role="LoaiGame" Type="Self.LoaiGame" Multiplicity="0..1" />
+          <End Role="NhanVat" Type="Self.NhanVat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="NhanVat">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VuKhi_LoaiGame">
+          <End Role="LoaiGame" Type="Self.LoaiGame" Multiplicity="0..1" />
+          <End Role="VuKhi" Type="Self.VuKhi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="VuKhi">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapGame_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="NapGame" Type="Self.NapGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="NapGame">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapTien_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="NapTien" Type="Self.NapTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="NapTien">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutTien_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="RutTien" Type="Self.RutTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="RutTien">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VongQuay_NguoiDung">
+          <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
+          <End Role="VongQuay" Type="Self.VongQuay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="VongQuay">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="accgameEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccRandoms" EntityType="Self.AccRandom" />
+          <EntitySet Name="Anh_Acc" EntityType="Self.Anh_Acc" />
+          <EntitySet Name="ApiAccs" EntityType="Self.ApiAcc" />
+          <EntitySet Name="Banners" EntityType="Self.Banner" />
+          <EntitySet Name="BienDongSoDus" EntityType="Self.BienDongSoDu" />
+          <EntitySet Name="CaiDats" EntityType="Self.CaiDat" />
+          <EntitySet Name="CaiDatVongQuays" EntityType="Self.CaiDatVongQuay" />
+          <EntitySet Name="CayThues" EntityType="Self.CayThue" />
+          <EntitySet Name="Codes" EntityType="Self.Code" />
+          <EntitySet Name="GiaiThuongVongQuays" EntityType="Self.GiaiThuongVongQuay" />
+          <EntitySet Name="GoiNaps" EntityType="Self.GoiNap" />
+          <EntitySet Name="GoiNhiemVus" EntityType="Self.GoiNhiemVu" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="LoaiAccs" EntityType="Self.LoaiAcc" />
+          <EntitySet Name="LoaiCodes" EntityType="Self.LoaiCode" />
+          <EntitySet Name="LoaiGames" EntityType="Self.LoaiGame" />
+          <EntitySet Name="NapGames" EntityType="Self.NapGame" />
+          <EntitySet Name="NapTiens" EntityType="Self.NapTien" />
+          <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
+          <EntitySet Name="NhanVats" EntityType="Self.NhanVat" />
+          <EntitySet Name="RutTiens" EntityType="Self.RutTien" />
+          <EntitySet Name="SettingApis" EntityType="Self.SettingApi" />
+          <EntitySet Name="Videos" EntityType="Self.Video" />
+          <EntitySet Name="VongQuays" EntityType="Self.VongQuay" />
+          <EntitySet Name="VuKhis" EntityType="Self.VuKhi" />
+          <AssociationSet Name="FK_AccRandom_NguoiDung" Association="Self.FK_AccRandom_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="AccRandom" EntitySet="AccRandoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccRandom_NguoiDung1" Association="Self.FK_AccRandom_NguoiDung1">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="AccRandom" EntitySet="AccRandoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Anh_Acc_NguoiDung" Association="Self.FK_Anh_Acc_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="Anh_Acc" EntitySet="Anh_Acc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BienDongSoDu_NguoiDung" Association="Self.FK_BienDongSoDu_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="BienDongSoDu" EntitySet="BienDongSoDus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VongQuay_CaiDatVongQuay" Association="Self.FK_VongQuay_CaiDatVongQuay">
+            <End Role="CaiDatVongQuay" EntitySet="CaiDatVongQuays" />
+            <End Role="VongQuay" EntitySet="VongQuays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CayThue_GoiNhiemVu" Association="Self.FK_CayThue_GoiNhiemVu">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="CayThue" EntitySet="CayThues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CayThue_LoaiGame" Association="Self.FK_CayThue_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="CayThue" EntitySet="CayThues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CayThue_NguoiDung" Association="Self.FK_CayThue_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="CayThue" EntitySet="CayThues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CayThue_NguoiDung1" Association="Self.FK_CayThue_NguoiDung1">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="CayThue" EntitySet="CayThues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Code_LoaiCode" Association="Self.FK_Code_LoaiCode">
+            <End Role="LoaiCode" EntitySet="LoaiCodes" />
+            <End Role="Code" EntitySet="Codes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Code_NguoiDung" Association="Self.FK_Code_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="Code" EntitySet="Codes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoiNap_LoaiGame" Association="Self.FK_GoiNap_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="GoiNap" EntitySet="GoiNaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapGame_GoiNap" Association="Self.FK_NapGame_GoiNap">
+            <End Role="GoiNap" EntitySet="GoiNaps" />
+            <End Role="NapGame" EntitySet="NapGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoiNhiemVu_LoaiGame" Association="Self.FK_GoiNhiemVu_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="GoiNhiemVu" EntitySet="GoiNhiemVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_NguoiDung" Association="Self.FK_Image_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoaiAcc_LoaiGame" Association="Self.FK_LoaiAcc_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="LoaiAcc" EntitySet="LoaiAccs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoaiCode_LoaiGame" Association="Self.FK_LoaiCode_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="LoaiCode" EntitySet="LoaiCodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVat_LoaiGame" Association="Self.FK_NhanVat_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="NhanVat" EntitySet="NhanVats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VuKhi_LoaiGame" Association="Self.FK_VuKhi_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="VuKhi" EntitySet="VuKhis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapGame_NguoiDung" Association="Self.FK_NapGame_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="NapGame" EntitySet="NapGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapTien_NguoiDung" Association="Self.FK_NapTien_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="NapTien" EntitySet="NapTiens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutTien_NguoiDung" Association="Self.FK_RutTien_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="RutTien" EntitySet="RutTiens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VongQuay_NguoiDung" Association="Self.FK_VongQuay_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="VongQuay" EntitySet="VongQuays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CayThue_GoiNhiemVu1" Association="accgameModel.FK_CayThue_GoiNhiemVu1">
+            <End Role="GoiNhiemVu" EntitySet="GoiNhiemVus" />
+            <End Role="CayThue" EntitySet="CayThues" />
+          </AssociationSet>
+          <EntitySet Name="AdminCongTiens" EntityType="accgameModel.AdminCongTien" />
+          <AssociationSet Name="FK_AdminCongTien_NguoiDung" Association="accgameModel.FK_AdminCongTien_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="AdminCongTien" EntitySet="AdminCongTiens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminCongTien_NguoiDung1" Association="accgameModel.FK_AdminCongTien_NguoiDung1">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="AdminCongTien" EntitySet="AdminCongTiens" />
+          </AssociationSet>
+          <EntitySet Name="Accs" EntityType="accgameModel.Acc" />
+          <AssociationSet Name="FK_Acc_LoaiAcc" Association="accgameModel.FK_Acc_LoaiAcc">
+            <End Role="LoaiAcc" EntitySet="LoaiAccs" />
+            <End Role="Acc" EntitySet="Accs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Acc_LoaiGame" Association="accgameModel.FK_Acc_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="Acc" EntitySet="Accs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Acc_NguoiDung" Association="accgameModel.FK_Acc_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="Acc" EntitySet="Accs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Acc_NguoiDung1" Association="accgameModel.FK_Acc_NguoiDung1">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="Acc" EntitySet="Accs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Anh_Acc_Acc" Association="accgameModel.FK_Anh_Acc_Acc">
+            <End Role="Acc" EntitySet="Accs" />
+            <End Role="Anh_Acc" EntitySet="Anh_Acc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApiAcc_Acc" Association="accgameModel.FK_ApiAcc_Acc">
+            <End Role="Acc" EntitySet="Accs" />
+            <End Role="ApiAcc" EntitySet="ApiAccs" />
+          </AssociationSet>
+          <EntitySet Name="DanhMucs" EntityType="accgameModel.DanhMuc" />
+          <AssociationSet Name="FK_AccRandom_DanhMuc" Association="accgameModel.FK_AccRandom_DanhMuc">
+            <End Role="DanhMuc" EntitySet="DanhMucs" />
+            <End Role="AccRandom" EntitySet="AccRandoms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanhMuc_LoaiAcc" Association="accgameModel.FK_DanhMuc_LoaiAcc">
+            <End Role="LoaiAcc" EntitySet="LoaiAccs" />
+            <End Role="DanhMuc" EntitySet="DanhMucs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanhMuc_LoaiGame" Association="accgameModel.FK_DanhMuc_LoaiGame">
+            <End Role="LoaiGame" EntitySet="LoaiGames" />
+            <End Role="DanhMuc" EntitySet="DanhMucs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DanhMuc_NguoiDung" Association="accgameModel.FK_DanhMuc_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="DanhMuc" EntitySet="DanhMucs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapGame_NguoiDung1" Association="accgameModel.FK_NapGame_NguoiDung1">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="NapGame" EntitySet="NapGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapTien_NguoiDung1" Association="accgameModel.FK_NapTien_NguoiDung1">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="NapTien" EntitySet="NapTiens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoaiAcc_LoaiAcc" Association="accgameModel.FK_LoaiAcc_LoaiAcc">
+            <End Role="LoaiAcc" EntitySet="LoaiAccs" />
+            <End Role="LoaiAcc1" EntitySet="LoaiAccs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoaiAcc_LoaiAcc1" Association="accgameModel.FK_LoaiAcc_LoaiAcc1">
+            <End Role="LoaiAcc" EntitySet="LoaiAccs" />
+            <End Role="LoaiAcc1" EntitySet="LoaiAccs" />
+          </AssociationSet>
+          <EntitySet Name="OldPasses" EntityType="accgameModel.OldPass" />
+          <AssociationSet Name="FK_OldPass_NguoiDung" Association="accgameModel.FK_OldPass_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="OldPass" EntitySet="OldPasses" />
+          </AssociationSet>
+          <EntitySet Name="AccRandomDamuas" EntityType="accgameModel.AccRandomDamua" />
+          <AssociationSet Name="FK_AccRandomDamua_AccRandom" Association="accgameModel.FK_AccRandomDamua_AccRandom">
+            <End Role="AccRandom" EntitySet="AccRandoms" />
+            <End Role="AccRandomDamua" EntitySet="AccRandomDamuas" />
+          </AssociationSet>
+          <EntitySet Name="AdminNotifyReads" EntityType="accgameModel.AdminNotifyRead" />
+          <EntitySet Name="NotifyUsers" EntityType="accgameModel.NotifyUser" />
+          <AssociationSet Name="FK_AdminNotifyRead_NguoiDung" Association="accgameModel.FK_AdminNotifyRead_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="AdminNotifyRead" EntitySet="AdminNotifyReads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminNotifyRead_NotifyUser" Association="accgameModel.FK_AdminNotifyRead_NotifyUser">
+            <End Role="NotifyUser" EntitySet="NotifyUsers" />
+            <End Role="AdminNotifyRead" EntitySet="AdminNotifyReads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotifyUser_Admin" Association="accgameModel.FK_NotifyUser_Admin">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="NotifyUser" EntitySet="NotifyUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotifyUser_NguoiDung" Association="accgameModel.FK_NotifyUser_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="NotifyUser" EntitySet="NotifyUsers" />
+          </AssociationSet>
+          <EntitySet Name="AnAccs" EntityType="accgameModel.AnAcc" />
+          <AssociationSet Name="FK_AnAcc_NguoiDung" Association="accgameModel.FK_AnAcc_NguoiDung">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="AnAcc" EntitySet="AnAccs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapGame_NguoiPick" Association="accgameModel.FK_NapGame_NguoiPick">
+            <End Role="NguoiDung" EntitySet="NguoiDungs" />
+            <End Role="NapGame" EntitySet="NapGames" />
+          </AssociationSet>
+          </EntityContainer>
+        <Association Name="FK_CayThue_GoiNhiemVu1">
+          <End Type="accgameModel.GoiNhiemVu" Role="GoiNhiemVu" Multiplicity="0..1" />
+          <End Type="accgameModel.CayThue" Role="CayThue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoiNhiemVu">
+              <PropertyRef Name="IDGoiNhiemVu" />
+            </Principal>
+            <Dependent Role="CayThue">
+              <PropertyRef Name="IDGoiNhiemVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdminCongTien">
+          <Key>
+            <PropertyRef Name="IdAdminCongTien" />
+          </Key>
+          <Property Name="IdAdminCongTien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoTien" Type="Int64" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="IDNguoiCong" Type="Int32" />
+          <Property Name="Lydo" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <Property Name="CongTien" Type="Boolean" />
+          <Property Name="SoDuTruocCong" Type="Int64" />
+          <Property Name="SoDuSauCong" Type="Int64" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="NguoiDung" Relationship="accgameModel.FK_AdminCongTien_NguoiDung" FromRole="AdminCongTien" ToRole="NguoiDung" />
+          <NavigationProperty Name="NguoiDung1" Relationship="accgameModel.FK_AdminCongTien_NguoiDung1" FromRole="AdminCongTien" ToRole="NguoiDung" />
+          <Property Name="HuyDon" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_AdminCongTien_NguoiDung">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.AdminCongTien" Role="AdminCongTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="AdminCongTien">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminCongTien_NguoiDung1">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.AdminCongTien" Role="AdminCongTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="AdminCongTien">
+              <PropertyRef Name="IDNguoiCong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Acc">
+          <Key>
+            <PropertyRef Name="IDAcc" />
+          </Key>
+          <Property Name="IDAcc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenAcc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Server" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MaTaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="IDNguoiMua" Type="Int32" />
+          <Property Name="ThoiGianDang" Type="DateTime" Precision="3" />
+          <Property Name="ThoiGianBan" Type="DateTime" Precision="3" />
+          <Property Name="DaBan" Type="Boolean" />
+          <Property Name="Xoa" Type="Boolean" />
+          <Property Name="AnhDaiDien" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="NhanVat" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="VuKhi" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <Property Name="TaiKhoan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ThongTinKhac" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CapKhaiPha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaiKhoanNoiBo" Type="Boolean" />
+          <Property Name="AccVip" Type="Boolean" />
+          <Property Name="AccKhoiDau" Type="Boolean" />
+          <Property Name="RanDom" Type="Boolean" />
+          <Property Name="MaGiamGia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SoTienGiam" Type="Int32" />
+          <Property Name="AnhNhanVat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TenNhanVat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnhVuKhi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TenVuKhi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDLoaiAcc" Type="Int32" />
+          <Property Name="IDOldAcc" Type="Int32" />
+          <NavigationProperty Name="LoaiAcc" Relationship="accgameModel.FK_Acc_LoaiAcc" FromRole="Acc" ToRole="LoaiAcc" />
+          <NavigationProperty Name="LoaiGame1" Relationship="accgameModel.FK_Acc_LoaiGame" FromRole="Acc" ToRole="LoaiGame" />
+          <NavigationProperty Name="NguoiDung" Relationship="accgameModel.FK_Acc_NguoiDung" FromRole="Acc" ToRole="NguoiDung" />
+          <NavigationProperty Name="NguoiDung1" Relationship="accgameModel.FK_Acc_NguoiDung1" FromRole="Acc" ToRole="NguoiDung" />
+          <NavigationProperty Name="Anh_Acc" Relationship="accgameModel.FK_Anh_Acc_Acc" FromRole="Acc" ToRole="Anh_Acc" />
+          <NavigationProperty Name="ApiAccs" Relationship="accgameModel.FK_ApiAcc_Acc" FromRole="Acc" ToRole="ApiAcc" />
+          <Property Name="GiaCtvCollab" Type="Int32" />
+          <Property Name="GiaDaMua" Type="Int32" />
+          <Property Name="PhanTram" Type="Int32" />
+          <Property Name="GiaGoc" Type="Int32" />
+          <Property Name="An" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Acc_LoaiAcc">
+          <End Type="accgameModel.LoaiAcc" Role="LoaiAcc" Multiplicity="0..1" />
+          <End Type="accgameModel.Acc" Role="Acc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiAcc">
+              <PropertyRef Name="IDLoaiAcc" />
+            </Principal>
+            <Dependent Role="Acc">
+              <PropertyRef Name="IDLoaiAcc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Acc_LoaiGame">
+          <End Type="accgameModel.LoaiGame" Role="LoaiGame" Multiplicity="0..1" />
+          <End Type="accgameModel.Acc" Role="Acc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="Acc">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Acc_NguoiDung">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.Acc" Role="Acc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="Acc">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Acc_NguoiDung1">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.Acc" Role="Acc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="Acc">
+              <PropertyRef Name="IDNguoiMua" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Anh_Acc_Acc">
+          <End Type="accgameModel.Acc" Role="Acc" Multiplicity="0..1" />
+          <End Type="accgameModel.Anh_Acc" Role="Anh_Acc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acc">
+              <PropertyRef Name="IDAcc" />
+            </Principal>
+            <Dependent Role="Anh_Acc">
+              <PropertyRef Name="IDAcc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApiAcc_Acc">
+          <End Type="accgameModel.Acc" Role="Acc" Multiplicity="0..1" />
+          <End Type="accgameModel.ApiAcc" Role="ApiAcc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acc">
+              <PropertyRef Name="IDAcc" />
+            </Principal>
+            <Dependent Role="ApiAcc">
+              <PropertyRef Name="IDAcc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DanhMuc">
+          <Key>
+            <PropertyRef Name="IDDanhMuc" />
+          </Key>
+          <Property Name="IDDanhMuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoaiGame" Type="Int32" />
+          <Property Name="TenDanhMuc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DanhMucLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LuotRoll" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HienCo" Type="Int32" />
+          <Property Name="DaBan" Type="Int32" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="Xoa" Type="Boolean" />
+          <Property Name="AnhDanhMuc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TaiKhoanNoiBo" Type="Boolean" />
+          <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="STT" Type="Int32" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <Property Name="random" Type="Boolean" />
+          <Property Name="IDLoaiAcc" Type="Int32" />
+          <Property Name="Server" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="slug" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IDOldDanhMuc" Type="Int32" />
+          <Property Name="Ar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccRandoms" Relationship="accgameModel.FK_AccRandom_DanhMuc" FromRole="DanhMuc" ToRole="AccRandom" />
+          <NavigationProperty Name="LoaiAcc" Relationship="accgameModel.FK_DanhMuc_LoaiAcc" FromRole="DanhMuc" ToRole="LoaiAcc" />
+          <NavigationProperty Name="LoaiGame1" Relationship="accgameModel.FK_DanhMuc_LoaiGame" FromRole="DanhMuc" ToRole="LoaiGame" />
+          <NavigationProperty Name="NguoiDung" Relationship="accgameModel.FK_DanhMuc_NguoiDung" FromRole="DanhMuc" ToRole="NguoiDung" />
+          <Property Name="GiaCtvCollab" Type="Int32" />
+          <Property Name="ThongBaoMuaAcc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CauHinhDangNhieuAcc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChuAcc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hide" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_AccRandom_DanhMuc">
+          <End Type="accgameModel.DanhMuc" Role="DanhMuc" Multiplicity="0..1" />
+          <End Type="accgameModel.AccRandom" Role="AccRandom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DanhMuc">
+              <PropertyRef Name="IDDanhMuc" />
+            </Principal>
+            <Dependent Role="AccRandom">
+              <PropertyRef Name="IDDanhMuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanhMuc_LoaiAcc">
+          <End Type="accgameModel.LoaiAcc" Role="LoaiAcc" Multiplicity="0..1" />
+          <End Type="accgameModel.DanhMuc" Role="DanhMuc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiAcc">
+              <PropertyRef Name="IDLoaiAcc" />
+            </Principal>
+            <Dependent Role="DanhMuc">
+              <PropertyRef Name="IDLoaiAcc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanhMuc_LoaiGame">
+          <End Type="accgameModel.LoaiGame" Role="LoaiGame" Multiplicity="0..1" />
+          <End Type="accgameModel.DanhMuc" Role="DanhMuc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiGame">
+              <PropertyRef Name="IDLoaiGame" />
+            </Principal>
+            <Dependent Role="DanhMuc">
+              <PropertyRef Name="LoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DanhMuc_NguoiDung">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.DanhMuc" Role="DanhMuc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="DanhMuc">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapGame_NguoiDung1">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.NapGame" Role="NapGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="NapGame">
+              <PropertyRef Name="IDNguoiDuyet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapTien_NguoiDung1">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.NapTien" Role="NapTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="NapTien">
+              <PropertyRef Name="IDNguoiDuyet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoaiAcc_LoaiAcc">
+          <End Type="accgameModel.LoaiAcc" Role="LoaiAcc" Multiplicity="1" />
+          <End Type="accgameModel.LoaiAcc" Role="LoaiAcc1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiAcc">
+              <PropertyRef Name="IDLoaiAcc" />
+            </Principal>
+            <Dependent Role="LoaiAcc1">
+              <PropertyRef Name="IDLoaiAcc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoaiAcc_LoaiAcc1">
+          <End Type="accgameModel.LoaiAcc" Role="LoaiAcc" Multiplicity="0..1" />
+          <End Type="accgameModel.LoaiAcc" Role="LoaiAcc1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiAcc">
+              <PropertyRef Name="IDLoaiAcc" />
+            </Principal>
+            <Dependent Role="LoaiAcc1">
+              <PropertyRef Name="IDLoaiAccCha" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OldPass">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNguoiDung" Type="Int32" />
+          <NavigationProperty Name="NguoiDung" Relationship="accgameModel.FK_OldPass_NguoiDung" FromRole="OldPass" ToRole="NguoiDung" />
+          <Property Name="oldPassword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_OldPass_NguoiDung">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.OldPass" Role="OldPass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="OldPass">
+              <PropertyRef Name="IDNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AccRandomDamua">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Danhmuc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IdAccRandom" Type="Int32" />
+          <Property Name="Server" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccRandom" Relationship="accgameModel.FK_AccRandomDamua_AccRandom" FromRole="AccRandomDamua" ToRole="AccRandom" />
+        </EntityType>
+        <Association Name="FK_AccRandomDamua_AccRandom">
+          <End Type="accgameModel.AccRandom" Role="AccRandom" Multiplicity="0..1" />
+          <End Type="accgameModel.AccRandomDamua" Role="AccRandomDamua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccRandom">
+              <PropertyRef Name="IDAccRandom" />
+            </Principal>
+            <Dependent Role="AccRandomDamua">
+              <PropertyRef Name="IdAccRandom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdminNotifyRead">
+          <Key>
+            <PropertyRef Name="IdStatusAdminNotify" />
+          </Key>
+          <Property Name="IdStatusAdminNotify" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdNotifyUser" Type="Int32" />
+          <Property Name="IdNguoidung" Type="Int32" />
+          <NavigationProperty Name="NguoiDung" Relationship="accgameModel.FK_AdminNotifyRead_NguoiDung" FromRole="AdminNotifyRead" ToRole="NguoiDung" />
+          <NavigationProperty Name="NotifyUser" Relationship="accgameModel.FK_AdminNotifyRead_NotifyUser" FromRole="AdminNotifyRead" ToRole="NotifyUser" />
+        </EntityType>
+        <EntityType Name="NotifyUser">
+          <Key>
+            <PropertyRef Name="IdNotify" />
+          </Key>
+          <Property Name="IdNotify" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contents" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsRead" Type="Boolean" />
+          <Property Name="IdNguoidung" Type="Int32" />
+          <Property Name="IsAdminPost" Type="Boolean" />
+          <Property Name="IdAdmin" Type="Int32" />
+          <NavigationProperty Name="AdminNotifyReads" Relationship="accgameModel.FK_AdminNotifyRead_NotifyUser" FromRole="NotifyUser" ToRole="AdminNotifyRead" />
+          <NavigationProperty Name="NguoiDung" Relationship="accgameModel.FK_NotifyUser_Admin" FromRole="NotifyUser" ToRole="NguoiDung" />
+          <NavigationProperty Name="NguoiDung1" Relationship="accgameModel.FK_NotifyUser_NguoiDung" FromRole="NotifyUser" ToRole="NguoiDung" />
+          <Property Name="Thoigian" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_AdminNotifyRead_NguoiDung">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.AdminNotifyRead" Role="AdminNotifyRead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="AdminNotifyRead">
+              <PropertyRef Name="IdNguoidung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminNotifyRead_NotifyUser">
+          <End Type="accgameModel.NotifyUser" Role="NotifyUser" Multiplicity="0..1" />
+          <End Type="accgameModel.AdminNotifyRead" Role="AdminNotifyRead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotifyUser">
+              <PropertyRef Name="IdNotify" />
+            </Principal>
+            <Dependent Role="AdminNotifyRead">
+              <PropertyRef Name="IdNotifyUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotifyUser_Admin">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.NotifyUser" Role="NotifyUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="NotifyUser">
+              <PropertyRef Name="IdAdmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotifyUser_NguoiDung">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.NotifyUser" Role="NotifyUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="NotifyUser">
+              <PropertyRef Name="IdNguoidung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AnAcc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AnAccVip" Type="Boolean" />
+          <Property Name="AnAccRR" Type="Boolean" />
+          <Property Name="IdUser" Type="Int32" />
+          <NavigationProperty Name="NguoiDung" Relationship="accgameModel.FK_AnAcc_NguoiDung" FromRole="AnAcc" ToRole="NguoiDung" />
+          <Property Name="IsAdminAn" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_AnAcc_NguoiDung">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.AnAcc" Role="AnAcc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="AnAcc">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapGame_NguoiPick">
+          <End Type="accgameModel.NguoiDung" Role="NguoiDung" Multiplicity="0..1" />
+          <End Type="accgameModel.NapGame" Role="NapGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NguoiDung">
+              <PropertyRef Name="IDNguoiDung" />
+            </Principal>
+            <Dependent Role="NapGame">
+              <PropertyRef Name="IDNguoiPick" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="accgameModelStoreContainer" CdmEntityContainer="accgameEntities">
+          <EntitySetMapping Name="AccRandoms">
+            <EntityTypeMapping TypeName="accgameModel.AccRandom">
+              <MappingFragment StoreEntitySet="AccRandom">
+                <ScalarProperty Name="MatKhauMail" ColumnName="MatKhauMail" />
+                <ScalarProperty Name="MatKhauMailKhoiPhuc" ColumnName="MatKhauMailKhoiPhuc" />
+                <ScalarProperty Name="MailKhoiPhuc" ColumnName="MailKhoiPhuc" />
+                <ScalarProperty Name="MatKhauOutlook" ColumnName="MatKhauOutlook" />
+                <ScalarProperty Name="ThoiGianDang" ColumnName="ThoiGianDang" />
+                <ScalarProperty Name="GiaDaMua" ColumnName="GiaDaMua" />
+                <ScalarProperty Name="IDOldAcc" ColumnName="IDOldAcc" />
+                <ScalarProperty Name="IDAccRandom" ColumnName="IDAccRandom" />
+                <ScalarProperty Name="IDDanhMuc" ColumnName="IDDanhMuc" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="ThongTinKhac" ColumnName="ThongTinKhac" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+                <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+                <ScalarProperty Name="IDNguoiMua" ColumnName="IDNguoiMua" />
+                <ScalarProperty Name="ThoiGianBan" ColumnName="ThoiGianBan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Anh_Acc">
+            <EntityTypeMapping TypeName="accgameModel.Anh_Acc">
+              <MappingFragment StoreEntitySet="Anh_Acc">
+                <ScalarProperty Name="IDAnh_Acc" ColumnName="IDAnh_Acc" />
+                <ScalarProperty Name="DuongDanAnh" ColumnName="DuongDanAnh" />
+                <ScalarProperty Name="IDAcc" ColumnName="IDAcc" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApiAccs">
+            <EntityTypeMapping TypeName="accgameModel.ApiAcc">
+              <MappingFragment StoreEntitySet="ApiAcc">
+                <ScalarProperty Name="IdApi" ColumnName="IdApi" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="IDAcc" ColumnName="IDAcc" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banners">
+            <EntityTypeMapping TypeName="accgameModel.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="IDBanner" ColumnName="IDBanner" />
+                <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BienDongSoDus">
+            <EntityTypeMapping TypeName="accgameModel.BienDongSoDu">
+              <MappingFragment StoreEntitySet="BienDongSoDu">
+                <ScalarProperty Name="IDBienDongSoDu" ColumnName="IDBienDongSoDu" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="TruTien" ColumnName="TruTien" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="LoiNhan" ColumnName="LoiNhan" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="TienTruoc" ColumnName="TienTruoc" />
+                <ScalarProperty Name="TienSau" ColumnName="TienSau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaiDats">
+            <EntityTypeMapping TypeName="accgameModel.CaiDat">
+              <MappingFragment StoreEntitySet="CaiDat">
+                <ScalarProperty Name="ThoiGianCapNhat" ColumnName="ThoiGianCapNhat" />
+                <ScalarProperty Name="IDCaiDat" ColumnName="IDCaiDat" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="MaCaiDat" ColumnName="MaCaiDat" />
+                <ScalarProperty Name="ThoiGianHet" ColumnName="ThoiGianHet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaiDatVongQuays">
+            <EntityTypeMapping TypeName="accgameModel.CaiDatVongQuay">
+              <MappingFragment StoreEntitySet="CaiDatVongQuay">
+                <ScalarProperty Name="IDCaiDatVongQuay" ColumnName="IDCaiDatVongQuay" />
+                <ScalarProperty Name="TyLe1" ColumnName="TyLe1" />
+                <ScalarProperty Name="TyLe2" ColumnName="TyLe2" />
+                <ScalarProperty Name="TyLe3" ColumnName="TyLe3" />
+                <ScalarProperty Name="TyLe4" ColumnName="TyLe4" />
+                <ScalarProperty Name="TyLe5" ColumnName="TyLe5" />
+                <ScalarProperty Name="TyLe6" ColumnName="TyLe6" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="LoaiVong" ColumnName="LoaiVong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CayThues">
+            <EntityTypeMapping TypeName="accgameModel.CayThue">
+              <MappingFragment StoreEntitySet="CayThue">
+                <ScalarProperty Name="IDCayThue" ColumnName="IDCayThue" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="IDGoiNhiemVu" ColumnName="IDGoiNhiemVu" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="HoanThanh" ColumnName="HoanThanh" />
+                <ScalarProperty Name="ThoiGianHoanThanh" ColumnName="ThoiGianHoanThanh" />
+                <ScalarProperty Name="ThoiGianGui" ColumnName="ThoiGianGui" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+                <ScalarProperty Name="IDNguoiNhan" ColumnName="IDNguoiNhan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Codes">
+            <EntityTypeMapping TypeName="accgameModel.Code">
+              <MappingFragment StoreEntitySet="Code">
+                <ScalarProperty Name="IDCode" ColumnName="IDCode" />
+                <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
+                <ScalarProperty Name="ThoiGianMua" ColumnName="ThoiGianMua" />
+                <ScalarProperty Name="MaCode" ColumnName="MaCode" />
+                <ScalarProperty Name="IDLoaiCode" ColumnName="IDLoaiCode" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GiaiThuongVongQuays">
+            <EntityTypeMapping TypeName="accgameModel.GiaiThuongVongQuay">
+              <MappingFragment StoreEntitySet="GiaiThuongVongQuay">
+                <ScalarProperty Name="IDGiaiThuongVongQuay" ColumnName="IDGiaiThuongVongQuay" />
+                <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+                <ScalarProperty Name="ThongTin" ColumnName="ThongTin" />
+                <ScalarProperty Name="ThoiGianBan" ColumnName="ThoiGianBan" />
+                <ScalarProperty Name="LoaiGiai" ColumnName="LoaiGiai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoiNaps">
+            <EntityTypeMapping TypeName="accgameModel.GoiNap">
+              <MappingFragment StoreEntitySet="GoiNap">
+                <ScalarProperty Name="ThoigianAn" ColumnName="ThoigianAn" />
+                <ScalarProperty Name="An" ColumnName="An" />
+                <ScalarProperty Name="X2LanDau" ColumnName="X2LanDau" />
+                <ScalarProperty Name="LinkHdUID" ColumnName="LinkHdUID" />
+                <ScalarProperty Name="LoaiNap" ColumnName="LoaiNap" />
+                <ScalarProperty Name="Anh" ColumnName="Anh" />
+                <ScalarProperty Name="IDGoiNap" ColumnName="IDGoiNap" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="TenGoi" ColumnName="TenGoi" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoiNhiemVus">
+            <EntityTypeMapping TypeName="accgameModel.GoiNhiemVu">
+              <MappingFragment StoreEntitySet="GoiNhiemVu">
+                <ScalarProperty Name="IDGoiNhiemVu" ColumnName="IDGoiNhiemVu" />
+                <ScalarProperty Name="TenGoiNhiemVu" ColumnName="TenGoiNhiemVu" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="accgameModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="IDImage" ColumnName="IDImage" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiAccs">
+            <EntityTypeMapping TypeName="accgameModel.LoaiAcc">
+              <MappingFragment StoreEntitySet="LoaiAcc">
+                <ScalarProperty Name="IDLoaiAccCha" ColumnName="IDLoaiAccCha" />
+                <ScalarProperty Name="IDLoaiAcc" ColumnName="IDLoaiAcc" />
+                <ScalarProperty Name="TenLoaiAcc" ColumnName="TenLoaiAcc" />
+                <ScalarProperty Name="DangBan" ColumnName="DangBan" />
+                <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="DacBiet" ColumnName="DacBiet" />
+                <ScalarProperty Name="IDLoaiGame" ColumnName="IDLoaiGame" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="Hide" ColumnName="Hide" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiCodes">
+            <EntityTypeMapping TypeName="accgameModel.LoaiCode">
+              <MappingFragment StoreEntitySet="LoaiCode">
+                <ScalarProperty Name="IDLoaiCode" ColumnName="IDLoaiCode" />
+                <ScalarProperty Name="TenLoaiCode" ColumnName="TenLoaiCode" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+                <ScalarProperty Name="CodeNoiBo" ColumnName="CodeNoiBo" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiGames">
+            <EntityTypeMapping TypeName="accgameModel.LoaiGame">
+              <MappingFragment StoreEntitySet="LoaiGame">
+                <ScalarProperty Name="IDLoaiGame" ColumnName="IDLoaiGame" />
+                <ScalarProperty Name="TenLoaiGame" ColumnName="TenLoaiGame" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Hide" ColumnName="Hide" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="AnhNapGame" ColumnName="AnhNapGame" />
+                <ScalarProperty Name="AnhCayThue" ColumnName="AnhCayThue" />
+                <ScalarProperty Name="DichVuCayThue" ColumnName="DichVuCayThue" />
+                <ScalarProperty Name="DichVuNapGame" ColumnName="DichVuNapGame" />
+                <ScalarProperty Name="DichVuCode" ColumnName="DichVuCode" />
+                <ScalarProperty Name="AnhCode" ColumnName="AnhCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NapGames">
+            <EntityTypeMapping TypeName="accgameModel.NapGame">
+              <MappingFragment StoreEntitySet="NapGame">
+                <ScalarProperty Name="IDNguoiPick" ColumnName="IDNguoiPick" />
+                <ScalarProperty Name="AdminEdit" ColumnName="AdminEdit" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="IDNguoiDuyet" ColumnName="IDNguoiDuyet" />
+                <ScalarProperty Name="IDNapGame" ColumnName="IDNapGame" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="HoanThanh" ColumnName="HoanThanh" />
+                <ScalarProperty Name="ThoiGianHoanThanh" ColumnName="ThoiGianHoanThanh" />
+                <ScalarProperty Name="ThoiGianGui" ColumnName="ThoiGianGui" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+                <ScalarProperty Name="IDGoiNap" ColumnName="IDGoiNap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NapTiens">
+            <EntityTypeMapping TypeName="accgameModel.NapTien">
+              <MappingFragment StoreEntitySet="NapTien">
+                <ScalarProperty Name="IDNguoiDuyet" ColumnName="IDNguoiDuyet" />
+                <ScalarProperty Name="IdNapTien" ColumnName="IdNapTien" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="Magd" ColumnName="Magd" />
+                <ScalarProperty Name="Noidung" ColumnName="Noidung" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="thoigian" ColumnName="thoigian" />
+                <ScalarProperty Name="request_id" ColumnName="request_id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="serial" ColumnName="serial" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="telco" ColumnName="telco" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="atm" ColumnName="atm" />
+                <ScalarProperty Name="TruocNap" ColumnName="TruocNap" />
+                <ScalarProperty Name="SauNap" ColumnName="SauNap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NguoiDungs">
+            <EntityTypeMapping TypeName="accgameModel.NguoiDung">
+              <MappingFragment StoreEntitySet="NguoiDung">
+                <ScalarProperty Name="LockedUntil" ColumnName="LockedUntil" />
+                <ScalarProperty Name="LastPasswordRequestTime" ColumnName="LastPasswordRequestTime" />
+                <ScalarProperty Name="FailedPasswordRequests" ColumnName="FailedPasswordRequests" />
+                <ScalarProperty Name="SessionID_Mobile" ColumnName="SessionID_Mobile" />
+                <ScalarProperty Name="SessionID_Desktop" ColumnName="SessionID_Desktop" />
+                <ScalarProperty Name="ResetTokenExpiry" ColumnName="ResetTokenExpiry" />
+                <ScalarProperty Name="ResetPasswordToken" ColumnName="ResetPasswordToken" />
+                <ScalarProperty Name="BlockContent" ColumnName="BlockContent" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="LockoutEndTime" ColumnName="LockoutEndTime" />
+                <ScalarProperty Name="FailedLoginAttempts" ColumnName="FailedLoginAttempts" />
+                <ScalarProperty Name="MatKhau2" ColumnName="MatKhau2" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="OnOffCtvCollab" ColumnName="OnOffCtvCollab" />
+                <ScalarProperty Name="CtvCollab" ColumnName="CtvCollab" />
+                <ScalarProperty Name="GoogleAccount" ColumnName="GoogleAccount" />
+                <ScalarProperty Name="OldAccount" ColumnName="OldAccount" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="TenNguoiDung" ColumnName="TenNguoiDung" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tien" ColumnName="Tien" />
+                <ScalarProperty Name="NgayThamGia" ColumnName="NgayThamGia" />
+                <ScalarProperty Name="LeverAdmin" ColumnName="LeverAdmin" />
+                <ScalarProperty Name="MatMa" ColumnName="MatMa" />
+                <ScalarProperty Name="ThoiVang" ColumnName="ThoiVang" />
+                <ScalarProperty Name="TienNap" ColumnName="TienNap" />
+                <ScalarProperty Name="HoaHong" ColumnName="HoaHong" />
+                <ScalarProperty Name="TienNapThang" ColumnName="TienNapThang" />
+                <ScalarProperty Name="Phantramhoahong" ColumnName="Phantramhoahong" />
+                <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+                <ScalarProperty Name="OldPass" ColumnName="OldPass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanVats">
+            <EntityTypeMapping TypeName="accgameModel.NhanVat">
+              <MappingFragment StoreEntitySet="NhanVat">
+                <ScalarProperty Name="IDNhanVat" ColumnName="IDNhanVat" />
+                <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Sao" ColumnName="Sao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RutTiens">
+            <EntityTypeMapping TypeName="accgameModel.RutTien">
+              <MappingFragment StoreEntitySet="RutTien">
+                <ScalarProperty Name="IDRutTien" ColumnName="IDRutTien" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="SoTienRut" ColumnName="SoTienRut" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="SoTienNhan" ColumnName="SoTienNhan" />
+                <ScalarProperty Name="NganHang" ColumnName="NganHang" />
+                <ScalarProperty Name="NguoiNhan" ColumnName="NguoiNhan" />
+                <ScalarProperty Name="SoTaiKhoan" ColumnName="SoTaiKhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettingApis">
+            <EntityTypeMapping TypeName="accgameModel.SettingApi">
+              <MappingFragment StoreEntitySet="SettingApi">
+                <ScalarProperty Name="IDSettingApi" ColumnName="IDSettingApi" />
+                <ScalarProperty Name="DomainWebsite" ColumnName="DomainWebsite" />
+                <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="accgameModel.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="IDVideo" ColumnName="IDVideo" />
+                <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VongQuays">
+            <EntityTypeMapping TypeName="accgameModel.VongQuay">
+              <MappingFragment StoreEntitySet="VongQuay">
+                <ScalarProperty Name="IDVongQuay" ColumnName="IDVongQuay" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="LoaiGiai" ColumnName="LoaiGiai" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="IDCaiDatVongQuay" ColumnName="IDCaiDatVongQuay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VuKhis">
+            <EntityTypeMapping TypeName="accgameModel.VuKhi">
+              <MappingFragment StoreEntitySet="VuKhi">
+                <ScalarProperty Name="IDVuKhi" ColumnName="IDVuKhi" />
+                <ScalarProperty Name="TenVuKhi" ColumnName="TenVuKhi" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Sao" ColumnName="Sao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminCongTiens">
+            <EntityTypeMapping TypeName="accgameModel.AdminCongTien">
+              <MappingFragment StoreEntitySet="AdminCongTien">
+                <ScalarProperty Name="HuyDon" ColumnName="HuyDon" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SoDuSauCong" ColumnName="SoDuSauCong" />
+                <ScalarProperty Name="SoDuTruocCong" ColumnName="SoDuTruocCong" />
+                <ScalarProperty Name="CongTien" ColumnName="CongTien" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="Lydo" ColumnName="Lydo" />
+                <ScalarProperty Name="IDNguoiCong" ColumnName="IDNguoiCong" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="IdAdminCongTien" ColumnName="IdAdminCongTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accs">
+            <EntityTypeMapping TypeName="accgameModel.Acc">
+              <MappingFragment StoreEntitySet="Acc">
+                <ScalarProperty Name="An" ColumnName="An" />
+                <ScalarProperty Name="GiaGoc" ColumnName="GiaGoc" />
+                <ScalarProperty Name="PhanTram" ColumnName="PhanTram" />
+                <ScalarProperty Name="GiaDaMua" ColumnName="GiaDaMua" />
+                <ScalarProperty Name="GiaCtvCollab" ColumnName="GiaCtvCollab" />
+                <ScalarProperty Name="IDOldAcc" ColumnName="IDOldAcc" />
+                <ScalarProperty Name="IDLoaiAcc" ColumnName="IDLoaiAcc" />
+                <ScalarProperty Name="TenVuKhi" ColumnName="TenVuKhi" />
+                <ScalarProperty Name="AnhVuKhi" ColumnName="AnhVuKhi" />
+                <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+                <ScalarProperty Name="AnhNhanVat" ColumnName="AnhNhanVat" />
+                <ScalarProperty Name="SoTienGiam" ColumnName="SoTienGiam" />
+                <ScalarProperty Name="MaGiamGia" ColumnName="MaGiamGia" />
+                <ScalarProperty Name="RanDom" ColumnName="RanDom" />
+                <ScalarProperty Name="AccKhoiDau" ColumnName="AccKhoiDau" />
+                <ScalarProperty Name="AccVip" ColumnName="AccVip" />
+                <ScalarProperty Name="TaiKhoanNoiBo" ColumnName="TaiKhoanNoiBo" />
+                <ScalarProperty Name="CapKhaiPha" ColumnName="CapKhaiPha" />
+                <ScalarProperty Name="ThongTinKhac" ColumnName="ThongTinKhac" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+                <ScalarProperty Name="VuKhi" ColumnName="VuKhi" />
+                <ScalarProperty Name="NhanVat" ColumnName="NhanVat" />
+                <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+                <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+                <ScalarProperty Name="ThoiGianBan" ColumnName="ThoiGianBan" />
+                <ScalarProperty Name="ThoiGianDang" ColumnName="ThoiGianDang" />
+                <ScalarProperty Name="IDNguoiMua" ColumnName="IDNguoiMua" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="ChiTiet" ColumnName="ChiTiet" />
+                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="TenAcc" ColumnName="TenAcc" />
+                <ScalarProperty Name="IDAcc" ColumnName="IDAcc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanhMucs">
+            <EntityTypeMapping TypeName="accgameModel.DanhMuc">
+              <MappingFragment StoreEntitySet="DanhMuc">
+                <ScalarProperty Name="Hide" ColumnName="Hide" />
+                <ScalarProperty Name="GhiChuAcc" ColumnName="GhiChuAcc" />
+                <ScalarProperty Name="CauHinhDangNhieuAcc" ColumnName="CauHinhDangNhieuAcc" />
+                <ScalarProperty Name="ThongBaoMuaAcc" ColumnName="ThongBaoMuaAcc" />
+                <ScalarProperty Name="GiaCtvCollab" ColumnName="GiaCtvCollab" />
+                <ScalarProperty Name="Ar" ColumnName="Ar" />
+                <ScalarProperty Name="IDOldDanhMuc" ColumnName="IDOldDanhMuc" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="IDLoaiAcc" ColumnName="IDLoaiAcc" />
+                <ScalarProperty Name="random" ColumnName="random" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="TaiKhoanNoiBo" ColumnName="TaiKhoanNoiBo" />
+                <ScalarProperty Name="AnhDanhMuc" ColumnName="AnhDanhMuc" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="DaBan" ColumnName="DaBan" />
+                <ScalarProperty Name="HienCo" ColumnName="HienCo" />
+                <ScalarProperty Name="LuotRoll" ColumnName="LuotRoll" />
+                <ScalarProperty Name="DanhMucLevel" ColumnName="DanhMucLevel" />
+                <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
+                <ScalarProperty Name="LoaiGame" ColumnName="LoaiGame" />
+                <ScalarProperty Name="IDDanhMuc" ColumnName="IDDanhMuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OldPasses">
+            <EntityTypeMapping TypeName="accgameModel.OldPass">
+              <MappingFragment StoreEntitySet="OldPass">
+                <ScalarProperty Name="oldPassword" ColumnName="oldPassword" />
+                <ScalarProperty Name="IDNguoiDung" ColumnName="IDNguoiDung" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccRandomDamuas">
+            <EntityTypeMapping TypeName="accgameModel.AccRandomDamua">
+              <MappingFragment StoreEntitySet="AccRandomDamua">
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+                <ScalarProperty Name="Server" ColumnName="Server" />
+                <ScalarProperty Name="IdAccRandom" ColumnName="IdAccRandom" />
+                <ScalarProperty Name="Danhmuc" ColumnName="Danhmuc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminNotifyReads">
+            <EntityTypeMapping TypeName="accgameModel.AdminNotifyRead">
+              <MappingFragment StoreEntitySet="AdminNotifyRead">
+                <ScalarProperty Name="IdNguoidung" ColumnName="IdNguoidung" />
+                <ScalarProperty Name="IdNotifyUser" ColumnName="IdNotifyUser" />
+                <ScalarProperty Name="IdStatusAdminNotify" ColumnName="IdStatusAdminNotify" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotifyUsers">
+            <EntityTypeMapping TypeName="accgameModel.NotifyUser">
+              <MappingFragment StoreEntitySet="NotifyUser">
+                <ScalarProperty Name="Thoigian" ColumnName="Thoigian" />
+                <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+                <ScalarProperty Name="IsAdminPost" ColumnName="IsAdminPost" />
+                <ScalarProperty Name="IdNguoidung" ColumnName="IdNguoidung" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="IdNotify" ColumnName="IdNotify" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnAccs">
+            <EntityTypeMapping TypeName="accgameModel.AnAcc">
+              <MappingFragment StoreEntitySet="AnAcc">
+                <ScalarProperty Name="IsAdminAn" ColumnName="IsAdminAn" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="AnAccRR" ColumnName="AnAccRR" />
+                <ScalarProperty Name="AnAccVip" ColumnName="AnAccVip" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

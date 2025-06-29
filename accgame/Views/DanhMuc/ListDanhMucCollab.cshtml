@@ -1,0 +1,54 @@
+﻿@model accgame.Models.HomeModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="hero" class="d-flex align-items-center" style="background-attachment: fixed">
+    <div class="container position-relative text-center text-lg-start pt-0 mt-100">
+        <h6 class="text-white text-center mt-3">( Giá sale áp dụng cho tài  khoản được cấp quyền CTV của shop! )</h6>
+
+        <div class="row g-3 mt-3 justify-content-center">
+
+            @foreach (var item in Model.listLoaiGame)
+            {
+                <div class="text-center mt-5">
+                    <img src="@item.Image" width="100" class="img-fluid" />
+                    <h2 class="fw-bold fs-1 desc-top-slider">@item.TenLoaiGame</h2>
+                </div>
+                if (Model != null)
+                {
+                    foreach (var item2 in Model.listLoaiAcc.Where(m => m.IDLoaiGame == item.IDLoaiGame))
+                    {
+                        <div data-aos="zoom-in" class="col-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="nft xTech-bntbox">
+                                <a @if (item2.DacBiet == true) { <text> href="/danhmuc/loaiacc/@item2.slug" </text>  } else { <text> href="/danhsach/loaiacc/@item2.slug" </text> } class="main">
+                                    <img class="tokenImage" src="@item2.Image" alt="NFT">
+                                    <h2 class="text-center mt-3 mb-1 mb-md-3 ten-loai-acc text-dark">@item2.TenLoaiAcc</h2>
+                                    <div class="tokenInfo text-dark">
+                                        <div class="price text-dark">
+                                            <ins>◘</ins>
+                                            <p>Đang bán: @item2.DangBan</p>
+                                        </div>
+                                        <div class="duration text-dark">
+                                            <ins>◷</ins>
+                                            <p>Đã bán: @item2.DaBan</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <!--<div class="creator text-dark">
+                                <div class="wrapper">
+                                    <img src="/Content/images/icon-card.jpg" alt="Creator">
+                                </div>-->
+                                    @*                                        <p class="text-dark"><ins class="text-dark">Cung cấp bởi</ins> <span class="change-domain text-dark"></span></p>
+                                    *@                                    <!--</div>-->
+                                </a>
+                            </div>
+                        </div>
+
+                    }
+                }
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,251 @@
+﻿@model IEnumerable<accgame.Context.DanhMuc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .thongbaomuaacc_text a {
+        color: #ffc107;
+    }
+    .text-mota a {
+        color: #ffc107;
+    }
+
+</style>
+<section id="about" class="about about-acc">
+    <div class="container">
+        <div class="MuiBox-root acc-title @(ViewBag.Mota != null ? "acc-title2" : "")">
+            <div class="text-center">
+                <h2 class="fw-bold fs-1 desc-top-slider">@ViewBag.tenLoai</h2>
+            </div>
+            @if (ViewBag.Mota != null)
+            {
+                <div class="p-3 bg-white rounded-3 w-100 mx-auto mt-md-0 mt-5" style="opacity: 0.5; border: 1px solid #0000003d;">
+                    <h6 class="text-dark text-mota" style="text-shadow:none;">
+                        @Html.StripParagraphTags(ViewBag.Mota as string)
+                    </h6>
+                </div>
+            }
+            @if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true)
+            {
+                <h6 class="text-danger mt-3">( Giá sale áp dụng cho tài  khoản được cấp quyền CTV của shop! )</h6>
+            }
+        </div>
+
+        <div class="row justify-content-center pt-5">
+            @if (@ViewBag.listLoaiAcc != null)
+            {
+                foreach (var item2 in @ViewBag.listLoaiAcc)
+                {
+                <div data-aos="zoom-in" class="col-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="nft xTech-bntbox">
+                        <a @if (item2.DacBiet == true) { <text> href="/danhmuc/loaiacc/@item2.slug" </text>  } else { <text> href="/danhsach/loaiacc/@item2.slug" </text> } class="main">
+                            <img class="tokenImage" src="@item2.Image" alt="NFT">
+                            <h2 class="text-center mt-3 mb-1 mb-md-3 ten-loai-acc text-dark">@item2.TenLoaiAcc</h2>
+                            <div class="tokenInfo text-dark">
+                                <div class="price text-dark">
+                                    <ins>◘</ins>
+                                    <p>Đang bán: @item2.DangBan</p>
+                                </div>
+                                <div class="duration text-dark">
+                                    <ins>◷</ins>
+                                    <p>Đã bán: @item2.DaBan</p>
+                                </div>
+                            </div>
+                            <hr>
+                        </a>
+                    </div>
+                </div>
+
+                }
+            }
+        </div>
+
+        <div class="row g-3 mt-5 @(ViewBag.Mota != null ? "pt-2" : "") justify-content-center">
+            @foreach (var item in Model)
+            {
+
+                <div data-aos="zoom-in" class="danh-muc-loai-acc col-12 col-md-6 col-lg-4 col-xl-3 position-relative danhmuc-custom" style="">
+                    @if (item.HienCo < 1)
+                    {
+                        <img class="position-absolute end-0" style="z-index: 2; transform: rotate(12deg);" src="~/Content/images/soldout2.png" width="100" alt="Alternate Text" />
+                    }
+                    <div class="nft xTech-bntbox">
+                        <div class='main'>
+                            <img class='tokenImage' src="@item.AnhDanhMuc" alt="NFT" />
+
+                            <h2 class="text-center mt-3 mb-1 mb-md-3 ten-loai-acc text-dark">@item.TenDanhMuc</h2>
+                            <p class='mota-danh-muc' style="color: #205678 ">@item.MoTa</p>
+                            <div class='tokenInfo'>
+                                @if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true && ViewBag.OnOffCtvCollab == true)
+                                {
+                                    if (item.GiaCtvCollab != null)
+                                    {
+                                        <div class="gia-loai-acc">
+                                            Giá ( Ctv-Collab ): <br /> @Convert.ToInt32(item.GiaCtvCollab).ToString("N0").Replace(",", ".")đ
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-danger mb-2">Chưa có giá cho Ctv-Collab!</span>
+
+                                        <div class="gia-loai-acc">
+                                            Giá: @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="gia-loai-acc">
+                                        Giá : @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ
+                                    </div>
+                                }
+                                <div class="duration">
+                                    <button class="btn btn-primary btn-sm rounded-pill mb-2 fw-bold fs-6 text-light shadow" data-bs-toggle="modal" data-bs-target="#dm_@item.IDDanhMuc">Mua ngay</button>
+
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="tokenInfo mb-2">
+                                <div class="row duration me-0 ms-0">
+                                    <div class="col-6">
+                                        <ins class="pt-2 text-dark text-nowrap">AR Lerver: @item.DanhMucLevel</ins>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <ins class="pt-2 text-dark">Lượt Roll: @item.LuotRoll</ins>
+                                    </div>
+                                    <div class="col-6">
+                                        <ins class="pt-2 text-dark">Hiện có: @Convert.ToInt32(item.HienCo)</ins>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <ins class="pt-2 text-dark">Đã bán: @Convert.ToInt32(item.DaBan)</ins>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<div class='creator'>
+            <div class='wrapper'>
+                <img src="~/Content/images/icon-card.jpg" alt="Creator" />
+            </div>-->
+                            @*                                <p><ins class="text-dark">Cung cấp bởi</ins> <span class="change-domain text-dark"></span></p>
+                            *@                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="dm_@item.IDDanhMuc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content position-relative">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-3 text-danger fw-bold" id="exampleModalLabel">MUA TÀI KHOẢN</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-danger text-center">
+                                @if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true && ViewBag.OnOffCtvCollab == true)
+                                {
+                                    if (item.GiaCtvCollab != null)
+                                    {
+                                        <h3>Giá ( Ctv-Collab ): @Convert.ToInt32(item.GiaCtvCollab).ToString("N0").Replace(",", ".")đ </h3>
+                                        <p class="fs-5">Bạn muốn mua tài khoản <span class="text-dark">@item.TenDanhMuc</span> với giá <span id="gia_@item.IDDanhMuc"> @Convert.ToInt32(item.GiaCtvCollab).ToString("N0").Replace(",", ".")đ</span>?</p>
+                                    }
+                                    else
+                                    {
+                                        <h3>Giá:  @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ</h3>
+                                        <p class="fs-5">Chưa có giá Ctv cho tk này. Bạn muốn mua tài khoản <span class="text-dark">@item.TenDanhMuc</span> với giá thường <span id="gia_@item.IDDanhMuc" class="price"> @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ</span>?</p>
+                                    }
+                                }
+                                else
+                                {
+                                    <h3>Giá:  @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ</h3>
+                                    <p class="fs-5">Bạn muốn mua tài khoản <span class="text-dark">@item.TenDanhMuc</span> với giá <span id="gia_@item.IDDanhMuc"> @Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".")đ</span> ?</p>
+                                }
+                                <p class="fs-5 thongbaomuaacc_text">
+                                    @Html.StripParagraphTags(item.ThongBaoMuaAcc)
+                                </p>
+
+                                <input id="soluong_@item.IDDanhMuc" class="text-center form-control rounded-pill p-3 fw-bold fs-6" name="soluong" type="number" value="1" placeholder="Nhập số lượng muốn mua!">
+                                <div id="change_@item.IDDanhMuc" class="text-center text-primary fw-bold">
+
+                                </div>
+                                <div class="mx-auto" style="display: none" id="loader_@item.IDDanhMuc">
+                                    <div colspan="4" class="text-center" style="border-bottom-width: 0px !important">
+                                        <div class="spinner-border text-danger text-center" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer d-flex justify-content-center">
+                                <a id="muangay_@item.IDDanhMuc" href="/danhmuc/muataikhoan/@item.IDDanhMuc?soluong=1" class="btn btn-danger rounded-pill" data-ajax="true" data-ajax-loading="#loader_@item.IDDanhMuc" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#change_@item.IDDanhMuc">Mua ngay</a>
+                            </div>
+                            @if (Session["IDNguoiDung"] == null || Session["IDNguoiDung"].Equals(0))
+                            {
+                                <span class="text-primary text-center py-3 ">
+                                    Bạn phải <a href="/dangnhap" class="btn btn-danger rounded-pill btn-sm mx-2">Đăng nhập</a> mới có thể mua!
+                                </span>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                if (ViewBag.CtvCollabCauHinh != null && ViewBag.CtvCollab == true && ViewBag.OnOffCtvCollab == true && item.GiaCtvCollab != null)
+                {
+
+                <script>
+                    $("#soluong_@item.IDDanhMuc").on('keyup change', function () {
+                        var itemId = @item.IDDanhMuc;
+                        var itemPrice = @item.GiaCtvCollab;
+
+                        // Gọi thẻ theo dõi chuyển đổi Google Ads (thêm mã chuyển đổi vào đây)
+                        gtag('event', 'purchase', {
+                            "transaction_id": itemId,
+                            "affiliation": "Website của tôi",
+                            "value": itemPrice,
+                            "currency": "VND"
+                        });
+                        var soluong = $("#soluong_@item.IDDanhMuc").val();
+                        if (soluong > 0) {
+                            $("#gia_@item.IDDanhMuc").text(soluong * @item.GiaCtvCollab);
+                            $('#muangay_@item.IDDanhMuc').attr('href', '/danhmuc/muataikhoan/@item.IDDanhMuc?soluong=' + soluong)
+                        }
+                        else {
+                            $("#soluong_@item.IDDanhMuc").val("1");
+                        }
+                    });
+                </script>
+                }
+                else
+                {
+
+                <script>
+                    $("#soluong_@item.IDDanhMuc").on('keyup change', function () {
+                        var itemId = @item.IDDanhMuc;
+                        var itemPrice = @item.Gia;
+
+                        // Gọi thẻ theo dõi chuyển đổi Google Ads (thêm mã chuyển đổi vào đây)
+                        gtag('event', 'purchase', {
+                            "transaction_id": itemId,
+                            "affiliation": "Website của tôi",
+                            "value": itemPrice,
+                            "currency": "VND"
+                        });
+                        var soluong = $("#soluong_@item.IDDanhMuc").val();
+                        if (soluong > 0) {
+                            $("#gia_@item.IDDanhMuc").text(soluong * @item.Gia);
+                            $('#muangay_@item.IDDanhMuc').attr('href', '/danhmuc/muataikhoan/@item.IDDanhMuc?soluong=' + soluong)
+                        }
+                        else {
+                            $("#soluong_@item.IDDanhMuc").val("1");
+                        }
+                    });
+
+                </script>
+                }
+            }
+
+        </div>
+
+    </div>
+</section>

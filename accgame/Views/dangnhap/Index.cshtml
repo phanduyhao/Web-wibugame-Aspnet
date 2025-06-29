@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about">
+    <div class="container mt-5">
+        <div class="d-flex align-items-center justify-content-center mh-100">
+            <div class="w-100" style="">
+                <form action="/dangnhap" method="post" class="text-center form-dangky shadow-lg p-2 p-sm-4 rounded-1">
+                    <div class="border-dangky">
+                        <div class="pb-3">
+                            <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                                Đăng nhập tài khoản
+                            </h2>
+                            <img class="img-fluid" src="~/Content/assets/img/AuthDevider.png" />
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input required type="text" class="form-control login-input rounded-pill p-3 p-sm-3 p-md-4 fw-bold fs-6" value="@ViewBag.TenNguoiDung" placeholder="Tên đăng nhập" id="TenNguoiDung" name="TenNguoiDung">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input required type="password" class="form-control login-input rounded-pill p-3 p-sm-3 p-md-4  fw-bold fs-6" value="@ViewBag.MatKhau" placeholder="Mật khẩu" name="MatKhau" id="MatKhau">
+                        </div>
+                        <div class="text-center fw-bold text-danger">
+                            @ViewBag.loi
+                        </div>
+                        <div class="py-2 py-sm-3 fw-bold text-center" style="color: #726550">
+                            Bạn chưa có tài khoản? <a href="/dangky" class="text-primary">Đăng ký</a>
+                        </div>
+                        <div class="py-2 py-sm-3 fw-bold text-center" style="color: #726550">
+                            Bạn không nhớ mật khẩu? <a href="/quenmatkhau" class="text-primary">Quên mật khẩu</a>
+                        </div>
+
+                        <button type="submit" class="col-lg-4 col-sm-9 col-12 btn position-relative shadow-none text-center mt-3">
+                            <img class="img-fluid" src="/Content/assets/img/Layer-button.png">
+                            <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white text-nowrap">Đăng nhập</span>
+                        </button>
+                        <div>
+                            <a class="btn mt-3 mb-3 btn-primary" href="/Account/login"> <img width="25" src="~/Content/images/google.png" /> Đăng nhập bằng Google</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

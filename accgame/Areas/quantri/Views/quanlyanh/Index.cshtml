@@ -1,0 +1,111 @@
+﻿@model PagedList.IPagedList<accgame.Context.Anh_Acc>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "sua";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Thêm ảnh mởi</h4>
+                </div>
+                <div class="card-body">
+                    @if(ViewBag.notify != null)
+                    {
+                        <div class="alert-danger mb-3">
+                            @ViewBag.notify
+                        </div>
+                    }
+                     <form enctype="multipart/form-data" method="post">
+                         <input type="hidden" value="@ViewBag.page"/>
+                         <div>
+                             <label class="form-label">Chọn ảnh</label>
+                             <input type="file" class="form-control" name="ImageUpload" />
+                         </div>
+                         <div class="mt-3">
+                             <button class="btn btn-danger">Tải lên</button>
+                         </div>
+                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover my-0">
+                            <thead>
+                                <tr>
+                                    <th>Ảnh</th>
+                                    <th class="">Đường dẫn</th>
+                                    <th class="">Thời gian</th>
+                                    <th class=""></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var thoiGian24h = item.ThoiGian.HasValue
+                                        ? item.ThoiGian.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                        : string.Empty;
+                                    <tr id="Anh_@item.IDAnh_Acc">
+                                        <td style="width: 200px">
+
+                                            <img class="w-100" style="object-fit: cover" height="100" src="@item.DuongDanAnh" />
+                                        </td>
+                                        <td>@item.DuongDanAnh</td>
+                                        <td>@thoiGian24h</td>
+                                        <td>
+                                            <a onclick="myFunction(this)" data-value="@item.IDAnh_Acc" class="badge bg-success">Xóa ảnh</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div>
+                        @Html.PagedListPager(Model, page => Url.Action("index", new { page }))
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>
+<script>
+    function myFunction(element) {
+        var value = $(element).data('value');
+        xoa(value);
+    }
+    function xoa(data) {
+        var model = {};
+        model.ID = data;
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: '/quantri/quanlytaikhoan/xoaanh',
+            data: JSON.stringify(model),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+
+                var id = "#Anh_" + model.ID;
+                debugger;
+                $(id).attr("class", "d-none");
+            },
+            error: function () {
+                alert("Loi");
+            }
+        });
+    }
+</script>

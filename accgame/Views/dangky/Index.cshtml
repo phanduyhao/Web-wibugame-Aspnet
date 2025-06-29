@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="about" class="about">
+    <div class="container mt-5">
+        <div class="d-flex align-items-center justify-content-center mh-100">
+            <div class="w-100" style="">
+                <form action="/dangky" method="post" onsubmit="return validateReForm()" class="text-center form-dangky shadow-lg p-2 p-sm-4 rounded-1">
+                    <div class="border-dangky">
+                        <div class="pb-3">
+                            <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                                Đăng ký tài khoản
+                            </h2>
+                            <img class="img-fluid" src="~/Content/assets/img/AuthDevider.png" />
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input required type="text" class="form-control login-input rounded-pill p-3 p-sm-3 p-md-4 fw-bold fs-6" placeholder="Tên đăng nhập" value="@ViewBag.TenNguoiDung" id="TenNguoiDung" name="TenNguoiDung">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input required type="password" class="form-control login-input rounded-pill p-3 p-sm-3 p-md-4  fw-bold fs-6" placeholder="Mật khẩu" value="@ViewBag.MatKhau" name="MatKhau" id="MatKhau">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input required type="password" class="form-control login-input rounded-pill p-3 p-sm-3 p-md-4  fw-bold fs-6" placeholder="Nhập lại mật khẩu" value="@ViewBag.NhapLaiMatKhau" name="NhapLaiMatKhau" id="NhapLaiMatKhau">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input required type="email" class="form-control login-input rounded-pill p-3 p-sm-3 p-md-4  fw-bold fs-6" placeholder="Email" value="@ViewBag.Email" name="Email" id="Email">
+                        </div>
+                        <div class="text-center fw-bold text-danger">
+                            @ViewBag.loi
+                        </div>
+                        <div class="py-2 py-sm-3 fw-bold text-center" style="color: #726550">
+                            Bạn đã có tài khoản? <a href="/dangnhap" class="text-primary">Đăng nhập</a>
+                        </div>
+                        <button type="submit" class="col-lg-4 col-sm-9 col-12 btn shadow-none position-relative text-center mt-3">
+                            <img class="img-fluid" src="/Content/assets/img/Layer-button.png">
+                            <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white text-nowrap">Đăng ký</span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+        function validateReForm() {
+            var password = document.getElementById("MatKhau").value;
+            var confirmPassword = document.getElementById("NhapLaiMatKhau").value;
+            var tenNguoiDung = document.getElementById("TenNguoiDung").value;
+            var pattern = /^[a-zA-Z0-9]*$/; // Mẫu cho phép chỉ chứa chữ cái và chữ số
+            console.log(confirmPassword);
+            if (!pattern.test(tenNguoiDung)) {
+                alert("Tên tài khoản không được chứa dấu và ký tự đặc biệt!");
+                return false; // Ngăn form được submit
+            }
+            if (password !== confirmPassword) {
+                alert("Mật khẩu và mật khẩu nhập lại không khớp!");
+                return false; // Ngăn form được submit
+            }
+
+            // Nếu mật khẩu và nhập lại mật khẩu khớp, form sẽ được submit bình thường
+            return true;
+        }
+</script>

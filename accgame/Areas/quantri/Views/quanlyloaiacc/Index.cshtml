@@ -1,0 +1,223 @@
+﻿@model IEnumerable<accgame.Context.LoaiAcc>
+@{
+    ViewBag.Title = "Quản lý loại acc";
+    Layout = "~/areas/quantri/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<main class="content">
+    <div class="row">
+        @if (ViewBag.loi != null)
+        {
+            <div class="col-12">
+                <div class="alert-danger">
+                    @ViewBag.loi
+                </div>
+            </div>
+        }
+
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <form action="/quantri/quanlyloaiacc" method="post">
+                        <div class="row g-3">
+                            <div class="col-6 col-md-3">
+                                <input type="text" required class="form-control" name="TenLoaiAcc" placeholder="Tên loại ACC">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="text" required class="form-control" name="Image" placeholder="Ảnh đại diện">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input name="MoTa" required type="text" class="form-control" placeholder="Mô tả" />
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="number" required class="form-control" name="STT" placeholder="Số thứ tự">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="number" required class="form-control" name="DaBan" placeholder="Đã bán">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="text" required class="form-control" name="Server" placeholder="Server">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <select name="IDLoaiAccCha" class="form-select">
+                                    <option value="" selected>Loại Acc Cha</option>
+                                    @foreach (var item in Model)
+                                    {
+                                        <option value="@item.IDLoaiAcc">@item.TenLoaiAcc</option>
+                                    }
+
+                                </select>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <select name="IDLoaiGame" class="form-select">
+                                    @foreach (var item in ViewBag.loaigame)
+                                    {
+                                        <option value="@item.IDLoaiGame">@item.TenLoaiGame</option>
+                                    }
+
+                                </select>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <select name="DacBiet" class="form-select">
+                                    <option value="false">Loại thường</option>
+                                    <option value="true">Loại random</option>
+                                </select>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <select name="Hide" class="form-select">
+                                    <option value="false">Ẩn loại acc này?</option>
+                                    <option value="false">Hiện</option>
+                                    <option value="true">Ẩn</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <button class="btn btn-primary" type="submit">Thêm loại Acc</button>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <button class="btn btn-danger" id="loadLoaiAcc" type="button">Load loại acc</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Loại Acc</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th class="">Tên loại Acc</th>
+                                <th class="">Avatar</th>
+                                <th class="">Trạng Thái</th>
+                                <th class="">Danh Mục Cha</th>
+                                <th class="">Loại Game</th>
+                                <th class=""></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.STT</td>
+                                    <td>@item.TenLoaiAcc</td>
+                                    <td><img width="40" height="40" class="rounded-circle" src="@item.Image" /> </td>
+                                    <td>
+                                        @if (item.Hide == true)
+                                        {
+                                            <div class="badge bg-danger">
+                                                Đã ẩn
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="badge bg-danger">
+                                                Hiển thị
+                                            </div>
+                                        }
+                                    </td>
+                                    <td class="fw-bold">
+                                        @(item.LoaiAcc2?.TenLoaiAcc?? "")
+                                    </td>
+                                    <td>
+                                        @(item.LoaiGame?.TenLoaiGame ?? "")
+                                    </td>
+                                    <td>
+                                        <a href="/quantri/quanlyloaiacc/sua/@item.IDLoaiAcc" class="badge bg-success">Sửa</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @if (TempData["SuccessThem"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Thêm mới thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["SuccessSua"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Chỉnh sửa thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+</main>
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#loadLoaiAcc").click(function () {
+            var button = $(this);
+            button.attr("disabled", true);
+            axios.post('/quantri/quanlyloaiacc/loadLoaiAcc').then(function (response) {
+                if (response.data.status === "success") {
+                    Swal.fire({
+                        text: "Load danh sách game thành công!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        },
+                        didClose: function () {
+                            location.reload();
+                        }
+                    });
+                } else {
+                    console.log(JSON.stringify(response.data));
+                    Swal.fire({
+                        text: response.data.status,
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+                }
+                button.attr("disabled", false);
+            }).catch(function (error) {
+                Swal.fire({
+                    text: "Có lỗi xảy ra, vui lòng thử lại!",
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "Đóng",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                });
+            });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Kiểm tra nếu phần tử success toast tồn tại
+        var successToastElement = document.getElementById('successToast');
+        if (successToastElement) {
+            var successToast = new bootstrap.Toast(successToastElement);
+            successToast.show();
+        }
+    });
+
+</script>

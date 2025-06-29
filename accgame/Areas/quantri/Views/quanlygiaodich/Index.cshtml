@@ -1,0 +1,140 @@
+﻿
+@model PagedList.IPagedList<accgame.Context.BienDongSoDu>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Quản lý giao dịch";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+<main class="content">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h4>Danh sách giao dịch</h4>
+        </div>
+        <div class="card-body">
+            <div class="mt-5">
+                <form class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Tìm kiếm</label>
+                        <input type="text" value="@ViewBag.search" id="search" name="search" class="form-control" placeholder="Tìm kiếm">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Thời gian bắt đầu</label>
+                        <input type="datetime-local" id="timeStart" name="timeStart" class="form-control" placeholder="Bắt đầu">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Thời gian kết thúc</label>
+                        <input type="datetime-local" value="@ViewBag.timeEnd" id="timeEnd" name="timeEnd" class="form-control" placeholder="Kết thúc">
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <button class="btn btn-primary">Lọc</button>
+                    </div>
+                </form>
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr class="bg-success fs-6">
+                                <th class="text-uppercase text-white text-nowrap">ID</th>
+                                <th class="text-uppercase text-white text-nowrap">THỜI GIAN</th>
+                                <th class="text-uppercase text-white text-nowrap">GIÁ TRỊ</th>
+                                <th class="text-uppercase text-white text-nowrap">TIỀN TRƯỚC</th>
+                                <th class="text-uppercase text-white text-nowrap">TIỀN SAU</th>
+                                <th class="text-uppercase text-white text-nowrap">TRẠNG THÁI</th>
+                                <th class="text-uppercase text-white text-nowrap">NGƯỜI DÙNG</th>
+                                <th class="text-uppercase text-white text-nowrap">THÔNG TIN</th>
+                            </tr>
+                        </thead>
+                        <tbody class="fs-6">
+                            @foreach (var item in Model)
+                            {
+                                <tr class="text-dark">
+                                    <td class="align-middle">
+                                        <span style="font-weight: 700" class="mb-0 text-sm">#@item.IDBienDongSoDu</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span style="font-weight: 400" class="mb-0 text-sm">@item.ThoiGian</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span class="fw-bold">@Convert.ToInt32(item.SoTien).ToString("N0")</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span class="fw-bold">@Convert.ToInt32(item.TienTruoc).ToString("N0")</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span class="fw-bold">@Convert.ToInt32(item.TienSau).ToString("N0")</span>
+                                    </td>
+                                    <td class="text-sm align-middle">
+                                        @if (item.TruTien == true)
+                                        {
+                                            <span class="badge bg-danger">Trừ tiền</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-primary">Cộng tiền</span>
+                                        }
+                                    </td>
+                                    <td class="text-sm align-middle">
+                                        <span class="">@item.NguoiDung.TenNguoiDung</span>
+                                    </td>
+                                    <td class="text-sm align-middle">
+                                        <span class="">@item.LoiNhan</span>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    @Html.PagedListPager(Model, page => Url.Action("index", new { page, timeStart = ViewBag.timeStart, timeEnd = ViewBag.timeEnd, search = ViewBag.search }))
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</main>
+
+<script>
+    $(document).ready(function () {
+        var table = $('#example').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "responsive": true,
+            "ajax": {
+                "url": "/quantri/quanlygiaodich/BienDongSoDu",
+                "type": "POST",
+                "dataType": "json",
+                "dataSrc": function (json) {
+                    return json.data.map(function (item) {
+                        var date = new Date(parseInt(item.ThoiGian.substr(6)));
+                        var formattedDate = date.getFullYear() + '-' +
+                            ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+                            ('0' + date.getDate()).slice(-2) + ' ' +
+                            ('0' + date.getHours()).slice(-2) + ':' +
+                            ('0' + date.getMinutes()).slice(-2) + ':' +
+                            ('0' + date.getSeconds()).slice(-2);
+                        item.ThoiGian = formattedDate;
+                        return item;
+                    });
+                }
+            },
+            "columns": [
+                { "data": "IDBienDongSoDu" },
+                { "data": "SoTien" },
+                { "data": "LoiNhan" },
+                { "data": "TienTruoc" },
+                { "data": "TienSau" },
+                { "data": "ThoiGian" }
+            ]
+        });
+
+        // Sự kiện tìm kiếm theo thời gian
+        $('#searchDate').on('keyup', function () {
+            table.columns(5).search(this.value).draw();
+        });
+    });
+</script>

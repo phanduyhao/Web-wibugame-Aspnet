@@ -1,0 +1,158 @@
+﻿@model IEnumerable<accgame.Context.NguoiDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout2.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <form class="input-group mb-2">
+                        <button class="input-group-text btn btn-danger fw-bold">Tìm kiếm</button>
+                        <input type="text" class="form-control" name="search" placeholder="Tìm kiếm ID, Email, Tên người dùng">
+                    </form>
+                </div>
+                <div class="col-12">
+                    <a href="/quantri/QNguoiDung/DanhSachCong" class="btn btn-danger">Danh sách admin cộng tiền</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Tên người dùng
+                        </th>
+                        <th>
+                            Số dư
+                        </th>
+                        <th>
+                            Ngày tham gia
+                        </th>
+                        <th>
+                            Cấp độ quản trị
+                        </th>
+                        <th>
+                            Tiền đã nạp
+                        </th>
+                        <th>
+                            Hoa hồng CTV
+                        </th>
+                        <th>
+                            Tiền nạp tháng
+                        </th>
+                        <th>
+                            Tỷ lệ hoa hồng
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IDNguoiDung)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenNguoiDung)
+                            </td>
+
+                            <td class="price">
+                                @if (item.Tien > 4000000)
+                                {
+                                    <span>0</span>
+                                }
+                                else
+                                {
+                                    @Html.DisplayFor(modelItem => item.Tien)
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NgayThamGia)
+                            </td>
+                            <td>
+                                @if (item.LeverAdmin == 1)
+                                {
+                                    <text>Quản trị viên</text>
+                                }
+                                else if (item.LeverAdmin == 2)
+                                {
+                                    <text>Cộng tác viên</text>
+                                }
+                                else
+                                {
+                                    <text>Dân thường</text>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TienNap)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HoaHong)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TienNapThang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phantramhoahong)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Quản trị", "Edit", new { id = item.IDNguoiDung })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+        </div>
+        <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+            <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="?page=1&search=@ViewBag.search&ctv=@ViewBag.ctvt">«</a></li>
+            @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+            {
+                if (i > 0)
+                {
+                    if (i == Convert.ToInt16(ViewBag.page))
+                    {
+                        <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="?page=@i&search=@ViewBag.search&ctv=@ViewBag.ctvt">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="?page=@i&search=@ViewBag.search&ctv=@ViewBag.ctvt">@i</a></li>
+                    }
+                }
+            }
+            @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+            {
+                if (i <= Convert.ToInt16(ViewBag.last_page))
+                {
+                    if (i == Convert.ToInt16(ViewBag.page))
+                    {
+                        <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="?page=@i&search=@ViewBag.search&ctv=@ViewBag.ctvt">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="?page=@i&search=@ViewBag.search&ctv=@ViewBag.ctvt">@i</a></li>
+                    }
+                }
+            }
+            <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="?page=@ViewBag.last_page&search=@ViewBag.search&ctv=@ViewBag.ctvt">»</a></li>
+        </ul>
+    </div>
+</main>
+
+
+

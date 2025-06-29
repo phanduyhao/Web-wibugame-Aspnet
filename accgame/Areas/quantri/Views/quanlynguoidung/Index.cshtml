@@ -1,0 +1,211 @@
+﻿@model IEnumerable<accgame.Context.NguoiDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="card">
+        <div class="card-body">
+            <form action="/quantri/quanlynguoidung/index" class="input-group mb-2">
+                <button class="input-group-text btn btn-danger fw-bold">Tìm kiếm</button>
+                <input type="text" class="form-control" name="search" placeholder="Tìm kiếm ID, Email, Tên người dùng">
+            </form>
+            <div>
+                <a href="/quantri/quanlynguoidung/ListCongTien" class="btn btn-success load-so-luong" data-load="/soluongMenu/adminCongTien">Danh sách cộng tiền</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <!-- Button to open modal -->
+            <button id="btn-show-passwords" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Hiển thị mật khẩu tất cả</button>
+
+            <!-- Modal -->
+            <div class="modal fade mt-2" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display:none">
+                <div class="modal-dialog p-3 border">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nhập mật khẩu Cấp 2</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="adminPasswordForm">
+                                <div class="form-group">
+                                    <label for="adminPassword">Mật khẩu Admin</label>
+                                    <input type="password" class="form-control" id="adminPassword" placeholder="Nhập mật khẩu Cấp 2">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary" id="submitAdminPassword">Xác nhận</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên người dùng</th>
+                            <th>Mật khẩu</th>
+                            <th>Email</th>
+                            <th>Số dư</th>
+                            <th>Ngày tham gia</th>
+                            <th>Cấp độ quản trị</th>
+                            <th>Tiền đã nạp</th>
+                            <th>Hoa hồng CTV</th>
+                            <th>Tiền nạp tháng</th>
+                            <th>Tỷ lệ hoa hồng</th>
+                            <th>Ctv-Collab</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="password-field @(item.Block == true ? "text-danger" : "")" data-p="@item.MatKhau">
+
+                                <td>@Html.DisplayFor(modelItem => item.IDNguoiDung)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TenNguoiDung)</td>
+                                <td class="masked-password">******</td>
+                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td class="price">@Html.DisplayFor(modelItem => item.Tien)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NgayThamGia)</td>
+                                <td>
+                                    @if (item.LeverAdmin == 1)
+                                    {
+                                        <text>Quản trị viên</text>
+                                    }
+                                    else if (item.LeverAdmin == 2)
+                                    {
+                                        <text>Cộng tác viên</text>
+                                    }
+                                    else if (item.LeverAdmin == 3)
+                                    {
+                                        <text>Quản lý</text>
+                                    }
+                                    else
+                                    {
+                                        <text>Dân thường</text>
+                                    }
+                                </td>
+                                <td class="price">@Html.DisplayFor(modelItem => item.TienNap)</td>
+                                <td>@Html.DisplayFor(modelItem => item.HoaHong)</td>
+                                <td class="price">@Html.DisplayFor(modelItem => item.TienNapThang)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Phantramhoahong)</td>
+                                <td>
+                                    @if (item.CtvCollab == true)
+                                    {
+                                        <img src="~/Areas/quantri/Content/img/icons/check.png" width="20" />
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Sửa", "Edit", new { id = item.IDNguoiDung })
+                                    @if (item.LeverAdmin == 2 || item.LeverAdmin == 1)
+                                    {
+                                        // Lấy giá trị AnAccVip từ ViewBag
+                                        bool isChecked = ViewBag.AnAccVipDict.ContainsKey(item.IDNguoiDung) ? ViewBag.AnAccVipDict[item.IDNguoiDung] : false;
+                                        <div class="d-flex align-items-center border border-danger p-2 mt-3">
+                                            <input class="an-acc-checkbox me-2 " type="checkbox" name="AnAccVip" style="height:20px; width:20px" data-id="@item.IDNguoiDung" @(isChecked ? "checked" : "") />
+                                            <label class="fw-bold text-danger text-nowrap">Ẩn Acc Vip</label>
+                                        </div>
+
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+            <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlynguoidung?page=1&search=@ViewBag.search&ctv=@ViewBag.ctvt">«</a></li>
+            @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+            {
+                if (i > 0)
+                {
+                    if (i == Convert.ToInt16(ViewBag.page))
+                    {
+                        <li><a class="text-white px-3 py-2 bg-primary border-1 border border-white" href="/quantri/quanlynguoidung?page=@i&search=@ViewBag.search&ctv=@ViewBag.ctvt">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlynguoidung?page=@i&search=@ViewBag.search&ctv=@ViewBag.ctvt">@i</a></li>
+                    }
+                }
+            }
+            @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+            {
+                if (i <= Convert.ToInt16(ViewBag.last_page))
+                {
+                    if (i == Convert.ToInt16(ViewBag.page))
+                    {
+                        <li><a class="text-white px-3 py-2 bg-primary border-1 border border-white" href="/quantri/quanlynguoidung?page=@i&search=@ViewBag.search&ctv=@ViewBag.ctvt">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlynguoidung?page=@i&search=@ViewBag.search&ctv=@ViewBag.ctvt">@i</a></li>
+                    }
+                }
+            }
+            <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlynguoidung?page=@ViewBag.last_page&search=@ViewBag.search&ctv=@ViewBag.ctvt">»</a></li>
+        </ul>
+    </div>
+</main>
+
+<script>
+$(document).ready(function () {
+    // Khi admin bấm nút "Xác nhận" trong modal
+    $('#submitAdminPassword').click(function () {
+        var adminPassword = $('#adminPassword').val();
+
+        // Gửi yêu cầu AJAX tới server để kiểm tra mật khẩu admin
+        $.ajax({
+            url: '@Url.Action("CheckAdminPassword", "quanlynguoidung")',
+            type: 'POST',
+            data: { password: adminPassword },
+            success: function (response) {
+                if (response.success) {
+                    // Nếu mật khẩu admin đúng, hiển thị mật khẩu tất cả người dùng
+                    $('.password-field').each(function () {
+                        $(this).find('.masked-password').text($(this).data('p')); // Cập nhật nội dung ô mật khẩu thành mật khẩu thực tế
+                    });
+                    $('#exampleModal').modal('hide'); // Đóng modal
+                } else {
+                    alert('Mật khẩu Cấp 2 không đúng! Vui lòng thử lại.');
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra! Vui lòng thử lại.');
+            }
+        });
+    });
+
+    $(".an-acc-checkbox").change(function () {
+            var isChecked = $(this).is(":checked");
+            var userId = $(this).data("id");
+
+            $.ajax({
+                url: '@Url.Action("AnAccVip", "quanlynguoidung")',
+                type: "POST",
+                data: { AnAccVip: isChecked, IdUser: userId },
+                success: function (response) {
+                    if (response.success) {
+                        alert("Cập nhật thành công!");
+                    } else {
+                        alert("Cập nhật thất bại! Vui lòng thử lại.");
+                    }
+                },
+                error: function () {
+                    alert("Lỗi kết nối đến server!");
+                }
+            });
+        });
+});
+</script>

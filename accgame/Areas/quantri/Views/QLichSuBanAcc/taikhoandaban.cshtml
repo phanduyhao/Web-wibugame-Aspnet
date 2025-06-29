@@ -1,0 +1,123 @@
+﻿@model IEnumerable<accgame.Context.Acc>
+@{
+    ViewBag.Title = "Tài khoản đã bán";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout2.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <form method="get" class="input-group mb-3">
+                <button type="submit" class="input-group-text" id="basic-addon1">Tìm kiếm</button>
+                <input type="text" required class="form-control" name="search" placeholder="Nhập tên tài khoản hoặc tên người đăng" aria-label="Username" aria-describedby="basic-addon1">
+            </form>
+        </div>
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <div class="text-center">
+                        <a href="/quantri/QLichSuBanAcc" class="btn btn-danger m-3" id="link1">Tài khoản chưa bán</a>
+                        <a href="/quantri/QLichSuBanAcc/taikhoandaban" class="btn btn-outline-danger m-3" id="link2">Tài khoản đã bán</a>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Tài khoản</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th class="">Tên tài khoản</th>
+                                <th class="">Loại game</th>
+                                <th class="">Server</th>
+                                <th class="">Giá</th>
+                                <th class="">Người bán</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>#@item.MaTaiKhoan</td>
+                                    <td>
+                                        <a href="/chitiettaikhoan/xem/@item.MaTaiKhoan">
+                                            @item.TenAcc
+                                        </a>
+                                    </td>
+                                    <td>
+                                        @(item.LoaiGame1?.TenLoaiGame ?? "")
+                                    </td>
+                                    <td>@item.Server</td>
+                                    <td class="price">@item.Gia VNĐ </td>
+                                    <td>@(item.NguoiDung?.TenNguoiDung ?? "")</td>
+
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="?page=1&search=@ViewBag.search">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="?page=@i&search=@ViewBag.search">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="?page=@i&search=@ViewBag.search">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="?page=@i&search=@ViewBag.search">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="?page=@i&search=@ViewBag.search">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="?page=@ViewBag.last_page&search=@ViewBag.search">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script>
+    $(document).ready(function () {
+        function updateButtonClass() {
+            var currentUrl = window.location.pathname;
+            console.log(currentUrl);
+
+            $('a').each(function () {
+                if ($(this).attr('href') === currentUrl) {
+                    $(this).removeClass('btn-outline-danger').addClass('btn-danger');
+                } else {
+                    $(this).removeClass('btn-danger').addClass('btn-outline-danger');
+                }
+            });
+        }
+
+        updateButtonClass();
+
+        $('a').click(function (event) {
+            var newUrl = $(this).attr('href');
+            window.history.pushState(null, '', newUrl);
+            updateButtonClass();
+        });
+    });
+</script>

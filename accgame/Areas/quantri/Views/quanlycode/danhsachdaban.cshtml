@@ -1,0 +1,87 @@
+﻿@model IEnumerable<accgame.Context.Code>
+@{
+    ViewBag.Title = "Danh sách code đã bán";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <a href="/quantri/quanlycode/themcode/@ViewBag.idloaicode" class="btn btn-primary">Thêm mới</a>
+                    </div>
+                </div>
+                <div class="card-header">
+
+                    <h5 class="card-title mb-0">Danh sách code - @ViewBag.tenloaicode</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="">Mã code</th>
+                                <th>Người mua</th>
+                                <th>Thời gian mua</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thoiGian24h = item.ThoiGianMua.HasValue
+                                    ? item.ThoiGianMua.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                <tr>
+                                    <td>#@item.IDCode</td>
+                                    <td>@item.MaCode </td>
+                                    <td>@item.NguoiDung.TenNguoiDung </td>
+                                    <td>@thoiGian24h </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="d-flex ps-0 list-unstyled justify-content-center mt-4">
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlycode/danhsachdaban/@ViewBag.idloaicode?page=1">«</a></li>
+                    @for (int i = Convert.ToInt16(ViewBag.page) - 3; i < Convert.ToInt16(ViewBag.page); i++)
+                    {
+                        if (i > 0)
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlycode/danhsachdaban/@ViewBag.idloaicode?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2  border-1 border border-dark" href="/quantri/quanlycode/danhsachdaban/@ViewBag.idloaicode?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    @for (int i = Convert.ToInt16(ViewBag.page); i <= Convert.ToInt16(ViewBag.page + 3); i++)
+                    {
+                        if (i <= Convert.ToInt16(ViewBag.last_page))
+                        {
+                            if (i == Convert.ToInt16(ViewBag.page))
+                            {
+                                <li><a class="text-white px-3 py-2 bg-primary  border-1 border border-white" href="/quantri/quanlycode/danhsachdaban/@ViewBag.idloaicode?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a class="text-dark px-3 py-2 border-1 border border-dark" href="/quantri/quanlycode/danhsachdaban/@ViewBag.idloaicode?page=@i">@i</a></li>
+                            }
+                        }
+                    }
+                    <li class=""><a class="text-white px-3 py-2 bg-danger border-1 border border-white" href="/quantri/quanlycode/danhsachdaban/@ViewBag.idloaicode?page=@ViewBag.last_page">»</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

@@ -1,0 +1,115 @@
+﻿@model PagedList.IPagedList<accgame.Context.BienDongSoDu>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "hoso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="about" class="about about-acc">
+    <div class="container mt-5">
+        <div class="d-flex align-items-center justify-content-center mh-100">
+            <div class="w-100" style="">
+                <div class="text-center form-dangky shadow-lg p-2 p-md-4 rounded-1 position-relative">
+                    <div class="border-dangky px-md-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div style="border-radius: 30px; border: 1px solid rgb(218, 184, 143); margin-top: 60px; background-color: rgb(244, 236, 224);" class="position-relative p-2 p-md-4">
+                                    <div class="pb-3">
+                                        <h2 class="text-center d-block fw-bold fs-3 mt-3 mt-md-0" style="color: #726550">
+                                            Biến động số dư
+                                        </h2>
+                                        <img class="img-fluid" src="/Content/assets/img/AuthDevider.png">
+                                    </div>
+                                    <div class="mt-4">
+                                        <div class="table-responsive p-0">
+                                            <table class="table align-items-center mb-0">
+                                                <thead>
+                                                    <tr class="bg-success fs-6">
+                                                        <th class="text-uppercase text-white text-nowrap">ID</th>
+                                                        <th class="text-uppercase text-white text-nowrap">THỜI GIAN</th>
+                                                        <th class="text-uppercase text-white text-nowrap">GIÁ TRỊ</th>
+                                                        <th class="text-uppercase text-white text-nowrap">TRẠNG THÁI</th>
+                                                        <th class="text-uppercase text-white text-nowrap">THÔNG TIN</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="fs-6">
+                                                    @foreach (var item in Model)
+                                                    {
+                                                        <tr class="text-dark">
+                                                            <td class="align-middle">
+                                                                <span style="font-weight: 700" class="mb-0 text-sm">#@item.IDBienDongSoDu</span>
+                                                            </td>
+                                                            <td class="align-middle">
+                                                                <span style="font-weight: 400" class="mb-0 text-sm">@item.ThoiGian</span>
+                                                            </td>
+                                                            <td class="align-middle">
+                                                                <span class="fw-bold">@Convert.ToInt32(item.SoTien).ToString("N0")</span>
+                                                            </td>
+                                                            <td class="text-sm align-middle">
+                                                                @if (item.TruTien == true)
+                                                                {
+                                                                    <span class="badge bg-danger">Trừ tiền</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="badge bg-primary">Cộng tiền</span>
+                                                                }
+                                                            </td>
+                                                            <td class="text-sm align-middle">
+                                                                <span class="">@item.LoiNhan</span>
+                                                            </td>
+                                                        </tr>
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        @Html.PagedListPager(Model, page => Url.Action("biendongsodu", new { page }))
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="position-absolute top-0 end-0 menu-hoso">
+                        <a href="/nguoidung/biendongsodu" class="btn fs-11-md-16-lg-24 fw-bold px-5" style="background-image: url('/Content/images/buttonNormal.png'); color: rgb(161, 138, 111);">Biến động số dư</a>
+                        <a href="/nguoidung/hoso" class="btn fs-11-md-16-lg-24 fw-bold px-5" style="background-image: url('/Content/images/backgroundAT.de9a14c4.png'); color: rgb(241, 232, 211); ">Thông tin tài khoản</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="doimatkhau" tabindex="-1" aria-labelledby="doimatkhau" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content form-dangky p-0 m-0 position-relative">
+            <div class="border-dangky p-0">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4 fw-bold text-danger" id="exampleModalLabel">Đổi mật khẩu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input required type="password" class="form-control login-input rounded-pill p-3 fw-bold fs-6" value="@ViewBag.MatKhau" placeholder="Mật khẩu cũ" name="matkhaucu" id="matkhaucu">
+                    <div class="text-danger fw-bold fs-6" id="loi_matkhaucu">
+
+                    </div>
+                    <input required type="password" class="form-control login-input rounded-pill mt-3 p-3 fw-bold fs-6" value="@ViewBag.MatKhau" placeholder="Mật khẩu mới" name="matkhau" id="matkhau">
+                    <div class="text-danger fw-bold fs-6" id="loi_matkhau">
+
+                    </div>
+                    <input required type="password" class="form-control login-input rounded-pill mt-3 p-3 fw-bold fs-6" value="@ViewBag.MatKhau" placeholder="Nhập lại mật khẩu mới" name="nhaplai" id="nhaplai">
+                    <div class="text-danger fw-bold fs-6" id="loi_nhaplai">
+
+                    </div>
+                </div>
+                <div class="modal-footer p-0 justify-content-center">
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger rounded-pill" id="luu_mat_khau">Lưu lại</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

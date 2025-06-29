@@ -1,0 +1,283 @@
+﻿@model accgame.Models.HomeModels
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "GenShin Impact Acc VIP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var hasQueryString = !string.IsNullOrEmpty(Request.QueryString.ToString());
+
+}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container">
+		  <div class="MuiBox-root acc-title ">
+     <div class="text-center">
+         <h2><span class="td">GenShin Acc Vip</span></h2>
+
+     </div>
+ </div>
+        <div class="py-4 position-relative" style=" border-radius: 1.5rem">
+            <form class="row p-4 g-4">
+                <div class="col-lg-3" style="z-index: 991">
+                    <div class="css-timkiem">
+                        <h4 class="ten-game">Tìm theo</h4>
+                        @if (hasQueryString)
+                        {
+                            <button type="button" class="btn btn-secondary rounded-pill" id="resetFilter"><i class="fas fa-times me-2"></i>Xóa lọc</button>
+                        }
+                        <div id="accordionExample">
+                            <div class="my-3">
+                                <label for="searchInputNv" class="form-label ten-game">Tìm nhân vật</label>
+                                <input class="form-control shadow-none" type="text" id="searchInputNv" placeholder="Tìm kiếm nhân vật...">
+
+                                <div class=" mt-3">
+                                    @foreach (var item in Model.listNhanVat)
+                                    {
+                                        <div>
+                                            <input class="form-check-inputnv input-search" type="checkbox" name="nhanvat" value="@item.TenNhanVat" id="nhanvat_@item.IDNhanVat">
+                                            <label class="form-check-labelnv" for="nhanvat_@item.IDNhanVat">
+                                                @item.TenNhanVat
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="my-3">
+                                <label for="searchInputVk" class="form-label ten-game">Tìm vũ khí</label>
+                                <input class="form-control shadow-none" type="text" id="searchInputVk" placeholder="Tìm kiếm vũ khí...">
+
+                                <div class=" mt-3">
+                                    @foreach (var item in Model.listVuKhi)
+                                    {
+                                        <div>
+                                            <input class="form-check-input input-search" type="checkbox" name="vukhi" value="@item.TenVuKhi" id="vukhi_@item.IDVuKhi">
+                                            <label class="form-check-labelvk" for="vukhi_@item.IDVuKhi">
+                                                @item.TenVuKhi
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-3">
+                            <label for="timtheoma" class="form-label ten-game">Tìm theo mã</label>
+                            <input type="text" class="form-control shadow-none" name="timtheoma" id="timtheoma" placeholder="Tìm theo mã">
+                        </div>
+                        <div class="my-3">
+                            <label for="CapKhaiPha" class="form-label ten-game">Cấp khai phá</label>
+                            <input type="number" class="form-control shadow-none" name="CapKhaiPha" id="CapKhaiPha" placeholder="Cấp khai phá">
+                        </div>
+                        <div class="mb-3">
+                            <label for="timtheogia" class="form-label ten-game">Tìm khoảng giá</label>
+                            <select class="form-select form-select-sm mb-3 shadow-none" id="timtheogia" name="timtheogia" aria-label=".form-select-lg example">
+                                <option value="0">Tất cả</option>
+                                <option value="1">Dưới 20k</option>
+                                <option value="2">20k - 100k</option>
+                                <option value="3">100k - 200k</option>
+                                <option value="4">200k  - 300k </option>
+                                <option value="5">300k  - 400k </option>
+                                <option value="6">400k - 500k</option>
+                                <option value="7">500k - 700k</option>
+                                <option value="8">700k - 1tr</option>
+                                <option value="9">1tr - 2tr</option>
+                                <option value="10">2tr - 3tr</option>
+                                <option value="11">3tr - 4tr</option>
+                                <option value="12">4tr - 6tr</option>
+                                <option value="13">6tr - 8tr</option>
+                                <option value="14">8tr - 10tr</option>
+                                <option value="15">Trên 10 triệu</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sapxep" class="form-label ten-game">Sắp xếp theo giá</label>
+                            <select class="form-select form-select-sm mb-3 shadow-none" id="sapxep" name="sapxep" aria-label=".form-select-lg example">
+                                <option value="10">Mặc định</option>
+                                <option value="0">Từ thấp đến cao</option>
+                                <option value="1">Từ cao xuống thấp</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div class="text-center">
+                                <button class="btn btn-danger rounded-pill"><i class="fas fa-search me-2"></i>Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-9" style="z-index: 3">
+                    <div class="row g-3">
+                        @foreach (var item in Model.listPageAcc)
+                        {
+                            <div data-aos="zoom-in" class="col-12 col-sm-6 col-lg-4">
+                                <div class="nft">
+                                    <div class="main m-2 rounded-2" style="background-color: #f1f3f6">
+                                        <div class="custom-block-image-wrap p-2 m-2">
+                                            <a href="/chitiettaikhoan/xem/@item.MaTaiKhoan">
+                                                <img src="@item.AnhDaiDien" class="custom-block-image img-fluid" alt="">
+                                            </a>
+                                        </div>
+
+                                        <div class="mt-3 mb-2 text-center">
+                                            <h6 class="mb-1 px-2">
+                                                <a href="/chitiettaikhoan/xem/@item.MaTaiKhoan" class="fw-bold text-dark max-height-tengame">
+                                                    @item.TenAcc
+                                                </a>
+                                            </h6>
+                                            <p class="text-dark">Server: @item.Server</p>
+                                            @if (item.AnhNhanVat != null && item.AnhNhanVat != "")
+                                            {
+
+                                                <div class="printNhanVat" data-images="@item.AnhNhanVat" data-names="@item.TenNhanVat">
+                                                    <b class="text-dark" style="font-size: 14px">Nhân vật:</b>
+                                                </div>
+                                            }
+
+                                            @if (item.AnhVuKhi != null && item.AnhVuKhi != "")
+                                            {
+                                                <div class="printNhanVat" data-images="@item.AnhVuKhi" data-names="@item.TenVuKhi">
+                                                    <b class="text-dark mt-2" style="font-size: 14px">Vũ khí 5*:</b>
+                                                </div>
+                                            }
+                                            <div class="px-2">
+                                                <div class="w-100 p-3  mt-3 text-center border rounded-3 fw-bold" style="background-color: #fff">
+                                                    @{
+                                                        if (item.PhanTram != null && item.PhanTram != 0)
+                                                        {
+                                                            <span style="font-size: 12px; opacity: .5" class="text-dark d-block text-decoration-line-through text-sm"> @Convert.ToInt32(item.PhanTram).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                        }
+                                                    }
+                                                    <span style="color: rgb(81, 168, 206)">@Convert.ToInt32(item.Gia).ToString("N0").Replace(",", ".") VNĐ</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                        @{
+                            var nhanvatParams = new List<string>();
+                            if (Model.nhanvat != null)
+                            {
+                                foreach (var item in Model.nhanvat)
+                                {
+                                    nhanvatParams.Add($"nhanvat={HttpUtility.UrlEncode(item)}");
+                                }
+                            }
+
+                            var queryString = string.Join("&", nhanvatParams);
+                            if (queryString != null && queryString != "")
+                            {
+                                queryString = "&" + queryString;
+                            }
+                            var vukhiParams = new List<string>();
+                            if (Model.vukhi != null)
+                            {
+                                foreach (var item in Model.vukhi)
+                                {
+                                    vukhiParams.Add($"vukhi={HttpUtility.UrlEncode(item)}");
+                                }
+                            }
+
+                            var queryStringVk = string.Join("&", vukhiParams);
+                            if (queryStringVk != null && queryStringVk != "")
+                            {
+                                queryStringVk = "&" + queryStringVk;
+                            }
+                        }
+                        <div class="col-12">
+                            @Html.PagedListPager(Model.listPageAcc, page => Url.Action("GenShin_Impact_vip", new { page, CapKhaiPha = Model.CapKhaiPha, timtheogia = Model.timtheogia, timtheoma = Model.timtheoma, sapxep = Model.sapxep }) + queryString + queryStringVk)
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
+<script>
+    var divsWithClass = document.querySelectorAll('.printNhanVat');
+    divsWithClass.forEach(function (div) {
+        var imageUrls = div.getAttribute('data-images').split(',');
+        var nameImage = div.getAttribute('data-names').split(',');
+        if (imageUrls.length !== nameImage.length) {
+            console.error('Độ dài của mảng imageUrls và nameImage không phù hợp');
+            return;
+        }
+        imageUrls.forEach(function (url, index) {
+            var divWrapper = document.createElement("div");
+            var imgElement = document.createElement("img");
+            var spanWrapper = document.createElement("span");
+            spanWrapper.textContent = nameImage[index].trim();
+            imgElement.src = url.trim();
+            imgElement.width = 30;
+            imgElement.height = 30;
+            divWrapper.appendChild(imgElement);
+            divWrapper.appendChild(spanWrapper);
+            div.appendChild(divWrapper);
+        });
+    });
+    document.getElementById('resetFilter').addEventListener('click', function () {
+        // Lấy URL hiện tại
+        var currentUrl = window.location.href;
+        // Tìm vị trí dấu '?'
+        var queryStart = currentUrl.indexOf('?');
+        // Nếu có dấu '?', cắt URL trước dấu '?', nếu không thì giữ nguyên URL
+        var newUrl = queryStart > -1 ? currentUrl.substring(0, queryStart) : currentUrl;
+        // Điều hướng đến URL mới
+        window.location.href = newUrl;
+    });
+</script>
+
+
+<style>
+    .printNhanVat div {
+        position: relative;
+        display: inline-block;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+
+    .printNhanVat img {
+        border-radius: 50%;
+        border: 1px solid #808080;
+    }
+
+    .printNhanVat div span {
+        content: attr(data-name);
+        position: absolute;
+        top: -30px;
+        left: 0;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 13px;
+        z-index: 100;
+        opacity: 0;
+        transition: all .3s;
+        border-radius: 10px;
+        padding: 5px 9px;
+        transform: translateX(-50%);
+        visibility: hidden;
+        white-space: nowrap;
+    }
+
+    .printNhanVat div:hover span {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        font-size: 13px;
+        z-index: 100;
+        opacity: 1;
+        border-radius: 10px;
+        padding: 5px 9px;
+        visibility: initial;
+    }
+</style>

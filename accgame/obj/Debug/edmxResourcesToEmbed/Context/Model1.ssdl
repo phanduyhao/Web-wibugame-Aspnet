@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="accgameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Acc">
+    <Key>
+      <PropertyRef Name="IDAcc" />
+    </Key>
+    <Property Name="IDAcc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenAcc" Type="nvarchar" MaxLength="500" />
+    <Property Name="Server" Type="nvarchar" MaxLength="100" />
+    <Property Name="MaTaiKhoan" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChiTiet" Type="nvarchar(max)" />
+    <Property Name="Gia" Type="int" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="IDNguoiMua" Type="int" />
+    <Property Name="ThoiGianDang" Type="datetime" />
+    <Property Name="ThoiGianBan" Type="datetime" />
+    <Property Name="DaBan" Type="bit" />
+    <Property Name="Xoa" Type="bit" />
+    <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="350" />
+    <Property Name="NhanVat" Type="nvarchar" MaxLength="1000" />
+    <Property Name="VuKhi" Type="nvarchar" MaxLength="1000" />
+    <Property Name="LoaiGame" Type="int" />
+    <Property Name="TaiKhoan" Type="nvarchar" MaxLength="500" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="500" />
+    <Property Name="ThongTinKhac" Type="nvarchar" MaxLength="500" />
+    <Property Name="CapKhaiPha" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaiKhoanNoiBo" Type="bit" />
+    <Property Name="AccVip" Type="bit" />
+    <Property Name="AccKhoiDau" Type="bit" />
+    <Property Name="RanDom" Type="bit" />
+    <Property Name="PhanTram" Type="int" />
+    <Property Name="MaGiamGia" Type="nvarchar" MaxLength="150" />
+    <Property Name="SoTienGiam" Type="int" />
+    <Property Name="AnhNhanVat" Type="nvarchar(max)" />
+    <Property Name="TenNhanVat" Type="nvarchar(max)" />
+    <Property Name="AnhVuKhi" Type="nvarchar(max)" />
+    <Property Name="TenVuKhi" Type="nvarchar(max)" />
+    <Property Name="IDLoaiAcc" Type="int" />
+    <Property Name="IDOldAcc" Type="int" />
+    <Property Name="GiaCtvCollab" Type="int" />
+    <Property Name="GiaDaMua" Type="int" />
+    <Property Name="GiaGoc" Type="int" />
+    <Property Name="An" Type="bit" />
+  </EntityType>
+  <EntityType Name="AccRandom">
+    <Key>
+      <PropertyRef Name="IDAccRandom" />
+    </Key>
+    <Property Name="IDAccRandom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDDanhMuc" Type="int" />
+    <Property Name="TaiKhoan" Type="nvarchar" MaxLength="500" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="500" />
+    <Property Name="ThongTinKhac" Type="nvarchar" MaxLength="500" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="Xoa" Type="bit" />
+    <Property Name="DaBan" Type="bit" />
+    <Property Name="IDNguoiMua" Type="int" />
+    <Property Name="ThoiGianBan" Type="datetime" />
+    <Property Name="IDOldAcc" Type="int" />
+    <Property Name="GiaDaMua" Type="int" />
+    <Property Name="ThoiGianDang" Type="datetime" />
+    <Property Name="MatKhauOutlook" Type="nvarchar" MaxLength="500" />
+    <Property Name="MailKhoiPhuc" Type="nvarchar" MaxLength="500" />
+    <Property Name="MatKhauMailKhoiPhuc" Type="nvarchar" MaxLength="500" />
+    <Property Name="MatKhauMail" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="AccRandomDamua">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Danhmuc" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdAccRandom" Type="int" />
+    <Property Name="Server" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ghichu" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AdminCongTien">
+    <Key>
+      <PropertyRef Name="IdAdminCongTien" />
+    </Key>
+    <Property Name="IdAdminCongTien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoTien" Type="bigint" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="IDNguoiCong" Type="int" />
+    <Property Name="Lydo" Type="nvarchar" MaxLength="550" />
+    <Property Name="ThoiGian" Type="datetime" />
+    <Property Name="CongTien" Type="bit" />
+    <Property Name="SoDuTruocCong" Type="bigint" />
+    <Property Name="SoDuSauCong" Type="bigint" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="HuyDon" Type="bit" />
+  </EntityType>
+  <EntityType Name="AdminNotifyRead">
+    <Key>
+      <PropertyRef Name="IdStatusAdminNotify" />
+    </Key>
+    <Property Name="IdStatusAdminNotify" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNotifyUser" Type="int" />
+    <Property Name="IdNguoidung" Type="int" />
+  </EntityType>
+  <EntityType Name="AnAcc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AnAccVip" Type="bit" />
+    <Property Name="AnAccRR" Type="bit" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="IsAdminAn" Type="bit" />
+  </EntityType>
+  <EntityType Name="Anh_Acc">
+    <Key>
+      <PropertyRef Name="IDAnh_Acc" />
+    </Key>
+    <Property Name="IDAnh_Acc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DuongDanAnh" Type="nvarchar" MaxLength="500" />
+    <Property Name="IDAcc" Type="int" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="AnhDaiDien" Type="bit" />
+    <Property Name="ThoiGian" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ApiAcc">
+    <Key>
+      <PropertyRef Name="IdApi" />
+    </Key>
+    <Property Name="IdApi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+    <Property Name="IDAcc" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="IDBanner" />
+    </Key>
+    <Property Name="IDBanner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DuongDan" Type="nvarchar" MaxLength="150" />
+    <Property Name="STT" Type="int" />
+  </EntityType>
+  <EntityType Name="BienDongSoDu">
+    <Key>
+      <PropertyRef Name="IDBienDongSoDu" />
+    </Key>
+    <Property Name="IDBienDongSoDu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoTien" Type="bigint" />
+    <Property Name="TruTien" Type="bit" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="LoiNhan" Type="nvarchar" MaxLength="150" />
+    <Property Name="ThoiGian" Type="datetime" />
+    <Property Name="TienTruoc" Type="bigint" />
+    <Property Name="TienSau" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CaiDat">
+    <Key>
+      <PropertyRef Name="IDCaiDat" />
+    </Key>
+    <Property Name="IDCaiDat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="4000" />
+    <Property Name="MaCaiDat" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThoiGianHet" Type="datetime" />
+    <Property Name="ThoiGianCapNhat" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CaiDatVongQuay">
+    <Key>
+      <PropertyRef Name="IDCaiDatVongQuay" />
+    </Key>
+    <Property Name="IDCaiDatVongQuay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TyLe1" Type="float" />
+    <Property Name="TyLe2" Type="float" />
+    <Property Name="TyLe3" Type="float" />
+    <Property Name="TyLe4" Type="float" />
+    <Property Name="TyLe5" Type="float" />
+    <Property Name="TyLe6" Type="float" />
+    <Property Name="Gia" Type="int" />
+    <Property Name="LoaiVong" Type="int" />
+  </EntityType>
+  <EntityType Name="CayThue">
+    <Key>
+      <PropertyRef Name="IDCayThue" />
+    </Key>
+    <Property Name="IDCayThue" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="IDGoiNhiemVu" Type="int" />
+    <Property Name="SoTien" Type="int" />
+    <Property Name="UID" Type="nvarchar" MaxLength="150" />
+    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="450" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="450" />
+    <Property Name="Server" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenNhanVat" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="1500" />
+    <Property Name="HoanThanh" Type="bit" />
+    <Property Name="ThoiGianHoanThanh" Type="datetime" />
+    <Property Name="ThoiGianGui" Type="datetime" />
+    <Property Name="LoaiGame" Type="int" />
+    <Property Name="IDNguoiNhan" Type="int" />
+  </EntityType>
+  <EntityType Name="Code">
+    <Key>
+      <PropertyRef Name="IDCode" />
+    </Key>
+    <Property Name="IDCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GiaTri" Type="int" />
+    <Property Name="ThoiGianMua" Type="datetime" />
+    <Property Name="MaCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="IDLoaiCode" Type="int" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="DaBan" Type="bit" />
+    <Property Name="Xoa" Type="bit" />
+  </EntityType>
+  <EntityType Name="DanhMuc">
+    <Key>
+      <PropertyRef Name="IDDanhMuc" />
+    </Key>
+    <Property Name="IDDanhMuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoaiGame" Type="int" />
+    <Property Name="TenDanhMuc" Type="nvarchar" MaxLength="500" />
+    <Property Name="DanhMucLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="LuotRoll" Type="nvarchar" MaxLength="50" />
+    <Property Name="HienCo" Type="int" />
+    <Property Name="DaBan" Type="int" />
+    <Property Name="Gia" Type="int" />
+    <Property Name="Xoa" Type="bit" />
+    <Property Name="AnhDanhMuc" Type="nvarchar" MaxLength="500" />
+    <Property Name="TaiKhoanNoiBo" Type="bit" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="STT" Type="int" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="random" Type="bit" />
+    <Property Name="IDLoaiAcc" Type="int" />
+    <Property Name="Server" Type="nvarchar" MaxLength="50" />
+    <Property Name="slug" Type="nvarchar" MaxLength="150" />
+    <Property Name="IDOldDanhMuc" Type="int" />
+    <Property Name="Ar" Type="nvarchar" MaxLength="50" />
+    <Property Name="GiaCtvCollab" Type="int" />
+    <Property Name="ThongBaoMuaAcc" Type="nvarchar" MaxLength="500" />
+    <Property Name="GhiChuAcc" Type="nvarchar(max)" />
+    <Property Name="CauHinhDangNhieuAcc" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Hide" Type="bit" />
+  </EntityType>
+  <EntityType Name="GiaiThuongVongQuay">
+    <Key>
+      <PropertyRef Name="IDGiaiThuongVongQuay" />
+    </Key>
+    <Property Name="IDGiaiThuongVongQuay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DaBan" Type="bit" />
+    <Property Name="ThongTin" Type="nvarchar" MaxLength="350" />
+    <Property Name="ThoiGianBan" Type="datetime" />
+    <Property Name="LoaiGiai" Type="int" />
+  </EntityType>
+  <EntityType Name="GoiNap">
+    <Key>
+      <PropertyRef Name="IDGoiNap" />
+    </Key>
+    <Property Name="IDGoiNap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gia" Type="int" />
+    <Property Name="TenGoi" Type="nvarchar" MaxLength="300" />
+    <Property Name="Xoa" Type="bit" />
+    <Property Name="SoThuTu" Type="int" />
+    <Property Name="LoaiGame" Type="int" />
+    <Property Name="Anh" Type="nvarchar" MaxLength="255" />
+    <Property Name="LoaiNap" Type="int" />
+    <Property Name="LinkHdUID" Type="nvarchar" MaxLength="255" />
+    <Property Name="X2LanDau" Type="bit" />
+    <Property Name="An" Type="bit" />
+    <Property Name="ThoigianAn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="GoiNhiemVu">
+    <Key>
+      <PropertyRef Name="IDGoiNhiemVu" />
+    </Key>
+    <Property Name="IDGoiNhiemVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenGoiNhiemVu" Type="nvarchar" MaxLength="500" />
+    <Property Name="GiaTien" Type="int" />
+    <Property Name="LoaiGame" Type="int" />
+    <Property Name="Xoa" Type="bit" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="IDImage" />
+    </Key>
+    <Property Name="IDImage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="DuongDan" Type="nvarchar" MaxLength="100" />
+    <Property Name="ThoiGian" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LoaiAcc">
+    <Key>
+      <PropertyRef Name="IDLoaiAcc" />
+    </Key>
+    <Property Name="IDLoaiAcc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiAcc" Type="nvarchar" MaxLength="150" />
+    <Property Name="DangBan" Type="int" />
+    <Property Name="DaBan" Type="int" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="slug" Type="nvarchar" MaxLength="150" />
+    <Property Name="DacBiet" Type="bit" />
+    <Property Name="IDLoaiGame" Type="int" />
+    <Property Name="STT" Type="int" />
+    <Property Name="Hide" Type="bit" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="Server" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDLoaiAccCha" Type="int" />
+  </EntityType>
+  <EntityType Name="LoaiCode">
+    <Key>
+      <PropertyRef Name="IDLoaiCode" />
+    </Key>
+    <Property Name="IDLoaiCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="Gia" Type="int" />
+    <Property Name="Xoa" Type="bit" />
+    <Property Name="CodeNoiBo" Type="bit" />
+    <Property Name="LoaiGame" Type="int" />
+  </EntityType>
+  <EntityType Name="LoaiGame">
+    <Key>
+      <PropertyRef Name="IDLoaiGame" />
+    </Key>
+    <Property Name="IDLoaiGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiGame" Type="nvarchar" MaxLength="150" />
+    <Property Name="Slug" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="Hide" Type="bit" />
+    <Property Name="STT" Type="int" />
+    <Property Name="AnhNapGame" Type="nvarchar" MaxLength="150" />
+    <Property Name="AnhCayThue" Type="nvarchar" MaxLength="150" />
+    <Property Name="DichVuCayThue" Type="bit" />
+    <Property Name="DichVuNapGame" Type="bit" />
+    <Property Name="DichVuCode" Type="bit" />
+    <Property Name="AnhCode" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="NapGame">
+    <Key>
+      <PropertyRef Name="IDNapGame" />
+    </Key>
+    <Property Name="IDNapGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="SoTien" Type="int" />
+    <Property Name="UID" Type="nvarchar" MaxLength="150" />
+    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="450" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="450" />
+    <Property Name="Server" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenNhanVat" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="1500" />
+    <Property Name="HoanThanh" Type="bit" />
+    <Property Name="ThoiGianHoanThanh" Type="datetime" />
+    <Property Name="ThoiGianGui" Type="datetime" />
+    <Property Name="LoaiGame" Type="int" />
+    <Property Name="IDGoiNap" Type="int" />
+    <Property Name="IDNguoiDuyet" Type="int" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="AdminEdit" Type="bit" />
+    <Property Name="IDNguoiPick" Type="int" />
+  </EntityType>
+  <EntityType Name="NapTien">
+    <Key>
+      <PropertyRef Name="IdNapTien" />
+    </Key>
+    <Property Name="IdNapTien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="Magd" Type="nvarchar" MaxLength="250" />
+    <Property Name="Noidung" Type="nvarchar" MaxLength="250" />
+    <Property Name="SoTien" Type="bigint" />
+    <Property Name="thoigian" Type="datetime" />
+    <Property Name="request_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="serial" Type="nvarchar" MaxLength="50" />
+    <Property Name="amount" Type="int" />
+    <Property Name="telco" Type="nvarchar" MaxLength="50" />
+    <Property Name="trangthai" Type="bit" />
+    <Property Name="atm" Type="bit" />
+    <Property Name="TruocNap" Type="bigint" />
+    <Property Name="SauNap" Type="bigint" />
+    <Property Name="IDNguoiDuyet" Type="int" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="IDNguoiDung" />
+    </Key>
+    <Property Name="IDNguoiDung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNguoiDung" Type="nvarchar" MaxLength="500" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar" MaxLength="500" />
+    <Property Name="Tien" Type="bigint" />
+    <Property Name="NgayThamGia" Type="datetime" />
+    <Property Name="LeverAdmin" Type="int" />
+    <Property Name="MatMa" Type="int" />
+    <Property Name="ThoiVang" Type="int" />
+    <Property Name="TienNap" Type="int" />
+    <Property Name="HoaHong" Type="int" />
+    <Property Name="TienNapThang" Type="int" />
+    <Property Name="Phantramhoahong" Type="float" />
+    <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="50" />
+    <Property Name="OldPass" Type="nvarchar" MaxLength="150" />
+    <Property Name="GoogleAccount" Type="bit" />
+    <Property Name="OldAccount" Type="bit" />
+    <Property Name="CtvCollab" Type="bit" />
+    <Property Name="OnOffCtvCollab" Type="bit" />
+    <Property Name="SessionID" Type="nvarchar" MaxLength="100" />
+    <Property Name="MatKhau2" Type="nvarchar" MaxLength="500" />
+    <Property Name="FailedLoginAttempts" Type="int" />
+    <Property Name="LockoutEndTime" Type="datetime" />
+    <Property Name="Block" Type="bit" />
+    <Property Name="BlockContent" Type="nvarchar(max)" />
+    <Property Name="ResetPasswordToken" Type="nvarchar" MaxLength="150" />
+    <Property Name="ResetTokenExpiry" Type="datetime" />
+    <Property Name="SessionID_Desktop" Type="nvarchar" MaxLength="50" />
+    <Property Name="SessionID_Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="FailedPasswordRequests" Type="int" />
+    <Property Name="LastPasswordRequestTime" Type="datetime" />
+    <Property Name="LockedUntil" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NhanVat">
+    <Key>
+      <PropertyRef Name="IDNhanVat" />
+    </Key>
+    <Property Name="IDNhanVat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNhanVat" Type="nvarchar" MaxLength="500" />
+    <Property Name="LoaiGame" Type="int" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Sao" Type="int" />
+  </EntityType>
+  <EntityType Name="NotifyUser">
+    <Key>
+      <PropertyRef Name="IdNotify" />
+    </Key>
+    <Property Name="IdNotify" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contents" Type="nvarchar" MaxLength="1000" />
+    <Property Name="IsRead" Type="bit" />
+    <Property Name="IdNguoidung" Type="int" />
+    <Property Name="IsAdminPost" Type="bit" />
+    <Property Name="IdAdmin" Type="int" />
+    <Property Name="Thoigian" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OldPass">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="oldPassword" Type="nvarchar" MaxLength="500" />
+    <Property Name="IDNguoiDung" Type="int" />
+  </EntityType>
+  <EntityType Name="RutTien">
+    <Key>
+      <PropertyRef Name="IDRutTien" />
+    </Key>
+    <Property Name="IDRutTien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="SoTienRut" Type="bigint" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="ThoiGian" Type="datetime" />
+    <Property Name="SoTienNhan" Type="bigint" />
+    <Property Name="NganHang" Type="nvarchar" MaxLength="500" />
+    <Property Name="NguoiNhan" Type="nvarchar" MaxLength="500" />
+    <Property Name="SoTaiKhoan" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SettingApi">
+    <Key>
+      <PropertyRef Name="IDSettingApi" />
+    </Key>
+    <Property Name="IDSettingApi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DomainWebsite" Type="nvarchar" MaxLength="150" />
+    <Property Name="ApiKey" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="IDVideo" />
+    </Key>
+    <Property Name="IDVideo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DuongDan" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="VongQuay">
+    <Key>
+      <PropertyRef Name="IDVongQuay" />
+    </Key>
+    <Property Name="IDVongQuay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDNguoiDung" Type="int" />
+    <Property Name="LoaiGiai" Type="int" />
+    <Property Name="GiaTien" Type="int" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="350" />
+    <Property Name="ThoiGian" Type="datetime" />
+    <Property Name="IDCaiDatVongQuay" Type="int" />
+  </EntityType>
+  <EntityType Name="VuKhi">
+    <Key>
+      <PropertyRef Name="IDVuKhi" />
+    </Key>
+    <Property Name="IDVuKhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenVuKhi" Type="nvarchar" MaxLength="500" />
+    <Property Name="LoaiGame" Type="int" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Sao" Type="int" />
+  </EntityType>
+  <EntityContainer Name="accgameModelStoreContainer">
+    <EntitySet Name="Acc" EntityType="Self.Acc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccRandom" EntityType="Self.AccRandom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccRandomDamua" EntityType="Self.AccRandomDamua" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdminCongTien" EntityType="Self.AdminCongTien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdminNotifyRead" EntityType="Self.AdminNotifyRead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnAcc" EntityType="Self.AnAcc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Anh_Acc" EntityType="Self.Anh_Acc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApiAcc" EntityType="Self.ApiAcc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BienDongSoDu" EntityType="Self.BienDongSoDu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaiDat" EntityType="Self.CaiDat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaiDatVongQuay" EntityType="Self.CaiDatVongQuay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CayThue" EntityType="Self.CayThue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Code" EntityType="Self.Code" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiaiThuongVongQuay" EntityType="Self.GiaiThuongVongQuay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoiNap" EntityType="Self.GoiNap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoiNhiemVu" EntityType="Self.GoiNhiemVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiAcc" EntityType="Self.LoaiAcc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiCode" EntityType="Self.LoaiCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiGame" EntityType="Self.LoaiGame" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NapGame" EntityType="Self.NapGame" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NapTien" EntityType="Self.NapTien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVat" EntityType="Self.NhanVat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotifyUser" EntityType="Self.NotifyUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OldPass" EntityType="Self.OldPass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RutTien" EntityType="Self.RutTien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SettingApi" EntityType="Self.SettingApi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VongQuay" EntityType="Self.VongQuay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VuKhi" EntityType="Self.VuKhi" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

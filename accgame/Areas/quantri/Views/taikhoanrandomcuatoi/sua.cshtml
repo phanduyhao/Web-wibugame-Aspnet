@@ -1,0 +1,172 @@
+﻿@model accgame.Models.HomeModels
+@{
+    ViewBag.Title = "sua";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+
+<main class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Sửa tài khoản</h6>
+                </div>
+                <div class="card-body px-4 pt-0 pb-2">
+                    <form action="/quantri/taikhoanrandomcuatoi/sua/@Model.acc.IDAcc" method="post" enctype="multipart/form-data">
+                        @Html.AntiForgeryToken()
+                        <div class="mb-3">
+                            <label for="TenAcc" class="form-label">Tên tài khoản</label>
+                            <input type="text" required name="TenAcc" value="@Model.acc.TenAcc" class="form-control" id="TenAcc">
+                        </div>
+                        <div class="mb-3">
+                            <label for="LoaiGame" class="form-label">Loại game</label>
+                            <select name="LoaiGame" id="LoaiGame" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                @if (Model.acc.LoaiGame == 1)
+                                {
+                                    <option value="1" selected>HonKai Star Rail</option>
+                                    <option value="2">GenShin Impact</option>
+                                }
+                                else
+                                {
+                                    <option value="1">HonKai Star Rail</option>
+                                    <option value="2" selected>GenShin Impact</option>
+                                }
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Server" class="form-label">Server game</label>
+                            <select name="Server" id="Server" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option value="asia">Asia</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="TaiKhoan" class="form-label">Tài khoản đăng nhập</label>
+                            <input type="text" required name="TaiKhoan" value="@Model.acc.TaiKhoan" class="form-control" id="TaiKhoan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="MatKhau" class="form-label">Mật khẩu</label>
+                            <input type="text" required name="MatKhau" value="@Model.acc.MatKhau" class="form-control" id="MatKhau">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Gia" class="form-label">Giá</label>
+                            <input type="text" required name="Gia" value="@Model.acc.Gia" class="form-control" id="Gia">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ChiTiet" class="form-label">Chi tiết</label>
+                            <textarea name="ChiTiet" class="form-control" id="ChiTiet">@Model.acc.ChiTiet</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ThongTinKhac" class="form-label">Mật khẩu mail (thông tin khác nếu có)</label>
+                            <textarea name="ThongTinKhac" class="form-control" id="ThongTinKhac">@Model.acc.ThongTinKhac</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ImageUpload" class="form-label">Ảnh đại diện</label>
+                            <div class="bg-light rounded-2 p-3 p-sm-5 mb-3 text-center">
+                                <img src="/Content/images/@Model.acc.AnhDaiDien" height="150" id="image-preview">
+                            </div>
+                            <input type="file" class="form-control bg-light" id="ImageUpload" accept="image/*" name="ImageUpload">
+                        </div>
+                        <div class="mb-3">
+                            <label for="AnhKhac" class="form-label me-2">Ảnh khác</label>
+                            <div class="d-flex flex-wrap">
+                                @foreach (var item in Model.listAnh_Acc)
+                                {
+                                    <div class="position-relative btn mx-2" id="Anh_@item.IDAnh_Acc">
+                                        <img src="/Content/images/@item.DuongDanAnh" width="60" height="80">
+                                        <a onclick="myFunction(this)" data-value="@item.IDAnh_Acc" class="text-white position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">x</a>
+                                    </div>
+                                }
+                                <div class="position-relative d-flex align-items-center ms-3 my-3" id="previewContainer"></div>
+                            </div>
+
+                            <input type="file" class="form-control bg-light" id="AnhKhac" accept="image/*" name="ImageUploads" multiple onchange="previewImages(event)">
+                            <div class="form-text">Có thể chọn nhiều ảnh</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sửa</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+@section Scripts{
+    <script>
+        CKEDITOR.replace("ChiTiet");
+    </script>
+    <script>
+        const imageInput = document.getElementById('ImageUpload');
+        const imagePreview = document.getElementById('image-preview');
+
+        imageInput.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function () {
+                    imagePreview.setAttribute('src', this.result);
+                });
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+    <script>
+        function previewImages(event) {
+            var input = event.target;
+            var previewContainer = document.getElementById("previewContainer");
+            previewContainer.innerHTML = ""; // Xóa nội dung hiện tại
+
+            if (input.files && input.files.length > 0) {
+                for (var i = 0; i < input.files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var image = document.createElement("img");
+                        image.src = e.target.result;
+                        image.setAttribute("width", "60");
+                        image.setAttribute("height", "80");
+                        image.setAttribute("class", "mx-2");
+                        previewContainer.appendChild(image);
+                    };
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        }
+    </script>
+
+    <script>
+        function myFunction(element) {
+            var value = $(element).data('value');
+            xoa(value);
+        }
+        function xoa(data) {
+            var model = {};
+            model.ID = data;
+            debugger;
+            $.ajax({
+                type: "POST",
+                url: '/quantri/taikhoanrandomcuatoi/xoaanh',
+                data: JSON.stringify(model),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                    var id = "#Anh_" + model.ID;
+                    debugger;
+                    $(id).attr("class", "d-none");
+                    alert("xóa thành công!");
+                },
+                error: function () {
+                    alert("Loi");
+                }
+            });
+        }
+    </script>
+}
+
+

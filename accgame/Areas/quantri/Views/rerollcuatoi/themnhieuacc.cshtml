@@ -1,0 +1,252 @@
+﻿@model accgame.Context.AccRandom
+@using accgame.Context;
+@{
+    var dbContext = new accgameEntities();
+    var danhMucList = dbContext.DanhMucs.ToList();
+}
+@{
+    ViewBag.Title = "themacc";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+
+<main class="content">
+    <style>
+        .splitAcc mx-2 {
+            margin-bottom: 0;
+            height: 47px !important;
+    </style>
+    <div class="card">
+        <div class="card-body">
+            @* <h3 class="fw-bold text-danger">Cấu hình thêm acc ( TÍCH VÀO ĐỂ BỎ TRỐNG TRƯỜNG ĐÓ )</h3>
+        <div class="form-group">
+            <div>
+                <input class="mb-3 mt-3" type="checkbox" id="isTaiKhoan" name="isTaiKhoan" value="@ViewBag.isTaiKhoan"
+                       @(ViewBag.isTaiKhoan == true ? "checked" : "") /> Tài khoản<br />
+
+                <input class="mb-3" type="checkbox" id="isMatKhau" name="isMatKhau" value="@ViewBag.isMatKhau"
+                       @(ViewBag.isMatKhau == true ? "checked" : "") /> Mật khẩu<br />
+
+                <input class="mb-3" type="checkbox" id="isMatKhauOutlook" name="isMatKhauOutlook" value="@ViewBag.isMatKhauOutlook"
+                       @(ViewBag.isMatKhauOutlook == true ? "checked" : "") /> Mật khẩu Outlook<br />
+
+                <input class="mb-3" type="checkbox" id="isMailKhoiPhuc" name="isMailKhoiPhuc" value="@ViewBag.isMailKhoiPhuc"
+                       @(ViewBag.isMailKhoiPhuc == true ? "checked" : "") /> Mail khôi phục<br />
+
+                <input class="mb-3" type="checkbox" id="isMatKhauMailKhoiPhuc" name="isMatKhauMailKhoiPhuc" value="@ViewBag.isMatKhauMailKhoiPhuc"
+                       @(ViewBag.isMatKhauMailKhoiPhuc == true ? "checked" : "") /> Mật khẩu mail khôi phục
+            </div>
+        </div>*@
+            <h3 class="fw-bold text-danger mb-4">Cấu hình thêm acc:</h3>
+            <div id="fieldContainer" class="form-group row">
+                <div class="col-xl-2 col-md-4 col-sm-6 mt-3 col-12 d-flex align-items-center">
+                    <select id="field1" class="field-select form-select" onchange="updateFields()">
+                        <option value="">Trống</option>
+                        <option value="TaiKhoan" @(ViewBag.Field1 == "TaiKhoan" ? "selected" : "")>Tài Khoản</option>
+                        <option value="MatKhau" @(ViewBag.Field1 == "MatKhau" ? "selected" : "")>Mật Khẩu</option>
+                        <option value="MatKhauOutlook" @(ViewBag.Field1 == "MatKhauOutlook" ? "selected" : "")>Mật Khẩu Mail Outlook</option>
+                        <option value="MailKhoiPhuc" @(ViewBag.Field1 == "MailKhoiPhuc" ? "selected" : "")>Mail Khôi Phục</option>
+                        <option value="MatKhauMailKhoiPhuc" @(ViewBag.Field1 == "MatKhauMailKhoiPhuc" ? "selected" : "")>Mật Khẩu Mail Khôi Phục</option>
+                        <option value="MatKhauMail" @(ViewBag.Field1 == "MatKhauMail" ? "selected" : "")>Mật Khẩu Mail</option>
+                    </select><h1 class="splitAcc mx-2">|</h1>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-sm-6 mt-3 col-12 d-flex align-items-center">
+                    <select id="field2" class="field-select form-select" onchange="updateFields()">
+                        <option value="">Trống</option>
+                        <option value="TaiKhoan" @(ViewBag.Field2 == "TaiKhoan" ? "selected" : "")>Tài Khoản</option>
+                        <option value="MatKhau" @(ViewBag.Field2 == "MatKhau" ? "selected" : "")>Mật Khẩu</option>
+                        <option value="MatKhauOutlook" @(ViewBag.Field2 == "MatKhauOutlook" ? "selected" : "")>Mật Khẩu Mail Outlook</option>
+                        <option value="MailKhoiPhuc" @(ViewBag.Field2 == "MailKhoiPhuc" ? "selected" : "")>Mail Khôi Phục</option>
+                        <option value="MatKhauMailKhoiPhuc" @(ViewBag.Field2 == "MatKhauMailKhoiPhuc" ? "selected" : "")>Mật Khẩu Mail Khôi Phục</option>
+                        <option value="MatKhauMail" @(ViewBag.Field2 == "MatKhauMail" ? "selected" : "")>Mật Khẩu Mail</option>
+
+                    </select><h1 class="splitAcc mx-2">|</h1>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-sm-6 mt-3 col-12 d-flex align-items-center">
+                    <select id="field3" class="field-select form-select" onchange="updateFields()">
+                        <option value="">Trống</option>
+                        <option value="TaiKhoan" @(ViewBag.Field3 == "TaiKhoan" ? "selected" : "")>Tài Khoản</option>
+                        <option value="MatKhau" @(ViewBag.Field3 == "MatKhau" ? "selected" : "")>Mật Khẩu</option>
+                        <option value="MatKhauOutlook" @(ViewBag.Field3 == "MatKhauOutlook" ? "selected" : "")>Mật Khẩu Mail Outlook</option>
+                        <option value="MailKhoiPhuc" @(ViewBag.Field3 == "MailKhoiPhuc" ? "selected" : "")>Mail Khôi Phục</option>
+                        <option value="MatKhauMailKhoiPhuc" @(ViewBag.Field3 == "MatKhauMailKhoiPhuc" ? "selected" : "")>Mật Khẩu Mail Khôi Phục</option>
+                        <option value="MatKhauMail" @(ViewBag.Field3 == "MatKhauMail" ? "selected" : "")>Mật Khẩu Mail</option>
+
+                    </select><h1 class="splitAcc mx-2">|</h1>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-sm-6 mt-3 col-12 d-flex align-items-center">
+                    <select id="field4" class="field-select form-select" onchange="updateFields()">
+                        <option value="">Trống</option>
+                        <option value="TaiKhoan" @(ViewBag.Field4 == "TaiKhoan" ? "selected" : "")>Tài Khoản</option>
+                        <option value="MatKhau" @(ViewBag.Field4 == "MatKhau" ? "selected" : "")>Mật Khẩu</option>
+                        <option value="MatKhauOutlook" @(ViewBag.Field4 == "MatKhauOutlook" ? "selected" : "")>Mật Khẩu Mail Outlook</option>
+                        <option value="MailKhoiPhuc" @(ViewBag.Field4 == "MailKhoiPhuc" ? "selected" : "")>Mail Khôi Phục</option>
+                        <option value="MatKhauMailKhoiPhuc" @(ViewBag.Field4 == "MatKhauMailKhoiPhuc" ? "selected" : "")>Mật Khẩu Mail Khôi Phục</option>
+                        <option value="MatKhauMail" @(ViewBag.Field4 == "MatKhauMail" ? "selected" : "")>Mật Khẩu Mail</option>
+
+                    </select><h1 class="splitAcc mx-2">|</h1>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-sm-6 mt-3 col-12 d-flex align-items-center">
+                    <select id="field5" class="field-select form-select" onchange="updateFields()">
+                        <option value="">Trống</option>
+                        <option value="TaiKhoan" @(ViewBag.Field5 == "TaiKhoan" ? "selected" : "")>Tài Khoản</option>
+                        <option value="MatKhau" @(ViewBag.Field5 == "MatKhau" ? "selected" : "")>Mật Khẩu</option>
+                        <option value="MatKhauOutlook" @(ViewBag.Field5 == "MatKhauOutlook" ? "selected" : "")>Mật Khẩu Mail Outlook</option>
+                        <option value="MailKhoiPhuc" @(ViewBag.Field5 == "MailKhoiPhuc" ? "selected" : "")>Mail Khôi Phục</option>
+                        <option value="MatKhauMailKhoiPhuc" @(ViewBag.Field5 == "MatKhauMailKhoiPhuc" ? "selected" : "")>Mật Khẩu Mail Khôi Phục</option>
+                        <option value="MatKhauMail" @(ViewBag.Field5 == "MatKhauMail" ? "selected" : "")>Mật Khẩu Mail</option>
+
+                    </select><h1 class="splitAcc mx-2">|</h1>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-sm-6 mt-3 col-12 d-flex align-items-center">
+                    <select id="field6" class="field-select form-select" onchange="updateFields()">
+                        <option value="">Trống</option>
+                        <option value="TaiKhoan" @(ViewBag.Field6 == "TaiKhoan" ? "selected" : "")>Tài Khoản</option>
+                        <option value="MatKhau" @(ViewBag.Field6 == "MatKhau" ? "selected" : "")>Mật Khẩu</option>
+                        <option value="MatKhauOutlook" @(ViewBag.Field6 == "MatKhauOutlook" ? "selected" : "")>Mật Khẩu Mail Outlook</option>
+                        <option value="MailKhoiPhuc" @(ViewBag.Field6 == "MailKhoiPhuc" ? "selected" : "")>Mail Khôi Phục</option>
+                        <option value="MatKhauMailKhoiPhuc" @(ViewBag.Field6 == "MatKhauMailKhoiPhuc" ? "selected" : "")>Mật Khẩu Mail Khôi Phục</option>
+                        <option value="MatKhauMail" @(ViewBag.Field6 == "MatKhauMail" ? "selected" : "")>Mật Khẩu Mail</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="ChiTiet" class="form-label">Ghi chú</label>
+                <textarea name="ChiTiet" class="form-control" id="ChiTiet">@Html.Raw(ViewBag.GhiChuAcc)</textarea>
+            </div>
+            <button data-danhmuc="@ViewBag.loaigame" class="btn btn-danger fw-bold btn-luucauhinh">Lưu lại</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Thêm mới tài khoản</h3>
+        </div>
+        <div class="card-body">
+            <form action="/quantri/rerollcuatoi/themnhieuacc/@ViewBag.loaigame" method="post" id="formThemNhieuAcc">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <b>Chọn danh mục</b>
+                    <div class="">
+                        <select name="IDDanhMuc" id="IDDanhMuc" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option value="@ViewBag.loaigame">@ViewBag.tenDanhMuc</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.IDDanhMuc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <b>Nhập thông tin</b>
+                    <div class="">
+                        <textarea placeholder="" rows="6" class="form-control text-box single-line" id="thongtin" name="thongtin"></textarea>
+                    </div>
+                    <br />
+                    <h3 id="patternText">Nhập theo mẫu (mỗi một tài khoản hãy enter xuống dòng): <span class="fw-bold">@ViewBag.Cauhinh</span> </h3>
+                </div>
+
+                <div class="form-group mt-3">
+                    <div class="col-md-offset-2 ">
+                        <button id="liveToastBtn" type="submit" class="btn btn-primary">Thêm mới</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+@{
+    dbContext.Dispose();
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        updateFields();
+    });
+
+    function updateFields() {
+        // Get all selected values
+        const selectedValues = Array.from(document.querySelectorAll('.field-select'))
+            .map(select => select.value)
+            .filter(value => value !== ""); // Only keep non-empty values
+
+        // Define all possible options with the same values as in HTML
+        const options = [
+            { value: "TaiKhoan", text: "Tài Khoản" },
+            { value: "MatKhau", text: "Mật Khẩu" },
+            { value: "MatKhauOutlook", text: "Mật Khẩu Mail Outlook" },
+            { value: "MailKhoiPhuc", text: "Mail Khôi Phục" },
+            { value: "MatKhauMailKhoiPhuc", text: "Mật Khẩu Mail Khôi Phục" },
+            { value: "MatKhauMail", text: "Mật Khẩu Mail" }
+
+        ];
+
+        // Loop through each select element
+        document.querySelectorAll('.field-select').forEach(select => {
+            // Save the current value of the select
+            const currentValue = select.value;
+
+            // Clear existing options
+            select.innerHTML = '<option value="">Trống</option>';
+
+            // Add options that haven't been selected by other selects
+            options.forEach(option => {
+                if (!selectedValues.includes(option.value) || option.value === currentValue) {
+                    const optionElement = document.createElement("option");
+                    optionElement.value = option.value;
+                    optionElement.text = option.text;
+                    if (option.value === currentValue) optionElement.selected = true;
+                    select.appendChild(optionElement);
+                }
+            });
+        });
+    }
+    CKEDITOR.replace("ChiTiet");
+
+    $('.btn-luucauhinh').on('click', function () {
+        // Lấy nội dung từ CKEDITOR instance
+        const ghichu = CKEDITOR.instances['ChiTiet'].getData();
+        console.log('Ghi chú:', ghichu); // Kiểm tra xem ghi chú có nội dung gì
+
+        // Gọi hàm saveConfiguration
+        saveConfiguration(ghichu);
+    });
+
+    function saveConfiguration(ghichu) {
+        const selectedValues = $('.field-select').map(function () {
+            return $(this).val() === "" ? "Trống" : $(this).val();
+        }).get();
+
+        const configString = selectedValues.join('|');
+        const id = $('.btn-luucauhinh').data('danhmuc');
+
+        console.log({
+            id: id,
+            cauHinhDangNhieuAcc: configString,
+            ghiChu: ghichu
+        }); // Kiểm tra object trước khi truyền đi
+
+        $.ajax({
+            url: '/quantri/quanlydanhmuc/capnhatcauhinh/' + id,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ id: id, cauHinhDangNhieuAcc: configString, ghiChu: ghichu }),
+            success: function (data) {
+                if (data.success) {
+                    alert("Lưu cấu hình thành công");
+                    window.location.reload();
+                } else {
+                    alert("Lỗi khi lưu cấu hình: " + data.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error:", error);
+                alert("Đã xảy ra lỗi khi gửi yêu cầu");
+            }
+        });
+    }
+
+</script>

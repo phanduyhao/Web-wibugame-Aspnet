@@ -1,0 +1,45 @@
+﻿@model PagedList.IPagedList<accgame.Context.GiaiThuongVongQuay>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="container">
+        <div class="my-3">
+            <a href="/quantri/giaithuongvongquay/taomoi" class="btn btn-primary">Thêm mới</a>
+            <a href="/quantri/giaithuongvongquay/loaigiai/1" class="btn btn-primary">Loại giải</a>
+        </div>
+        <table class="table">
+            <tr class="bg-success text-white">
+                <th>
+                    thông tin
+                </th>
+                <th>
+                    loại giải (1 - 6)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ThongTin)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoaiGiai)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.IDGiaiThuongVongQuay }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IDGiaiThuongVongQuay })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("index", new { page }))
+
+    </div>
+</main>

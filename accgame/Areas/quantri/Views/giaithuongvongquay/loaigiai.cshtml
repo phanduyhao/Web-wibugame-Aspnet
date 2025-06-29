@@ -1,0 +1,52 @@
+﻿@model PagedList.IPagedList<accgame.Context.GiaiThuongVongQuay>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="container">
+        <div class="my-3">
+            <a href="/quantri/giaithuongvongquay/loaigiai/1" class="btn btn-primary">CHAR 5* + WP</a>
+            <a href="/quantri/giaithuongvongquay/loaigiai/2" class="btn btn-primary">CHAR LIMITED</a>
+            <a href="/quantri/giaithuongvongquay/loaigiai/3" class="btn btn-primary">ONE CHAR 5*</a>
+            <a href="/quantri/giaithuongvongquay/loaigiai/4" class="btn btn-primary">>2 CHAR 5*</a>
+            <a href="/quantri/giaithuongvongquay/loaigiai/5" class="btn btn-primary">ACC REROLL</a>
+            <a href="/quantri/giaithuongvongquay/loaigiai/6" class="btn btn-primary">ACC REROLL VIP</a>
+        </div>
+        <div class="text-center fw-bold fs-4">
+            @ViewBag.loaiGiai
+        </div>
+        <table class="table">
+            <tr class="bg-success text-white">
+                <th>
+                    thông tin
+                </th>
+                <th>
+                    loại giải (1 - 6)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ThongTin)
+                    </td>
+                    <td>
+                        @ViewBag.loaiGiai
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.IDGiaiThuongVongQuay }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IDGiaiThuongVongQuay })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.PagedListPager(Model, page => Url.Action("loaigiai", new { page, id = ViewBag.id }))
+
+    </div>
+</main>

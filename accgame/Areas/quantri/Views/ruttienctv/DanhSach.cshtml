@@ -1,0 +1,172 @@
+﻿@model IEnumerable<accgame.Context.RutTien>
+@{
+    ViewBag.Title = "DanhSach";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout1.cshtml";
+}
+<style>
+
+</style>
+<main class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col mt-0">
+                            <h5 class="card-title">Số tiền hoa hồng đang có</h5>
+                        </div>
+
+                        <div class="col-auto">
+                            <div class="stat text-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign align-middle"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="mt-1 mb-3 price">@ViewBag.hoahong</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col mt-0">
+                            <h5 class="card-title">Phần trăm hoa hồng</h5>
+                        </div>
+
+                        <div class="col-auto">
+                            <div class="stat text-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign align-middle"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="mt-1 mb-3">@ViewBag.phantramhoahong%</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="/quantri/ruttienctv" class="btn btn-primary">Thêm lệnh rút tiền</a>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <h4>Tìm theo: </h4>
+                            <form method="get" action="@Url.Action("DanhSach", "ruttienctv", new { area = "quantri" })" class="">
+                                <div class="row">
+                                    <div class="mt-2 col-xl-2 col-md-4">
+                                        <select id="rowsPerPage" name="rows" class="form-control me-2">
+                                            <option value="10" @(ViewBag.Rows == 10 ? "selected" : "")>10 dòng</option>
+                                            <option value="20" @(ViewBag.Rows == 20 ? "selected" : "")>20 dòng</option>
+                                            <option value="50" @(ViewBag.Rows == 50 ? "selected" : "")>50 dòng</option>
+                                            <option value="100" @(ViewBag.Rows == 100 ? "selected" : "")>100 dòng</option>
+                                            <option value="150" @(ViewBag.Rows == 150 ? "selected" : "")>150 dòng</option>
+                                            <option value="200" @(ViewBag.Rows == 200 ? "selected" : "")>200 dòng</option>
+                                            <option value="250" @(ViewBag.Rows == 250 ? "selected" : "")>250 dòng</option>
+                                            <option value="300" @(ViewBag.Rows == 300 ? "selected" : "")>300 dòng</option>
+                                        </select>
+                                    </div>
+                                    <div class="mt-2 col-xl-3 col-md-4">
+                                        <input type="number" name="searchID" value="@ViewBag.SearchID" placeholder="Tìm kiếm theo mã số" class="form-control me-2" />
+                                    </div>
+                                    <div class="mt-2 col-xl-3 col-md-4">
+                                        <select name="trangthai" class="form-control me-2">
+                                            <option value="10" selected>Trạng thái</option>
+                                            <option value="null" @if (ViewBag.trangthai == "null") { <text> selected</text> }>Đang chờ</option>
+                                            <option value="1" @if (ViewBag.trangthai == "1") { <text> selected</text> }>Hoàn thành</option>
+                                            <option value="0" @if (ViewBag.trangthai == "0") { <text> selected</text> }>Đã hủy</option>
+                                        </select>
+                                    </div>
+                                    <div class="mt-2 col-xl-4 col-md-6 d-flex align-items-center">
+                                        <button type="submit" class="btn btn-danger">Tìm kiếm</button>
+                                        <a href="/quantri/ruttienctv/DanhSach" class="btn btn-secondary rounded-pill ms-2"><i class="fas fa-times me-2"></i>Xóa lọc</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Thời gian</th>
+                                <th class="">Số tiền</th>
+                                <th class="">Tên người nhận</th>
+                                <th class="">Ngân hàng</th>
+                                <th class="">Số tài khoản</th>
+                                <th class="">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thoiGian24h = item.ThoiGian.HasValue
+                                    ? item.ThoiGian.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                                    : string.Empty;
+                                <tr>
+                                    <td>#@item.IDRutTien</td>
+                                    <td>@thoiGian24h</td>
+                                    <td class="price">@item.SoTienRut</td>
+                                    <td>@item.NguoiNhan</td>
+                                    <td>@item.NganHang</td>
+                                    <td>@item.SoTaiKhoan</td>
+                                    @if (item.TrangThai == true)
+                                    {
+                                        <td><span class="badge bg-danger">Hoàn thành</span></td>
+                                    }
+                                    else if (item.TrangThai == false)
+                                    {
+                                        <td><span class="badge bg-dark">Đã hủy</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="badge bg-primary">Đang chờ</span></td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <ul class="pagination">
+                        <!-- First Page Link -->
+                        <li class="page-item @(ViewBag.page == 1 ? "disabled" : "")">
+                            <a class="page-link" href="@Url.Action("DanhSach", "ruttienctv", new { area = "quantri", page = 1, rows = ViewBag.Rows, searchID = ViewBag.SearchID, trangthai = ViewBag.trangthai })">« First</a>
+                        </li>
+
+                        <!-- Previous Page Link -->
+                        <li class="page-item @(ViewBag.page == 1 ? "disabled" : "")">
+                            <a class="page-link" href="@Url.Action("DanhSach", "ruttienctv", new { area = "quantri", page = ViewBag.page - 1, rows = ViewBag.Rows, searchID = ViewBag.SearchID, trangthai = ViewBag.trangthai })">‹</a>
+                        </li>
+
+                        <!-- Page Numbers -->
+                        @for (int i = Math.Max(1, ViewBag.page - 3); i <= Math.Min(ViewBag.last_page, ViewBag.page + 3); i++)
+                        {
+                            <li class="page-item @(i == ViewBag.page ? "active" : "")">
+                                <a class="page-link" href="@Url.Action("DanhSach", "ruttienctv", new { area = "quantri", page = i, rows = ViewBag.Rows, searchID = ViewBag.SearchID, trangthai = ViewBag.trangthai })">@i</a>
+                            </li>
+                        }
+
+                        <!-- Next Page Link -->
+                        <li class="page-item @(ViewBag.page == ViewBag.last_page ? "disabled" : "")">
+                            <a class="page-link" href="@Url.Action("DanhSach", "ruttienctv", new { area = "quantri", page = ViewBag.page + 1, rows = ViewBag.Rows, searchID = ViewBag.SearchID, trangthai = ViewBag.trangthai })">›</a>
+                        </li>
+
+                        <!-- Last Page Link -->
+                        <li class="page-item @(ViewBag.page == ViewBag.last_page ? "disabled" : "")">
+                            <a class="page-link" href="@Url.Action("DanhSach", "ruttienctv", new { area = "quantri", page = ViewBag.last_page, rows = ViewBag.Rows, searchID = ViewBag.SearchID, trangthai = ViewBag.trangthai })">Last »</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

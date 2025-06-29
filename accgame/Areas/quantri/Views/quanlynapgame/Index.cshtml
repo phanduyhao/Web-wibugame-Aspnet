@@ -1,0 +1,440 @@
+﻿@model IEnumerable<accgame.Context.NapGame>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .boxed label {
+        display: inline-block;
+        padding: 5px;
+        border: solid 2px #ccc;
+        transition: all 0.3s;
+        font-size: 16px;
+    }
+
+    .boxed input[type="radio"] {
+        display: none;
+    }
+
+        .boxed input[type="radio"]:checked + label {
+            background: green;
+            color: white;
+        }
+    .yellow_nhat {
+        background-color: rgb(242 238 31 / 62%);
+    }
+    .btn-copy_don:focus, .btn-copy_tkmk:focus {
+        background: seagreen;
+    }
+</style>
+<main class="content">
+    @*    <div class="card-header d-flex">
+            <div>
+                <a href="/quantri/quanlynapgame/daxuly" class="btn btn-primary mb-3">Đơn hàng đã xử lý</a>
+            </div>
+        </div>*@
+
+    <div class="d-flex">
+        <h4 class="me-3">Gửi thông báo tới:</h4>
+        <form class="boxed">
+            <div class="mb-2">
+                <input type="radio" id="Mduyphuong@gmail.com" name="Mduyphuong@gmail.com" value="Mduyphuong@gmail.com"
+                       @(ViewBag.MailNapGame == "Mduyphuong@gmail.com" ? "checked" : "")>
+                <label class="fw-bold" for="Mduyphuong@gmail.com">Mduyphuong@gmail.com</label>
+            </div>
+            <div>
+                <input type="radio" id="Lanhbacgiangg@gmail.com" name="Lanhbacgiangg@gmail.com" value="Lanhbacgiangg@gmail.com"
+                       @(ViewBag.MailNapGame == "Lanhbacgiangg@gmail.com" ? "checked" : "")>
+                <label class="fw-bold" for="Lanhbacgiangg@gmail.com">Lanhbacgiangg@gmail.com</label>
+            </div>
+        </form>
+    </div>
+
+    <h4>Tìm theo :</h4>
+    <form method="get" action="@Url.Action("Index", "quanlynapgame", new { area = "quantri" })" class="">
+        <div class="row">
+            <div class="mt-2 col-lg-2 col-md-4">
+                <select id="rowsPerPage" name="rows" class="form-control me-2">
+                    <option value="10" @(ViewBag.Rows == 10 ? "selected" : "")>10 dòng</option>
+                    <option value="20" @(ViewBag.Rows == 20 ? "selected" : "")>20 dòng</option>
+                    <option value="50" @(ViewBag.Rows == 50 ? "selected" : "")>50 dòng</option>
+                    <option value="100" @(ViewBag.Rows == 100 ? "selected" : "")>100 dòng</option>
+                    <option value="150" @(ViewBag.Rows == 150 ? "selected" : "")>150 dòng</option>
+                    <option value="200" @(ViewBag.Rows == 200 ? "selected" : "")>200 dòng</option>
+                    <option value="250" @(ViewBag.Rows == 250 ? "selected" : "")>250 dòng</option>
+                    <option value="300" @(ViewBag.Rows == 300 ? "selected" : "")>300 dòng</option>
+                </select>
+            </div>
+            <div class="mt-2 col-lg-2 col-md-4">
+                <input type="number" name="searchID" value="@ViewBag.SearchID" placeholder="Tìm kiếm theo mã số" class="form-control me-2" />
+            </div>
+            <div class="mt-2 col-lg-3 col-md-4">
+                <input type="text" name="nguoigui" value="@ViewBag.nguoigui" placeholder="Tìm kiếm theo tên người gửi" class="form-control me-2" />
+            </div>
+            <div class="mt-2 col-lg-2 col-md-4">
+                <select name="hoanthanh" class="form-control me-2">
+                    <option value="10" selected>Trạng thái</option>
+                    <option value="null" @if (ViewBag.hoanthanh == "null") { <text> selected</text> }>Đang chờ</option>
+                    <option value="1" @if (ViewBag.hoanthanh == "1") { <text> selected</text> }>Hoàn thành</option>
+                    <option value="0" @if (ViewBag.hoanthanh == "0") { <text> selected</text> }>Đã hủy</option>
+                </select>
+            </div>
+            <div class="mt-2 col-lg-3 col-md-6 d-flex align-items-center">
+                <button type="submit" class="btn btn-danger">Tìm kiếm</button>
+                <a href="/quantri/quanlynapgame" class="btn btn-secondary rounded-pill ms-2"><i class="fas fa-times me-2"></i>Xóa lọc</a>
+            </div>
+        </div>
+    </form>
+    <div class="table-responsive p-0 mt-3">
+        <table class="table align-items-center table-bordered mb-0">
+            <thead>
+                <tr class="bg-success fs-6">
+                    <th class="text-uppercase text-white text-nowrap">ID</th>
+                    <th class="text-uppercase text-white text-nowrap">THÔNG TIN GÓI NẠP</th>
+                    <th class="text-uppercase text-white text-nowrap">TÀI KHOẢN</th>
+                    <th class="text-uppercase text-white text-nowrap">THỜI GIAN NẠP / NGƯỜI NẠP</th>
+                    <th class="text-uppercase text-white text-nowrap">COPY</th>
+                    <th class="text-uppercase text-white text-nowrap">GHI CHÚ</th>
+                    <th class="text-uppercase text-white text-nowrap">TRẠNG THÁI</th>
+                    <th class="text-uppercase text-white text-nowrap">NGƯỜI DUYỆT</th>
+                </tr>
+            </thead>
+            <tbody class="fs-6">
+
+                @foreach (var item in Model)
+                {
+                    var thoiGian24h = item.ThoiGianGui.HasValue
+                        ? item.ThoiGianGui.Value.ToString("dd/MM/yyyy HH:mm:ss")
+                        : string.Empty;
+                    <tr class="text-dark">
+                        <td class="align-middle">
+                            <span style="font-weight: 700" class="mb-0 text-sm">#@item.IDNapGame</span>
+                        </td>
+                        <td class="align-middle">
+                            @if (item.GoiNap != null)
+                            {
+                                <span class="fw-bold">@item.GoiNap.TenGoi</span>
+                            }
+                            else
+                            {
+                                <span></span>
+
+                            }
+                            <br />
+                            <span class="fw-bold">
+                                Số lượng: @(item.SoLuong ?? 1)
+                            </span>
+                            <br />
+                            <span class="price fw-bold">@item.SoTien</span>
+                        </td>
+                        <td>
+                            <p class="fw-semibold mb-2">UID : <span class="fw-bold">@item.UID ( @item.Server )</span> </p>
+                            <p class="text-xs mb-2 text-nowrap">Tên trong game: <span class="fw-bold">@item.TenNhanVat</span></p>
+                            @if (item.GoiNap.LoaiNap != 2)
+                            {
+                                <p class="text-xs mb-2 text-nowrap">Tài khoản: <span class="fw-bold"> @item.TenDangNhap</span></p>
+                                <p class="text-xs mb-2 text-nowrap">Mật khẩu: <span class="fw-bold">@item.MatKhau</span></p>
+                            }
+                            <span class="">SĐT: <span class="fw-bold">@item.SoDienThoai</span></span>
+
+                        </td>
+                        <td class="align-middle">
+                            <span class="">@thoiGian24h</span>
+                            <br />
+                            <span class="fw-bold">@item.NguoiDung.TenNguoiDung - @item.NguoiDung.Email</span>
+                        </td>
+                        <td class="align-middle">
+                            @if (item.GoiNap.LoaiNap != 2)
+                            {
+                                <button class="btn-copy_tkmk btn btn-success mb-2 py-1 px-2 fw-bold" onclick="copyTKMK('@item.TenDangNhap', '@item.MatKhau')">Copy Tk/Mk</button>
+                                <br />
+                            }
+                            <button class="py-1 px-2 fw-bold btn-copy_don btn btn-success"
+                                    onclick="copyDon('@Html.Raw(item.UID?.Replace("'", "\\'") ?? "")',
+                     '@Html.Raw(item.Server?.Replace("'", "\\'") ?? "")',
+                     '@Html.Raw(item.TenNhanVat?.Replace("'", "\\'") ?? "")',
+                     '@Html.Raw(item.TenDangNhap?.Replace("'", "\\'") ?? "")',
+                     '@Html.Raw(item.MatKhau?.Replace("'", "\\'") ?? "")')">
+                                Copy Đơn
+                            </button>
+                        </td>
+                        <td>
+                            <div class="p-2 @((item.AdminEdit == true) ? "yellow_nhat" : "")" style="border-radius: 10px">
+                                <p class="fw-semibold mb-2">
+                                    Loại nạp :
+                                    @if (item.GoiNap.LoaiNap != 2)
+                                    {
+                                        <span class="fw-bold">
+                                            Nạp Login
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="fw-bold">
+                                            Nạp UID
+                                        </span>
+                                    }
+                                </p>
+                                <p class="fw-semibold">
+                                    <button class="border-0" onclick="showEditNoteForm('@item.IDNapGame')">
+                                        <img src="~/Content/images/edit.png" width="15px" alt="Edit" />
+                                    </button>
+                                    Ghi Chú :
+                                    <span class="p-2 fw-bold">@item.GhiChu</span>
+                                </p>
+                                <form id="editNoteForm-@item.IDNapGame" class="editNoteForm d-none">
+                                    <input type="hidden" value="@item.IDNapGame" />
+                                    <div class="mb-3">
+                                        <label for="noteContent-@item.IDNapGame" class="form-label">Ghi chú</label>
+                                        <textarea class="form-control" id="noteContent-@item.IDNapGame" rows="3">@item.GhiChu</textarea>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary py-1 px-2" onclick="hideEditNoteForm('@item.IDNapGame')">Hủy</button>
+                                    <button type="button" class="btn btn-primary py-1 px-2" onclick="saveNote('@item.IDNapGame')">Lưu</button>
+                                </form>
+
+                            </div>
+                        </td>
+                        @{
+                            int? sessionUserID = null;
+                            if (Session["IDNguoiDung"] != null)
+                            {
+                                sessionUserID = Convert.ToInt32(Session["IDNguoiDung"]);
+                            }
+                        }
+
+                        <td class="text-sm align-middle status-cell">
+                            @if (item.HoanThanh == true)
+                            {
+                                <span class="badge bg-success">Đã hoàn thành</span>
+                            }
+                            else if (item.HoanThanh == false)
+                            {
+                                <span class="badge bg-dark">Đã hủy</span>
+                            }
+                            else
+                            {
+                                if (item.IDNguoiPick == null || item.IDNguoiPick == sessionUserID)
+                                {
+                                    <div class="d-flex align-items-center mb-3">
+                                        <input class="btn-pick-xuly"
+                                               type="checkbox"
+                                               name="pickXuly"
+                                               style="height:20px; width:20px"
+                                               value="@item.IDNapGame"
+                                               @(item.IDNguoiPick == sessionUserID ? "checked" : "") />
+                                        <label class="fs-4 ms-2">Nhận xử lý</label>
+                                    </div>
+                                    <a href="javascript:void(0);" class="badge bg-primary me-2 btn-status p-2 mb-3" data-id="@item.IDNapGame" data-action="hoanthanh">Hoàn thành</a>
+                                    <a href="javascript:void(0);" class="badge bg-danger btn-status p-2" data-id="@item.IDNapGame" data-action="huydon">Hủy đơn</a>
+                                }
+                                else
+                                {
+                        <h5 class="bg-warning p-2 rounded-2 text-center fw-bold">Đang xử lý <br /> (@item.NguoiDung2.TenNguoiDung)</h5>
+                                }
+                            }
+                        </td>
+
+
+                        <td class="approver-cell">
+                            @if (item.IDNguoiDuyet != null)
+                            {
+                                <span class="fw-bold nguoiduyet" id="nguoiduyet-@item.IDNapGame">
+                                    @item.NguoiDung1.TenNguoiDung
+                                </span>
+                            }
+                        </td>
+
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="pagination w-100 text-center">
+        <ul class="pagination">
+            <!-- First Page Link -->
+            <li class="page-item @(ViewBag.page == 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", "quanlynapgame", new { area = "quantri", page = 1, rows = ViewBag.Rows, searchID = ViewBag.SearchID, hoanthanh = ViewBag.hoanthanh, nguoigui = ViewBag.nguoigui })">« First</a>
+            </li>
+
+            <!-- Previous Page Link -->
+            <li class="page-item @(ViewBag.page == 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", "quanlynapgame", new { area = "quantri", page = ViewBag.page - 1, rows = ViewBag.Rows, searchID = ViewBag.SearchID, hoanthanh = ViewBag.hoanthanh, nguoigui = ViewBag.nguoigui })">‹</a>
+            </li>
+
+            <!-- Page Numbers -->
+            @for (int i = Math.Max(1, ViewBag.page - 3); i <= Math.Min(ViewBag.last_page, ViewBag.page + 3); i++)
+            {
+                <li class="page-item @(i == ViewBag.page ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", "quanlynapgame", new { area = "quantri", page = i, rows = ViewBag.Rows, searchID = ViewBag.SearchID, hoanthanh = ViewBag.hoanthanh, nguoigui = ViewBag.nguoigui })">@i</a>
+                </li>
+            }
+
+            <!-- Next Page Link -->
+            <li class="page-item @(ViewBag.page == ViewBag.last_page ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", "quanlynapgame", new { area = "quantri", page = ViewBag.page + 1, rows = ViewBag.Rows, searchID = ViewBag.SearchID, hoanthanh = ViewBag.hoanthanh, nguoigui = ViewBag.nguoigui })">›</a>
+            </li>
+
+            <!-- Last Page Link -->
+            <li class="page-item @(ViewBag.page == ViewBag.last_page ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", "quanlynapgame", new { area = "quantri", page = ViewBag.last_page, rows = ViewBag.Rows, searchID = ViewBag.SearchID, hoanthanh = ViewBag.hoanthanh, nguoigui = ViewBag.nguoigui })">Last »</a>
+            </li>
+        </ul>
+    </div>
+
+</main>
+<script>
+    $(".btn-pick-xuly").change(function () {
+        var checkbox = $(this);
+        var idNapGame = checkbox.val();
+        var isChecked = checkbox.is(":checked");
+
+        $.ajax({
+            url: '/quanlynapgame/SetPickHandler',
+            method: 'POST',
+            data: {
+                idNapGame: idNapGame,
+                isPick: isChecked
+            },
+            success: function (response) {
+                if (response.success) {
+                    console.log('Cập nhật trạng thái thành công');
+                    // Bạn có thể update UI nếu cần ở đây
+                } else {
+                    alert('Lỗi: ' + response.message);
+                    // Nếu lỗi, có thể rollback checkbox lại trạng thái cũ
+                    checkbox.prop('checked', !isChecked);
+                }
+            },
+            error: function () {
+                alert('Có lỗi khi gọi server');
+                checkbox.prop('checked', !isChecked);
+            }
+        });
+    });
+    $(document).ready(function () {
+        // Lắng nghe sự kiện thay đổi trên các radio button
+        $('input[name="Mduyphuong@gmail.com"], input[name="Lanhbacgiangg@gmail.com"]').change(function () {
+            if ($(this).is(':checked')) {
+                const selectedMail = $(this).val();
+
+                // Gửi yêu cầu Ajax đến server
+                $.ajax({
+                    url: '/quantri/quanlynapgame/UpdateMail',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ selectedMail: selectedMail }),
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message); // Hiển thị thông báo thành công
+                            window.location.reload();
+                        } else {
+                            alert("Lỗi: " + response.message); // Hiển thị thông báo lỗi
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Lỗi:', error);
+                        alert("Có lỗi xảy ra, vui lòng thử lại.");
+                    }
+                });
+            }
+        });
+    });
+    $(document).on('click', '.btn-status', function () {
+        const id = $(this).data('id');
+        const action = $(this).data('action');
+        const $statusCell = $(this).closest('.status-cell');
+        const $row = $(this).closest('tr'); // Lấy hàng hiện tại
+        const $approverCell = $row.find('.approver-cell'); // Chọn ô tên người duyệt
+        if (action === "huydon") {
+            // Nếu người dùng bấm "Cancel", dừng thực thi
+            if (!confirm('Bạn chắc chắn muốn hủy đơn?')) {
+                return;
+            }
+        }
+        $.ajax({
+            url: `/quantri/quanlynapgame/${action}`,
+            type: 'POST',
+            data: { id: id },
+            success: function (response) {
+                if (response.success) {
+                    // Cập nhật giao diện
+                    const newStatus = action === 'hoanthanh' ?
+                        '<span class="badge bg-success">Đã hoàn thành</span>' :
+                        '<span class="badge bg-dark">Đã hủy</span>';
+
+                    // Hiển thị trạng thái mới
+                    $statusCell.html(newStatus);
+                    $approverCell.html(`<span class="fw-bold">${response.nguoiDuyet}</span>`);
+                    console.log(response.nguoiDuyet)
+
+                } else {
+                    alert(response.message || 'Thao tác thất bại.');
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+            }
+        });
+    });
+
+    // Sao chép TK/MK
+    function copyTKMK(username, password) {
+        const textToCopy = `${username}\n${password}`;
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+            })
+            .catch(err => {
+                console.error("Lỗi khi sao chép TK/MK: ", err);
+            });
+    }
+
+    // Sao chép Đơn
+    function copyDon(uid, server, tentronggame, username, password) {
+        const textToCopy = `UID: ${uid} (${server}) (${tentronggame})\n${username}\n${password}`;
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+            })
+            .catch(err => {
+                console.error("Lỗi khi sao chép Đơn: ", err);
+            });
+    }
+    function showEditNoteForm(id) {
+        // Ẩn tất cả các form đang mở
+        $('.editNoteForm').addClass('d-none');
+
+        // Hiển thị form của bản ghi tương ứng
+        $(`#editNoteForm-${id}`).removeClass('d-none');
+    }
+    function hideEditNoteForm(id) {
+        // Ẩn form của bản ghi tương ứng
+        $(`#editNoteForm-${id}`).addClass('d-none');
+    }
+
+    function saveNote(id) {
+        const newNote = $(`#noteContent-${id}`).val(); // Lấy giá trị ghi chú mới
+
+        $.ajax({
+            url: '/quantri/quanlynapgame/UpdateNote',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ id: id, note: newNote }),
+            success: function (response) {
+                if (response.success) {
+                    // Cập nhật ghi chú trong bảng
+                    hideEditNoteForm(id); // Ẩn form chỉnh sửa
+                    window.location.reload()
+                } else {
+                    alert(`Lỗi: ${response.message}`);
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra khi cập nhật ghi chú.');
+            }
+        });
+    }
+
+
+</script>

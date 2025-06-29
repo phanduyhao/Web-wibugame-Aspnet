@@ -1,0 +1,251 @@
+﻿@model accgame.Context.NguoiDung
+
+@{
+    ViewBag.Title = "Chỉnh sửa người dùng";
+    Layout = "~/Areas/quantri/Views/Shared/_Layout2.cshtml";
+}
+
+<main class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="fs-5">Tổng tiền nạp</h5>
+                    <h3>@Convert.ToInt32(Model.TienNap).ToString("N0").Replace(",", ".")đ</h3>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="fs-5">Acc đã mua</h5>
+                    <h3>@ViewBag.accMua</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="fs-5">Cày thuê</h5>
+                    <h3>@ViewBag.LuotCayThua</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="fs-5">Nạp game</h5>
+                    <h3>@ViewBag.LuotNapGame</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Cộng tiền thành viên</h4>
+                </div>
+                <div class="card-body">
+                    <form id="form_cong_tien">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="congtien" value="true" />
+                        <div class="form-group">
+                            <b>Số tiền</b>
+                            <div class="">
+                                <input class="form-control text-box single-line" id="sotien_cong" name="sotien" type="number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <b>Lý do</b>
+                            <div class="">
+                                <textarea class="form-control" id="lido_cong" name="lido" required></textarea>
+                            </div>
+                        </div>
+                        <div class="">
+                            <button type="button" class="btn btn-success rounded-pill w-100" id="submit_cong_tien">Cộng tiền</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Trừ tiền thành viên</h4>
+                </div>
+                <div class="card-body">
+                    <form id="form_tru_tien">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="congtien" value="false" />
+                        <div class="form-group">
+                            <b>Số tiền</b>
+                            <div class="">
+                                <input class="form-control text-box single-line" id="sotien_tru" name="sotien" type="number" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <b>Lý do</b>
+                            <div class="">
+                                <textarea class="form-control" id="lido_tru" name="lido" required></textarea>
+                            </div>
+                        </div>
+                        <div class="">
+                            <button type="button" class="btn btn-danger rounded-pill w-100" id="submit_tru_tien">Trừ tiền</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mt-5">
+        <div class="card-header">
+            <h4>Biến động số dư</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Số tiền</th>
+                            <th>Lời nhắn</th>
+                            <th>Tiền trước</th>
+                            <th>Tiền sau</th>
+                            <th>Thời gian</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+<script>
+    $(document).ready(function () {
+            $('#example').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/quantri/qnguoidung/BienDongSoDu/@Model.IDNguoiDung",
+                    "type": "POST",
+                    "dataType": "json",
+                    "dataSrc": function (json) {
+                        return json.data.map(function (item) {
+                            var date = new Date(parseInt(item.ThoiGian.substr(6)));
+                            var formattedDate = date.getFullYear() + '-' +
+                                ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+                                ('0' + date.getDate()).slice(-2) + ' ' +
+                                ('0' + date.getHours()).slice(-2) + ':' +
+                                ('0' + date.getMinutes()).slice(-2) + ':' +
+                                ('0' + date.getSeconds()).slice(-2);
+                            item.ThoiGian = formattedDate;
+                            return item;
+                        });
+                    }
+                },
+                "columns": [
+                    { "data": "IDBienDongSoDu" },
+                    {
+                        "data": "SoTien",
+                        "render": function (data, type, row) {
+                            return data.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+                        }
+                    },
+                    { "data": "LoiNhan" },
+                    {
+                        "data": "TienTruoc",
+                        "render": function (data, type, row) {
+                            return data.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+                        }
+                    },
+                    {
+                        "data": "TienSau",
+                        "render": function (data, type, row) {
+                            return data.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+                        }
+                    },
+                    { "data": "ThoiGian" }
+                ]
+            });
+        });
+
+    $(document).ready(function () {
+    // AJAX cho cộng tiền
+    $('#submit_cong_tien').on('click', function () {
+        var formData = {
+            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+            sotien: $('#sotien_cong').val(),
+            lido: $('#lido_cong').val(),
+            congtien: true
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/quantri/qnguoidung/AdminCongTien/@Model.IDNguoiDung",
+            data: formData,
+            success: function (response) {
+                if (response.message === "success") {
+                    alert("Cộng tiền người dùng thành công!");
+                    $('#form_cong_tien')[0].reset();
+                } else {
+                    alert("Có lỗi xảy ra: " + response.message);
+                }
+            },
+            error: function () {
+                alert("Có lỗi xảy ra trong quá trình gửi yêu cầu.");
+            }
+        });
+    });
+
+    // AJAX cho trừ tiền
+    $('#submit_tru_tien').on('click', function () {
+        var formData = {
+            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val(),
+            sotien: $('#sotien_tru').val(),
+            lido: $('#lido_tru').val(),
+            congtien: false
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/quantri/qnguoidung/AdminCongTien/@Model.IDNguoiDung",
+            data: formData,
+            success: function (response) {
+                if (response.message === "success") {
+                    alert("Trừ tiền người dùng thành công!");
+                    $('#form_tru_tien')[0].reset();
+                } else {
+                    alert("Có lỗi xảy ra: " + response.message);
+                }
+            },
+            error: function () {
+                alert("Có lỗi xảy ra trong quá trình gửi yêu cầu.");
+            }
+        });
+    });
+});
+
+</script>
+<style>
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0.5rem 1rem;
+        margin: 0.25rem;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+    }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background: #007bff;
+            color: white !important;
+        }
+</style>

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'SDK_SC_Web';
+    src: url('SDK_SC_Web-Heavy.woff2') format('woff2'),
+        url('SDK_SC_Web-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

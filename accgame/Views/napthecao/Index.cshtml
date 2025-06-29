@@ -1,0 +1,225 @@
+﻿@model IEnumerable<accgame.Context.NapTien>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="about" class="about about-acc">
+
+    <div class="container mt-5">
+        <div class="d-flex align-items-center justify-content-end mh-100">
+            <div class="w-100 position-relative" style="">
+                <div class="text-center form-dangky shadow-lg p-2 p-sm-4 rounded-1">
+                    <div class="position-absolute px-2 d-lg-none d-flex top-0 end-0 menu-hoso start-0 justify-content-end" style="margin-top: -24px">
+                        <a href="/napthecao" class="btn text-nowrap fs-11-md-16-lg-24 fw-bold" style="background-image: url('/Content/images/backgroundAT.de9a14c4.png'); color: rgb(241, 232, 211);">Nạp thẻ cào</a>
+                        <a href="/Naptien/ATM" class="btn text-nowrap fs-11-md-16-lg-24 fw-bold" style="background-image: url('/Content/images/buttonNormal.png'); color: rgb(161, 138, 111); ">Nạp ATM</a>
+                    </div>
+                    <form action="/napthecao/thecao" class="border-dangky" enctype="multipart/form-data" method="post">
+                        <div class="pb-3">
+                            <h2 class="text-center text-uppercase d-block pt-5 pb-2 fw-bold" style="color: #726550">
+                                Nạp tiền bằng thẻ cào
+                            </h2>
+                            <img class="img-fluid" src="/Content/assets/img/AuthDevider.png">
+                        </div>
+                        @if (TempData["loi"] != null)
+                        {
+                            <div class="alert alert-danger">@TempData["loi"]</div>
+                        }
+                        <div class="alert alert-danger text-dark" role="alert">
+                            <p class="mb-1"><b>Lưu ý:</b></p>
+                            <p class="mb-0">- Cần điền đúng seri, điền sai khiếu nại sẽ không xử lý.</p>
+                            <p class="mb-0">- Nạp thẻ cào sẽ nhận được @ViewBag.ptNapThe% giá trị thẻ.</p>
+                            <p class="mb-0">- Sai mệnh giá -70% giá trị thẻ.</p>
+                            <p class="mb-0">- Nếu đợi lâu không thấy thẻ được duyệt, vui lòng nhấn "Kiểm tra" để load trạng thái thẻ</p>
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <select class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="telco" name="telco">
+                                <option value="0" selected="">CHỌN LOẠI THẺ</option>
+                                <option value="VIETTEL">VIETTEL</option>
+                                <option value="VINAPHONE">VINAPHONE</option>
+                                <option value="MOBIFONE">MOBIFONE</option>
+                                <option value="ZING">ZING</option>
+                                <option value="GARENA2">GARENA</option>
+                            </select>
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Mã thẻ" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="code" required="" name="code" type="text">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <input placeholder="Seri thẻ" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" id="serial" required="" name="serial" type="text">
+                        </div>
+                        <div class="py-2 py-sm-3">
+                            <select required="" class="form-control login-input rounded-3 p-3 p-sm-3 p-md-4 fw-bold fs-6" aria-label=".form-select-lg example" id="amount" name="amount">
+                                <option value="0" selected="">Chọn giá trị thẻ</option>
+                                <option value="10000">10.000 VNĐ</option>
+                                <option value="20000">20.000 VNĐ</option>
+                                <option value="30000">30.000 VNĐ</option>
+                                <option value="50000">50.000 VNĐ</option>
+                                <option value="100000">100.000 VNĐ</option>
+                                <option value="200000">200.000 VNĐ</option>
+                                <option value="300000">300.000 VNĐ</option>
+                                <option value="500000">500.000 VNĐ</option>
+                                <option value="1000000">1.000.000 VNĐ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-12">
+                                <button type="submit" class="col-lg-4 col-sm-9 col-12 btn position-relative shadow-none text-center mt-3">
+                                    <img class="img-fluid" src="/Content/assets/img/Layer-button.png">
+                                    <span class="position-absolute top-50 start-50 button-group fw-bold fs-6 text-white text-nowrap">Nạp ngay</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="text-center">
+                <h2>Danh sách thẻ</h2>
+            </div>
+        </div>
+        <div class="card-body px-0 pb-2 mt-3" id="#dsthe">
+            <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0 bg-white">
+                    <thead>
+                        <tr class="bg-success">
+                            <th class="text-uppercase text-white text-nowrap">LOẠI THẺ</th>
+                            <th class="text-uppercase text-white text-nowrap">CHECK</th>
+                            <th class="text-uppercase text-white text-nowrap">MÃ THẺ</th>
+                            <th class="text-uppercase text-white text-nowrap">TRẠNG THÁI</th>
+                            <th class="text-uppercase text-white text-nowrap">MỆNH GIÁ</th>
+                            <th class="text-uppercase text-white text-nowrap">SỐ TIỀN NHẬN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="">
+                                <td class="align-middle">
+                                    <span style="font-weight: 700" class="mb-0 text-sm">@item.telco</span>
+                                </td>
+                                <td class="align-middle">
+                                    @if (item.trangthai != null)
+                                    {
+                                        <button disabled class="btn btn-dark">Kiểm tra</button>
+
+                                    }
+                                    else
+                                    {
+                                        <a href="/napthecao/check?telco=@item.telco&code=@item.code&serial=@item.serial&amount=@item.amount" class="btn btn-danger">Kiểm tra</a>
+
+                                    }
+                                </td>
+                                <td>
+                                    <p class="fw-semibold mb-0">@item.code</p>
+                                    <p class="text-xs mb-0 text-nowrap">sr: @item.serial</p>
+                                </td>
+                                <td class="text-sm align-middle">
+                                    <span class="badge bg-danger">@item.Noidung</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span class="">@Convert.ToInt32(item.amount).ToString("N0").Replace(",", ".") VNĐ</span>
+                                </td>
+                                <td class="align-middle">
+                                    @if (item.SoTien == null)
+                                    {
+                                        <span>@item.Noidung</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="">@Convert.ToInt32(item.SoTien).ToString("N0").Replace(",", ".") VNĐ</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (ViewBag.isThongBaoNapTheCao == "1")
+{
+    <button type="button" id="buttonClick" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content form-dangky p-0 m-0 position-relative">
+                <div class="border-dangky p-0">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-4 fw-bold text-danger" id="exampleModalLabel">ĐỌC KỸ TRƯỚC KHI NẠP</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                        @Html.Raw(ViewBag.thongBaoNapTheCao)
+
+                    </div>
+                    <div class="modal-footer p-0 justify-content-center">
+                        <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+<style>
+    .modal-body a{
+        color: blue;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $("#buttonClick").click();
+    });
+    document.querySelector("form").addEventListener("submit", function (event) {
+        var amount = document.getElementById("amount").value;
+        var telco = document.getElementById("telco").value;
+        console.log(amount);
+        if (telco == 0) {
+            event.preventDefault();
+            alert("Bạn chưa loại thẻ!");
+        }
+        if (amount == 0) {
+            event.preventDefault();
+            alert("Bạn chưa nhập mệnh giá!");
+        }
+        var telco = document.getElementById("telco").value;
+        var code = document.getElementById("code").value;
+        var serial = document.getElementById("serial").value;
+        if (telco == "VIETTEL") {
+            if (String(code).length != 15) {
+                event.preventDefault();
+                alert("Mã thẻ VIETTEL phải có 15 số!");
+            }
+            if (String(serial).length != 14) {
+                event.preventDefault();
+                alert("Seri VIETTEL phải có 14 số!");
+            }
+        }
+        else if (telco == "VINAPHONE") {
+            if (String(code).length != 14) {
+                event.preventDefault();
+                alert("Mã thẻ VINAPHONE phải có 14 số!");
+            }
+            if (String(serial).length != 14) {
+                event.preventDefault();
+                alert("Seri VINAPHONE phải có 14 số!");
+            }
+        }
+        else if (telco == "MOBIFONE") {
+            if (String(code).length != 12) {
+                event.preventDefault();
+                alert("Mã thẻ MOBIFONE phải có 12 số!");
+            }
+            if (String(serial).length != 15) {
+                event.preventDefault();
+                alert("Seri MOBIFONE phải có 15 số!");
+            }
+        }
+    });
+
+</script>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<accgame.Context.SettingApi>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<main class="content">
+    <div class="row">
+        <div class="col-12 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <form action="/quantri/ApiAcc/themmoi" method="post">
+                        <div class="row g-3">
+                            <div class="col-6 col-md-3">
+                                <input type="text" required class="form-control" name="DomainWebsite" placeholder="Tên website">
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Thêm website</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Danh sách website + key</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover my-0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="">Tên website</th>
+                                <th class="">Key</th>
+                                <th class=""></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>#@item.IDSettingApi</td>
+                                    <td>@item.DomainWebsite</td>
+                                    <td>@item.ApiKey</td>
+                                    <td>
+                                        <a href="/quantri/ApiAcc/xoa/@item.IDSettingApi" onclick="if (confirm('Bạn muốn website này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+

@@ -1,0 +1,504 @@
+﻿@model IEnumerable<accgame.Context.DanhMuc>
+@{
+    ViewBag.Title = "Loại Acc " + ViewBag.tenLoai;
+    Layout = "~/Areas/quantri/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .modal-css{
+        position: fixed;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        z-index:10;
+    }
+    .modal-css .modal-backdrop {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 8  ;
+        background: #00000047;
+    }
+        .modal-css .modal-dialog {
+            position: relative;
+            z-index: 9;
+        }
+</style>
+<main class="content">
+    <h1>@ViewBag.tenLoai</h1>
+    <div class="w-100 mb-3">
+        <a href="/quantri/quanlydanhmuc/themmoi/@ViewBag.idDanhMuc" class="btn btn-primary m-3">Thêm mới danh mục</a>
+    </div>
+
+    @if (ViewBag.loaiacc != null && ViewBag.loaiacc.Count > 0)
+    {
+        @*<div class="row gx-2 justify-content-center">
+                @foreach (var item in ViewBag.loaiacc)
+                {
+                    <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+                        <div class="card">
+                            <img src="@item.Image" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.TenLoaiAcc</h5>
+                                @if (item.DacBiet == true)
+                                {
+                                    <a href="/quantri/quanlytaikhoan/loaiaccdacbiet/@item.IDLoaiAcc" class="btn btn-danger">Xem ngay</a>
+
+                                }
+                                else
+                                {
+                                    <a href="/quantri/quanlytaikhoan/loaiacc/@item.IDLoaiAcc" class="btn btn-primary">Xem ngay</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>*@
+
+        <div class="row border-top pt-4">
+            <div class="col-md-4 col-12 border-end">
+                <h4 class="bg-success p-3 fw-bold mb-3">Loại Acc con :</h4>
+                <div class="row gx-2 justify-content-center">
+                    @foreach (var item in ViewBag.loaiacc)
+                    {
+                        <div class="col-xxl-6 col-md-12 col-sm-6 col-12 ">
+                            <div class="card">
+                                <img src="@item.Image" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.TenLoaiAcc</h5>
+                                    @if (item.DacBiet == true)
+                                    {
+                                        <a href="/quantri/quanlytaikhoan/loaiaccdacbiet/@item.IDLoaiAcc" class="btn btn-danger">Xem ngay</a>
+
+                                    }
+                                    else
+                                    {
+                                        <a href="/quantri/quanlytaikhoan/loaiacc/@item.IDLoaiAcc" class="btn btn-primary">Xem ngay</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-8 col-12">
+                <h4 class="bg-warning p-3 fw-bold mb-3">Các Danh mục:</h4>
+                <div class="row gx-2 justify-content-center">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-xxl-4 col-sm-6 col-12">
+                            <div class="card">
+                                <img src="@item.AnhDanhMuc" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h5 class="card-title mb-0 me-2">@item.TenDanhMuc</h5>
+                                        <button type="button" class="btn btn-info px-1 py-0 btn-stt text-black fw-bold text-nowrap" data-tendanhmuc="@item.TenDanhMuc" data-id="@item.IDDanhMuc" data-stt="@item.STT" data-bs-toggle="modal" data-bs-target="#editSTTModal-@item.IDDanhMuc">
+                                            STT : @item.STT
+                                        </button>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="price fw-bold">@item.Gia VNĐ </h5>
+                                        <div class="d-flex align-items-center border border-danger p-2">
+                                            <label class="fs-4 me-2 fw-bold text-danger">Ẩn</label>
+                                            @if (item.Hide == true)
+                                            {
+                                                <input class="btn-andanhmuc" data-id="@item.IDDanhMuc" type="checkbox" checked name="Hide" style="height:20px; width:20px" value="@item.Hide" />
+                                            }
+                                            else
+                                            {
+                                                <input class="btn-andanhmuc" data-id="@item.IDDanhMuc" type="checkbox" name="Hide" style="height:20px; width:20px" value="" />
+
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center ">
+                                        <h5 class="me-2  fw-bold">Giá Ctv-Collab:</h5>
+                                        <h5 class="price fw-bold">@item.GiaCtvCollab VNĐ</h5>
+                                    </div>
+
+                                    <div class="row align-items-center">
+                                        <div class="col-xxl-8 col-12 text-nowrap">
+                                            <a href="/quantri/quanlydanhmuc/danhsachacc/@item.IDDanhMuc" class="btn btn-danger">Xem danh sách</a>
+                                        </div>
+                                        <div class="col-xxl-4 col-12 text-xxl-end text-start">
+                                            <a href="/quantri/quanlydanhmuc/sua/@item.IDDanhMuc" class="badge bg-danger my-2">Sửa</a>
+                                            <a href="/quantri/quanlydanhmuc/xoa/@item.IDDanhMuc" onclick="if (confirm('Bạn muốn xóa danh mục này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                            <button type="button" class="badge bg-warning my-2 btn-suagia text-black" data-tendanhmuc="@item.TenDanhMuc" data-id="@item.IDDanhMuc" data-gia="@item.Gia" data-giactv="@item.GiaCtvCollab" data-bs-toggle="modal" data-bs-target="#editPriceModal-@item.IDDanhMuc">
+                                                Sửa giá
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- Sửa giá Modal với ID cố định -->
+                <div class="modal fade editPriceModal" id="editPriceModal" tabindex="-1" aria-labelledby="editPriceModalLabel" aria-hidden="true">
+                    <div class="modal-backdrop">
+                    </div>
+                    <div class="modal-dialog d-flex justify-content-center">
+                        <div class="modal-content p-5 border mt-3 bg-white rounded-3">
+                            <div class="modal-header d-flex justify-content-between pb-2 border-bottom">
+                                <h3 class="modal-title" id="editPriceModalLabel">Sửa giá</h3>
+                                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body pt-3">
+                                <form id="editPriceForm">
+                                    <input type="hidden" id="danhMucId" name="danhMucId" value="">
+
+                                    <div class="mb-3">
+                                        <label for="gia" class="form-label">Giá</label>
+                                        <input type="number" class="form-control" id="Gia" name="Gia" step="0.01">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="giaCtv" class="form-label">Giá Ctv-Collab</label>
+                                        <input type="number" class="form-control" id="GiaCtvCollab" name="GiaCtvCollab" step="0.01">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-primary" id="savePrice">Lưu thay đổi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sửa giá Modal với ID cố định -->
+                <div class="modal fade editSTTModal" id="editSTTModal" tabindex="-1" aria-labelledby="editSTTModalLabel" aria-hidden="true">
+                    <div class="modal-backdrop">
+                    </div>
+                    <div class="modal-dialog d-flex justify-content-center">
+                        <div class="modal-content p-5 border mt-3 bg-white rounded-3">
+                            <div class="modal-header d-flex justify-content-between pb-2 border-bottom">
+                                <h3 class="modal-title" id="editSTTModalLabel">Sửa STT</h3>
+                                <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body pt-3">
+                                <form id="editSTTForm">
+                                    <input type="hidden" id="danhMucId" name="danhMucId" value="">
+
+                                    <div class="mb-3">
+                                        <label for="STT" class="form-label">Số thứ tự:</label>
+                                        <input type="number" class="form-control" id="STT" name="STT" step="0.01">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-primary" id="saveSTT">Lưu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div class="row gx-2 justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+                    <div class="card">
+                        <img src="@item.AnhDanhMuc" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h5 class="card-title mb-0 me-2">@item.TenDanhMuc</h5>
+                                <button type="button" class="btn btn-info px-1 py-0 btn-stt text-black fw-bold text-nowrap" data-tendanhmuc="@item.TenDanhMuc" data-id="@item.IDDanhMuc" data-stt="@item.STT" data-bs-toggle="modal" data-bs-target="#editSTTModal-@item.IDDanhMuc">
+                                    STT : @item.STT
+                                </button>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="price fw-bold">@item.Gia VNĐ </h5>
+                                <div class="d-flex align-items-center border border-danger p-2">
+                                    <label class="fs-4 me-2 fw-bold text-danger">Ẩn</label>
+                                    @if (item.Hide == true)
+                                    {
+                                        <input class="btn-andanhmuc" data-id="@item.IDDanhMuc" type="checkbox" checked name="Hide" style="height:20px; width:20px" value="@item.Hide" />
+                                    }
+                                    else
+                                    {
+                                        <input class="btn-andanhmuc" data-id="@item.IDDanhMuc" type="checkbox" name="Hide" style="height:20px; width:20px" value="" />
+
+                                    }
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center ">
+                                <h5 class="me-2  fw-bold">Giá Ctv-Collab:</h5>
+                                <h5 class="price fw-bold">@item.GiaCtvCollab VNĐ</h5>
+                            </div>
+
+                            <div class="row align-items-center">
+                                <div class="col-xxl-8 col-12 text-nowrap">
+                                    <a href="/quantri/quanlydanhmuc/danhsachacc/@item.IDDanhMuc" class="btn btn-danger">Xem danh sách</a>
+                                </div>
+                                <div class="col-xxl-4 col-12 text-xxl-end text-start">
+                                    <a href="/quantri/quanlydanhmuc/sua/@item.IDDanhMuc" class="badge bg-danger my-2">Sửa</a>
+                                    <a href="/quantri/quanlydanhmuc/xoa/@item.IDDanhMuc" onclick="if (confirm('Bạn muốn xóa danh mục này?')){return true;}else{event.stopPropagation(); event.preventDefault();};" class="badge bg-success">Xóa</a>
+                                    <button type="button" class="badge bg-warning my-2 btn-suagia text-black" data-tendanhmuc="@item.TenDanhMuc" data-id="@item.IDDanhMuc" data-gia="@item.Gia" data-giactv="@item.GiaCtvCollab" data-bs-toggle="modal" data-bs-target="#editPriceModal-@item.IDDanhMuc">
+                                        Sửa giá
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <!-- Sửa giá Modal với ID cố định -->
+        <div class="modal fade editPriceModal" id="editPriceModal" tabindex="-1" aria-labelledby="editPriceModalLabel" aria-hidden="true">
+            <div class="modal-backdrop">
+            </div>
+            <div class="modal-dialog d-flex justify-content-center">
+                <div class="modal-content p-5 border mt-3 bg-white rounded-3">
+                    <div class="modal-header d-flex justify-content-between pb-2 border-bottom">
+                        <h3 class="modal-title" id="editPriceModalLabel">Sửa giá</h3>
+                        <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-3">
+                        <form id="editPriceForm">
+                            <input type="hidden" id="danhMucId" name="danhMucId" value="">
+
+                            <div class="mb-3">
+                                <label for="gia" class="form-label">Giá</label>
+                                <input type="number" class="form-control" id="Gia" name="Gia" step="0.01">
+                            </div>
+                            <div class="mb-3">
+                                <label for="giaCtv" class="form-label">Giá Ctv-Collab</label>
+                                <input type="number" class="form-control" id="GiaCtvCollab" name="GiaCtvCollab" step="0.01">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" id="savePrice">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sửa giá Modal với ID cố định -->
+        <div class="modal fade editSTTModal" id="editSTTModal" tabindex="-1" aria-labelledby="editSTTModalLabel" aria-hidden="true">
+            <div class="modal-backdrop">
+            </div>
+            <div class="modal-dialog d-flex justify-content-center">
+                <div class="modal-content p-5 border mt-3 bg-white rounded-3">
+                    <div class="modal-header d-flex justify-content-between pb-2 border-bottom">
+                        <h3 class="modal-title" id="editSTTModalLabel">Sửa STT</h3>
+                        <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-3">
+                        <form id="editSTTForm">
+                            <input type="hidden" id="danhMucId" name="danhMucId" value="">
+
+                            <div class="mb-3">
+                                <label for="STT" class="form-label">Số thứ tự:</label>
+                                <input type="number" class="form-control" id="STT" name="STT" step="0.01">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" id="saveSTT">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+    @if (TempData["SuccessThem"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Thêm mới thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["SuccessSua"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Chỉnh sửa thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    @if (TempData["SuccessXoa"] != null)
+    {
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-info px-3 py-2 rounded-3">
+                    <img src="/Areas/quantri/Content/img/icons/check.png" class="rounded me-2" alt="..." width="48">
+                    <strong class="me-auto text-white fs-5">Xóa thành công!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+</main>
+
+
+<script>
+
+    $('.btn-suagia').on('click', function () {
+        const id = $(this).data('id');
+        const tendanhmuc = $(this).data('tendanhmuc');
+        const gia = $(this).data('gia');
+        const giactv = $(this).data('giactv');
+        $('.editPriceModal').addClass('modal-css');
+
+        // Cập nhật giá trị của các trường trong modal
+        $('#editPriceModal #Gia').val(gia);
+        $('#editPriceModal #GiaCtvCollab').val(giactv);
+        $('#editPriceModal #danhMucId').val(id);
+        $('#editPriceModal').attr('data-id', id);
+        $('#editPriceModal #editPriceModalLabel').text('Sửa giá Danh mục : ' + tendanhmuc);
+
+        // Hiển thị modal
+        $('#editPriceModal').modal('show');
+    });
+
+    $('.btn-stt').on('click', function () {
+        const id = $(this).data('id');
+        const tendanhmuc = $(this).data('tendanhmuc');
+        const stt = $(this).data('stt');
+        $('.editSTTModal').addClass('modal-css');
+
+        // Cập nhật giá trị của các trường trong modal
+        $('#editSTTModal #STT').val(stt);
+        $('#editSTTModal #danhMucId').val(id);
+        $('#editSTTModal').attr('data-id', id);
+        $('#editSTTModal #editSTTModalLabel').text('Sửa STT Danh mục : ' + tendanhmuc);
+
+        // Hiển thị modal
+        $('#editSTTModal').modal('show');
+    });
+
+    $('#savePrice').on('click', function () {
+        var danhMucId = $('#editPriceModal').data('id');
+        var Gia = $('#Gia').val();  // Thay .value bằng .val()
+        var GiaCtvCollab = $('#GiaCtvCollab').val();  // Thay .value bằng .val()
+
+        $.ajax({
+            url: '/quantri/quanlytaikhoan/suagia/' + danhMucId,  // URL cho action "SuaGia"
+            type: 'POST',
+            data: {
+                danhMucId: danhMucId,
+                Gia: Gia,
+                GiaCtvCollab: GiaCtvCollab
+            },
+            success: function (response) {
+                // Xử lý khi thành công
+                location.reload();  // Reload lại trang để cập nhật thông tin mới
+            },
+            error: function (xhr, status, error) {
+                // Xử lý lỗi
+                console.log(error);
+                alert('Có lỗi xảy ra khi cập nhật giá');
+            }
+        });
+    });
+
+    $('#saveSTT').on('click', function () {
+        var danhMucId = $('#editSTTModal').data('id');
+        var STT = $('#STT').val();  // Thay .value bằng .val()
+
+        $.ajax({
+            url: '/quantri/quanlytaikhoan/suaSTT/' + danhMucId,  // URL cho action "SuaGia"
+            type: 'POST',
+            data: {
+                danhMucId: danhMucId,
+                STT: STT,
+            },
+            success: function (response) {
+                // Xử lý khi thành công
+                location.reload();  // Reload lại trang để cập nhật thông tin mới
+            },
+            error: function (xhr, status, error) {
+                // Xử lý lỗi
+                console.log(error);
+                alert('Có lỗi xảy ra khi cập nhật giá');
+            }
+        });
+    });
+
+    $(".btn-andanhmuc").change(function () {
+        var id = $(this).data("id"); // Lấy ID danh mục từ thuộc tính data-id
+        var isChecked = $(this).is(":checked"); // Kiểm tra xem checkbox có được chọn hay không
+
+        // Gửi yêu cầu AJAX để cập nhật trạng thái ẩn
+        $.ajax({
+            type: "POST",
+            url: '/quantri/quanlydanhmuc/updateHideStatus', // Đường dẫn đến action trong controller
+            data: {
+                id: id,
+                hide: isChecked
+            },
+            success: function (response) {
+                // Hiển thị thông báo thành công
+                /*alert(response.message);
+                setTimeout(function () {
+                    window.location.reload();
+                }, 500);*/
+            },
+            error: function () {
+                // Hiển thị thông báo lỗi
+                alert("Đã xảy ra lỗi trong việc cập nhật!");
+            }
+        });
+    });
+
+    $(".btn-info").on("click", function () {
+        let sttValue = $(this).text().replace("STT : ", "").trim(); // Lấy giá trị STT
+        let itemId = $(this).data("id"); // Lấy ID item từ data-id
+
+        // Đưa giá trị vào modal
+        $("#sttValue").val(sttValue);
+        $("#itemId").val(itemId);
+
+        // Hiển thị modal
+        $("#editSTTModal").modal("show");
+    });
+
+    // Khi nhấn "Lưu"
+    $("#saveSTT").on("click", function () {
+        let newSTT = $("#sttValue").val();
+        let itemId = $("#itemId").val();
+
+        console.log(`Lưu STT mới: ${newSTT} cho item ID: ${itemId}`);
+
+        // Gửi AJAX nếu cần
+        // $.post("/update-stt", { id: itemId, stt: newSTT }, function(response) {
+        //     console.log("Cập nhật thành công", response);
+        // });
+
+        // Đóng modal
+        $("#editSTTModal").modal("hide");
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Kiểm tra nếu phần tử success toast tồn tại
+        var successToastElement = document.getElementById('successToast');
+        if (successToastElement) {
+            var successToast = new bootstrap.Toast(successToastElement);
+            successToast.show();
+        }
+    });
+</script>
